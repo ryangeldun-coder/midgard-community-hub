@@ -10,8 +10,6 @@ const navItems = [
   { name: "Refine",  href: "/tools/refine",    icon: Hammer },
   { name: "Brewing", href: "/tools/brewing",   icon: FlaskConical },
   { name: "Forge",   href: "/tools/forge",     icon: Wrench },
-  { name: "Farming", href: "/tools/farming",   icon: Star },
-  { name: "Leveling",href: "/tools/leveling",  icon: TrendingUp },
   { name: "Lore",    href: "/lore",            icon: BookOpen },
 ];
 

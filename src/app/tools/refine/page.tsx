@@ -26,7 +26,12 @@ export default function RefinePage() {
 
       <RefineSimulator />
 
-
+      {/* SEO Section */}
+      <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem', width: '100%' }}>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          The <strong>Ragnarok Zero Refine Simulator</strong> is a powerful tool for calculating your success rates when upgrading gear. Specifically tuned for the TWRoZ mechanics, it supports refining with Elunium, Oridecon, and the newer <strong>Zelunium and Shadowdecon</strong> ores. Our simulator includes the unique <strong>Blessed Blacksmith Ore (BSB) pity system</strong>, allowing you to run Monte Carlo simulations to estimate the total cost and material requirements for reaching +10, +12, or even +20. Don't leave your refines to chance—calculate your risks and optimize your zeny spending.
+        </p>
+      </section>
     </main>
   );
 }
