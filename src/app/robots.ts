@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/'],
     },
-    sitemap: 'https://midgard-community-hub-bv4m.vercel.app/sitemap.xml',
+    sitemap: 'https://midgardhub.com/sitemap.xml',
   };
 }

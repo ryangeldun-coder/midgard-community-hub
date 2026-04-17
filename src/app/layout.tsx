@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import LoreVideoSection from "@/components/layout/LoreVideoSection";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://midgardhub.com'),
   title: "Midgard Community Hub | Ragnarok Zero Global Database & Simulators",
   description: "The most complete Ragnarok Zero Global (TWRoZ) database. Monster stats, item drops, refine simulator, forge calculator, and alchemist brewing tools.",
   keywords: ["Ragnarok Zero", "TWRoZ", "Ragnarok Online", "Monster Database", "Item Database", "Refine Simulator", "Forge Calculator", "Alchemist Brewing", "Ryan Geldun", "Midgard Hub"],
