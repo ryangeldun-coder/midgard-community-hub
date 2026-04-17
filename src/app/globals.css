@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --background: #fdf2f2;
+  --foreground: #1e1b1b;
+  
+  --ro-red: #ae2012;
+  --ro-red-light: #ca6702;
+  --ro-accent: #9b2226;
+  
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(174, 32, 18, 0.1);
+  
+  --font-main: 'Outfit', sans-serif;
+}
+
+body {
+  background: url('/ro_bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--foreground);
+  font-family: var(--font-main);
+  min-height: 100vh;
+}
+
+.modern-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(174, 32, 18, 0.05);
+  border-radius: 16px;
+}
+
+.ro-header {
+  background: linear-gradient(135deg, var(--ro-red), var(--ro-accent));
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--ro-red);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--ro-red-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(174, 32, 18, 0.2);
+}
+
+.tab-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #64748b;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: var(--ro-red);
+  color: white;
+}
