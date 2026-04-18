@@ -123,6 +123,57 @@ export default function AlchemistCalculator() {
           </div>
         </div>
       </div>
+
+      {/* Stat Breakdown Table */}
+      <div style={{ marginTop: '2rem', borderTop: '1px solid #f1f5f9', paddingTop: '1.5rem' }}>
+        <h3 style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--ro-red)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          Formula Breakdown
+        </h3>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
+            <thead>
+              <tr style={{ background: '#f8fafc', borderBottom: '2px solid #e2e8f0' }}>
+                <th style={{ textAlign: 'left', padding: '8px 12px', fontWeight: 700, color: '#64748b', fontSize: '0.7rem' }}>FACTOR</th>
+                <th style={{ textAlign: 'center', padding: '8px 12px', fontWeight: 700, color: '#64748b', fontSize: '0.7rem' }}>VALUE</th>
+                <th style={{ textAlign: 'center', padding: '8px 12px', fontWeight: 700, color: '#64748b', fontSize: '0.7rem' }}>MULTIPLIER</th>
+                <th style={{ textAlign: 'right', padding: '8px 12px', fontWeight: 700, color: '#64748b', fontSize: '0.7rem' }}>CONTRIBUTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { factor: 'Prepare Potion Skill', value: `Lv ${prepLv}`, multiplier: '×3', contribution: prepLv * 3 },
+                { factor: 'Potion Research Skill', value: `Lv ${researchLv}`, multiplier: '×1', contribution: researchLv },
+                { factor: 'Job Level', value: jobLv, multiplier: '×0.2', contribution: jobLv * 0.2 },
+                { factor: 'DEX (Total)', value: dex, multiplier: '×0.1', contribution: dex * 0.1 },
+                { factor: 'LUK (Total)', value: luk, multiplier: '×0.1', contribution: luk * 0.1 },
+                { factor: 'INT (Total)', value: int, multiplier: '×0.05', contribution: int * 0.05 },
+                { factor: 'Potion Type Modifier', value: potionType.name.split('/')[0].trim(), multiplier: '—', contribution: potionType.rate },
+              ].map((row, i) => {
+                const isNegative = row.contribution < 0;
+                return (
+                  <tr key={i} style={{ borderBottom: '1px solid #f1f5f9', background: i % 2 === 0 ? 'white' : '#fafafa' }}>
+                    <td style={{ padding: '8px 12px', color: '#374151', fontWeight: 500 }}>{row.factor}</td>
+                    <td style={{ padding: '8px 12px', color: '#64748b', textAlign: 'center' }}>{row.value}</td>
+                    <td style={{ padding: '8px 12px', color: '#94a3b8', textAlign: 'center', fontSize: '0.7rem' }}>{row.multiplier}</td>
+                    <td style={{ padding: '8px 12px', textAlign: 'right', fontWeight: 700, color: isNegative ? '#ef4444' : '#22c55e' }}>
+                      {isNegative ? '' : '+'}{row.contribution.toFixed(1)}%
+                    </td>
+                  </tr>
+                );
+              })}
+              <tr style={{ background: '#1e293b', borderTop: '2px solid #334155' }}>
+                <td colSpan={3} style={{ padding: '10px 12px', color: 'white', fontWeight: 800, fontSize: '0.85rem' }}>TOTAL SUCCESS RATE</td>
+                <td style={{ padding: '10px 12px', textAlign: 'right', fontWeight: 800, fontSize: '1rem', color: '#fbbf24' }}>
+                  {successRate.toFixed(1)}%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style={{ fontSize: '0.65rem', color: '#94a3b8', marginTop: '0.75rem', textAlign: 'center' }}>
+          Formula: (PrepLv×3) + ResearchLv + (JobLv×0.2) + (DEX×0.1) + (LUK×0.1) + (INT×0.05) + PotionModifier · Capped at 0%–100%
+        </p>
+      </div>
     </ROWindow>
   );
 }

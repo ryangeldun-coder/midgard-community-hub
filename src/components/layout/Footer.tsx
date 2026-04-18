@@ -88,7 +88,7 @@ export default function Footer() {
         </a>
 
         <div style={{ opacity: 0.4, fontSize: '0.85rem' }}>
-          <p style={{ fontWeight: 600 }}>© 2024 Midgard Community Hub. All rights reserved.</p>
+          <p style={{ fontWeight: 600 }}>© 2026 Midgard Community Hub. All rights reserved.</p>
           <p style={{ marginTop: '0.5rem' }}>
             This is a fansite ran solely by Ryan Geldun. Not sanctioned by Gravity Co., Ltd.
           </p>

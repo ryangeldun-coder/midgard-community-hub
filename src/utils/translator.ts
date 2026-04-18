@@ -1,4 +1,8 @@
-export const TRANSLATIONS = {
+export const TRANSLATIONS: {
+  elements: Record<string, string>;
+  races: Record<string, string>;
+  sizes: Record<string, string>;
+} = {
   elements: {
     "火": "Fire",
     "水": "Water",
@@ -30,7 +34,7 @@ export const TRANSLATIONS = {
   }
 };
 
-export const translateMonster = (raw) => {
+export const translateMonster = (raw: any) => {
   return {
     ...raw,
     name_en: raw.name.en || raw.name.zh_tw, // Fallback to ZH if no EN

@@ -17,6 +17,13 @@ export default function ForgePage() {
         </p>
       </div>
       <ForgeSimulator />
+
+      {/* SEO Section */}
+      <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem' }}>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          Master the art of weapon crafting with our <strong>Ragnarok Zero Forge Simulator</strong>. Designed for Blacksmiths and Whitesmiths, this calculator determines your success rates based on your character's DEX and LUK stats, job level, and the materials used. Whether you're forging level 1 weapons or high-tier elemental blades, our tool helps you understand the probability of success before you commit your precious materials. Optimize your crafting build and become the most legendary smith in Midgard.
+        </p>
+      </section>
     </main>
   );
 }

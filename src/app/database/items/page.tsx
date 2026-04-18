@@ -239,6 +239,13 @@ export default function ItemsPage() {
       <AnimatePresence>
         {selected && <ItemModal item={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
+
+      {/* SEO Section */}
+      <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem' }}>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          Our <strong>Ragnarok Zero Item Database</strong> indexes over 4,500 items found in the Ragnarok Zero Global universe (data based on TWRo Zero). Every item name and description has been translated into English to provide clarity on equipment stats, consumable effects, and crafting requirements. Browse through weapons, armor, and rare materials with ease. Use our search tool to find where items drop or which monsters carry the gear you need for your build. From basic potions to legendary artifacts, the Midgard Community Hub is the most complete item resource for Ragnarok Zero players.
+        </p>
+      </section>
     </main>
   );
 }

@@ -3,15 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Home, Hammer, FlaskConical, Star, TrendingUp, BookOpen, Database, Sword, Bug, ChevronDown, Wrench } from "lucide-react";
+import { Home, Hammer, FlaskConical, BookOpen, Database, Sword, Bug, ChevronDown, Wrench, Layers, Zap } from "lucide-react";
 
 const navItems = [
   { name: "Home",     href: "/",               icon: Home },
   { name: "Refine",  href: "/tools/refine",    icon: Hammer },
   { name: "Brewing", href: "/tools/brewing",   icon: FlaskConical },
   { name: "Forge",   href: "/tools/forge",     icon: Wrench },
-  { name: "Farming", href: "/tools/farming",   icon: Star },
-  { name: "Leveling",href: "/tools/leveling",  icon: TrendingUp },
+  { name: "Dungeons", href: "/dungeons",        icon: Layers },
   { name: "Lore",    href: "/lore",            icon: BookOpen },
 ];
 

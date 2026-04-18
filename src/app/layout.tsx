@@ -5,10 +5,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 import LoreVideoSection from "@/components/layout/LoreVideoSection";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
-  title: "Midgard Community Hub | Ragnarok Online Tools & Lore",
-  description: "The ultimate companion for Ragnarok Online players. Refine simulators, farming guides, and leveling paths.",
+  metadataBase: new URL('https://midgardhub.com'),
+  title: "Midgard Community Hub | Ragnarok Zero Global Database & Simulators",
+  description: "The most complete Ragnarok Zero Global database (data based on TWRo Zero). Monster stats, item drops, refine simulator, forge calculator, and memorial dungeon guides.",
+  keywords: ["Ragnarok Zero Global", "TWRo Zero", "Ragnarok Zero", "Monster Database", "Item Database", "Refine Simulator", "Forge Calculator", "Alchemist Brewing", "Memorial Dungeons", "Ryan Geldun", "Midgard Hub"],
 };
 
 export default function RootLayout({
@@ -39,6 +42,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

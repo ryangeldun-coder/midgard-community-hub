@@ -309,6 +309,12 @@ export default function MonstersPage() {
       <AnimatePresence>
         {selected && <MonsterModal monster={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
+      {/* SEO Section */}
+      <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem' }}>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          The <strong>Ragnarok Zero Monster Database</strong> is your essential guide for hunting and leveling in Ragnarok Zero Global (data based on TWRo Zero). We provide comprehensive statistics for over 300 monsters, including health (HP), base and job experience, elemental weaknesses, and race classifications. Our database also features detailed <strong>monster drop tables</strong> and spawn locations, making it easy to farm specific cards or materials. Whether you're tracking down an MVP or looking for the best leveling spot, our English-translated monster index ensures you have all the data you need to master Midgard.
+        </p>
+      </section>
     </main>
   );
 }
