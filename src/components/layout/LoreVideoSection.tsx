@@ -5,9 +5,9 @@ import { Play, Scroll } from "lucide-react";
 
 const VIDEO_DATA: Record<string, { id: string, title: string, desc: string }> = {
   "/": {
-    id: "FZ8-G4DM1ys", 
-    title: "The Mythology of Moonlight Flower",
-    desc: "A haunting intersection of Korean folklore and the Ragnarok universe. Explore the tragic story of the Gumiho fox."
+    id: "0T-i6A7Tcro", 
+    title: "Why do monsters drop cards in Ragnarok Online?",
+    desc: "Explore the deep lore and the hidden conspiracy behind Ragnarok Online's iconic Card system. From soul crystallization to the mystery of the 'Blank Card'."
   },
   "/tools/refine": {
     id: "_mcb6mTRcOQ", 
