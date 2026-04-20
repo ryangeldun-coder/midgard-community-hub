@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
-  Sword, Bug, ChevronDown, Wrench, Layers, Menu, X 
+  Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon 
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,6 +16,7 @@ const navGroups = [
     items: [
       { name: "Monsters", href: "/database/monsters", icon: Bug },
       { name: "Items", href: "/database/items", icon: Sword },
+      { name: "Maps", href: "/database/maps", icon: MapIcon },
       { name: "Dungeons", href: "/dungeons", icon: Layers },
       { name: "Elements", href: "/tools/elements", icon: Sword },
     ]

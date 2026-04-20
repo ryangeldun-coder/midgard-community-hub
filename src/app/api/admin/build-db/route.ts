@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { writeFileSync, existsSync, mkdirSync } from "fs";
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import { translateAll } from "@/lib/google-translate";
+import { invalidateCache } from "@/lib/database";
 
 const ASSETS_BASE = "https://assets.twroz.wiki";
 const DATA_DIR = join(process.cwd(), "src", "data");
@@ -12,14 +13,25 @@ export async function POST(request: Request) {
   const { target } = await request.json().catch(() => ({ target: "both" }));
   const results: Record<string, any> = {};
 
+  // Invalidate in-memory cache
+  invalidateCache();
+
   // Ensure data directory exists
   if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
 
+  const MONSTERS_DB_PATH = join(DATA_DIR, "monsters_db.json");
+  const ITEMS_DB_PATH    = join(DATA_DIR, "items_db.json");
+
   // ── TRANSLATE ITEMS ───────────────────────────────────────
   if (target === "items" || target === "both") {
-    console.log("[build-db] Fetching items...");
-    const rawRes = await fetch(`${ASSETS_BASE}/items_database.json`);
-    const raw: Record<string, any> = await rawRes.json();
+    console.log("[build-db] Loading items...");
+    let raw: Record<string, any> = {};
+    if (existsSync(ITEMS_DB_PATH)) {
+      raw = JSON.parse(readFileSync(ITEMS_DB_PATH, "utf-8"));
+    } else {
+      const rawRes = await fetch(`${ASSETS_BASE}/items_database.json`);
+      raw = await rawRes.json();
+    }
     const ids = Object.keys(raw);
 
     // Collect all Chinese names and descriptions
@@ -30,9 +42,8 @@ export async function POST(request: Request) {
     const namesEN = await translateAll(names, 20, 120);
 
     console.log(`[build-db] Translating ${ids.length} item descriptions...`);
-    const descsEN = await translateAll(descs, 8, 200); // descriptions are longer, smaller batch
+    const descsEN = await translateAll(descs, 8, 200); 
 
-    // Build translated map: { [id]: { name_en, description_en } }
     const translatedItems: Record<string, { name_en: string; description_en: string }> = {};
     ids.forEach((id, i) => {
       translatedItems[id] = {
@@ -48,12 +59,16 @@ export async function POST(request: Request) {
 
   // ── TRANSLATE MONSTERS ────────────────────────────────────
   if (target === "monsters" || target === "both") {
-    console.log("[build-db] Fetching monsters...");
-    const rawRes = await fetch(`${ASSETS_BASE}/monsters_display_index.json`);
-    const raw: Record<string, any> = await rawRes.json();
+    console.log("[build-db] Loading monsters...");
+    let raw: Record<string, any> = {};
+    if (existsSync(MONSTERS_DB_PATH)) {
+      raw = JSON.parse(readFileSync(MONSTERS_DB_PATH, "utf-8"));
+    } else {
+      const rawRes = await fetch(`${ASSETS_BASE}/monsters_display_index.json`);
+      raw = await rawRes.json();
+    }
     const ids = Object.keys(raw).filter((id) => !raw[id].name?.en);
 
-    // Only translate monsters that lack an English name
     const names = ids.map((id) => raw[id].name?.zh_tw || "");
     console.log(`[build-db] Translating ${ids.length} monster names without English...`);
     const namesEN = await translateAll(names, 25, 100);

@@ -31,6 +31,7 @@ function loadTranslations() {
 export function invalidateCache() {
   monstersCache = null;
   itemsCache    = null;
+  mapsCache     = null;
   lastFetched   = 0;
   itemsTranslated   = null;
   monstersTranslated = null;
@@ -41,6 +42,7 @@ const ASSETS_BASE = "https://assets.twroz.wiki";
 // In-memory cache to avoid repeated fetches
 let monstersCache: Record<string, Monster> | null = null;
 let itemsCache: Record<string, Item> | null = null;
+let mapsCache: Record<string, MapData> | null = null;
 let lastFetched = 0;
 const CACHE_TTL = 1000 * 60 * 60 * 6; // 6 hours
 
@@ -124,6 +126,19 @@ export interface Item {
   dropped_by: ItemDrop[];
 }
 
+export interface MapMonster {
+  id: number;
+  name: string;
+  image_url: string;
+}
+
+export interface MapData {
+  id: string;
+  name_en: string;
+  name_zh: string;
+  monsters: MapMonster[];
+}
+
 function transformMonster(id: string, raw: any): Monster {
   loadTranslations();
   const translated = monstersTranslated?.[id];
@@ -202,23 +217,62 @@ function transformItem(id: string, raw: any): Item {
   };
 }
 
+function transformMap(id: string, raw: any): MapData {
+  const zhName = raw.name || "";
+  const nameEN = translateZone(zhName) || zhName;
+  return {
+    id: raw.id || id,
+    name_en: nameEN,
+    name_zh: zhName,
+    monsters: (raw.monsters || []).map((m: any) => ({
+      id: m.id,
+      name: m.name,
+      image_url: `${ASSETS_BASE}/${m.image_url}`,
+    })),
+  };
+}
+
 async function fetchAndCache() {
   const now = Date.now();
-  if (monstersCache && itemsCache && now - lastFetched < CACHE_TTL) return;
+  if (monstersCache && itemsCache && mapsCache && now - lastFetched < CACHE_TTL) return;
 
   try {
-    const [monstersRes, itemsRes] = await Promise.all([
-      fetch(`${ASSETS_BASE}/monsters_display_index.json`, { next: { revalidate: 21600 } }),
-      fetch(`${ASSETS_BASE}/items_database.json`, { next: { revalidate: 21600 } }),
-    ]);
+    const MONSTERS_DB_PATH = join(process.cwd(), "src", "data", "monsters_db.json");
+    const ITEMS_DB_PATH    = join(process.cwd(), "src", "data", "items_db.json");
+    const MAPS_DB_PATH     = join(process.cwd(), "src", "data", "maps_db.json");
 
-    const rawMonsters = await monstersRes.json();
-    const rawItems = await itemsRes.json();
+    let rawMonsters: Record<string, any> = {};
+    let rawItems:    Record<string, any> = {};
+    let rawMaps:     Record<string, any> = {};
+
+    // Try reading from local files first
+    if (existsSync(MONSTERS_DB_PATH) && existsSync(ITEMS_DB_PATH) && existsSync(MAPS_DB_PATH)) {
+      try {
+        rawMonsters = JSON.parse(readFileSync(MONSTERS_DB_PATH, "utf-8"));
+        rawItems    = JSON.parse(readFileSync(ITEMS_DB_PATH, "utf-8"));
+        rawMaps     = JSON.parse(readFileSync(MAPS_DB_PATH, "utf-8"));
+      } catch (err) {
+        console.error("Failed to parse local DB files, falling back to fetch:", err);
+      }
+    }
+
+    // Fallback to fetch if local files are missing or empty
+    if (Object.keys(rawMonsters).length === 0 || Object.keys(rawItems).length === 0 || Object.keys(rawMaps).length === 0) {
+      const [monstersRes, itemsRes, mapsRes] = await Promise.all([
+        fetch(`${ASSETS_BASE}/monsters_display_index.json`, { next: { revalidate: 21600 } }),
+        fetch(`${ASSETS_BASE}/items_database.json`, { next: { revalidate: 21600 } }),
+        fetch(`${ASSETS_BASE}/maps_database.json`, { next: { revalidate: 21600 } }),
+      ]);
+      rawMonsters = await monstersRes.json();
+      rawItems    = await itemsRes.json();
+      rawMaps     = await mapsRes.json();
+    }
 
     monstersCache = {};
     for (const [id, data] of Object.entries(rawMonsters)) {
       const monster = transformMonster(id, data);
-      if (monster.is_valid && monster.released) {
+      // Be more inclusive: include any monster that is released, valid, or has a valid name and level
+      if (monster.released || monster.is_valid || (monster.name_en && monster.level > 0)) {
         monstersCache[id] = monster;
       }
     }
@@ -228,11 +282,17 @@ async function fetchAndCache() {
       itemsCache[id] = transformItem(id, data);
     }
 
+    mapsCache = {};
+    for (const [id, data] of Object.entries(rawMaps)) {
+      mapsCache[id] = transformMap(id, data);
+    }
+
     lastFetched = now;
   } catch (err) {
-    console.error("Failed to fetch wiki data:", err);
+    console.error("Failed to load/fetch wiki data:", err);
     if (!monstersCache) monstersCache = {};
     if (!itemsCache) itemsCache = {};
+    if (!mapsCache) mapsCache = {};
   }
 }
 
@@ -254,4 +314,14 @@ export async function getItems(): Promise<Item[]> {
 export async function getItem(id: number): Promise<Item | null> {
   await fetchAndCache();
   return itemsCache?.[id.toString()] ?? null;
+}
+
+export async function getMaps(): Promise<MapData[]> {
+  await fetchAndCache();
+  return Object.values(mapsCache ?? {}).sort((a, b) => a.id.localeCompare(b.id));
+}
+
+export async function getMap(id: string): Promise<MapData | null> {
+  await fetchAndCache();
+  return mapsCache?.[id] ?? null;
 }

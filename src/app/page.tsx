@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap } from "lucide-react";
+import { Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, Map as MapIcon } from "lucide-react";
 
 export default function Home() {
   return (
@@ -67,6 +67,10 @@ export default function Home() {
             <Link href="/database/items" className="btn-primary" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Sword size={18} />
               Item Database
+            </Link>
+            <Link href="/database/maps" className="btn-primary" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <MapIcon size={18} />
+              Map Database
             </Link>
             <Link href="/tools/refine" className="btn-primary" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: '#f8fafc', color: '#475569', border: '1px solid #e2e8f0' }}>
               <Hammer size={18} />
