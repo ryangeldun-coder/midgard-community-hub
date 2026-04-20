@@ -4,7 +4,6 @@ import Providers from "@/components/Providers";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-import LoreVideoSection from "@/components/layout/LoreVideoSection";
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
@@ -38,7 +37,6 @@ export default function RootLayout({
             <div style={{ flexGrow: 1 }}>
               {children}
             </div>
-            <LoreVideoSection />
             <Footer />
           </div>
         </Providers>

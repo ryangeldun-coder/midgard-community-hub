@@ -75,17 +75,7 @@ export default function LevelingPath() {
           </div>
         </div>
 
-        <a 
-          href="https://www.youtube.com/channel/UCjFHiVC_IzVBPpXJ4Ao3_gA" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="btn-primary"
-          style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
-        >
-          <Play size={14} fill="#333" />
-          Watch Video Guide
-          <ChevronRight size={14} />
-        </a>
+        </div>
       </motion.div>
     </ROWindow>
   );
