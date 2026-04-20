@@ -93,7 +93,11 @@ export default function Navbar() {
             return (
               <div 
                 key={group.name} 
-                style={{ position: 'relative' }} 
+                style={{ 
+                  position: 'relative',
+                  paddingBottom: '12px', // Extend hoverable area to bridge the gap
+                  marginBottom: '-12px'  // Offset padding to prevent layout shift
+                }} 
                 onMouseLeave={() => setOpenGroup(null)}
               >
                 <button
@@ -129,7 +133,7 @@ export default function Navbar() {
                       transition={{ duration: 0.15 }}
                       style={{ 
                         position: 'absolute', 
-                        top: '100%', 
+                        top: 'calc(100% - 12px)', 
                         left: '50%', 
                         transform: 'translateX(-50%)',
                         marginTop: '4px', 
