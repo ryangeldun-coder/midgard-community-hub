@@ -6,16 +6,22 @@ import { Hammer, RotateCcw, ShieldCheck, Flame, TrendingUp, Zap, Calendar } from
 import ROWindow from "@/components/ui/ROWindow";
 
 // TWRoZ Official Refine Rates (Standard ores: Elunium/Oridecon)
-// Source: RO Zero TW Official Announcement
-const STANDARD_RATES = [1, 1, 1, 1, 0.60, 0.40, 0.40, 0.20, 0.20, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.015, 0.01, 0.008, 0.006, 0.005];
-// Zelunium (Armor) / Shadowdecon (Weapon) rates — slightly higher for +7 onwards
-const HD_ORE_RATES  = [1, 1, 1, 1, 0.60, 0.40, 0.40, 0.25, 0.25, 0.15, 0.10, 0.08, 0.06, 0.05, 0.03, 0.025, 0.02, 0.015, 0.01, 0.008];
+// Updated: +1 to +4 have a 90% success rate (no safe limit)
+const STANDARD_RATES = [0.90, 0.90, 0.90, 0.90, 0.60, 0.40, 0.40, 0.20, 0.20, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.015, 0.01, 0.008, 0.006, 0.005];
+
+// Enriched Ores (Enriched Elunium/Oridecon) — Higher rates, +1 to +4 is safe (100%)
+const ENRICHED_RATES = [1.00, 1.00, 1.00, 1.00, 0.90, 0.70, 0.70, 0.40, 0.40, 0.20, 0.15, 0.12, 0.10, 0.08, 0.06, 0.04, 0.02, 0.015, 0.01, 0.008];
+
+// HD Ores (HD Elunium/Oridecon) — Same as standard but prevents breakage (level drops by 1)
+const HD_ORE_RATES  = [0.90, 0.90, 0.90, 0.90, 0.60, 0.40, 0.40, 0.20, 0.20, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.015, 0.01, 0.008, 0.006, 0.005];
 
 const ORES = [
-  { id: "standard_armor",  label: "Elunium",       type: "standard" },
-  { id: "standard_weapon", label: "Oridecon",      type: "standard" },
-  { id: "hd_armor",        label: "Zelunium",      type: "hd"       },
-  { id: "hd_weapon",       label: "Shadowdecon",   type: "hd"       },
+  { id: "standard_armor",  label: "Elunium",            type: "standard" },
+  { id: "standard_weapon", label: "Oridecon",           type: "standard" },
+  { id: "enriched_armor",  label: "Enriched Elunium",   type: "enriched" },
+  { id: "enriched_weapon", label: "Enriched Oridecon",  type: "enriched" },
+  { id: "hd_armor",        label: "HD Elunium",         type: "hd"       },
+  { id: "hd_weapon",       label: "HD Oridecon",        type: "hd"       },
 ];
 
 // Zeny cost per refine level (approximate TWRoZ rates)
@@ -28,7 +34,7 @@ const MAX_REFINE = 20;
 
 function RefineProgressBar({ level }: { level: number }) {
   const sections = [
-    { max: 4,  color: "#22c55e", label: "Safe" },
+    { max: 4,  color: "#22c55e", label: "90% Zone" },
     { max: 7,  color: "#fbbf24", label: "Risk" },
     { max: 10, color: "#f97316", label: "Danger" },
     { max: 20, color: "#ef4444", label: "Extreme" },
@@ -58,8 +64,7 @@ function RefineProgressBar({ level }: { level: number }) {
 
 export default function RefineSimulator() {
   const [level, setLevel] = useState(0);
-  const [ore, setOre] = useState(ORES[2]); // Default: Zelunium
-  const [isEnriched, setIsEnriched] = useState(false);
+  const [ore, setOre] = useState(ORES[0]); // Default: Elunium
   const [isEvent, setIsEvent] = useState(false);
   const [status, setStatus] = useState<"idle" | "refining" | "success" | "fail">("idle");
   const [history, setHistory] = useState<string[]>([]);
@@ -72,17 +77,18 @@ export default function RefineSimulator() {
   const [goalLevel, setGoalLevel] = useState(7);
   const [goalStats, setGoalStats] = useState<{ cost: number; items: number } | null>(null);
 
-  const getBaseRate = (lv: number) =>
-    ore.type === "hd" ? HD_ORE_RATES[lv] ?? 0.001 : STANDARD_RATES[lv] ?? 0.001;
+  const getBaseRate = (lv: number) => {
+    if (ore.type === "enriched") return ENRICHED_RATES[lv] ?? 0.001;
+    if (ore.type === "hd") return HD_ORE_RATES[lv] ?? 0.001;
+    return STANDARD_RATES[lv] ?? 0.001;
+  };
 
   const calculateSuccessRate = useCallback((lv: number, pity: number = 0): number => {
-    if (lv < 4) return 1;
     if (useBsb && pity >= 10) return 1; // Pity system kicks in at 10 fails
     let rate = getBaseRate(lv);
-    if (isEnriched) rate = Math.min(rate + 0.10, 1);
     if (isEvent) rate = Math.min(rate + 0.05, 1);
     return rate;
-  }, [ore, isEnriched, isEvent, useBsb]);
+  }, [ore, isEvent, useBsb]);
 
   const handleRefine = () => {
     if (status === "refining" || level >= MAX_REFINE) return;
@@ -104,6 +110,12 @@ export default function RefineSimulator() {
           setPityCount((p) => p + 1);
           setStatus("fail");
           setHistory((h) => [`⚠️ +${level} failed (pity: ${pityCount + 1}/10)`, ...h.slice(0, 6)]);
+        } else if (ore.type === "hd" && level >= 7) {
+          // HD prevents break, level drops by 1
+          const nextLevel = Math.max(0, level - 1);
+          setLevel(nextLevel);
+          setStatus("fail");
+          setHistory((h) => [`📉 +${level}→+${nextLevel} (HD Protection)`, ...h.slice(0, 6)]);
         } else {
           // Item breaks — reset
           setLevel(0);
@@ -138,9 +150,8 @@ export default function RefineSimulator() {
         if (Math.random() < calculateSuccessRate(lv, pity)) {
           lv++;
           pity = 0;
-        } else if (useBsb && lv >= 7) {
-          pity++;
-          if (pity >= 10) { lv++; pity = 0; } // pity success
+        } else if (ore.type === "hd" && lv >= 7) {
+          lv = Math.max(0, lv - 1);
         } else {
           lv = 0;
           pity = 0;
@@ -155,13 +166,13 @@ export default function RefineSimulator() {
       cost: Math.floor(totalCost / SIM_RUNS),
       items: parseFloat((totalItems / SIM_RUNS).toFixed(2)),
     });
-  }, [goalLevel, isEnriched, isEvent, useBsb, itemPrice, orePrice, bsbPrice, ore, calculateSuccessRate]);
+  }, [goalLevel, isEvent, useBsb, itemPrice, orePrice, bsbPrice, ore, calculateSuccessRate]);
 
   const successRate = calculateSuccessRate(level, pityCount);
   const levelColor = level >= 15 ? "#ef4444" : level >= 10 ? "#f97316" : level >= 7 ? "#fbbf24" : "#22c55e";
 
   return (
-    <ROWindow title="Refine Simulator — TWRoZ Edition (+1 to +20)" icon={<Hammer size={16} />} width="100%">
+    <ROWindow title="Refine Simulator — TWRoZ Edition" icon={<Hammer size={16} />} width="100%">
       <div>
         {/* Price inputs */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: "0.75rem", marginBottom: "1.5rem", background: "#fdf8f8", border: "1px solid #fca5a5", borderRadius: "10px", padding: "1rem" }}>
@@ -187,9 +198,6 @@ export default function RefineSimulator() {
             </button>
           ))}
           <div style={{ display: "flex", gap: "0.5rem", marginLeft: "auto" }}>
-            <button onClick={() => setIsEnriched(!isEnriched)} style={{ fontSize: "0.7rem", padding: "6px 14px", borderRadius: "8px", border: "1px solid", borderColor: isEnriched ? "#6366f1" : "#e2e8f0", background: isEnriched ? "#6366f1" : "white", color: isEnriched ? "white" : "#64748b", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "4px" }}>
-              <Zap size={12} /> Enriched
-            </button>
             <button onClick={() => setIsEvent(!isEvent)} style={{ fontSize: "0.7rem", padding: "6px 14px", borderRadius: "8px", border: "1px solid", borderColor: isEvent ? "#fbbf24" : "#e2e8f0", background: isEvent ? "#fbbf24" : "white", color: isEvent ? "white" : "#64748b", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "4px" }}>
               <Calendar size={12} /> Event
             </button>
@@ -216,7 +224,7 @@ export default function RefineSimulator() {
                     +{level}
                   </div>
                 </div>
-                {level > 3 && (
+                {level >= 0 && (
                   <div style={{ width: "200px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.6rem", fontWeight: 700, color: "#64748b", marginBottom: "3px" }}>
                       <span>Success Rate</span>
