@@ -73,3 +73,29 @@ body {
   background: var(--ro-red);
   color: white;
 }
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-toggle {
+    display: block !important;
+  }
+
+  .modern-glass {
+    width: 100%;
+    margin: 0 1rem;
+  }
+}
+
+.hide-mobile-text {
+  display: inline;
+}
+
+@media (max-width: 1024px) {
+  .hide-mobile-text {
+    display: none;
+  }
+}
