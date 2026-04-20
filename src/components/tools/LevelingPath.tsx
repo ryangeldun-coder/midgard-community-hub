@@ -74,8 +74,6 @@ export default function LevelingPath() {
             <p style={{ fontSize: '0.8rem', fontStyle: 'italic' }}>{activeGuide.tip}</p>
           </div>
         </div>
-
-        </div>
       </motion.div>
     </ROWindow>
   );
