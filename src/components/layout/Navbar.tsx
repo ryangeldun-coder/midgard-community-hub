@@ -16,24 +16,17 @@ const navGroups = [
     items: [
       { name: "Monsters", href: "/database/monsters", icon: Bug },
       { name: "Items", href: "/database/items", icon: Sword },
+      { name: "Dungeons", href: "/dungeons", icon: Layers },
       { name: "Elements", href: "/tools/elements", icon: Sword },
     ]
   },
   {
-    name: "Simulators",
-    icon: Hammer,
+    name: "Tools",
+    icon: Wrench,
     items: [
       { name: "Refine", href: "/tools/refine", icon: Hammer },
       { name: "Forge", href: "/tools/forge", icon: Wrench },
       { name: "Brewing", href: "/tools/brewing", icon: FlaskConical },
-    ]
-  },
-  {
-    name: "Archives",
-    icon: BookOpen,
-    items: [
-      { name: "Dungeons", href: "/dungeons", icon: Layers },
-      { name: "Lore", href: "/lore", icon: BookOpen },
     ]
   }
 ];
@@ -182,6 +175,22 @@ export default function Navbar() {
               </div>
             );
           })}
+
+          <Link
+            href="/lore"
+            className={`tab-btn ${pathname === '/lore' ? 'active' : ''}`}
+            style={{ 
+              textDecoration: 'none', 
+              color: pathname === '/lore' ? 'white' : '#64748b',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '0.8rem'
+            }}
+          >
+            <BookOpen size={14} />
+            <span className="hide-mobile-text">Lore</span>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -231,6 +240,7 @@ export default function Navbar() {
             </div>
 
             <Link href="/" style={{ textDecoration: 'none', color: pathname === '/' ? 'var(--ro-red)' : '#1e293b', fontWeight: 700, fontSize: '1.2rem' }}>Home</Link>
+            <Link href="/lore" style={{ textDecoration: 'none', color: pathname === '/lore' ? 'var(--ro-red)' : '#1e293b', fontWeight: 700, fontSize: '1.2rem' }}>Lore</Link>
 
             {navGroups.map(group => (
               <div key={group.name}>
