@@ -16,9 +16,22 @@ const POTION_TYPES = [
 ];
 
 export default function AlchemistCalculator() {
-  const [dex, setDex] = useState(99);
-  const [luk, setLuk] = useState(99);
-  const [int, setInt] = useState(99);
+  // Base Stats
+  const [baseDex, setBaseDex] = useState(99);
+  const [baseLuk, setBaseLuk] = useState(99);
+  const [baseInt, setBaseInt] = useState(99);
+  
+  // Equipment/Job Bonuses
+  const [dexEquip, setDexEquip] = useState(0);
+  const [lukEquip, setLukEquip] = useState(0);
+  const [intEquip, setIntEquip] = useState(0);
+  
+  // Buffs
+  const [gloria, setGloria] = useState(false);
+  const [blessing, setBlessing] = useState(false);
+  const [dexFood, setDexFood] = useState(0);
+  const [lukFood, setLukFood] = useState(0);
+
   const [jobLv, setJobLv] = useState(70);
   const [prepLv, setPrepLv] = useState(10);
   const [researchLv, setResearchLv] = useState(10);
@@ -28,37 +41,82 @@ export default function AlchemistCalculator() {
   const [successRate, setSuccessRate] = useState(0);
   const [expectedOutput, setExpectedOutput] = useState(0);
 
+  // Calculated Totals
+  const totalDex = baseDex + dexEquip + dexFood + (blessing ? 10 : 0);
+  const totalLuk = baseLuk + lukEquip + lukFood + (gloria ? 30 : 0);
+  const totalInt = baseInt + intEquip + (blessing ? 10 : 0); // Blessing also adds 10 INT
+
   useEffect(() => {
     // RO Zero TW Formula: 
     // Success Rate (%) = [(Prepare Potion Lv × 3) + (Potion Research Lv) + (Job Lv × 0.2) + (DEX × 0.1) + (LUK × 0.1) + (INT × 0.05) + Potion_Rate]%
-    const rate = (prepLv * 3) + researchLv + (jobLv * 0.2) + (dex * 0.1) + (luk * 0.1) + (int * 0.05) + potionType.rate;
+    const rate = (prepLv * 3) + researchLv + (jobLv * 0.2) + (totalDex * 0.1) + (totalLuk * 0.1) + (totalInt * 0.05) + potionType.rate;
     const finalRate = Math.max(0, Math.min(100, rate));
     setSuccessRate(finalRate);
     setExpectedOutput(Math.floor(sets * (finalRate / 100)));
-  }, [dex, luk, int, jobLv, prepLv, researchLv, sets, potionType]);
+  }, [totalDex, totalLuk, totalInt, jobLv, prepLv, researchLv, sets, potionType]);
 
   return (
     <ROWindow title="Alchemist Brewing Calculator" icon={<FlaskConical size={16} />} width="100%">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
         {/* Stats Column */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h3 style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--ro-red)', borderBottom: '1px solid #eee', paddingBottom: '4px' }}>CHARACTER STATS</h3>
+          <h3 style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--ro-red)', borderBottom: '1px solid #eee', paddingBottom: '4px' }}>BASE CHARACTER STATS</h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             <div>
-              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>DEX (TOTAL)</label>
-              <input type="number" value={dex} onChange={(e) => setDex(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>BASE DEX</label>
+              <input type="number" value={baseDex} onChange={(e) => setBaseDex(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
             </div>
             <div>
-              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>LUK (TOTAL)</label>
-              <input type="number" value={luk} onChange={(e) => setLuk(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>BASE LUK</label>
+              <input type="number" value={baseLuk} onChange={(e) => setBaseLuk(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
             </div>
             <div>
-              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>INT (TOTAL)</label>
-              <input type="number" value={int} onChange={(e) => setInt(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>BASE INT</label>
+              <input type="number" value={baseInt} onChange={(e) => setBaseInt(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
             </div>
             <div>
               <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>JOB LEVEL</label>
               <input type="number" value={jobLv} onChange={(e) => setJobLv(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+            </div>
+          </div>
+
+          <h3 style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--ro-red)', borderBottom: '1px solid #eee', paddingBottom: '4px', marginTop: '1rem' }}>EQUIPMENT & CARD BONUSES</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+            <div>
+              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>DEX +</label>
+              <input type="number" value={dexEquip} onChange={(e) => setDexEquip(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+            </div>
+            <div>
+              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>LUK +</label>
+              <input type="number" value={lukEquip} onChange={(e) => setLukEquip(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+            </div>
+            <div>
+              <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>INT +</label>
+              <input type="number" value={intEquip} onChange={(e) => setIntEquip(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+            </div>
+          </div>
+
+          <h3 style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--ro-red)', borderBottom: '1px solid #eee', paddingBottom: '4px', marginTop: '1rem' }}>BUFFS & CONSUMABLES</h3>
+          <div style={{ background: '#f8fafc', padding: '0.75rem', borderRadius: '8px' }}>
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '0.75rem' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>
+                <input type="checkbox" checked={gloria} onChange={(e) => setGloria(e.target.checked)} />
+                Gloria (+30 LUK)
+              </label>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}>
+                <input type="checkbox" checked={blessing} onChange={(e) => setBlessing(e.target.checked)} />
+                Blessing (+10 DEX/INT)
+              </label>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div>
+                <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>DEX FOOD +</label>
+                <input type="number" value={dexFood} onChange={(e) => setDexFood(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+              </div>
+              <div>
+                <label style={{ fontSize: '0.65rem', fontWeight: 700, opacity: 0.6 }}>LUK FOOD +</label>
+                <input type="number" value={lukFood} onChange={(e) => setLukFood(Number(e.target.value))} style={{ width: '100%', padding: '4px', border: '1px solid #ccc' }} />
+              </div>
             </div>
           </div>
 
@@ -109,6 +167,7 @@ export default function AlchemistCalculator() {
               <div>
                 <span style={{ fontSize: '0.7rem', fontWeight: 700, opacity: 0.7, textTransform: 'uppercase' }}>Success Rate</span>
                 <p style={{ fontSize: '2rem', fontWeight: 800 }}>{successRate.toFixed(1)}%</p>
+                <span style={{ fontSize: '0.65rem', opacity: 0.8 }}>DEX:{totalDex} LUK:{totalLuk} INT:{totalInt}</span>
               </div>
               <div style={{ textAlign: 'right' }}>
                 <TrendingUp size={32} opacity={0.3} />
@@ -144,9 +203,9 @@ export default function AlchemistCalculator() {
                 { factor: 'Prepare Potion Skill', value: `Lv ${prepLv}`, multiplier: '×3', contribution: prepLv * 3 },
                 { factor: 'Potion Research Skill', value: `Lv ${researchLv}`, multiplier: '×1', contribution: researchLv },
                 { factor: 'Job Level', value: jobLv, multiplier: '×0.2', contribution: jobLv * 0.2 },
-                { factor: 'DEX (Total)', value: dex, multiplier: '×0.1', contribution: dex * 0.1 },
-                { factor: 'LUK (Total)', value: luk, multiplier: '×0.1', contribution: luk * 0.1 },
-                { factor: 'INT (Total)', value: int, multiplier: '×0.05', contribution: int * 0.05 },
+                { factor: 'DEX (Total)', value: totalDex, multiplier: '×0.1', contribution: totalDex * 0.1 },
+                { factor: 'LUK (Total)', value: totalLuk, multiplier: '×0.1', contribution: totalLuk * 0.1 },
+                { factor: 'INT (Total)', value: totalInt, multiplier: '×0.05', contribution: totalInt * 0.05 },
                 { factor: 'Potion Type Modifier', value: potionType.name.split('/')[0].trim(), multiplier: '—', contribution: potionType.rate },
               ].map((row, i) => {
                 const isNegative = row.contribution < 0;
