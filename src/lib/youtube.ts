@@ -9,7 +9,7 @@ export async function getLatestVideos(channelId: string, limit = 10) {
     return entries.slice(0, limit).map(entry => {
       const id = entry.match(/<yt:videoId>(.*?)<\/yt:videoId>/)?.[1] || "";
       const title = entry.match(/<title>(.*?)<\/title>/)?.[1] || "";
-      const description = entry.match(/<media:description>(.*?)<\/media:description>/s)?.[1] || "";
+      const description = entry.match(/<media:description>([\s\S]*?)<\/media:description>/)?.[1] || "";
       
       return {
         id,
