@@ -4,10 +4,12 @@ import { useState, useMemo, useEffect } from "react";
 import { 
   BaseStats, 
   DerivedStats, 
+  Enchantment,
   calculateDerivedStats, 
   getStatIncreaseCost, 
   calculateTotalPointsForStat,
-  parseItemBonuses
+  parseItemBonuses,
+  parseEnchantmentValue
 } from "@/lib/planner-engine";
 import { Item } from "@/lib/database";
 
@@ -22,6 +24,7 @@ const DEFAULT_STATS: BaseStats = { str: 1, agi: 1, vit: 1, int: 1, dex: 1, luk: 
 
 export function usePlanner() {
   const [level, setLevel] = useState(1);
+  const [jobId, setJobId] = useState("Novice");
   const [stats, setStats] = useState<BaseStats>(DEFAULT_STATS);
   const [equipment, setEquipment] = useState<Record<string, Item | null>>({
     headTop: null,
@@ -35,10 +38,9 @@ export function usePlanner() {
     accessoryL: null,
     accessoryR: null,
   });
+  const [weaponEnchants, setWeaponEnchants] = useState<(Enchantment | null)[]>([null, null]);
 
   // Calculate total stat points available
-  // RO Zero: 100 base + sum(Level * growth)?
-  // Actually, standard RO: Level 99 has ~1200 points.
   const availablePoints = useMemo(() => {
     let total = 0;
     for (let l = 2; l <= level; l++) {
@@ -53,7 +55,7 @@ export function usePlanner() {
 
   const remainingPoints = availablePoints - spentPoints;
 
-  // Aggregate bonuses from all equipment
+  // Aggregate bonuses from all equipment + enchants
   const totalBonuses = useMemo(() => {
     const combined: Record<string, number> = {};
     Object.values(equipment).forEach(item => {
@@ -69,12 +71,31 @@ export function usePlanner() {
         combined[key] = (combined[key] || 0) + val;
       });
     });
+
+    // Add weapon enchants
+    weaponEnchants.forEach(e => {
+      if (!e) return;
+      const val = parseEnchantmentValue(e.value);
+      // Map affix names to internal keys
+      const keyMap: Record<string, string> = {
+        "ATK": "ATK", "MATK": "MATK", "HIT": "HIT", "FLEE": "FLEE", "CRI": "CRIT",
+        "STR": "STR", "AGI": "AGI", "VIT": "VIT", "INT": "INT", "DEX": "DEX", "LUK": "LUK",
+        "ASPD increase (%)": "ASPD_P", "ASPD": "ASPD_FLAT"
+      };
+      const key = keyMap[e.name] || e.name;
+      combined[key] = (combined[key] || 0) + val;
+    });
+
     return combined;
-  }, [equipment]);
+  }, [equipment, weaponEnchants]);
 
   const derivedStats = useMemo(() => {
-    return calculateDerivedStats(level, stats, totalBonuses);
-  }, [level, stats, totalBonuses]);
+    // Extract weapon ClassNum
+    const weapon = equipment.weapon as any;
+    const weaponClassNum = weapon?.ClassNum || 0;
+    
+    return calculateDerivedStats(level, stats, totalBonuses, jobId, weaponClassNum, weaponEnchants);
+  }, [level, stats, totalBonuses, jobId, equipment.weapon, weaponEnchants]);
 
   const updateStat = (name: keyof BaseStats, delta: number) => {
     const current = stats[name];
@@ -92,6 +113,18 @@ export function usePlanner() {
 
   const equipItem = (slot: string, item: Item | null) => {
     setEquipment(prev => ({ ...prev, [slot]: item }));
+    // Reset enchants if weapon is removed
+    if (slot === "weapon" && !item) {
+      setWeaponEnchants([null, null]);
+    }
+  };
+
+  const setEnchant = (index: number, enchant: Enchantment | null) => {
+    setWeaponEnchants(prev => {
+      const next = [...prev];
+      next[index] = enchant;
+      return next;
+    });
   };
 
   // URL Sync
@@ -101,9 +134,9 @@ export function usePlanner() {
       try {
         const decoded = JSON.parse(atob(hash));
         if (decoded.l) setLevel(decoded.l);
+        if (decoded.j) setJobId(decoded.j);
         if (decoded.s) setStats(decoded.s);
-        // Note: Equipment needs a way to fetch item by ID if we only store ID in hash
-        // For now, we'll just store the full state or IDs and let the component handle it.
+        if (decoded.we) setWeaponEnchants(decoded.we);
       } catch (e) {
         console.error("Failed to parse share link", e);
       }
@@ -113,7 +146,9 @@ export function usePlanner() {
   const generateShareLink = () => {
     const state = {
       l: level,
+      j: jobId,
       s: stats,
+      we: weaponEnchants,
       e: Object.fromEntries(Object.entries(equipment).map(([k, v]) => [k, v?.id]))
     };
     const hash = btoa(JSON.stringify(state));
@@ -124,8 +159,10 @@ export function usePlanner() {
 
   return {
     level, setLevel,
+    jobId, setJobId,
     stats, updateStat,
     equipment, equipItem,
+    weaponEnchants, setEnchant,
     derivedStats,
     remainingPoints,
     totalBonuses,

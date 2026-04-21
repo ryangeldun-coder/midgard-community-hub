@@ -5,12 +5,16 @@ import { usePlanner } from "./usePlanner";
 import StatControl from "@/components/planner/StatControl";
 import EquipmentSlot from "@/components/planner/EquipmentSlot";
 import ItemSearchModal from "@/components/planner/ItemSearchModal";
-import { getStatIncreaseCost } from "@/lib/planner-engine";
-import { Zap, Shield, Target, Wind, Swords, Flame, Sparkles } from "lucide-react";
+import EnchantSelector from "@/components/planner/EnchantSelector";
+import { getStatIncreaseCost, JOBS } from "@/lib/planner-engine";
+import { Zap, Shield, Target, Wind, Swords, Flame, Sparkles, User, Wand2 } from "lucide-react";
 
 export default function PlannerPage() {
   const planner = usePlanner();
   const [activeSlot, setActiveSlot] = useState<string | null>(null);
+  const [activeEnchantIndex, setActiveEnchantIndex] = useState<number | null>(null);
+
+  const currentJob = JOBS[planner.jobId] || JOBS.Novice;
 
   const statsList = [
     { key: "str" as const, label: "Strength (STR)" },
@@ -32,9 +36,23 @@ export default function PlannerPage() {
 
   return (
     <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
-      <div style={{ marginBottom: "2.5rem" }}>
-        <h1 style={{ fontSize: "2.5rem", fontWeight: 800, color: "var(--ro-red)", margin: "0 0 0.5rem 0" }}>Ultimate Build Planner</h1>
-        <p style={{ color: "#64748b", margin: 0 }}>Plan your stats and equipment for Ragnarok Zero Global.</p>
+      <div style={{ marginBottom: "2.5rem", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+        <div>
+          <h1 style={{ fontSize: "2.5rem", fontWeight: 800, color: "var(--ro-red)", margin: "0 0 0.5rem 0" }}>Ultimate Build Planner</h1>
+          <p style={{ color: "#64748b", margin: 0 }}>Plan your stats and equipment for Ragnarok Zero Global.</p>
+        </div>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+          <div style={{ textAlign: "right" }}>
+            <span style={{ fontSize: "0.7rem", color: "#94a3b8", fontWeight: 800, display: "block" }}>JOB CLASS</span>
+            <select 
+              value={planner.jobId}
+              onChange={(e) => planner.setJobId(e.target.value)}
+              style={{ padding: "8px 12px", borderRadius: "8px", border: "1px solid #e2e8f0", fontWeight: 700, fontSize: "0.95rem", color: "#1e293b", outline: "none" }}
+            >
+              {Object.keys(JOBS).map(id => <option key={id} value={id}>{JOBS[id].name}</option>)}
+            </select>
+          </div>
+        </div>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "1.5rem" }}>
@@ -56,6 +74,7 @@ export default function PlannerPage() {
                   key={s.key}
                   label={s.label}
                   value={planner.stats[s.key]}
+                  bonus={planner.totalBonuses[s.key.toUpperCase()]}
                   cost={getStatIncreaseCost(planner.stats[s.key])}
                   onIncrease={() => planner.updateStat(s.key, 1)}
                   onDecrease={() => planner.updateStat(s.key, -1)}
@@ -90,7 +109,40 @@ export default function PlannerPage() {
               <EquipmentSlot label="Head (Mid)" item={planner.equipment.headMid} onClick={() => setActiveSlot("headMid")} onClear={() => planner.equipItem("headMid", null)} />
               <EquipmentSlot label="Head (Low)" item={planner.equipment.headLow} onClick={() => setActiveSlot("headLow")} onClear={() => planner.equipItem("headLow", null)} />
               <EquipmentSlot label="Armor" item={planner.equipment.armor} onClick={() => setActiveSlot("armor")} onClear={() => planner.equipItem("armor", null)} />
-              <EquipmentSlot label="Weapon" item={planner.equipment.weapon} onClick={() => setActiveSlot("weapon")} onClear={() => planner.equipItem("weapon", null)} />
+              
+              <div style={{ border: "2px solid #ef444415", borderRadius: "16px", padding: "4px" }}>
+                <EquipmentSlot label="Weapon" item={planner.equipment.weapon} onClick={() => setActiveSlot("weapon")} onClear={() => planner.equipItem("weapon", null)} />
+                {planner.equipment.weapon && (
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px", marginTop: "4px" }}>
+                    {planner.weaponEnchants.map((enchant, i) => (
+                      <div 
+                        key={i}
+                        onClick={() => setActiveEnchantIndex(i)}
+                        style={{ 
+                          background: enchant ? "#fff1f2" : "#f8fafc", 
+                          padding: "8px", 
+                          borderRadius: "10px", 
+                          border: enchant ? "1px solid #fecaca" : "1px dashed #e2e8f0",
+                          cursor: "pointer",
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          minHeight: "44px"
+                        }}
+                      >
+                        <span style={{ fontSize: "0.55rem", fontWeight: 800, color: "#94a3b8", textTransform: "uppercase" }}>Affix {i+1}</span>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <span style={{ fontSize: "0.75rem", fontWeight: 700, color: enchant ? "var(--ro-red)" : "#cbd5e1" }}>
+                            {enchant ? enchant.name : "None"}
+                          </span>
+                          {enchant && <span style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--ro-red)" }}>{enchant.value}</span>}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <EquipmentSlot label="Shield" item={planner.equipment.shield} onClick={() => setActiveSlot("shield")} onClear={() => planner.equipItem("shield", null)} />
               <EquipmentSlot label="Garment" item={planner.equipment.garment} onClick={() => setActiveSlot("garment")} onClear={() => planner.equipItem("garment", null)} />
               <EquipmentSlot label="Shoes" item={planner.equipment.shoes} onClick={() => setActiveSlot("shoes")} onClear={() => planner.equipItem("shoes", null)} />
@@ -156,9 +208,20 @@ export default function PlannerPage() {
         isOpen={!!activeSlot} 
         onClose={() => setActiveSlot(null)} 
         slot={activeSlot || ""} 
+        group={activeSlot === "weapon" ? "Weapon" : "Armor"}
         onSelect={(item) => {
           if (activeSlot) planner.equipItem(activeSlot, item);
           setActiveSlot(null);
+        }}
+      />
+
+      <EnchantSelector 
+        isOpen={activeEnchantIndex !== null}
+        index={activeEnchantIndex ?? 0}
+        onClose={() => setActiveEnchantIndex(null)}
+        onSelect={(enchant) => {
+          if (activeEnchantIndex !== null) planner.setEnchant(activeEnchantIndex, enchant);
+          setActiveEnchantIndex(null);
         }}
       />
     </main>
