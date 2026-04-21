@@ -166,14 +166,19 @@ function transformMonster(id: string, raw: any): Monster {
     hit_100: raw.stats?.hit_100_percent ?? 0,
     image_url: `${ASSETS_BASE}${raw.image_url.startsWith("/") ? raw.image_url : "/" + raw.image_url}`,
     special_status: translateSpecialStatus(raw.special_status ?? []),
-    drops: (raw.drops ?? []).map((d: any) => ({
-      item_id: d.item_id,
-      name: getItemNameEN(d.item_id, translateItemName(d.name) || d.name),
-      rate: d.rate,
-      icon_url: `${ASSETS_BASE}/${d.icon_url}`,
-      slot: translateEquipSlot(d.slot ?? ""),
-      card_prefix_name: d.card_prefix_name,
-    })),
+    drops: (raw.drops ?? []).map((d: any) => {
+      const itemIdStr = d.item_id.toString();
+      const translated = itemsTranslated?.[itemIdStr];
+      const nameEN = translated?.name_en || getItemNameEN(d.item_id, translateItemName(d.name) || d.name);
+      return {
+        item_id: d.item_id,
+        name: nameEN,
+        rate: d.rate,
+        icon_url: `${ASSETS_BASE}/${d.icon_url}`,
+        slot: translateEquipSlot(d.slot ?? ""),
+        card_prefix_name: d.card_prefix_name,
+      };
+    }),
     spawns: (raw.spawns ?? []).map((s: any) => ({
       map_name: s.map_name,
       description: translateZone(s.description) || s.description,
