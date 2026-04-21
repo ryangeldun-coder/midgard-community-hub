@@ -8,7 +8,7 @@ import enchantmentsData from "@/data/enchantments-en.json";
 
 type Enchantment = {
   type: string;
-  pool: number;
+  pool?: number;
   tier: string;
   name: string;
   value: string;
