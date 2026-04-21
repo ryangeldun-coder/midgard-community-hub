@@ -4,6 +4,7 @@ import Providers from "@/components/Providers";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LatestVideoPanel from "@/components/layout/LatestVideoPanel";
+import Script from "next/script";
 
 import { Analytics } from '@vercel/analytics/next';
 
@@ -21,6 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7864174863449248"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body>
         <Navbar />
         <Providers>
