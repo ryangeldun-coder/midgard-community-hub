@@ -30,14 +30,13 @@ const COST_PER_REFINE = [
   5000000, 8000000, 12000000, 18000000, 25000000, 35000000, 50000000, 70000000, 100000000, 150000000
 ];
 
-const MAX_REFINE = 20;
+const MAX_REFINE = 10;
 
 function RefineProgressBar({ level }: { level: number }) {
   const sections = [
     { max: 4,  color: "#22c55e", label: "90% Zone" },
     { max: 7,  color: "#fbbf24", label: "Risk" },
     { max: 10, color: "#f97316", label: "Danger" },
-    { max: 20, color: "#ef4444", label: "Extreme" },
   ];
   return (
     <div style={{ marginBottom: "1rem" }}>
@@ -110,7 +109,7 @@ export default function RefineSimulator() {
           setPityCount((p) => p + 1);
           setStatus("fail");
           setHistory((h) => [`⚠️ +${level} failed (pity: ${pityCount + 1}/10)`, ...h.slice(0, 6)]);
-        } else if (ore.type === "hd" && level >= 7) {
+        } else if (ore.type === "hd") {
           // HD prevents break, level drops by 1
           const nextLevel = Math.max(0, level - 1);
           setLevel(nextLevel);
@@ -150,7 +149,7 @@ export default function RefineSimulator() {
         if (Math.random() < calculateSuccessRate(lv, pity)) {
           lv++;
           pity = 0;
-        } else if (ore.type === "hd" && lv >= 7) {
+        } else if (ore.type === "hd") {
           lv = Math.max(0, lv - 1);
         } else {
           lv = 0;
@@ -280,7 +279,7 @@ export default function RefineSimulator() {
               <TrendingUp size={16} /> GOAL ANALYSIS
             </h3>
             <select value={goalLevel} onChange={(e) => setGoalLevel(Number(e.target.value))} style={{ padding: "6px 12px", borderRadius: "8px", border: "1px solid #e2e8f0", fontWeight: 700, color: "#475569", fontSize: "0.8rem" }}>
-              {Array.from({ length: 17 }, (_, i) => i + 4).map((v) => <option key={v} value={v}>Reach +{v}</option>)}
+              {Array.from({ length: 7 }, (_, i) => i + 4).map((v) => <option key={v} value={v}>Reach +{v}</option>)}
             </select>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
