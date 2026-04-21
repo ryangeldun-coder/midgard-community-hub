@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
-  Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles 
+  Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles,
+  Shield, Zap, Target
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
