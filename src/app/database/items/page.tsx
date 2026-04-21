@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ChevronLeft, ChevronRight, Package } from "lucide-react";
@@ -52,115 +53,46 @@ function ItemCard({ item, onClick }: { item: Item; onClick: () => void }) {
   const accentColor = isCard ? "#fbbf24" : isWeapon ? "#ef4444" : catEN === "Armor" ? "#3b82f6" : "var(--ro-red)";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ y: -3, boxShadow: `0 6px 20px ${accentColor}22` }}
-      onClick={onClick}
-      style={{
-        background: "white",
-        border: `1px solid ${accentColor}33`,
-        borderRadius: "10px",
-        padding: "0.75rem",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        gap: "0.75rem",
-        transition: "all 0.15s ease",
-      }}
-    >
-      <div style={{ width: 48, height: 48, background: "#f8fafc", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, border: `1px solid ${accentColor}22` }}>
-        <img src={item.icon_url} alt={item.name_zh} style={{ width: 36, height: 36, imageRendering: "pixelated" }} onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }} />
-      </div>
-      <div style={{ minWidth: 0, flex: 1 }}>
-        <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#1e293b", margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-          {item.name_en || item.name_zh}
-        </p>
-        {item.name_en && item.name_en !== item.name_zh && (
-          <p style={{ fontSize: "0.65rem", color: "#94a3b8", margin: "1px 0 2px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.name_zh}</p>
-        )}
-        <div style={{ display: "flex", gap: "4px", marginTop: "3px", flexWrap: "wrap" }}>
-          <span style={{ fontSize: "0.6rem", background: `${accentColor}18`, color: accentColor, padding: "1px 6px", borderRadius: "4px", fontWeight: 700 }}>{catEN}</span>
-          {item.slots > 0 && <span style={{ fontSize: "0.6rem", background: "#f1f5f9", color: "#64748b", padding: "1px 6px", borderRadius: "4px", fontWeight: 600 }}>{item.slots}S</span>}
-          {item.weapon_level > 0 && <span style={{ fontSize: "0.6rem", background: "#fef9c3", color: "#92400e", padding: "1px 6px", borderRadius: "4px", fontWeight: 600 }}>Lv.{item.weapon_level}</span>}
+    <Link href={`/database/items/${item.id}`} style={{ textDecoration: 'none' }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ y: -3, boxShadow: `0 6px 20px ${accentColor}22` }}
+        style={{
+          background: "white",
+          border: `1px solid ${accentColor}33`,
+          borderRadius: "10px",
+          padding: "0.75rem",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.75rem",
+          transition: "all 0.15s ease",
+          height: "100%"
+        }}
+      >
+        <div style={{ width: 48, height: 48, background: "#f8fafc", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, border: `1px solid ${accentColor}22` }}>
+          <img src={item.icon_url} alt={item.name_zh} style={{ width: 36, height: 36, imageRendering: "pixelated" }} onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }} />
         </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function ItemModal({ item, onClose }: { item: Item; onClose: () => void }) {
-  const catEN = getCategoryEN(item.category);
-  const accentColor = catEN === "Card" ? "#fbbf24" : catEN === "Weapon" ? "#ef4444" : catEN === "Armor" ? "#3b82f6" : "var(--ro-red)";
-
-  return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}
-      style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
-      <motion.div initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.92, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-        style={{ background: "white", borderRadius: "16px", padding: "2rem", maxWidth: "600px", width: "100%", maxHeight: "85vh", overflowY: "auto", border: `2px solid ${accentColor}44`, boxShadow: `0 20px 60px ${accentColor}22` }}>
-        
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem" }}>
-          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <div style={{ width: 72, height: 72, background: "#f8fafc", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", border: `2px solid ${accentColor}33` }}>
-              <img src={item.icon_url} alt={item.name_zh} style={{ width: 54, height: 54, imageRendering: "pixelated" }} />
-            </div>
-            <div>
-              <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1e293b", margin: 0 }}>{item.name_en || item.name_zh}</h2>
-              <p style={{ color: "#94a3b8", margin: "2px 0", fontSize: "0.8rem" }}>
-                {item.name_en !== item.name_zh ? item.name_zh + " · " : ""}ID: {item.id} · {item.category}
-              </p>
-              <div style={{ display: "flex", gap: "6px", marginTop: "4px" }}>
-                <span style={{ fontSize: "0.7rem", fontWeight: 700, color: accentColor, background: `${accentColor}18`, padding: "2px 8px", borderRadius: "6px" }}>{catEN}</span>
-                {item.slots > 0 && <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#64748b", background: "#f1f5f9", padding: "2px 8px", borderRadius: "6px" }}>{item.slots} Slot{item.slots > 1 ? "s" : ""}</span>}
-              </div>
-            </div>
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#1e293b", margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+            {item.name_en || item.name_zh}
+          </p>
+          {item.name_en && item.name_en !== item.name_zh && (
+            <p style={{ fontSize: "0.65rem", color: "#94a3b8", margin: "1px 0 2px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.name_zh}</p>
+          )}
+          <div style={{ display: "flex", gap: "4px", marginTop: "3px", flexWrap: "wrap" }}>
+            <span style={{ fontSize: "0.6rem", background: `${accentColor}18`, color: accentColor, padding: "1px 6px", borderRadius: "4px", fontWeight: 700 }}>{catEN}</span>
+            {item.slots > 0 && <span style={{ fontSize: "0.6rem", background: "#f1f5f9", color: "#64748b", padding: "1px 6px", borderRadius: "4px", fontWeight: 600 }}>{item.slots}S</span>}
+            {item.weapon_level > 0 && <span style={{ fontSize: "0.6rem", background: "#fef9c3", color: "#92400e", padding: "1px 6px", borderRadius: "4px", fontWeight: 600 }}>Lv.{item.weapon_level}</span>}
           </div>
-          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer" }}><X size={20} color="#94a3b8" /></button>
         </div>
-
-        {item.description && (
-          <div style={{ background: "#f8fafc", borderRadius: "10px", padding: "1rem", marginBottom: "1rem" }}>
-            <p style={{ fontSize: "0.85rem", color: "#475569", lineHeight: 1.6, margin: 0 }}>{item.description}</p>
-          </div>
-        )}
-
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem", marginBottom: "1rem" }}>
-          {[
-            ["Weight", item.weight], ["Buy Price", item.buy_price > 0 ? `${item.buy_price.toLocaleString()} z` : "N/A"],
-            ["Sell Price", item.sell_price > 0 ? `${item.sell_price.toLocaleString()} z` : "N/A"],
-            ["Required Lv", item.required_level || "-"],
-            ...(item.attack > 0 ? [["ATK", item.attack]] : []),
-            ...(item.defense > 0 ? [["DEF", item.defense]] : []),
-            ...(item.weapon_level > 0 ? [["Weapon Lv", item.weapon_level]] : []),
-          ].map(([label, val]) => (
-            <div key={label as string} style={{ background: "#f8fafc", borderRadius: "8px", padding: "0.6rem 0.8rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ fontSize: "0.7rem", color: "#64748b", fontWeight: 600 }}>{label}</span>
-              <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#1e293b" }}>{val}</span>
-            </div>
-          ))}
-        </div>
-
-        {item.dropped_by.length > 0 && (
-          <div>
-            <h3 style={{ fontSize: "0.8rem", fontWeight: 800, color: "#64748b", margin: "0 0 0.75rem 0" }}>DROPPED BY ({item.dropped_by.length})</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "6px" }}>
-              {item.dropped_by.slice(0, 20).map((drop) => (
-                <div key={drop.monster_id} style={{ display: "flex", alignItems: "center", gap: "8px", background: "#f8fafc", borderRadius: "8px", padding: "6px 8px" }}>
-                  <img src={drop.image_url} alt={drop.monster_name} style={{ width: 28, height: 28, imageRendering: "pixelated", flexShrink: 0 }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
-                  <div style={{ minWidth: 0 }}>
-                    <p style={{ fontSize: "0.7rem", fontWeight: 600, color: "#1e293b", margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{drop.monster_name}</p>
-                    <p style={{ fontSize: "0.6rem", color: "#22c55e", fontWeight: 700, margin: 0 }}>{drop.rate}%</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </motion.div>
-    </motion.div>
+    </Link>
   );
 }
+
+
 
 export default function ItemsPage() {
   const [items, setItems] = useState<Item[]>([]);
@@ -170,7 +102,6 @@ export default function ItemsPage() {
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All");
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<Item | null>(null);
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -224,7 +155,7 @@ export default function ItemsPage() {
         <div style={{ textAlign: "center", padding: "4rem", color: "#94a3b8" }}>No items found.</div>
       ) : (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "0.75rem", marginBottom: "2rem" }}>
-          {items.map((item) => <ItemCard key={item.id} item={item} onClick={() => setSelected(item)} />)}
+          {items.map((item) => <ItemCard key={item.id} item={item} onClick={() => {}} />)}
         </div>
       )}
 
@@ -236,9 +167,7 @@ export default function ItemsPage() {
         </div>
       )}
 
-      <AnimatePresence>
-        {selected && <ItemModal item={selected} onClose={() => setSelected(null)} />}
-      </AnimatePresence>
+
 
       {/* SEO Section */}
       <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem' }}>
