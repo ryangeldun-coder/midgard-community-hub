@@ -73,6 +73,29 @@ export default function KnightGuide() {
           </div>
         </div>
 
+        {/* Gear */}
+        <div>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+            <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
+              <h4 style={{ color: "var(--ro-red)", marginBottom: "1rem" }}>Weapons & Shield</h4>
+              <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
+                <li><strong>Pike [4]</strong>: The most versatile spear. Card it with 3x Size/Race cards + 1x Elemental.</li>
+                <li><strong>Pole Axe [1]</strong>: High base damage for Lord Knights.</li>
+                <li><strong>Mirror Shield [1]</strong>: Good for magic reflection in dungeons.</li>
+              </ul>
+            </div>
+            <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
+              <h4 style={{ color: "var(--ro-red)", marginBottom: "1rem" }}>Armor & Accessories</h4>
+              <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
+                <li><strong>Full Plate [1]</strong>: Insert a <strong>Pupa Card</strong> for early HP or <strong>Marc Card</strong> for dungeons.</li>
+                <li><strong>Greaves [1]</strong>: With <strong>Matyr Card</strong> for MHP and Agi.</li>
+                <li><strong>2x Ring [1]</strong>: With <strong>Mantis Cards</strong> to reach STR breakpoints.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Pro Tip */}
         <div style={{ padding: "1.5rem", background: "#fff7ed", border: "1px solid #ffedd5", borderRadius: "16px", color: "#9a3412" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900 }}>

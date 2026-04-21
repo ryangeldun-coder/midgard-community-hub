@@ -73,6 +73,29 @@ export default function HunterGuide() {
           </div>
         </div>
 
+        {/* Gear */}
+        <div>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+            <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
+              <h4 style={{ color: "#22c55e", marginBottom: "1rem" }}>Bows & Arrows</h4>
+              <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
+                <li><strong>Gakkung [2]</strong>: The most balanced bow for leveling. Slot with <strong>Cruiser</strong> or <strong>Archer Skeleton</strong> cards.</li>
+                <li><strong>Hunter Bow</strong>: When paired with Hunting Arrows, provides a massive damage boost.</li>
+                <li><strong>Elemental Arrows</strong>: Fire, Crystal, and Stone arrows are mandatory.</li>
+              </ul>
+            </div>
+            <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
+              <h4 style={{ color: "#22c55e", marginBottom: "1rem" }}>ASPD & DEX Gear</h4>
+              <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
+                <li><strong>Tights [1]</strong>: Provides a flat +1 DEX. Card it with <strong>Rock Picker</strong> or <strong>Pupa</strong>.</li>
+                <li><strong>Muffler [1]</strong>: With <strong>Whisper Card</strong> for the crucial 20+ Flee.</li>
+                <li><strong>2x Glove [1]</strong>: With <strong>Zerom Cards</strong> to reach high DEX tiers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Pro Tip */}
         <div style={{ padding: "1.5rem", background: "#f0fdf4", border: "1px solid #dcfce7", borderRadius: "16px", color: "#166534" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900 }}>

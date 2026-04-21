@@ -73,6 +73,29 @@ export default function WizardGuide() {
           </div>
         </div>
 
+        {/* Gear */}
+        <div>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+            <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
+              <h4 style={{ color: "#3b82f6", marginBottom: "1rem" }}>Staves & Shields</h4>
+              <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
+                <li><strong>Survivor's Rod [1]</strong>: The best all-rounder. Pair with Survivor's Manteau for bonus HP.</li>
+                <li><strong>Wizardry Staff</strong>: Massive MATK boost for High Wizards.</li>
+                <li><strong>Guard [1]</strong>: With <strong>Thara Frog Card</strong> (Demi-human resistance) for PvP/War of Emperium.</li>
+              </ul>
+            </div>
+            <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
+              <h4 style={{ color: "#3b82f6", marginBottom: "1rem" }}>Armor & INT Boosts</h4>
+              <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
+                <li><strong>Mage Coat [1]</strong>: High MDEF and INT boost.</li>
+                <li><strong>Shoes [1]</strong>: With <strong>Sohee Card</strong> for max SP and SP recovery.</li>
+                <li><strong>2x Earring [1]</strong>: Essential for hitting your MATK thresholds.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Pro Tip */}
         <div style={{ padding: "1.5rem", background: "#eff6ff", border: "1px solid #dbeafe", borderRadius: "16px", color: "#1e40af" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900 }}>
