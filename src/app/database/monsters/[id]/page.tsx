@@ -35,8 +35,30 @@ export default async function MonsterPage({ params }: Props) {
 
   if (!monster) notFound();
 
+  const baseUrl = 'https://midgardhub.com';
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "GameContent",
+    "name": monster.name_en,
+    "alternateName": monster.name_zh,
+    "description": `Detailed statistics and drop table for ${monster.name_en} in Ragnarok Zero Global.`,
+    "url": `${baseUrl}/database/monsters/${id}`,
+    "image": monster.image_url,
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "HP", "value": monster.hp },
+      { "@type": "PropertyValue", "name": "Level", "value": monster.level },
+      { "@type": "PropertyValue", "name": "Element", "value": `${monster.element} (Level ${monster.element_level})` },
+      { "@type": "PropertyValue", "name": "Race", "value": monster.race },
+      { "@type": "PropertyValue", "name": "Size", "value": monster.size },
+    ]
+  };
+
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/database/monsters" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#64748b", textDecoration: "none", marginBottom: "1.5rem", fontSize: "0.9rem", fontWeight: 600 }}>
         <ChevronLeft size={16} /> Back to Monsters
       </Link>

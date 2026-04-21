@@ -37,8 +37,28 @@ export default async function MapPage({ params }: Props) {
 
   if (!map) notFound();
 
+  const baseUrl = 'https://midgardhub.com';
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": map.name_en,
+    "alternateName": map.name_zh,
+    "description": `Map and monster spawn details for ${map.name_en} in Ragnarok Zero Global.`,
+    "url": `${baseUrl}/database/maps/${id}`,
+    "publicAccess": true,
+    "containsPlace": map.monsters.map(m => ({
+      "@type": "Thing",
+      "name": m.name,
+      "url": `${baseUrl}/database/monsters/${m.id}`
+    }))
+  };
+
   return (
     <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div style={{ marginBottom: "2rem" }}>
         <Link 
           href="/database/maps" 

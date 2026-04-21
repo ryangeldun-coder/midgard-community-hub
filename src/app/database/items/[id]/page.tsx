@@ -35,8 +35,38 @@ export default async function ItemPage({ params }: Props) {
 
   if (!item) notFound();
 
+  const baseUrl = 'https://midgardhub.com';
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": item.name_en,
+    "image": item.icon_url,
+    "description": item.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "Ragnarok Zero Global"
+    },
+    "category": item.category,
+    "sku": item.id,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "price": "0",
+      "priceCurrency": "Zeny"
+    },
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Weight", "value": item.weight },
+      { "@type": "PropertyValue", "name": "Slots", "value": item.slots },
+      { "@type": "PropertyValue", "name": "Required Level", "value": item.required_level },
+    ]
+  };
+
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/database/items" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#64748b", textDecoration: "none", marginBottom: "1.5rem", fontSize: "0.9rem", fontWeight: 600 }}>
         <ChevronLeft size={16} /> Back to Items
       </Link>
