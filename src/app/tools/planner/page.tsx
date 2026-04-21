@@ -224,6 +224,13 @@ export default function PlannerPage() {
           setActiveEnchantIndex(null);
         }}
       />
+
+      {/* SEO Section */}
+      <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem' }}>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          The <strong>Ragnarok Zero Ultimate Build Planner</strong> is the most advanced character simulator designed specifically for the <strong>Ragnarok Zero Global</strong> and <strong>TWRoZ</strong> community. Our planner uses high-accuracy formulas to calculate your character's status ATK, MATK, ASPD, and cast time based on your base stats, job class, and equipped gear. Unlike generic calculators, our tool integrates the full <strong>Zero Random Option (Affix) system</strong>, allowing you to simulate best-in-slot monster drop enchants for melee weapons, bows, and magic staves. Whether you're optimizing an Archer for instant cast or a Thief for max ASPD, our <strong>shareable build URLs</strong> make it easy to collaborate with other players. Plan your path from Novice to Master with the definitive <strong>Ragnarok Zero stat and skill simulator</strong> at Midgard Community Hub.
+        </p>
+      </section>
     </main>
   );
 }
