@@ -75,22 +75,22 @@ export default function HunterGuide() {
 
         {/* Gear */}
         <div>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (TWROZ Paradise Meta)</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "#22c55e", marginBottom: "1rem" }}>Bows & Arrows</h4>
+              <h4 style={{ color: "#22c55e", marginBottom: "1rem" }}>Paradise Upgrade Path</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Gakkung [2]</strong>: The most balanced bow for leveling. Slot with <strong>Cruiser</strong> or <strong>Archer Skeleton</strong> cards.</li>
-                <li><strong>Hunter Bow</strong>: When paired with Hunting Arrows, provides a massive damage boost.</li>
-                <li><strong>Elemental Arrows</strong>: Fire, Crystal, and Stone arrows are mandatory.</li>
+                <li><strong>Eden Bow III (樂園團長弓 III)</strong>: The workhorse of the Zero Hunter. Upgrade with <strong>Critical Damage</strong> or <strong>ASPD</strong> stones.</li>
+                <li><strong>Shadow Hunter Armor (影子獵手鎧甲)</strong>: Part of the Zero Shadow Set. Increases Double Strafe damage significantly.</li>
+                <li><strong>Shadow Hunter Shoes (影子獵手戰靴)</strong>: Provides a flat ASPD boost and reduces skill animation lock.</li>
               </ul>
             </div>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "#22c55e", marginBottom: "1rem" }}>ASPD & DEX Gear</h4>
+              <h4 style={{ color: "#22c55e", marginBottom: "1rem" }}>DEX & Accuracy</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Tights [1]</strong>: Provides a flat +1 DEX. Card it with <strong>Rock Picker</strong> or <strong>Pupa</strong>.</li>
-                <li><strong>Muffler [1]</strong>: With <strong>Whisper Card</strong> for the crucial 20+ Flee.</li>
-                <li><strong>2x Glove [1]</strong>: With <strong>Zerom Cards</strong> to reach high DEX tiers.</li>
+                <li><strong>Tights [1]</strong>: The standard DEX armor. Card with <strong>Rock Picker Card</strong> for the Zero-exclusive bonuses.</li>
+                <li><strong>Hunter Bow</strong>: When paired with Hunting Arrows, it outdamages most early-game bows.</li>
+                <li><strong>2x Glove [1]</strong>: With <strong>Zerom Cards</strong> to hit the next DEX tier for damage scaling.</li>
               </ul>
             </div>
           </div>

@@ -75,22 +75,22 @@ export default function KnightGuide() {
 
         {/* Gear */}
         <div>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (TWROZ Paradise Meta)</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "var(--ro-red)", marginBottom: "1rem" }}>Weapons & Shield</h4>
+              <h4 style={{ color: "var(--ro-red)", marginBottom: "1rem" }}>Paradise Upgrade Path</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Pike [4]</strong>: The most versatile spear. Card it with 3x Size/Race cards + 1x Elemental.</li>
-                <li><strong>Pole Axe [1]</strong>: High base damage for Lord Knights.</li>
-                <li><strong>Mirror Shield [1]</strong>: Good for magic reflection in dungeons.</li>
+                <li><strong>Eden Spear III (樂園團長矛 III)</strong>: The core weapon for beginners. Upgrade with <strong>Physical ATK</strong> or <strong>Large Monster</strong> stones.</li>
+                <li><strong>Shadow Knight Armor (影子騎士鎧甲)</strong>: Part of the Zero Shadow Set. Directly increases Pierce damage and reduces SP cost.</li>
+                <li><strong>Shadow Knight Shoes (影子騎士戰靴)</strong>: Provides MHP and works with the Armor for a massive SP recovery boost.</li>
               </ul>
             </div>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "var(--ro-red)", marginBottom: "1rem" }}>Armor & Accessories</h4>
+              <h4 style={{ color: "var(--ro-red)", marginBottom: "1rem" }}>Memorial Dungeon Sets</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Full Plate [1]</strong>: Insert a <strong>Pupa Card</strong> for early HP or <strong>Marc Card</strong> for dungeons.</li>
-                <li><strong>Greaves [1]</strong>: With <strong>Matyr Card</strong> for MHP and Agi.</li>
-                <li><strong>2x Ring [1]</strong>: With <strong>Mantis Cards</strong> to reach STR breakpoints.</li>
+                <li><strong>Champion's Plate (征伐鎧甲)</strong>: From high-level Challenge dungeons. Offers top-tier DEF and STR.</li>
+                <li><strong>Conquest Manteau (征伐披肩)</strong>: Combines with the Plate for a set bonus that grants 10% resistance to all elements.</li>
+                <li><strong>Ring of Resonance [1]</strong>: For the auto-spell procs that help with leveling speed.</li>
               </ul>
             </div>
           </div>

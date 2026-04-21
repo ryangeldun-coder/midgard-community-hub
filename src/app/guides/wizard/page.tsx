@@ -75,22 +75,22 @@ export default function WizardGuide() {
 
         {/* Gear */}
         <div>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (TWROZ Paradise Meta)</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "#3b82f6", marginBottom: "1rem" }}>Staves & Shields</h4>
+              <h4 style={{ color: "#3b82f6", marginBottom: "1rem" }}>Paradise Upgrade Path</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Survivor's Rod [1]</strong>: The best all-rounder. Pair with Survivor's Manteau for bonus HP.</li>
-                <li><strong>Wizardry Staff</strong>: Massive MATK boost for High Wizards.</li>
-                <li><strong>Guard [1]</strong>: With <strong>Thara Frog Card</strong> (Demi-human resistance) for PvP/War of Emperium.</li>
+                <li><strong>Eden Staff III (樂園團長杖 III)</strong>: The primary MATK source for beginners. Upgrade with <strong>Variable Cast Reduction</strong> stones.</li>
+                <li><strong>Shadow Wizard Armor (影子巫師鎧甲)</strong>: Part of the Zero Shadow Set. Increases Storm Gust and Lord of Vermilion damage.</li>
+                <li><strong>Shadow Wizard Shoes (影子巫師戰靴)</strong>: Reduces the cast time of AoE spells when worn with the Armor.</li>
               </ul>
             </div>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "#3b82f6", marginBottom: "1rem" }}>Armor & INT Boosts</h4>
+              <h4 style={{ color: "#3b82f6", marginBottom: "1rem" }}>MATK & Survival</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Mage Coat [1]</strong>: High MDEF and INT boost.</li>
-                <li><strong>Shoes [1]</strong>: With <strong>Sohee Card</strong> for max SP and SP recovery.</li>
-                <li><strong>2x Earring [1]</strong>: Essential for hitting your MATK thresholds.</li>
+                <li><strong>Survivor's Rod [1]</strong>: High-end choice for survivability. Pair with the Survivor's Manteau.</li>
+                <li><strong>Mage Coat [1]</strong>: Found in early Zero dungeons. Provides much needed INT and MDEF.</li>
+                <li><strong>2x Earring [1]</strong>: Carded with <strong>Elder Willow</strong> or <strong>Isilla Cards</strong> for MATK and cast speed.</li>
               </ul>
             </div>
           </div>

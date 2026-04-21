@@ -75,22 +75,22 @@ export default function AssassinGuide() {
 
         {/* Gear */}
         <div>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (The Zero Meta)</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1.5rem" }}>Recommended Gear (TWROZ Paradise Meta)</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "#a855f7", marginBottom: "1rem" }}>Weapons</h4>
+              <h4 style={{ color: "#a855f7", marginBottom: "1rem" }}>Paradise Upgrade Path</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Jur [3]</strong>: The standard choice. Slot it with <strong>Skeleton Worker</strong> or <strong>Desert Wolf</strong> cards.</li>
-                <li><strong>Specialty Jur [4]</strong>: For high-end builds using size-specific cards.</li>
-                <li><strong>Katar of Piercing [2]</strong>: Excellent for high-DEF monsters.</li>
+                <li><strong>Eden Katar III (樂園團拳刃 III)</strong>: The baseline for every Zero Assassin. Upgrade with <strong>ASPD</strong> or <strong>Critical</strong> stones.</li>
+                <li><strong>Shadow Assassin Shield (影子刺客神盾)</strong>: Part of the 影子職業 set. Dramatically boosts Sonic Blow damage.</li>
+                <li><strong>Shadow Assassin Glove (影子刺客手套)</strong>: Combines with the Shield to reduce the SP consumption of burst skills.</li>
               </ul>
             </div>
             <div className="glass" style={{ padding: "1.5rem", background: "white" }}>
-              <h4 style={{ color: "#a855f7", marginBottom: "1rem" }}>Armor & Set Pieces</h4>
+              <h4 style={{ color: "#a855f7", marginBottom: "1rem" }}>Agility & Utility</h4>
               <ul style={{ fontSize: "0.9rem", color: "#475569", lineHeight: "1.8", paddingLeft: "1.2rem" }}>
-                <li><strong>Pantie + Undershirt</strong>: The classic Agi-set. Hard to beat for early-to-mid game leveling.</li>
-                <li><strong>Thief Clothes [1]</strong>: High DEF and Agi boost.</li>
-                <li><strong>2x Brooch [1]</strong>: Insert <strong>Matyr</strong> or <strong>Whisper</strong> cards in your garment for max Flee.</li>
+                <li><strong>Silent Shoes (寂靜之靴)</strong>: Zero-exclusive footwear that provides massive Flee and Agi.</li>
+                <li><strong>Infiltrator [1]</strong>: The top-tier Katar for PvP and Demi-human farming (like Orc Dungeons).</li>
+                <li><strong>2x Brooch [1]</strong>: Carded with <strong>Shinobi Card</strong> for that extra AGI and critical rate.</li>
               </ul>
             </div>
           </div>
