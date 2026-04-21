@@ -13,6 +13,7 @@ export default function PlannerPage() {
   const planner = usePlanner();
   const [activeSlot, setActiveSlot] = useState<string | null>(null);
   const [activeEnchantIndex, setActiveEnchantIndex] = useState<number | null>(null);
+  const [mobileTab, setMobileTab] = useState<"stats" | "gear" | "preview">("stats");
 
   const currentJob = JOBS[planner.jobId] || JOBS.Novice;
 
@@ -36,18 +37,76 @@ export default function PlannerPage() {
 
   return (
     <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
-      <div style={{ marginBottom: "2.5rem", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+      <style jsx>{`
+        .planner-grid {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          gap: 1.5rem;
+        }
+        .mobile-tabs {
+          display: none;
+          margin-bottom: 1.5rem;
+          background: #f1f5f9;
+          padding: 4px;
+          border-radius: 12px;
+          gap: 4px;
+        }
+        .mobile-tab-btn {
+          flex: 1;
+          padding: 10px;
+          border: none;
+          background: transparent;
+          border-radius: 8px;
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: #64748b;
+          cursor: pointer;
+        }
+        .mobile-tab-btn.active {
+          background: white;
+          color: var(--ro-red);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .planner-header {
+          margin-bottom: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+        @media (max-width: 1024px) {
+          .planner-grid {
+            display: block;
+          }
+          .column {
+            display: none;
+            grid-column: span 12 !important;
+          }
+          .column.active {
+            display: block;
+          }
+          .mobile-tabs {
+            display: flex;
+          }
+          .planner-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+          }
+        }
+      `}</style>
+
+      <div className="planner-header">
         <div>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: 800, color: "var(--ro-red)", margin: "0 0 0.5rem 0" }}>Character Simulator</h1>
-          <p style={{ color: "#64748b", margin: 0 }}>Plan your stats and equipment for Ragnarok Zero Global.</p>
+          <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 800, color: "var(--ro-red)", margin: "0 0 0.5rem 0" }}>Character Simulator</h1>
+          <p style={{ color: "#64748b", margin: 0, fontSize: "0.9rem" }}>Plan your stats and equipment for Ragnarok Zero Global.</p>
         </div>
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-          <div style={{ textAlign: "right" }}>
-            <span style={{ fontSize: "0.7rem", color: "#94a3b8", fontWeight: 800, display: "block" }}>JOB CLASS</span>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center", width: "100%", maxWidth: "300px" }}>
+          <div style={{ width: "100%" }}>
+            <span style={{ fontSize: "0.7rem", color: "#94a3b8", fontWeight: 800, display: "block", textTransform: "uppercase" }}>JOB CLASS</span>
             <select 
               value={planner.jobId}
               onChange={(e) => planner.setJobId(e.target.value)}
-              style={{ padding: "8px 12px", borderRadius: "8px", border: "1px solid #e2e8f0", fontWeight: 700, fontSize: "0.95rem", color: "#1e293b", outline: "none" }}
+              style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #e2e8f0", fontWeight: 700, fontSize: "0.95rem", color: "#1e293b", outline: "none", background: "white" }}
             >
               {Object.keys(JOBS).map(id => <option key={id} value={id}>{JOBS[id].name}</option>)}
             </select>
@@ -55,10 +114,16 @@ export default function PlannerPage() {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "1.5rem" }}>
+      <div className="mobile-tabs">
+        <button className={`mobile-tab-btn ${mobileTab === 'stats' ? 'active' : ''}`} onClick={() => setMobileTab('stats')}>STATS</button>
+        <button className={`mobile-tab-btn ${mobileTab === 'gear' ? 'active' : ''}`} onClick={() => setMobileTab('gear')}>GEAR</button>
+        <button className={`mobile-tab-btn ${mobileTab === 'preview' ? 'active' : ''}`} onClick={() => setMobileTab('preview')}>PREVIEW</button>
+      </div>
+
+      <div className="planner-grid">
         
         {/* LEFT COLUMN: STATS */}
-        <div style={{ gridColumn: "span 4" }}>
+        <div className={`column ${mobileTab === 'stats' ? 'active' : ''}`} style={{ gridColumn: "span 4" }}>
           <div style={{ background: "white", borderRadius: "20px", padding: "1.5rem", border: "1px solid #e2e8f0", boxShadow: "0 10px 30px rgba(0,0,0,0.02)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
               <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#1e293b", margin: 0 }}>BASE STATS</h2>
@@ -83,13 +148,13 @@ export default function PlannerPage() {
             </div>
 
             <div style={{ marginTop: "1.5rem", padding: "1rem", background: "#f8fafc", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", alignItems: "center" }}>
                 <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 600 }}>Base Level</span>
                 <input 
                   type="number" 
                   value={planner.level} 
                   onChange={(e) => planner.setLevel(Math.min(99, Math.max(1, parseInt(e.target.value) || 1)))}
-                  style={{ width: 60, border: "1px solid #e2e8f0", borderRadius: "6px", textAlign: "center", fontWeight: 700 }}
+                  style={{ width: 60, height: 32, border: "1px solid #e2e8f0", borderRadius: "6px", textAlign: "center", fontWeight: 700 }}
                 />
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -101,7 +166,7 @@ export default function PlannerPage() {
         </div>
 
         {/* MIDDLE COLUMN: EQUIPMENT */}
-        <div style={{ gridColumn: "span 4" }}>
+        <div className={`column ${mobileTab === 'gear' ? 'active' : ''}`} style={{ gridColumn: "span 4" }}>
           <div style={{ background: "white", borderRadius: "20px", padding: "1.5rem", border: "1px solid #e2e8f0", boxShadow: "0 10px 30px rgba(0,0,0,0.02)" }}>
             <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#1e293b", margin: "0 0 1.5rem 0" }}>EQUIPMENT</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -132,7 +197,7 @@ export default function PlannerPage() {
                       >
                         <span style={{ fontSize: "0.55rem", fontWeight: 800, color: "#94a3b8", textTransform: "uppercase" }}>Affix {i+1}</span>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          <span style={{ fontSize: "0.75rem", fontWeight: 700, color: enchant ? "var(--ro-red)" : "#cbd5e1" }}>
+                          <span style={{ fontSize: "0.75rem", fontWeight: 700, color: enchant ? "var(--ro-red)" : "#cbd5e1", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                             {enchant ? enchant.name : "None"}
                           </span>
                           {enchant && <span style={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--ro-red)" }}>{enchant.value}</span>}
@@ -153,7 +218,7 @@ export default function PlannerPage() {
         </div>
 
         {/* RIGHT COLUMN: DERIVED STATS */}
-        <div style={{ gridColumn: "span 4" }}>
+        <div className={`column ${mobileTab === 'preview' ? 'active' : ''}`} style={{ gridColumn: "span 4" }}>
           <div style={{ position: "sticky", top: "6rem" }}>
             <div style={{ background: "white", borderRadius: "20px", padding: "1.5rem", border: "1px solid #e2e8f0", boxShadow: "0 20px 50px rgba(239, 68, 68, 0.08)" }}>
               <h2 style={{ fontSize: "1rem", fontWeight: 800, color: "#1e293b", margin: "0 0 1.5rem 0" }}>CHARACTER PREVIEW</h2>
