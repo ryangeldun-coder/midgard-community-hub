@@ -25,6 +25,7 @@ const navGroups = [
     name: "Tools",
     icon: Wrench,
     items: [
+      { name: "Build Planner", href: "/tools/planner", icon: Sparkles },
       { name: "Refine", href: "/tools/refine", icon: Hammer },
       { name: "Affix", href: "/tools/affix", icon: Sparkles },
       { name: "Forge", href: "/tools/forge", icon: Wrench },

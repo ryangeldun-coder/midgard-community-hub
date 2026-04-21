@@ -60,6 +60,10 @@ export default function Home() {
           </p>
           
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '800px' }}>
+            <Link href="/tools/planner" className="btn-primary" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--ro-red)', color: 'white', border: 'none', boxShadow: '0 4px 12px rgba(174,32,18,0.2)' }}>
+              <Zap size={18} />
+              Ultimate Build Planner
+            </Link>
             <Link href="/database/monsters" className="btn-primary" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Bug size={18} />
               Monster Database
@@ -99,7 +103,7 @@ export default function Home() {
       {/* SEO Section */}
       <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9' }}>
         <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          Welcome to the <strong>Midgard Community Hub</strong>, your premier destination for everything <strong>Ragnarok Zero Global</strong>. Our platform provides an extensive database and advanced toolset (data based on <strong>TWRo Zero</strong>) featuring accurate monster stats, drop tables, and item locations translated directly into English. Whether you're looking for a <strong>refine simulator</strong> to test your luck with Zelunium and Shadowdecon, a <strong>Blacksmith forge calculator</strong> for high-level weapon crafting, or <strong>Alchemist brewing rates</strong>, our tools are designed to optimize your gameplay. Join the community led by <strong>Ryan Geldun</strong> and dive deep into the <strong>Ragnarok Online lore</strong> with our curated video archives. Stay ahead of the game with the most reliable Ragnarok Zero Global tools and information available today.
+          Welcome to the <strong>Midgard Community Hub</strong>, your premier destination for everything <strong>Ragnarok Zero Global</strong>. Our platform provides an extensive database and advanced toolset (data based on <strong>TWRo Zero</strong>) featuring the **Ultimate Build Planner** for real-time character simulation, accurate monster stats, drop tables, and item locations translated directly into English. Whether you're looking for a <strong>refine simulator</strong> to test your luck with Zelunium and Shadowdecon, a <strong>Blacksmith forge calculator</strong> for high-level weapon crafting, or <strong>Alchemist brewing rates</strong>, our tools are designed to optimize your gameplay. Join the community led by <strong>Ryan Geldun</strong> and dive deep into the <strong>Ragnarok Online lore</strong> with our curated video archives. Stay ahead of the game with the most reliable Ragnarok Zero Global tools and information available today.
         </p>
       </section>
     </main>
