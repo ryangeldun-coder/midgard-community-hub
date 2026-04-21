@@ -3,6 +3,7 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import LatestVideoPanel from "@/components/layout/LatestVideoPanel";
 
 import { Analytics } from '@vercel/analytics/next';
 
@@ -30,13 +31,14 @@ export default function RootLayout({
             borderRadius: '16px',
             boxShadow: '0 20px 50px rgba(0,0,0,0.2)',
             minHeight: '90vh',
-            display: 'flex',
+            display: 'flex', 
             flexDirection: 'column',
             overflow: 'hidden'
           }}>
             <div style={{ flexGrow: 1 }}>
               {children}
             </div>
+            <LatestVideoPanel />
             <Footer />
           </div>
         </Providers>
