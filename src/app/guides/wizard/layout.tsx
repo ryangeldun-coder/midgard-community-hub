@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wizard Elemental Master Build Guide",
+  title: "Wizard Ragnarok Zero global guide",
   description: "Master AoE leveling and elemental supremacy for Wizard in Ragnarok Zero. Strategies for Storm Gust, Heaven's Drive, and infinite SP management.",
 };
 

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Assassin Shadow Striker Build Guide",
+  title: "Assassin Ragnarok Zero global guide",
   description: "High-burst Sonic Blow and Soul Breaker specializations for Assassin in Ragnarok Zero. Includes the exclusive 'Buff Slot' AI configuration.",
 };
 
