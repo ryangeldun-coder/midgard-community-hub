@@ -10,7 +10,10 @@ import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://midgardhub.com'),
-  title: "Midgard Community Hub | Ragnarok Zero Global Database & Simulators",
+  title: {
+    default: "Midgard Community Hub | Ragnarok Zero Global Database & Simulators",
+    template: "%s | Ragnarok Zero"
+  },
   description: "The most complete Ragnarok Zero Global database (data based on TWRo Zero). Monster stats, item drops, refine simulator, forge calculator, and memorial dungeon guides.",
   keywords: ["Ragnarok Zero Global", "TWRo Zero", "Ragnarok Zero", "Monster Database", "Item Database", "Refine Simulator", "Forge Calculator", "Alchemist Brewing", "Memorial Dungeons", "Ryan Geldun", "Midgard Hub"],
 };
