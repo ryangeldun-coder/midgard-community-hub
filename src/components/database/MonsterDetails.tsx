@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { X, Zap, Shield, Flame } from "lucide-react";
 import { Monster } from "@/lib/database";
+import Link from "next/link";
 
 const ELEMENT_COLORS: Record<string, string> = {
   Fire: "#ef4444", Water: "#3b82f6", Wind: "#22c55e", Earth: "#a16207",
@@ -114,9 +115,11 @@ export default function MonsterDetails({ monster }: { monster: Monster }) {
           </h3>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
             {monster.spawns.map((spawn, i) => (
-              <span key={i} style={{ fontSize: "0.8rem", background: "#f1f5f9", color: "#475569", padding: "8px 16px", borderRadius: "10px", fontWeight: 600, border: "1px solid #e2e8f0" }}>
-                {spawn.description || spawn.map_name}
-              </span>
+              <Link key={i} href={`/database/maps/${spawn.map_name}`} style={{ textDecoration: "none" }}>
+                <span style={{ fontSize: "0.8rem", background: "#f1f5f9", color: "#475569", padding: "8px 16px", borderRadius: "10px", fontWeight: 600, border: "1px solid #e2e8f0", display: "inline-block", cursor: "pointer", transition: "all 0.2s" }} className="hover-lift">
+                  {spawn.description || spawn.map_name}
+                </span>
+              </Link>
             ))}
           </div>
         </div>

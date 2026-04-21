@@ -33,22 +33,22 @@ export async function POST(request: Request) {
       raw = await rawRes.json();
     }
     const ids = Object.keys(raw);
-
-    // Collect all Chinese names and descriptions
     const names = ids.map((id) => raw[id].name?.zh_tw || "");
     const descs = ids.map((id) => raw[id].description?.official_clean || raw[id].description?.official || "");
 
-    console.log(`[build-db] Translating ${ids.length} item names...`);
-    const namesEN = await translateAll(names, 20, 120);
+    // Collect all Chinese names and descriptions into combined blocks to prevent shifting
+    const combined = ids.map((id, i) => `${names[i]} [DESC] ${descs[i]}`);
 
-    console.log(`[build-db] Translating ${ids.length} item descriptions...`);
-    const descsEN = await translateAll(descs, 8, 200); 
+    console.log(`[build-db] Translating ${ids.length} item data blocks (Name + Desc)...`);
+    const translatedBlocks = await translateAll(combined, 10, 150);
 
     const translatedItems: Record<string, { name_en: string; description_en: string }> = {};
     ids.forEach((id, i) => {
+      const block = translatedBlocks[i] || combined[i];
+      const [nameEN, descEN] = block.split("[DESC]").map(s => s.trim());
       translatedItems[id] = {
-        name_en: namesEN[i] || names[i],
-        description_en: descsEN[i] || descs[i],
+        name_en: nameEN || names[i],
+        description_en: descEN || descs[i],
       };
     });
 

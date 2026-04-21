@@ -20,21 +20,37 @@ async function translateOne(text: string): Promise<string> {
   }
 }
 
-/** Translate many short strings in one request using ||| separator */
+/** Translate many short strings in one request using a stable separator */
 async function translateBatch(texts: string[]): Promise<string[]> {
-  const clean = texts.map((t) => t.replace(/\|\|\|/g, " "));
-  const joined = clean.join(" ||| ");
-  if (!joined.trim()) return texts;
+  if (texts.length === 0) return [];
+  if (texts.length === 1) return [await translateOne(texts[0])];
 
+  // Use a separator that Google is unlikely to mangle
+  const separator = " ___ ";
+  const joined = texts.map(t => t.replace(/___/g, " ")).join(separator);
+  
   const url = `${TRANSLATE_URL}?client=gtx&sl=zh-TW&tl=en&dt=t&q=${encodeURIComponent(joined)}`;
   try {
     const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
     const data = await res.json();
     const translated = (data[0] as any[][]).map((seg: any[]) => seg[0]).join("");
-    const parts = translated.split("|||");
-    // Pad with originals if split count doesn't match
-    return texts.map((orig, i) => parts[i]?.trim() || orig);
-  } catch {
+    
+    // Split by the separator, being flexible with whitespace
+    const parts = translated.split(/___/i).map(p => p.trim());
+    
+    if (parts.length === texts.length) {
+      return parts;
+    }
+    
+    console.warn(`[translate] Batch mismatch: expected ${texts.length}, got ${parts.length}. Falling back to individual translation.`);
+    // Fallback: translate one by one for this batch
+    const fallbacks: string[] = [];
+    for (const text of texts) {
+      fallbacks.push(await translateOne(text));
+    }
+    return fallbacks;
+  } catch (err) {
+    console.error("[translate] Batch failed:", err);
     return texts;
   }
 }
