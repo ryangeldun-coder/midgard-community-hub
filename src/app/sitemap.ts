@@ -19,6 +19,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/lore',
     '/skills',
     '/dungeons',
+    '/guides',
+    '/guides/knight',
+    '/guides/assassin',
+    '/guides/wizard',
+    '/guides/hunter',
   ];
 
   const sitemapEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
