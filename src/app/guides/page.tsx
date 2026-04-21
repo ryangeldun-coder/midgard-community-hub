@@ -12,7 +12,8 @@ const CLASS_GUIDES = [
     icon: Shield,
     color: "#ef4444",
     difficulty: "Easy",
-    tags: ["Farming", "Tank", "Infinite SP"]
+    tags: ["Farming", "Tank", "Infinite SP"],
+    comingSoon: false
   },
   {
     id: "assassin",
@@ -21,7 +22,8 @@ const CLASS_GUIDES = [
     icon: Swords,
     color: "#a855f7",
     difficulty: "Medium",
-    tags: ["DPS", "Burst", "MVP"]
+    tags: ["DPS", "Burst", "MVP"],
+    comingSoon: false
   },
   {
     id: "wizard",
@@ -30,7 +32,8 @@ const CLASS_GUIDES = [
     icon: Zap,
     color: "#3b82f6",
     difficulty: "Hard",
-    tags: ["AoE", "Elemental", "Leveling"]
+    tags: ["AoE", "Elemental", "Leveling"],
+    comingSoon: false
   },
   {
     id: "hunter",
@@ -39,7 +42,8 @@ const CLASS_GUIDES = [
     icon: Target,
     color: "#22c55e",
     difficulty: "Easy",
-    tags: ["Farming", "Ranged", "Low Cost"]
+    tags: ["Farming", "Ranged", "Low Cost"],
+    comingSoon: false
   }
 ];
 
