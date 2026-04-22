@@ -24,6 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guides/assassin',
     '/guides/wizard',
     '/guides/hunter',
+    '/tools/geoguesser',
   ];
 
   const sitemapEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
