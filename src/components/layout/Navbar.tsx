@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
   Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles,
-  Shield, Zap, Target
+  Shield, Zap, Target, Globe, Gamepad2
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,6 +35,13 @@ const navGroups = [
     ]
   },
   {
+    name: "Games",
+    icon: Gamepad2,
+    items: [
+      { name: "Midgard Scout", href: "/tools/geoguesser", icon: Globe },
+    ]
+  },
+  {
     name: "Tools",
     icon: Wrench,
     items: [
@@ -43,6 +50,7 @@ const navGroups = [
       { name: "Affix", href: "/tools/affix", icon: Sparkles },
       { name: "Forge", href: "/tools/forge", icon: Wrench },
       { name: "Brewing", href: "/tools/brewing", icon: FlaskConical },
+      { name: "Midgard Scout", href: "/tools/geoguesser", icon: Globe },
     ]
   }
 ];
