@@ -125,7 +125,7 @@ const QUIZ_DATA = [
   { id: "yuno_fild04", hint: "Ragnarok location." },
   { id: "yuno_fild08", hint: "Ragnarok location." },
   { id: "yuno_fild09", hint: "Ragnarok location." },
-];
+].filter(map => !map.id.startsWith("b_") && !map.id.endsWith("_b"));
 
 export default function GeoguesserGame({ mapPool }: GeoguesserGameProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
