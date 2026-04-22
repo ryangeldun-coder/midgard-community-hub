@@ -125,7 +125,7 @@ const QUIZ_DATA = [
   { id: "yuno_fild04", hint: "Ragnarok location." },
   { id: "yuno_fild08", hint: "Ragnarok location." },
   { id: "yuno_fild09", hint: "Ragnarok location." },
-].filter(map => !map.id.startsWith("b_") && !map.id.endsWith("_b") && !map.id.endsWith("_z"));
+].filter(map => !map.id.startsWith("b_") && !map.id.endsWith("_b") && !map.id.endsWith("_z") && !map.id.endsWith("_a"));
 
 export default function GeoguesserGame({ mapPool }: GeoguesserGameProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -139,7 +139,7 @@ export default function GeoguesserGame({ mapPool }: GeoguesserGameProps) {
   const generateOptions = (correctId: string, currentPool: string[]) => {
     // Filter the entire pool to remove easy building/interior maps and special zones
     const pool = (currentPool.length > 0 ? currentPool : ["prt_fild01", "gef_fild01", "pay_fild01", "moc_fild01", "izl_fild01"])
-      .filter(m => !m.startsWith("b_") && !m.endsWith("_b") && !m.endsWith("_z"));
+      .filter(m => !m.startsWith("b_") && !m.endsWith("_b") && !m.endsWith("_z") && !m.endsWith("_a"));
     
     // Get the base name (e.g., 'mjolnir' from 'mjolnir_11' or 'prt' from 'prt_fild01')
     const basePrefix = correctId.split("_")[0];
