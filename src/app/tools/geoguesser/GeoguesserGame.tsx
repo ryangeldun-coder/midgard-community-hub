@@ -137,7 +137,9 @@ export default function GeoguesserGame({ mapPool }: GeoguesserGameProps) {
 
   // Generate 4 options (1 correct + 3 random distractors from the pool)
   const generateOptions = (correctId: string, currentPool: string[]) => {
-    const pool = currentPool.length > 0 ? currentPool : ["prt_fild01", "gef_fild01", "pay_fild01", "moc_fild01", "izl_fild01"];
+    // Filter the entire pool to remove easy building/interior maps
+    const pool = (currentPool.length > 0 ? currentPool : ["prt_fild01", "gef_fild01", "pay_fild01", "moc_fild01", "izl_fild01"])
+      .filter(m => !m.startsWith("b_") && !m.endsWith("_b"));
     
     // Get the base name (e.g., 'mjolnir' from 'mjolnir_11' or 'prt' from 'prt_fild01')
     const basePrefix = correctId.split("_")[0];
