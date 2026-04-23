@@ -170,13 +170,6 @@ export default function Home() {
             <small>Lore & strategy guides</small>
           </div>
         </Link>
-        <Link href="/roulette" className="utility-btn">
-          <div className="u-icon"><Sparkles size={20} /></div>
-          <div className="u-text">
-            <span>Midgard Roulette</span>
-            <small>Daily inspiration</small>
-          </div>
-        </Link>
       </motion.div>
 
       <style jsx>{`
