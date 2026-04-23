@@ -137,7 +137,7 @@ export default function KnightGuide() {
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
               <h1 style={{ fontSize: "2.5rem", fontWeight: 900, color: "#1e293b", margin: 0 }}>Knight Academy</h1>
               <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.7rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
-                <Globe size={10} /> TWROZ OPTIMIZED
+                <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
             <p style={{ color: "#64748b", margin: 0, fontWeight: 600 }}>Mastering the Spear, Sword, and Shield</p>
