@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { 
   Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, 
-  Map as MapIcon, BookOpen, PenTool, Video, Sparkles, Trophy, Globe
+  Map as MapIcon, BookOpen, Youtube, Sparkles, Trophy, Globe, Search, ArrowRight
 } from "lucide-react";
 
 export default function Home() {
@@ -12,9 +12,7 @@ export default function Home() {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
@@ -24,130 +22,108 @@ export default function Home() {
   };
 
   return (
-    <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 6rem' }}>
+    <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 8rem' }}>
       {/* Hero Section */}
       <section style={{ 
         textAlign: 'center', 
-        padding: '6rem 0 4rem', 
+        padding: '8rem 0 5rem', 
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'center' 
       }}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div style={{ 
-            background: 'rgba(225, 29, 72, 0.05)', 
+            background: 'linear-gradient(90deg, rgba(225, 29, 72, 0.1) 0%, rgba(225, 29, 72, 0.02) 100%)', 
             color: 'var(--ro-red)', 
-            padding: '6px 16px', 
-            fontSize: '0.7rem', 
-            fontWeight: 800,
+            padding: '8px 20px', 
+            fontSize: '0.75rem', 
+            fontWeight: 900,
             textTransform: 'uppercase',
-            letterSpacing: '1px',
-            marginBottom: '1.5rem',
+            letterSpacing: '2px',
+            marginBottom: '2rem',
             display: 'inline-block',
-            border: '1px solid rgba(225, 29, 72, 0.2)',
-            borderRadius: '100px'
+            borderLeft: '4px solid var(--ro-red)',
+            borderRadius: '4px'
           }}>
-            The Definitive Ragnarok Zero Global Resource
+            Midgard Community Hub
           </div>
           <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
+            fontSize: 'clamp(3rem, 10vw, 5.5rem)', 
             fontWeight: 900, 
-            lineHeight: 1, 
-            marginBottom: '1.5rem',
+            lineHeight: 0.9, 
+            marginBottom: '2rem',
             color: '#0f172a',
-            letterSpacing: '-2px'
+            letterSpacing: '-3px'
           }}>
-            Master Your <br /> 
+            Master the <br /> 
             <span style={{ 
-              background: 'linear-gradient(to right, var(--ro-red), var(--ro-accent))',
+              background: 'linear-gradient(135deg, var(--ro-red) 0%, #be123c 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-            }}>Midgard Journey</span>
+            }}>Zero Frontier</span>
           </h1>
           <p style={{ 
-            fontSize: '1.1rem', 
-            color: '#64748b', 
+            fontSize: '1.25rem', 
+            color: '#475569', 
             maxWidth: '600px', 
-            margin: '0 auto 3rem',
-            lineHeight: 1.6
+            margin: '0 auto 4rem',
+            lineHeight: 1.6,
+            fontWeight: 500
           }}>
-            From veteran-verified class guides to real-time simulators and data archives. 
-            The all-in-one hub for the <strong>Ragnarok Zero</strong> community.
+            The definitive resource for <strong>Ragnarok Zero Global</strong>. 
+            High-authority guides, server-accurate databases, and master simulators.
           </p>
         </motion.div>
       </section>
 
-      {/* Main Feature Grid */}
+      {/* Primary Pillars */}
       <motion.div 
         variants={container}
         initial="hidden"
         animate="show"
         style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '1.5rem',
-          marginBottom: '4rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gap: '2rem',
+          marginBottom: '5rem'
         }}
       >
-        {/* Flagship: Academy */}
-        <motion.div variants={item} style={{ gridColumn: 'span 2' }}>
-          <Link href="/guides" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div style={{ 
-              padding: '2.5rem', 
-              background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
-              borderRadius: '24px',
-              color: 'white',
-              position: 'relative',
-              overflow: 'hidden',
-              height: '100%',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
-            }}>
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--ro-red)', fontWeight: 800, fontSize: '0.8rem', marginBottom: '1rem' }}>
-                  <Trophy size={16} /> FEATURED RESOURCE
-                </div>
-                <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.75rem' }}>Midgard Academy</h2>
-                <p style={{ opacity: 0.7, marginBottom: '1.5rem', maxWidth: '400px' }}>
-                  12 comprehensive class guides with TWROZ-optimized meta builds, gear sets, and leveling paths.
-                </p>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                  <span style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '0.7rem', fontWeight: 600 }}>All 2-2 Classes Live</span>
-                  <span style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px', fontSize: '0.7rem', fontWeight: 600 }}>100% TWROZ Meta</span>
-                </div>
+        {/* Academy Pillar */}
+        <motion.div variants={item}>
+          <Link href="/guides" style={{ textDecoration: 'none' }}>
+            <div className="pillar-card academy">
+              <div className="pillar-content">
+                <div className="pillar-tag">FEATURED</div>
+                <h3>Midgard Academy</h3>
+                <p>12-class master library with TWROZ-optimized meta builds and gear sets.</p>
+                <div className="pillar-action">Explore Academy <ArrowRight size={16} /></div>
               </div>
-              <BookOpen size={160} style={{ position: 'absolute', right: '-40px', bottom: '-40px', opacity: 0.05, color: 'white' }} />
+              <BookOpen className="pillar-icon" size={140} />
             </div>
           </Link>
         </motion.div>
 
-        {/* Simulator Card */}
+        {/* Database Pillar */}
         <motion.div variants={item}>
-          <Link href="/tools/refine" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div style={{ 
-              padding: '2rem', 
-              background: 'white', 
-              borderRadius: '24px',
-              border: '1px solid #e2e8f0',
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              transition: 'transform 0.2s'
-            }}>
-              <div style={{ width: '48px', height: '48px', background: '#fef2f2', color: 'var(--ro-red)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <Hammer size={24} />
+          <Link href="/database/monsters" style={{ textDecoration: 'none' }}>
+            <div className="pillar-card database">
+              <div className="pillar-content">
+                <div className="pillar-tag">REAL-TIME</div>
+                <h3>Global Database</h3>
+                <p>Search over 4,000 monsters, items, and maps with accurate drop rates.</p>
+                <div className="pillar-action">Browse Data <ArrowRight size={16} /></div>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.5rem', color: '#1e293b' }}>Refine Simulator</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', flexGrow: 1 }}>Test your luck with server-accurate rates for Zelunium, Shadowdecon, and Enriched ores.</p>
+              <Search className="pillar-icon" size={140} />
             </div>
           </Link>
         </motion.div>
       </motion.div>
 
-      {/* Categories Grid */}
+      {/* Utility Grid */}
       <motion.div 
         variants={container}
         initial="hidden"
@@ -155,86 +131,155 @@ export default function Home() {
         viewport={{ once: true }}
         style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
           gap: '1.5rem' 
         }}
       >
-        {/* Database Section */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h4 style={{ fontWeight: 800, fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Global Database</h4>
-          <Link href="/database/monsters" className="nav-card">
-            <Bug size={18} /> Monster Stats & Drops
-          </Link>
-          <Link href="/database/items" className="nav-card">
-            <Sword size={18} /> Item Search & Effects
-          </Link>
-          <Link href="/database/maps" className="nav-card">
-            <MapIcon size={18} /> World Maps & Spawns
-          </Link>
-        </div>
-
-        {/* Master Simulators Section */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h4 style={{ fontWeight: 800, fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Master Simulators</h4>
-          <Link href="/tools/forge" className="nav-card">
-            <Wrench size={18} /> Blacksmith Forge Rates
-          </Link>
-          <Link href="/tools/brewing" className="nav-card">
-            <FlaskConical size={18} /> Alchemist Brewing Calculator
-          </Link>
-          <Link href="/dungeons" className="nav-card">
-            <Layers size={18} /> Memorial Dungeon Guide
-          </Link>
-        </div>
-
-        {/* Creator Hub Section */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <h4 style={{ fontWeight: 800, fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Creator Hub</h4>
-          <Link href="/tools/planner" className="nav-card">
-            <PenTool size={18} /> Content & Lore Planner
-          </Link>
-          <Link href="/lore" className="nav-card">
-            <Video size={18} /> Video Archives
-          </Link>
-          <Link href="/roulette" className="nav-card">
-            <Sparkles size={18} /> Midgard Roulette
-          </Link>
-        </div>
+        <Link href="/tools/refine" className="utility-btn">
+          <div className="u-icon"><Hammer size={20} /></div>
+          <div className="u-text">
+            <span>Refine Simulator</span>
+            <small>Test your luck on +10 gear</small>
+          </div>
+        </Link>
+        <Link href="/tools/forge" className="utility-btn">
+          <div className="u-icon"><Wrench size={20} /></div>
+          <div className="u-text">
+            <span>Forge Mastery</span>
+            <small>Blacksmith success rates</small>
+          </div>
+        </Link>
+        <Link href="/tools/brewing" className="utility-btn">
+          <div className="u-icon"><FlaskConical size={20} /></div>
+          <div className="u-text">
+            <span>Alchemist Brewing</span>
+            <small>Optimal potion formulas</small>
+          </div>
+        </Link>
+        <Link href="/guides/quests" className="utility-btn">
+          <div className="u-icon"><Scroll size={20} /></div>
+          <div className="u-text">
+            <span>Epic Quest Path</span>
+            <small>Lv. 1-99 quest timeline</small>
+          </div>
+        </Link>
+        <Link href="/lore" className="utility-btn">
+          <div className="u-icon"><Youtube size={20} /></div>
+          <div className="u-text">
+            <span>Video Archives</span>
+            <small>Lore & strategy guides</small>
+          </div>
+        </Link>
+        <Link href="/roulette" className="utility-btn">
+          <div className="u-icon"><Sparkles size={20} /></div>
+          <div className="u-text">
+            <span>Midgard Roulette</span>
+            <small>Daily inspiration</small>
+          </div>
+        </Link>
       </motion.div>
 
       <style jsx>{`
-        .nav-card {
+        .pillar-card {
+          position: relative;
+          padding: 3rem;
+          border-radius: 32px;
+          color: white;
+          overflow: hidden;
+          height: 320px;
           display: flex;
           align-items: center;
-          gap: 12px;
-          padding: 1rem 1.5rem;
+          transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .pillar-card:hover {
+          transform: translateY(-10px) scale(1.02);
+        }
+        .pillar-card.academy {
+          background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .pillar-card.database {
+          background: linear-gradient(135deg, var(--ro-red) 0%, #991b1b 100%);
+        }
+        .pillar-content {
+          position: relative;
+          z-index: 2;
+          max-width: 260px;
+        }
+        .pillar-tag {
+          font-size: 0.65rem;
+          font-weight: 900;
+          letter-spacing: 1.5px;
+          opacity: 0.6;
+          margin-bottom: 1rem;
+        }
+        .pillar-card h3 {
+          font-size: 2rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+        .pillar-card p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          opacity: 0.8;
+          margin-bottom: 2rem;
+        }
+        .pillar-action {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 800;
+          font-size: 0.9rem;
+          color: white;
+        }
+        .pillar-icon {
+          position: absolute;
+          right: -20px;
+          bottom: -20px;
+          opacity: 0.1;
+          z-index: 1;
+        }
+
+        .utility-btn {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 1.5rem;
           background: white;
           border: 1px solid #e2e8f0;
-          border-radius: 16px;
+          border-radius: 24px;
           text-decoration: none;
-          color: #475569;
-          font-weight: 700;
-          font-size: 0.9rem;
+          transition: all 0.2s ease;
+        }
+        .utility-btn:hover {
+          border-color: var(--ro-red);
+          box-shadow: 0 10px 20px rgba(225, 29, 72, 0.05);
+          transform: translateY(-2px);
+        }
+        .u-icon {
+          padding: 12px;
+          background: #f8fafc;
+          border-radius: 12px;
+          color: #64748b;
           transition: all 0.2s;
         }
-        .nav-card:hover {
-          border-color: var(--ro-red);
+        .utility-btn:hover .u-icon {
+          background: rgba(225, 29, 72, 0.1);
           color: var(--ro-red);
-          transform: translateX(4px);
-          background: #fffafa;
+        }
+        .u-text span {
+          display: block;
+          font-weight: 800;
+          color: #1e293b;
+          font-size: 1rem;
+        }
+        .u-text small {
+          display: block;
+          color: #94a3b8;
+          font-size: 0.75rem;
+          font-weight: 500;
         }
       `}</style>
-
-      {/* About Section */}
-      <section style={{ marginTop: '6rem', padding: '4rem', background: '#f8fafc', borderRadius: '32px', textAlign: 'center' }}>
-        <Globe size={40} style={{ color: '#cbd5e1', marginBottom: '1.5rem' }} />
-        <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto' }}>
-          Welcome to the <strong>Midgard Community Hub</strong>, the premier destination for <strong>Ragnarok Zero Global</strong>. 
-          Powered by data from <strong>TWRo Zero</strong>, our platform offers server-accurate <strong>Refine Simulators</strong>, 
-          <strong>Blacksmith Forge Rates</strong>, and the legendary <strong>Midgard Academy</strong>. Whether you're a content creator 
-          using our <strong>Lore Planner</strong> or a player chasing the meta, we provide the tools you need to master Midgard.
-        </p>
-      </section>
     </main>
   );
 }
