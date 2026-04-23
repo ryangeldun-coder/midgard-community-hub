@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Target, Zap, Info, AlertTriangle, ExternalLink, Wind, Bird, Shield, Globe } from "lucide-react";
+import { Target, Zap, Info, AlertTriangle, ExternalLink, Wind, Bird, Shield, Globe, Flame } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
