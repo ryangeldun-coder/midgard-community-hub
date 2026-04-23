@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer, Target, ShieldPlus, Hand, Fingerprint, BookText, FlaskConical, Music } from "lucide-react";
+import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer, Target, ShieldPlus, Hand, Fingerprint, BookText, FlaskConical, Music, Scroll } from "lucide-react";
 
 const CLASS_GUIDES = [
   {
