@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { 
   Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, 
-  Map as MapIcon, BookOpen, Youtube, Sparkles, Trophy, Globe, Search, ArrowRight
+  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight
 } from "lucide-react";
 
 export default function Home() {
@@ -164,7 +164,7 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/lore" className="utility-btn">
-          <div className="u-icon"><Youtube size={20} /></div>
+          <div className="u-icon"><Video size={20} /></div>
           <div className="u-text">
             <span>Video Archives</span>
             <small>Lore & strategy guides</small>
