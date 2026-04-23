@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Assassin Ragnarok Zero global guide",
-  description: "High-burst Sonic Blow and Soul Breaker specializations for Assassin in Ragnarok Zero. Includes the exclusive 'Buff Slot' AI configuration.",
+  title: "Assassin & Assassin Cross Guide | Ragnarok Zero Global Academy",
+  description: "Master the Assassin class in Ragnarok Zero. High-burst Sonic Blow, critical hits, and Grimtooth mobbing strategies optimized for TWROZ.",
+  keywords: ["Ragnarok Zero", "Assassin Guide", "Assassin Cross Build", "Sonic Blow", "Grimtooth", "TWROZ Assassin"],
 };
 
 export default function AssassinLayout({ children }: { children: React.ReactNode }) {

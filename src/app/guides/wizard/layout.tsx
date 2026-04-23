@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wizard Ragnarok Zero global guide",
-  description: "Master AoE leveling and elemental supremacy for Wizard in Ragnarok Zero. Strategies for Storm Gust, Heaven's Drive, and infinite SP management.",
+  title: "Wizard & High Wizard Guide | Ragnarok Zero Global Academy",
+  description: "Master the Wizard class in Ragnarok Zero. Expert AoE strategies, Bolt sniping meta, and Soul Drain sustainability for TWROZ.",
+  keywords: ["Ragnarok Zero", "Wizard Guide", "High Wizard Build", "Storm Gust", "Meteor Storm", "TWROZ Wizard"],
 };
 
 export default function WizardLayout({ children }: { children: React.ReactNode }) {
