@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Target, Flame, ChevronRight, Info, AlertTriangle, ExternalLink, CloudRain, Snowflake } from "lucide-react";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Zap, Target, Flame, Info, AlertTriangle, ExternalLink, CloudRain, Snowflake, Globe } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -122,9 +123,10 @@ export default function WizardGuide() {
 
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
-      <Link href="/guides" style={{ color: "#64748b", textDecoration: "none", fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "6px", marginBottom: "2rem" }}>
-        <ChevronRight size={16} style={{ transform: "rotate(180deg)" }} /> Back to Academy
-      </Link>
+      <Breadcrumbs items={[
+        { label: "Academy", href: "/guides" },
+        { label: "Wizard Academy" }
+      ]} />
 
       <header style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem" }}>
@@ -132,7 +134,12 @@ export default function WizardGuide() {
             <Zap size={40} />
           </div>
           <div>
-            <h1 style={{ fontSize: "2.5rem", fontWeight: 900, color: "#1e293b", margin: 0 }}>Wizard Academy</h1>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+              <h1 style={{ fontSize: "2.5rem", fontWeight: 900, color: "#1e293b", margin: 0 }}>Wizard Academy</h1>
+              <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.7rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
+                <Globe size={10} /> TWROZ OPTIMIZED
+              </span>
+            </div>
             <p style={{ color: "#64748b", margin: 0, fontWeight: 600 }}>Mastering the Elements and the Meta</p>
           </div>
         </div>
