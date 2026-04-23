@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   },
   description: "The most complete Ragnarok Zero Global database (data based on TWRo Zero). Monster stats, item drops, refine simulator, forge calculator, and memorial dungeon guides.",
   keywords: ["Ragnarok Zero Global", "TWRo Zero", "Ragnarok Zero", "Monster Database", "Item Database", "Refine Simulator", "Forge Calculator", "Alchemist Brewing", "Memorial Dungeons", "Ryan Geldun", "Midgard Hub"],
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  }
 };
 
 export default function RootLayout({
