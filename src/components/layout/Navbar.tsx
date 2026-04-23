@@ -31,6 +31,8 @@ const navGroups = [
       { name: "Assassin Guide", href: "/guides/assassin", icon: Sword },
       { name: "Wizard Guide", href: "/guides/wizard", icon: Zap },
       { name: "Hunter Guide", href: "/guides/hunter", icon: Target },
+      { name: "Priest Guide", href: "/guides/priest", icon: Sparkles },
+      { name: "Blacksmith Guide", href: "/guides/blacksmith", icon: Hammer },
       { name: "Lore Archives", href: "/lore", icon: BookOpen },
     ]
   },

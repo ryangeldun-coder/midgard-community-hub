@@ -24,6 +24,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guides/assassin',
     '/guides/wizard',
     '/guides/hunter',
+    '/guides/priest',
+    '/guides/blacksmith',
     '/tools/geoguesser',
   ];
 

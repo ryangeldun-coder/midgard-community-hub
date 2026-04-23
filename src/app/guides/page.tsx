@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight } from "lucide-react";
+import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer } from "lucide-react";
 
 const CLASS_GUIDES = [
   {
@@ -43,6 +43,26 @@ const CLASS_GUIDES = [
     color: "#22c55e",
     difficulty: "Easy",
     tags: ["Farming", "Ranged", "Low Cost"],
+    comingSoon: false
+  },
+  {
+    id: "priest",
+    name: "Priest / High Priest",
+    description: "The 'Divine Engine'. 100% SP uptime for the party and high-efficiency Holy soloing.",
+    icon: Sparkles,
+    color: "#3b82f6",
+    difficulty: "Medium",
+    tags: ["Support", "Sustainability", "Holy"],
+    comingSoon: false
+  },
+  {
+    id: "blacksmith",
+    name: "Blacksmith / Mastersmith",
+    description: "The 'Golden Anvil'. Economic dominance via Greed and high-burst melee combat.",
+    icon: Hammer,
+    color: "#f59e0b",
+    difficulty: "Medium",
+    tags: ["Economy", "Melee", "Crafting"],
     comingSoon: false
   }
 ];
