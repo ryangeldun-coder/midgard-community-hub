@@ -274,52 +274,12 @@ export default function Home() {
         }
       `}</style>
 
-      {/* YouTube Conversion Section */}
-      <section style={{ 
-        marginTop: '6rem', 
-        padding: '4rem', 
-        background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
-        borderRadius: '32px', 
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
-      }}>
-        <div style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(225, 29, 72, 0.1)', color: 'var(--ro-red)', borderRadius: '16px', marginBottom: '1.5rem' }}>
-            <Video size={32} />
-          </div>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: 'white', marginBottom: '1rem', letterSpacing: '-1.5px' }}>Master Midgard on Video</h2>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2.5rem', lineHeight: '1.6' }}>
-            Join <strong>Ryan Geldun</strong> for deep-dives into TWROZ lore, meta builds, and secret farming routes. 
-            Don't miss the next conquest.
-          </p>
-          <a href="https://youtube.com/@ryangeldun" target="_blank" rel="noopener noreferrer" style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '10px', 
-            padding: '1rem 2.5rem', 
-            background: 'var(--ro-red)', 
-            color: 'white', 
-            textDecoration: 'none', 
-            borderRadius: '100px', 
-            fontWeight: 800,
-            fontSize: '1rem',
-            boxShadow: '0 10px 20px rgba(225, 29, 72, 0.3)'
-          }}>
-            Subscribe to the Journey <ArrowRight size={18} />
-          </a>
-        </div>
-        <Video size={200} style={{ position: 'absolute', right: '-40px', bottom: '-40px', opacity: 0.05, color: 'white' }} />
-      </section>
-
-      {/* About Section */}
-      <section style={{ marginTop: '2rem', padding: '4rem', background: '#f8fafc', borderRadius: '32px', textAlign: 'center' }}>
-        <Globe size={40} style={{ color: '#cbd5e1', marginBottom: '1.5rem' }} />
-        <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto' }}>
+      {/* SEO Section */}
+      <section style={{ padding: '4rem 0', borderTop: '1px solid #f1f5f9', marginTop: '4rem' }}>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           Welcome to the <strong>Midgard Community Hub</strong>, the premier destination for <strong>Ragnarok Zero Global</strong>. 
           Powered by data from <strong>TWRo Zero</strong>, our platform offers server-accurate <strong>Refine Simulators</strong>, 
-          <strong>Blacksmith Forge Rates</strong>, and the legendary <strong>Midgard Academy</strong>.
+          <strong>Blacksmith Forge Rates</strong>, and the legendary <strong>Midgard Academy</strong>. Whether you're a player chasing the meta or looking for a home on the server, we provide the tools you need to master Midgard.
         </p>
       </section>
       </main>
