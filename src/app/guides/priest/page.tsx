@@ -129,23 +129,35 @@ export default function PriestGuide() {
       ]} />
 
       <header style={{ marginBottom: "3rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem" }}>
-          <div style={{ padding: "12px", background: "rgba(59, 130, 246, 0.1)", color: "#3b82f6", borderRadius: "16px" }}>
-            <Heart size={40} />
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem", flexWrap: "wrap" }}>
+          <div style={{ padding: "12px", background: "rgba(59, 130, 246, 0.1)", color: "#3b82f6", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
+            <Heart size={32} />
           </div>
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-              <h1 style={{ fontSize: "2.5rem", fontWeight: 900, color: "#1e293b", margin: 0 }}>Priest Academy</h1>
-              <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.7rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
+          <div style={{ minWidth: "200px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Priest Academy</h1>
+              <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
                 <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
-            <p style={{ color: "#64748b", margin: 0, fontWeight: 600 }}>Mastering Support, Holy Arts, and Combat</p>
+            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Mastering Support, Holy Arts, and Combat</p>
           </div>
         </div>
 
-        {/* Build Switcher */}
-        <div style={{ display: "flex", gap: "10px", padding: "6px", background: "#f1f5f9", borderRadius: "16px", width: "fit-content" }}>
+        {/* Build Switcher - Mobile Optimized */}
+        <div style={{ 
+          display: "flex", 
+          gap: "8px", 
+          padding: "4px", 
+          background: "#f1f5f9", 
+          borderRadius: "14px", 
+          width: "100%", 
+          maxWidth: "fit-content",
+          overflowX: "auto",
+          msOverflowStyle: "none",
+          scrollbarWidth: "none",
+          WebkitOverflowScrolling: "touch"
+        }}>
           {Object.entries(BUILDS).map(([id, b]) => (
             <button
               key={id}
@@ -154,19 +166,20 @@ export default function PriestGuide() {
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
-                padding: "10px 20px",
-                borderRadius: "12px",
+                padding: "8px 16px",
+                borderRadius: "10px",
                 border: "none",
                 cursor: "pointer",
                 fontWeight: 700,
-                fontSize: "0.9rem",
+                fontSize: "0.85rem",
                 transition: "all 0.2s",
+                whiteSpace: "nowrap",
                 background: activeBuild === id ? "white" : "transparent",
                 color: activeBuild === id ? b.color : "#64748b",
                 boxShadow: activeBuild === id ? "0 4px 12px rgba(0,0,0,0.05)" : "none"
               }}
             >
-              <b.icon size={18} />
+              <b.icon size={16} />
               {b.title}
             </button>
           ))}
