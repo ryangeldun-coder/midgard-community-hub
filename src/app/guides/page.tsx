@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer, Target, ShieldPlus, Hand, Fingerprint, BookText, FlaskConical, Music, Scroll } from "lucide-react";
+import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer, Target, ShieldPlus, Hand, Fingerprint, BookText, FlaskConical, Music, Scroll, Coins } from "lucide-react";
 
 const CLASS_GUIDES = [
   {
@@ -143,37 +143,66 @@ export default function GuidesPage() {
           Master every class and conquest. High-authority TWROZ-accurate guides for the <strong>Ragnarok Zero Global</strong> meta.
         </p>
 
-        {/* Featured Quest Guide */}
-        <Link href="/guides/quests" style={{ textDecoration: 'none' }}>
-          <motion.div 
-            whileHover={{ y: -5 }}
-            style={{ 
-              maxWidth: '800px', 
-              margin: '0 auto 4rem', 
-              padding: '2rem', 
-              background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
-              borderRadius: '24px',
-              textAlign: 'left',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '2rem',
-              color: 'white',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
-            <div style={{ padding: '20px', background: 'rgba(255,255,255,0.1)', borderRadius: '20px', color: 'var(--ro-red)' }}>
-              <Scroll size={40} />
-            </div>
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <span style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--ro-red)', letterSpacing: '1px', textTransform: 'uppercase' }}>NEW & FEATURED</span>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, margin: '4px 0 8px' }}>Midgard Epic Path</h2>
-              <p style={{ margin: 0, opacity: 0.7, fontSize: '0.95rem' }}>The definitive Lv. 1-99 quest timeline. Optimize your leveling with TWROZ main story flows.</p>
-            </div>
-            <Sparkles size={120} style={{ position: 'absolute', right: '-20px', bottom: '-20px', opacity: 0.05 }} />
-          </motion.div>
-        </Link>
+        {/* Featured Guides Row */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto 4rem' }}>
+          <Link href="/guides/quests" style={{ textDecoration: 'none' }}>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              style={{ 
+                padding: '2rem', 
+                background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
+                borderRadius: '24px',
+                textAlign: 'left',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1.5rem',
+                color: 'white',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                position: 'relative',
+                overflow: 'hidden',
+                height: '100%'
+              }}
+            >
+              <div style={{ padding: '15px', background: 'rgba(255,255,255,0.1)', borderRadius: '15px', color: 'var(--ro-red)' }}>
+                <Scroll size={30} />
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 900, color: 'var(--ro-red)', letterSpacing: '1px', textTransform: 'uppercase' }}>LEVELING</span>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: '4px 0' }}>Epic Path</h2>
+                <p style={{ margin: 0, opacity: 0.6, fontSize: '0.85rem' }}>Lv. 1-99 Quest Timeline</p>
+              </div>
+            </motion.div>
+          </Link>
+
+          <Link href="/guides/farming" style={{ textDecoration: 'none' }}>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              style={{ 
+                padding: '2rem', 
+                background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
+                borderRadius: '24px',
+                textAlign: 'left',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1.5rem',
+                color: 'white',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                position: 'relative',
+                overflow: 'hidden',
+                height: '100%'
+              }}
+            >
+              <div style={{ padding: '15px', background: 'rgba(255,255,255,0.1)', borderRadius: '15px', color: '#fbbf24' }}>
+                <Coins size={30} />
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 900, color: '#fbbf24', letterSpacing: '1px', textTransform: 'uppercase' }}>ECONOMY</span>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: '4px 0' }}>Merchant Way</h2>
+                <p style={{ margin: 0, opacity: 0.6, fontSize: '0.85rem' }}>Zeny Farming Masterclass</p>
+              </div>
+            </motion.div>
+          </Link>
+        </div>
       </header>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
