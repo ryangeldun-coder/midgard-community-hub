@@ -287,7 +287,7 @@ export default function Home() {
       }}>
         <div style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(225, 29, 72, 0.1)', color: 'var(--ro-red)', borderRadius: '16px', marginBottom: '1.5rem' }}>
-            <Youtube size={32} />
+            <Video size={32} />
           </div>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: 'white', marginBottom: '1rem', letterSpacing: '-1.5px' }}>Master Midgard on Video</h2>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2.5rem', lineHeight: '1.6' }}>
@@ -310,7 +310,7 @@ export default function Home() {
             Subscribe to the Journey <ArrowRight size={18} />
           </a>
         </div>
-        <Youtube size={200} style={{ position: 'absolute', right: '-40px', bottom: '-40px', opacity: 0.05, color: 'white' }} />
+        <Video size={200} style={{ position: 'absolute', right: '-40px', bottom: '-40px', opacity: 0.05, color: 'white' }} />
       </section>
 
       {/* About Section */}
