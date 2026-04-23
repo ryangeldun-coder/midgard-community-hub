@@ -272,6 +272,8 @@ export default function Home() {
           font-size: 0.75rem;
           font-weight: 500;
         }
+      `}</style>
+
       {/* YouTube Conversion Section */}
       <section style={{ 
         marginTop: '6rem', 
