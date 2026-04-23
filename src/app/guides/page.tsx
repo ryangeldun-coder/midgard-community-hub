@@ -138,10 +138,42 @@ export default function GuidesPage() {
         >
           <BookOpen size={32} />
         </motion.div>
-        <h1 style={{ fontSize: "3.5rem", fontWeight: 800, color: "#1e293b", marginBottom: "1rem" }}>Midgard Academy</h1>
-        <p style={{ color: "#64748b", fontSize: "1.2rem", maxWidth: "700px", margin: "0 auto" }}>
-          Expert class guides, leveling paths, and meta builds curated from the global Ragnarok Zero community.
+        <h1 style={{ fontSize: "3.5rem", fontWeight: 900, color: "#1e293b", marginBottom: "1rem", letterSpacing: "-1.5px" }}>Midgard Academy</h1>
+        <p style={{ fontSize: "1.2rem", color: "#64748b", maxWidth: "700px", margin: "0 auto 3rem" }}>
+          Master every class and conquest. High-authority TWROZ-accurate guides for the <strong>Ragnarok Zero Global</strong> meta.
         </p>
+
+        {/* Featured Quest Guide */}
+        <Link href="/guides/quests" style={{ textDecoration: 'none' }}>
+          <motion.div 
+            whileHover={{ y: -5 }}
+            style={{ 
+              maxWidth: '800px', 
+              margin: '0 auto 4rem', 
+              padding: '2rem', 
+              background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
+              borderRadius: '24px',
+              textAlign: 'left',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '2rem',
+              color: 'white',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
+            <div style={{ padding: '20px', background: 'rgba(255,255,255,0.1)', borderRadius: '20px', color: 'var(--ro-red)' }}>
+              <Scroll size={40} />
+            </div>
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <span style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--ro-red)', letterSpacing: '1px', textTransform: 'uppercase' }}>NEW & FEATURED</span>
+              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, margin: '4px 0 8px' }}>Midgard Epic Path</h2>
+              <p style={{ margin: 0, opacity: 0.7, fontSize: '0.95rem' }}>The definitive Lv. 1-99 quest timeline. Optimize your leveling with TWROZ main story flows.</p>
+            </div>
+            <Sparkles size={120} style={{ position: 'absolute', right: '-20px', bottom: '-20px', opacity: 0.05 }} />
+          </motion.div>
+        </Link>
       </header>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
