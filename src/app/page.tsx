@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { 
   Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, 
-  Map as MapIcon, BookOpen, PenTool, Youtube, Sparkles, Trophy, Globe
+  Map as MapIcon, BookOpen, PenTool, Video, Sparkles, Trophy, Globe
 } from "lucide-react";
 
 export default function Home() {
@@ -194,7 +194,7 @@ export default function Home() {
             <PenTool size={18} /> Content & Lore Planner
           </Link>
           <Link href="/lore" className="nav-card">
-            <Youtube size={18} /> Video Archives
+            <Video size={18} /> Video Archives
           </Link>
           <Link href="/roulette" className="nav-card">
             <Sparkles size={18} /> Midgard Roulette
