@@ -52,19 +52,19 @@ export default function Home() {
             Midgard Community Hub
           </div>
           <h1 style={{ 
-            fontSize: 'clamp(3rem, 10vw, 5.5rem)', 
+            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
             fontWeight: 900, 
-            lineHeight: 0.9, 
+            lineHeight: 1, 
             marginBottom: '2rem',
             color: '#0f172a',
             letterSpacing: '-3px'
           }}>
-            Master the <br /> 
+            Ragnarok <br /> 
             <span style={{ 
               background: 'linear-gradient(135deg, var(--ro-red) 0%, #be123c 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-            }}>Zero Frontier</span>
+            }}>Zero Global Hub</span>
           </h1>
           <p style={{ 
             fontSize: '1.25rem', 
