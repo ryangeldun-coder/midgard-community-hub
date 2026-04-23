@@ -2,145 +2,145 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Shield, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe } from "lucide-react";
+import { ShieldPlus, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe, Flame, Heart } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const BUILDS = {
-  pierce: {
-    title: "Pierce Machine",
-    subtitle: "The Ultimate SP-Sustainable Farming Build",
-    icon: Zap,
-    color: "#ef4444",
-    overview: "In Ragnarok Zero, the Knight class is the king of sustainable farming. The 'Eternal Machine' concept focuses on stacking SP recovery and INT to use Pierce (连刺攻击) indefinitely. This is the gold standard for high-yield maps like Centipedes.",
+  gc: {
+    title: "Grand Cross Exorcist",
+    subtitle: "High-Efficiency AoE Mobber",
+    icon: Flame,
+    color: "#f87171",
+    overview: "Grand Cross (十字軍審判) is the Crusader's signature move. In Zero, this build excels at clearing Undead and Demon-filled maps like Glast Heim or Pyramid. It requires careful HP/SP management but offers top-tier leveling speed.",
     stats: [
-      { attr: "STR", val: "80-90", desc: "Main damage source. Aim for the 2-shot threshold on Centipedes." },
-      { attr: "INT", val: "40-60", desc: "The core of the build. Necessary for SP recovery thresholds." },
-      { attr: "DEX", val: "40-50", desc: "Enough to ensure 100% hit rate on target monsters." },
-      { attr: "AGI", val: "Remaining", desc: "Increased flee and faster animation for Pierce." },
+      { attr: "INT", val: "90-99", desc: "Maximizes Grand Cross damage and SP pool for sustained casting." },
+      { attr: "STR", val: "40-60", desc: "Grand Cross damage scales with both ATK and MATK." },
+      { attr: "VIT", val: "50-70", desc: "Essential to survive the self-recoil damage of Grand Cross." },
+      { attr: "DEX", val: "Remaining", desc: "Reduces cast time for faster rotations." },
     ],
     skills: [
-      { name: "Pierce (Lv. 10)", desc: "Your primary farming tool. Massive damage against Large monsters.", icon: Zap },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Essential for ASPD. Even if using a Spear, Spear Quicken is a Lord Knight skill.", icon: Shield },
+      { name: "Grand Cross (Lv. 10)", desc: "Your primary AoE tool. Deals Holy damage in a 3x3 area around you.", icon: Flame },
+      { name: "Faith (Lv. 10)", desc: "Mandatory. Increases HP and Holy resistance to mitigate self-damage.", icon: Heart },
     ],
     gear: {
       left: {
-        title: "Paradise Upgrade Path",
+        title: "The Holy Arsenal",
         items: [
-          "Eden Spear III (樂園團長矛 III): Core beginner weapon.",
-          "Shadow Knight Armor: Increases Pierce damage and reduces SP cost.",
-          "Shadow Knight Shoes: Works with Armor for massive SP recovery boost."
+          "Eden Spear III: High base ATK/MATK balance.",
+          "Excalibur: The dream weapon for INT-based damage.",
+          "Shadow Crusader Shield: Significantly reduces GC HP consumption."
         ]
       },
       right: {
-        title: "Dungeon End-Game",
+        title: "Recoil Mitigation",
         items: [
-          "Champion's Plate: Offers top-tier DEF and STR.",
-          "Conquest Manteau: Resistance to all elements.",
-          "Ring of Resonance [1]: For auto-spell leveling speed."
+          "Pupa Card Armor: Flat HP boost to survive your own skills.",
+          "Angeling Card: The ultimate (but expensive) armor to nullify GC self-damage.",
+          "Spiritual Ring: For the much-needed SP recovery."
         ]
       }
     },
-    tip: "The 'Zero' version of the Beetle Card is non-negotiable. It provides SP recovery upon defeating monsters."
+    tip: "Grand Cross hits 3 times. If a monster dies on the 1st hit, the remaining hits are wasted. Time your pulls for maximum efficiency."
   },
-  bb: {
-    title: "Bowling Bash AGI",
-    subtitle: "Fast-Paced Mob Clearing & Leveling",
+  shield: {
+    title: "Shield Reflect Tank",
+    subtitle: "The Unmovable Wall",
+    icon: ShieldPlus,
+    color: "#ef4444",
+    overview: "This build focuses on pure defense and the Reflect Shield (反射盾) skill. By mobbing large groups and letting them 'kill themselves' on your shield, you become a low-effort, high-efficiency farmer.",
+    stats: [
+      { attr: "VIT", val: "99", desc: "Maximizes your HP pool and defensive scaling." },
+      { attr: "AGI", val: "70-80", desc: "High Flee is good, but you WANT to be hit sometimes to reflect damage." },
+      { attr: "STR", val: "40-60", desc: "For carrying heavy pots and decent Shield Boomerang damage." },
+      { attr: "DEX", val: "Remaining", desc: "Ensures your Shield skills actually connect." },
+    ],
+    skills: [
+      { name: "Reflect Shield (Lv. 10)", desc: "Reflects a portion of physical damage back at the attacker.", icon: ShieldPlus },
+      { name: "Shield Boomerang (Lv. 5)", desc: "Long-range pulling tool. Damage scales with shield weight.", icon: Target },
+    ],
+    gear: {
+      left: {
+        title: "Defensive Core",
+        items: [
+          "Mirror Shield [1]: High defense and perfect for reflecting.",
+          "Cross Shield [1]: Specifically boosts Shield skill damage.",
+          "Shadow Tank Set: For maximized HP and damage reduction."
+        ]
+      },
+      right: {
+        title: "Sustainability",
+        items: [
+          "Raydric Card Cloak: 20% Neutral reduction is mandatory.",
+          "High VIT Accessories: Necklace [1] with Spore cards.",
+          "Paradise Shield: Great early-game defensive option."
+        ]
+      }
+    },
+    tip: "Shield damage is calculated by the WEIGHT of the shield, not your weapon ATK. Use the heaviest shield possible."
+  },
+  holy: {
+    title: "Holy Cross Duelist",
+    subtitle: "Single-Target Burst Hunter",
     icon: Swords,
     color: "#3b82f6",
-    overview: "This build trades spear-specialization for 2-Handed Swords. It focuses on high ASPD and the Bowling Bash (保齡球擊) skill to clear entire packs of monsters at once. Ideal for maps with high monster density.",
+    overview: "Focuses on Holy Cross (聖十字攻擊). This build is the king of 1v1 combat, especially against Shadow/Undead targets. It has much lower HP cost than Grand Cross and is safer for solo leveling.",
     stats: [
-      { attr: "AGI", val: "90-99", desc: "Maximized ASPD and Flee to survive mobbing." },
-      { attr: "STR", val: "70-80", desc: "Solid base damage for each hit of the BB collision." },
-      { attr: "DEX", val: "40-50", desc: "Critical for ensuring Bowling Bash doesn't miss mid-mob." },
-      { attr: "VIT", val: "Remaining", desc: "A little extra cushion for when you get trapped by mobs." },
+      { attr: "STR", val: "90-99", desc: "Primary damage stat for Holy Cross." },
+      { attr: "DEX", val: "50-60", desc: "Essential for hit rate and reducing cast time." },
+      { attr: "AGI", val: "50-70", desc: "Increases ASPD to spam Holy Cross faster." },
+      { attr: "INT", val: "Remaining", desc: "Improves the MATK portion of Holy Cross damage." },
     ],
     skills: [
-      { name: "Bowling Bash (Lv. 10)", desc: "The AoE king. In Zero, gutter lines are removed, making it 100% reliable for mobbing.", icon: Swords },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Mandatory for high ASPD and faster BB cast animation.", icon: Zap },
+      { name: "Holy Cross (Lv. 10)", desc: "High damage Holy strike with a chance to Blind the target.", icon: Swords },
+      { name: "Spear Quicken (Lv. 10)", desc: "Massive ASPD boost when using a Spear. Mandatory for spamming.", icon: Zap },
     ],
     gear: {
       left: {
-        title: "Swordmaster Path",
+        title: "Spear Mastery",
         items: [
-          "Eden Two-Handed Sword III: High ATK and easy to refine.",
-          "Executioner (Classic): If you can find one, the human-defense ignore is huge.",
-          "Agi Shadow Set: Boosts Flee and ASPD thresholds."
+          "Zephyrus: Wind-element spear for specialized farming.",
+          "Lance [4]: Carded with 4x Santa Poring for maximum Holy damage.",
+          "Eden Spear III: Solid all-rounder."
         ]
       },
       right: {
-        title: "Mobbing Utility",
+        title: "Burst Support",
         items: [
-          "Whisper Card: Essential +20 Flee for AGI survival.",
-          "Panty/Shirt Set: Early game AGI/Flee combo.",
-          "Brooch [1] with Kukre: To hit the 185+ ASPD ceiling."
+          "Shadow Paladin Gloves: Boosts Holy Cross damage significantly.",
+          "Agi Brooch [1]: For reaching higher ASPD tiers.",
+          "Matyr Card Shoes: For the HP/AGI balance."
         ]
       }
     },
-    tip: "Since Gutter Lines are gone in Zero, you can focus purely on positioning. Bowling Bash damage is maximized when you knock mobs into other targets, triggering the collision multiplier."
-  },
-  tank: {
-    title: "VIT Tank / WoE",
-    subtitle: "The Unstoppable Frontline Guardian",
-    icon: Users,
-    color: "#22c55e",
-    overview: "The pure VIT build is designed for group content and Guild Wars. You aren't there to kill; you are there to stay alive, soak damage, and lock down enemies with stun skills.",
-    stats: [
-      { attr: "VIT", val: "90-99", desc: "Maximized HP pool and stun immunity." },
-      { attr: "STR", val: "50-60", desc: "Enough to carry thousands of potions for long sieges." },
-      { attr: "DEX", val: "40-60", desc: "Reduces the cast time of your disruption skills." },
-      { attr: "INT", val: "Remaining", desc: "Slightly improves your magic defense (MDEF)." },
-    ],
-    skills: [
-      { name: "Provoke (Lv. 10)", desc: "Essential for peeling bosses and reducing enemy defense in PvP.", icon: AlertTriangle },
-      { name: "Endure (Lv. 10)", desc: "Keeps you moving while being hit by 20+ enemies at once.", icon: Shield },
-    ],
-    gear: {
-      left: {
-        title: "The Wall Setup",
-        items: [
-          "Stone Buckle [1]: 5% resistance to Large/Medium monsters.",
-          "Pecopeco Card Armor: +10% Maximum HP is mandatory.",
-          "Raydric Card Cloak: -20% Neutral damage resistance."
-        ]
-      },
-      right: {
-        title: "Siege Specialist",
-        items: [
-          "Marc Card: To prevent being Frozen in WoE/Dungeons.",
-          "Safety Ring: For the extra DEF/MDEF in static tanking.",
-          "Matyr Card Shoes: MHP +10% and extra AGI for movement."
-        ]
-      }
-    },
-    tip: "As a tank, your job is 'Potting.' Keep your inventory full of White Potions and bind them to a key you can spam."
+    tip: "Holy Cross damage is doubled when using a Two-Handed Spear. Always use a 2H Spear unless you absolutely need a shield."
   }
 };
 
-export default function KnightGuide() {
-  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("pierce");
+export default function CrusaderGuide() {
+  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("gc");
   const build = BUILDS[activeBuild];
 
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
       <Breadcrumbs items={[
         { label: "Academy", href: "/guides" },
-        { label: "Knight Academy" }
+        { label: "Crusader Academy" }
       ]} />
 
       <header style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem", flexWrap: "wrap" }}>
-          <div style={{ padding: "12px", background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
-            <Shield size={32} />
+          <div style={{ padding: "12px", background: "rgba(248, 113, 113, 0.1)", color: "#f87171", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
+            <ShieldPlus size={32} />
           </div>
           <div style={{ minWidth: "200px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Knight Academy</h1>
+              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Crusader Academy</h1>
               <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
                 <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
-            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Mastering the Spear, Sword, and Shield</p>
+            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>The Holy Shield and the Divine Spear</p>
           </div>
         </div>
 
@@ -218,7 +218,7 @@ export default function KnightGuide() {
           {/* Skills */}
           <div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.5rem", color: "#1e293b" }}>Priority Skills</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1rem" }}>
               {build.skills.map((s, i) => (
                 <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.5rem", background: "white", border: "1px solid #e2e8f0", borderRadius: "20px" }}>
                   <div style={{ padding: "8px", background: `${build.color}15`, color: build.color, borderRadius: "10px" }}><s.icon size={20} /></div>
@@ -255,9 +255,9 @@ export default function KnightGuide() {
           </div>
 
           {/* Pro Tip */}
-          <div style={{ padding: "1.5rem 2rem", background: "#fff7ed", border: "1px solid #ffedd5", borderRadius: "20px", color: "#9a3412" }}>
+          <div style={{ padding: "1.5rem 2rem", background: "#fef2f2", border: "1px solid #fee2e2", borderRadius: "20px", color: "#991b1b" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900, fontSize: "0.9rem" }}>
-              <AlertTriangle size={18} /> PRO VETERAN TIP
+              <AlertTriangle size={18} /> ZERO-META STRATEGY
             </div>
             <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: "1.6" }}>{build.tip}</p>
           </div>
@@ -265,7 +265,7 @@ export default function KnightGuide() {
           {/* References */}
           <footer style={{ borderTop: "1px solid #f1f5f9", paddingTop: "2rem", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.8rem", color: "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
-              Strategy synthesized from Bahamut (Gamer.com.tw) & Ragnarok Zero Veteran Community <ExternalLink size={12} />
+              Strategy synthesized from TWRoZ Knight-Crusader Forums & Game735 <ExternalLink size={12} />
             </p>
           </footer>
         </motion.section>

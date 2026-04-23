@@ -2,145 +2,145 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Shield, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe } from "lucide-react";
+import { Fingerprint, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe, Skull, Coins } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const BUILDS = {
-  pierce: {
-    title: "Pierce Machine",
-    subtitle: "The Ultimate SP-Sustainable Farming Build",
-    icon: Zap,
-    color: "#ef4444",
-    overview: "In Ragnarok Zero, the Knight class is the king of sustainable farming. The 'Eternal Machine' concept focuses on stacking SP recovery and INT to use Pierce (连刺攻击) indefinitely. This is the gold standard for high-yield maps like Centipedes.",
+  gank: {
+    title: "Gank / Steal Farmer",
+    subtitle: "The Zeny King of Zero",
+    icon: Coins,
+    color: "#9333ea",
+    overview: "This is the most popular Rogue build in TWROZ. By maximizing Gank (自動偷竊), you double your loot drops from every monster. It's the highest 'Zeny per Hour' build for solo players farming crafting materials or rare drops.",
     stats: [
-      { attr: "STR", val: "80-90", desc: "Main damage source. Aim for the 2-shot threshold on Centipedes." },
-      { attr: "INT", val: "40-60", desc: "The core of the build. Necessary for SP recovery thresholds." },
-      { attr: "DEX", val: "40-50", desc: "Enough to ensure 100% hit rate on target monsters." },
-      { attr: "AGI", val: "Remaining", desc: "Increased flee and faster animation for Pierce." },
+      { attr: "AGI", val: "90-99", desc: "Maximizes ASPD and Flee. More hits per second = more chances to Gank." },
+      { attr: "DEX", val: "60-80", desc: "Increases your Steal success rate and base damage." },
+      { attr: "STR", val: "50-70", desc: "Base damage for your rapid dagger strikes." },
+      { attr: "LUK", val: "Remaining", desc: "Slightly boosts loot quality and critical chance." },
     ],
     skills: [
-      { name: "Pierce (Lv. 10)", desc: "Your primary farming tool. Massive damage against Large monsters.", icon: Zap },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Essential for ASPD. Even if using a Spear, Spear Quicken is a Lord Knight skill.", icon: Shield },
+      { name: "Gank (Lv. 10)", desc: "Passive chance to Steal while attacking. Essential for farming.", icon: Coins },
+      { name: "Snatch (Lv. 5)", desc: "Teleports you and the target to a random spot to avoid competition.", icon: Zap },
     ],
     gear: {
       left: {
-        title: "Paradise Upgrade Path",
+        title: "The Looting Kit",
         items: [
-          "Eden Spear III (樂園團長矛 III): Core beginner weapon.",
-          "Shadow Knight Armor: Increases Pierce damage and reduces SP cost.",
-          "Shadow Knight Shoes: Works with Armor for massive SP recovery boost."
+          "Eden Dagger III: Great for early Gank leveling.",
+          "Gladius [3]: Carded with size-scaling cards for specific maps.",
+          "Shadow Rogue Armor: Significantly boosts Gank success rate."
         ]
       },
       right: {
-        title: "Dungeon End-Game",
+        title: "Survival & Speed",
         items: [
-          "Champion's Plate: Offers top-tier DEF and STR.",
-          "Conquest Manteau: Resistance to all elements.",
-          "Ring of Resonance [1]: For auto-spell leveling speed."
+          "Whisper Card Cloak: Maximize Flee to survive being mobbed.",
+          "Pantie/Shirt Combo: Cheap AGI/Flee synergy for early game.",
+          "Agi Brooch [1]: With Kukre cards for maximum ASPD."
         ]
       }
     },
-    tip: "The 'Zero' version of the Beetle Card is non-negotiable. It provides SP recovery upon defeating monsters."
+    tip: "In TWROZ, 'Snatch' is often used to steal 'Elite' mobs away from crowds. Use it to farm rare materials in peace."
   },
-  bb: {
-    title: "Bowling Bash AGI",
-    subtitle: "Fast-Paced Mob Clearing & Leveling",
+  plagiarism: {
+    title: "Copy / Plagiarism Hybrid",
+    subtitle: "Versatile Combat Master",
     icon: Swords,
-    color: "#3b82f6",
-    overview: "This build trades spear-specialization for 2-Handed Swords. It focuses on high ASPD and the Bowling Bash (保齡球擊) skill to clear entire packs of monsters at once. Ideal for maps with high monster density.",
+    color: "#a855f7",
+    overview: "Utilizes Plagiarism (抄襲) to copy skills like Bowling Bash or Triple Attack. In Zero, this build is incredibly versatile, allowing you to adapt your damage type to the map you are farming.",
     stats: [
-      { attr: "AGI", val: "90-99", desc: "Maximized ASPD and Flee to survive mobbing." },
-      { attr: "STR", val: "70-80", desc: "Solid base damage for each hit of the BB collision." },
-      { attr: "DEX", val: "40-50", desc: "Critical for ensuring Bowling Bash doesn't miss mid-mob." },
-      { attr: "VIT", val: "Remaining", desc: "A little extra cushion for when you get trapped by mobs." },
+      { attr: "STR", val: "80-90", desc: "Primary damage for copied physical skills." },
+      { attr: "AGI", val: "70-80", desc: "Reduces animation delay and provides Flee." },
+      { attr: "DEX", val: "60-70", desc: "Reduces cast time for copied skills and ensures hits." },
+      { attr: "VIT", val: "Remaining", desc: "Survivability to avoid being 1-shot before copying." },
     ],
     skills: [
-      { name: "Bowling Bash (Lv. 10)", desc: "The AoE king. In Zero, gutter lines are removed, making it 100% reliable for mobbing.", icon: Swords },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Mandatory for high ASPD and faster BB cast animation.", icon: Zap },
+      { name: "Plagiarism (Lv. 10)", desc: "Allows you to use the last skill that hit you. Permanent if you have Preserve.", icon: Swords },
+      { name: "Preserve (Lv. 1)", desc: "Crucial. Prevents your copied skill from being overwritten.", icon: Zap },
     ],
     gear: {
       left: {
-        title: "Swordmaster Path",
+        title: "Combat Arsenal",
         items: [
-          "Eden Two-Handed Sword III: High ATK and easy to refine.",
-          "Executioner (Classic): If you can find one, the human-defense ignore is huge.",
-          "Agi Shadow Set: Boosts Flee and ASPD thresholds."
+          "Damascus [2]: Indestructible dagger for high-end mobs.",
+          "Shadow Rogue Weapon: Boosts the damage of copied skills.",
+          "Eden Dagger III: Solid base for most copied physical skills."
         ]
       },
       right: {
-        title: "Mobbing Utility",
+        title: "Meta Support",
         items: [
-          "Whisper Card: Essential +20 Flee for AGI survival.",
-          "Panty/Shirt Set: Early game AGI/Flee combo.",
-          "Brooch [1] with Kukre: To hit the 185+ ASPD ceiling."
+          "Raydric Card Cloak: 20% Neutral reduction for safer tanking.",
+          "Matyr Card Shoes: HP/AGI balance for hybrid combat.",
+          "Ring [1] with Mantis Card: Extra STR for burst damage."
         ]
       }
     },
-    tip: "Since Gutter Lines are gone in Zero, you can focus purely on positioning. Bowling Bash damage is maximized when you knock mobs into other targets, triggering the collision multiplier."
+    tip: "Bowling Bash (copied from Knight) is the most popular choice for leveling. Raging Trifecta Blow is best for pure single-target DPS."
   },
-  tank: {
-    title: "VIT Tank / WoE",
-    subtitle: "The Unstoppable Frontline Guardian",
-    icon: Users,
-    color: "#22c55e",
-    overview: "The pure VIT build is designed for group content and Guild Wars. You aren't there to kill; you are there to stay alive, soak damage, and lock down enemies with stun skills.",
+  bow: {
+    title: "Bow Rogue",
+    subtitle: "Safe Ranged Specialist",
+    icon: Target,
+    color: "#3b82f6",
+    overview: "Trades melee power for safety. By using a Bow, you can kite high-damage mobs and Gank from a distance. A preferred build for dangerous dungeons like Glast Heim Chivalry.",
     stats: [
-      { attr: "VIT", val: "90-99", desc: "Maximized HP pool and stun immunity." },
-      { attr: "STR", val: "50-60", desc: "Enough to carry thousands of potions for long sieges." },
-      { attr: "DEX", val: "40-60", desc: "Reduces the cast time of your disruption skills." },
-      { attr: "INT", val: "Remaining", desc: "Slightly improves your magic defense (MDEF)." },
+      { attr: "DEX", val: "90-99", desc: "Primary damage and hit rate for Bow attacks." },
+      { attr: "AGI", val: "80-90", desc: "Maximizes ASPD for faster ranged shots." },
+      { attr: "STR", val: "30-50", desc: "Increases carry capacity for arrows and pots." },
+      { attr: "VIT", val: "Remaining", desc: "Extra HP for when mobs close the gap." },
     ],
     skills: [
-      { name: "Provoke (Lv. 10)", desc: "Essential for peeling bosses and reducing enemy defense in PvP.", icon: AlertTriangle },
-      { name: "Endure (Lv. 10)", desc: "Keeps you moving while being hit by 20+ enemies at once.", icon: Shield },
+      { name: "Vulture's Eye (Lv. 10)", desc: "Increases range and hit rate with bows.", icon: Target },
+      { name: "Double Strafe (Lv. 10)", desc: "Your primary burst tool for ranged combat.", icon: Zap },
     ],
     gear: {
       left: {
-        title: "The Wall Setup",
+        title: "Ranged Kit",
         items: [
-          "Stone Buckle [1]: 5% resistance to Large/Medium monsters.",
-          "Pecopeco Card Armor: +10% Maximum HP is mandatory.",
-          "Raydric Card Cloak: -20% Neutral damage resistance."
+          "Gakkung [2]: Classic bow for high-DEX builds.",
+          "Eden Bow III: Excellent Zero starter weapon.",
+          "Shadow Rogue Glove: Reduces SP cost of Double Strafe."
         ]
       },
       right: {
-        title: "Siege Specialist",
+        title: "Distance Support",
         items: [
-          "Marc Card: To prevent being Frozen in WoE/Dungeons.",
-          "Safety Ring: For the extra DEF/MDEF in static tanking.",
-          "Matyr Card Shoes: MHP +10% and extra AGI for movement."
+          "Apple o' Archer: The iconic +3 DEX headgear.",
+          "Gloves [1] with Zerom Cards: To hit the DEX ceiling.",
+          "Dragon Vest/Manteau: For the AGI/Flee synergy."
         ]
       }
     },
-    tip: "As a tank, your job is 'Potting.' Keep your inventory full of White Potions and bind them to a key you can spam."
+    tip: "You can Gank with a Bow! Every auto-attack has a chance to steal, making Bow Rogue a very safe way to farm expensive materials."
   }
 };
 
-export default function KnightGuide() {
-  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("pierce");
+export default function RogueGuide() {
+  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("gank");
   const build = BUILDS[activeBuild];
 
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
       <Breadcrumbs items={[
         { label: "Academy", href: "/guides" },
-        { label: "Knight Academy" }
+        { label: "Rogue Academy" }
       ]} />
 
       <header style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem", flexWrap: "wrap" }}>
-          <div style={{ padding: "12px", background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
-            <Shield size={32} />
+          <div style={{ padding: "12px", background: "rgba(147, 51, 234, 0.1)", color: "#9333ea", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
+            <Fingerprint size={32} />
           </div>
           <div style={{ minWidth: "200px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Knight Academy</h1>
+              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Rogue Academy</h1>
               <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
                 <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
-            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Mastering the Spear, Sword, and Shield</p>
+            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Master of Stealth, Theft, and Mimicry</p>
           </div>
         </div>
 
@@ -218,7 +218,7 @@ export default function KnightGuide() {
           {/* Skills */}
           <div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.5rem", color: "#1e293b" }}>Priority Skills</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1rem" }}>
               {build.skills.map((s, i) => (
                 <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.5rem", background: "white", border: "1px solid #e2e8f0", borderRadius: "20px" }}>
                   <div style={{ padding: "8px", background: `${build.color}15`, color: build.color, borderRadius: "10px" }}><s.icon size={20} /></div>
@@ -255,9 +255,9 @@ export default function KnightGuide() {
           </div>
 
           {/* Pro Tip */}
-          <div style={{ padding: "1.5rem 2rem", background: "#fff7ed", border: "1px solid #ffedd5", borderRadius: "20px", color: "#9a3412" }}>
+          <div style={{ padding: "1.5rem 2rem", background: "#f5f3ff", border: "1px solid #ddd6fe", borderRadius: "20px", color: "#5b21b6" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900, fontSize: "0.9rem" }}>
-              <AlertTriangle size={18} /> PRO VETERAN TIP
+              <AlertTriangle size={18} /> THE ZENY-MAX STRATEGY
             </div>
             <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: "1.6" }}>{build.tip}</p>
           </div>
@@ -265,7 +265,7 @@ export default function KnightGuide() {
           {/* References */}
           <footer style={{ borderTop: "1px solid #f1f5f9", paddingTop: "2rem", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.8rem", color: "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
-              Strategy synthesized from Bahamut (Gamer.com.tw) & Ragnarok Zero Veteran Community <ExternalLink size={12} />
+              Strategy synthesized from TWRoZ Rogue Meta & Gamer.com.tw Zeny Farming Guides <ExternalLink size={12} />
             </p>
           </footer>
         </motion.section>

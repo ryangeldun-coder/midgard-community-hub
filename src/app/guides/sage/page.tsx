@@ -2,145 +2,147 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Shield, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe } from "lucide-react";
+import { BookText, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe, Snowflake, Flame } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const BUILDS = {
-  pierce: {
-    title: "Pierce Machine",
-    subtitle: "The Ultimate SP-Sustainable Farming Build",
+  autospell: {
+    title: "Auto-Spell Battle Mage",
+    subtitle: "High-Speed Melee Caster",
     icon: Zap,
-    color: "#ef4444",
-    overview: "In Ragnarok Zero, the Knight class is the king of sustainable farming. The 'Eternal Machine' concept focuses on stacking SP recovery and INT to use Pierce (连刺攻击) indefinitely. This is the gold standard for high-yield maps like Centipedes.",
+    color: "#60a5fa",
+    overview: "The 'Hindsight' build is a TWROZ fan favorite. By maximizing AGI and using Auto-Spell (自動念咒), you trigger high-level Bolts while physically attacking. In Zero, this is one of the fastest solo leveling paths for Sages.",
     stats: [
-      { attr: "STR", val: "80-90", desc: "Main damage source. Aim for the 2-shot threshold on Centipedes." },
-      { attr: "INT", val: "40-60", desc: "The core of the build. Necessary for SP recovery thresholds." },
-      { attr: "DEX", val: "40-50", desc: "Enough to ensure 100% hit rate on target monsters." },
-      { attr: "AGI", val: "Remaining", desc: "Increased flee and faster animation for Pierce." },
+      { attr: "AGI", val: "90-99", desc: "Maximizes ASPD for more Bolt triggers per second." },
+      { attr: "INT", val: "70-80", desc: "Primary damage stat for your auto-casted Bolts." },
+      { attr: "DEX", val: "40-50", desc: "Ensures your physical attacks hit, which is required to trigger spells." },
+      { attr: "VIT", val: "Remaining", desc: "Survivability for close-quarters combat." },
     ],
     skills: [
-      { name: "Pierce (Lv. 10)", desc: "Your primary farming tool. Massive damage against Large monsters.", icon: Zap },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Essential for ASPD. Even if using a Spear, Spear Quicken is a Lord Knight skill.", icon: Shield },
+      { name: "Auto-Spell (Lv. 10)", desc: "Triggers a selected spell when physically attacking.", icon: Zap },
+      { name: "Free Cast (Lv. 10)", desc: "Mandatory. Allows you to move and attack while casting or proccing.", icon: Swords },
     ],
     gear: {
       left: {
-        title: "Paradise Upgrade Path",
+        title: "The Battle Tome",
         items: [
-          "Eden Spear III (樂園團長矛 III): Core beginner weapon.",
-          "Shadow Knight Armor: Increases Pierce damage and reduces SP cost.",
-          "Shadow Knight Shoes: Works with Armor for massive SP recovery boost."
+          "Eden Book III: Great base MATK and ASPD for starters.",
+          "Sage's Diary [2]: The BiS weapon for ASPD-based casters.",
+          "Shadow Sage Shield: Significantly increases Auto-Spell damage."
         ]
       },
       right: {
-        title: "Dungeon End-Game",
+        title: "Speed & Damage",
         items: [
-          "Champion's Plate: Offers top-tier DEF and STR.",
-          "Conquest Manteau: Resistance to all elements.",
-          "Ring of Resonance [1]: For auto-spell leveling speed."
+          "Siroma Card Accessories: Essential if using Cold Bolt as your primary spell.",
+          "Imp Card Accessories: Essential if using Fire Bolt.",
+          "Agi Brooch [1]: With Kukre cards for speed."
         ]
       }
     },
-    tip: "The 'Zero' version of the Beetle Card is non-negotiable. It provides SP recovery upon defeating monsters."
+    tip: "Always match your Endow to your Auto-Spell. If you're proccing Fire Bolts, use Flame Gland to imbue your book with Fire for double efficiency."
   },
-  bb: {
-    title: "Bowling Bash AGI",
-    subtitle: "Fast-Paced Mob Clearing & Leveling",
-    icon: Swords,
-    color: "#3b82f6",
-    overview: "This build trades spear-specialization for 2-Handed Swords. It focuses on high ASPD and the Bowling Bash (保齡球擊) skill to clear entire packs of monsters at once. Ideal for maps with high monster density.",
+  support: {
+    title: "Elemental Endow Master",
+    subtitle: "The Party's Secret Weapon",
+    icon: Flame,
+    color: "#f87171",
+    overview: "This build is the backbone of TWROZ dungeon parties. By providing elemental Endows and using Deluge/Volcano/Whirlwind, you amplify the entire party's damage by up to 50%.",
     stats: [
-      { attr: "AGI", val: "90-99", desc: "Maximized ASPD and Flee to survive mobbing." },
-      { attr: "STR", val: "70-80", desc: "Solid base damage for each hit of the BB collision." },
-      { attr: "DEX", val: "40-50", desc: "Critical for ensuring Bowling Bash doesn't miss mid-mob." },
-      { attr: "VIT", val: "Remaining", desc: "A little extra cushion for when you get trapped by mobs." },
+      { attr: "INT", val: "90-99", desc: "Maximizes your SP pool for constant buffing and SP Transfer." },
+      { attr: "DEX", val: "80-90", desc: "Reduces the cast time of long-duration field spells." },
+      { attr: "VIT", val: "60-70", desc: "Essential for surviving high-end dungeons while supporting." },
+      { attr: "STR", val: "Remaining", desc: "Increases carry capacity for elemental stones (Glands/Ores)." },
     ],
     skills: [
-      { name: "Bowling Bash (Lv. 10)", desc: "The AoE king. In Zero, gutter lines are removed, making it 100% reliable for mobbing.", icon: Swords },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Mandatory for high ASPD and faster BB cast animation.", icon: Zap },
+      { name: "Flame/Frost/Lightning Endow (Lv. 5)", desc: "Imbues a party member's weapon with an element.", icon: Flame },
+      { name: "Deluge/Volcano/Whirlwind (Lv. 5)", desc: "Field spells that boost elemental damage and enable specific skills.", icon: Snowflake },
     ],
     gear: {
       left: {
-        title: "Swordmaster Path",
+        title: "Support Kit",
         items: [
-          "Eden Two-Handed Sword III: High ATK and easy to refine.",
-          "Executioner (Classic): If you can find one, the human-defense ignore is huge.",
-          "Agi Shadow Set: Boosts Flee and ASPD thresholds."
+          "Survival Rod [1]: High INT and HP boost for survivability.",
+          "Shadow Sage Armor: Reduces the cost of elemental stones.",
+          "Bible [2]: For stacking defensive cards like Andre Egg."
         ]
       },
       right: {
-        title: "Mobbing Utility",
+        title: "Sustainability",
         items: [
-          "Whisper Card: Essential +20 Flee for AGI survival.",
-          "Panty/Shirt Set: Early game AGI/Flee combo.",
-          "Brooch [1] with Kukre: To hit the 185+ ASPD ceiling."
+          "Spiritual Ring: Mandatory for SP recovery and INT.",
+          "Raydric Card Cloak: Standard defensive requirement.",
+          "Phen Card: Ensures your field spells aren't interrupted."
         ]
       }
     },
-    tip: "Since Gutter Lines are gone in Zero, you can focus purely on positioning. Bowling Bash damage is maximized when you knock mobs into other targets, triggering the collision multiplier."
+    tip: "You can sell Endows in town! In TWROZ, Sages often set up shop near dungeon entrances to buff players for a fee."
   },
-  tank: {
-    title: "VIT Tank / WoE",
-    subtitle: "The Unstoppable Frontline Guardian",
+  pvp: {
+    title: "Spell Breaker Control",
+    subtitle: "The Anti-Magic Specialist",
     icon: Users,
-    color: "#22c55e",
-    overview: "The pure VIT build is designed for group content and Guild Wars. You aren't there to kill; you are there to stay alive, soak damage, and lock down enemies with stun skills.",
+    color: "#3b82f6",
+    overview: "The most feared Sage build in WoE and PVP. You focus on shutting down enemy Wizards and Priests using Spell Breaker, Dispell, and Land Protector.",
     stats: [
-      { attr: "VIT", val: "90-99", desc: "Maximized HP pool and stun immunity." },
-      { attr: "STR", val: "50-60", desc: "Enough to carry thousands of potions for long sieges." },
-      { attr: "DEX", val: "40-60", desc: "Reduces the cast time of your disruption skills." },
-      { attr: "INT", val: "Remaining", desc: "Slightly improves your magic defense (MDEF)." },
+      { attr: "VIT", val: "90-99", desc: "Survivability is your only priority. You can't control if you're dead." },
+      { attr: "DEX", val: "90-99", desc: "Reduces cast time of Dispell and Land Protector to near-instant." },
+      { attr: "INT", val: "40-60", desc: "SP pool for sustained spell breaking." },
+      { attr: "AGI", val: "Remaining", desc: "Increases Flee to avoid physical attackers." },
     ],
     skills: [
-      { name: "Provoke (Lv. 10)", desc: "Essential for peeling bosses and reducing enemy defense in PvP.", icon: AlertTriangle },
-      { name: "Endure (Lv. 10)", desc: "Keeps you moving while being hit by 20+ enemies at once.", icon: Shield },
+      { name: "Dispell (Lv. 5)", desc: "Removes all buffs from the target. The ultimate control tool.", icon: Users },
+      { name: "Land Protector (Lv. 5)", desc: "Creates a zone where no ground-targeted magic can be cast.", icon: Shield },
     ],
     gear: {
       left: {
-        title: "The Wall Setup",
+        title: "Control Gear",
         items: [
-          "Stone Buckle [1]: 5% resistance to Large/Medium monsters.",
-          "Pecopeco Card Armor: +10% Maximum HP is mandatory.",
-          "Raydric Card Cloak: -20% Neutral damage resistance."
+          "Combat Knife: 10% reduction from Demi-humans (BiS for PVP).",
+          "Shadow Sage Glove: Increases the success rate of Dispell.",
+          "Valkyrian Shield [1]: With Thara Frog card."
         ]
       },
       right: {
-        title: "Siege Specialist",
+        title: "Defensive Meta",
         items: [
-          "Marc Card: To prevent being Frozen in WoE/Dungeons.",
-          "Safety Ring: For the extra DEF/MDEF in static tanking.",
-          "Matyr Card Shoes: MHP +10% and extra AGI for movement."
+          "Marc Card Armor: Immunity to Frozen status is mandatory.",
+          "Feather Beret: 10% Demi-human reduction.",
+          "High VIT Accessories: To resist Stun and other status effects."
         ]
       }
     },
-    tip: "As a tank, your job is 'Potting.' Keep your inventory full of White Potions and bind them to a key you can spam."
+    tip: "Use 'Spell Breaker' on enemy casters with long cast times (like Wizards). It not only stops them but drains their SP."
   }
 };
 
-export default function KnightGuide() {
-  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("pierce");
+import { Shield } from "lucide-react"; // Double check
+
+export default function SageGuide() {
+  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("autospell");
   const build = BUILDS[activeBuild];
 
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
       <Breadcrumbs items={[
         { label: "Academy", href: "/guides" },
-        { label: "Knight Academy" }
+        { label: "Sage Academy" }
       ]} />
 
       <header style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem", flexWrap: "wrap" }}>
-          <div style={{ padding: "12px", background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
-            <Shield size={32} />
+          <div style={{ padding: "12px", background: "rgba(96, 165, 250, 0.1)", color: "#60a5fa", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
+            <BookText size={32} />
           </div>
           <div style={{ minWidth: "200px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Knight Academy</h1>
+              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Sage Academy</h1>
               <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
                 <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
-            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Mastering the Spear, Sword, and Shield</p>
+            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Master of Elements and Magic Control</p>
           </div>
         </div>
 
@@ -218,7 +220,7 @@ export default function KnightGuide() {
           {/* Skills */}
           <div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.5rem", color: "#1e293b" }}>Priority Skills</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1rem" }}>
               {build.skills.map((s, i) => (
                 <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.5rem", background: "white", border: "1px solid #e2e8f0", borderRadius: "20px" }}>
                   <div style={{ padding: "8px", background: `${build.color}15`, color: build.color, borderRadius: "10px" }}><s.icon size={20} /></div>
@@ -255,9 +257,9 @@ export default function KnightGuide() {
           </div>
 
           {/* Pro Tip */}
-          <div style={{ padding: "1.5rem 2rem", background: "#fff7ed", border: "1px solid #ffedd5", borderRadius: "20px", color: "#9a3412" }}>
+          <div style={{ padding: "1.5rem 2rem", background: "#eff6ff", border: "1px solid #dbeafe", borderRadius: "20px", color: "#1e40af" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900, fontSize: "0.9rem" }}>
-              <AlertTriangle size={18} /> PRO VETERAN TIP
+              <AlertTriangle size={18} /> THE ELEMENTAL EDGE
             </div>
             <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: "1.6" }}>{build.tip}</p>
           </div>
@@ -265,7 +267,7 @@ export default function KnightGuide() {
           {/* References */}
           <footer style={{ borderTop: "1px solid #f1f5f9", paddingTop: "2rem", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.8rem", color: "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
-              Strategy synthesized from Bahamut (Gamer.com.tw) & Ragnarok Zero Veteran Community <ExternalLink size={12} />
+              Strategy synthesized from TWRoZ Sage Meta & Gamer.com.tw Elemental Guides <ExternalLink size={12} />
             </p>
           </footer>
         </motion.section>

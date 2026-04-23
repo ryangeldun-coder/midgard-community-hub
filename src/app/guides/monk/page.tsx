@@ -2,145 +2,147 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Shield, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe } from "lucide-react";
+import { Hand, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe, Flame, Heart } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const BUILDS = {
-  pierce: {
-    title: "Pierce Machine",
-    subtitle: "The Ultimate SP-Sustainable Farming Build",
-    icon: Zap,
-    color: "#ef4444",
-    overview: "In Ragnarok Zero, the Knight class is the king of sustainable farming. The 'Eternal Machine' concept focuses on stacking SP recovery and INT to use Pierce (连刺攻击) indefinitely. This is the gold standard for high-yield maps like Centipedes.",
+  asura: {
+    title: "Asura Strike BOSS Hunter",
+    subtitle: "The Ultimate MVP Finisher",
+    icon: Flame,
+    color: "#60a5fa",
+    overview: "This is the definitive TWROZ Monk build for MVP contests. By maximizing STR and SP, you deal a single catastrophic hit that can bypass most BOSS-tier defenses. In Zero, this is your primary role in high-end guilds.",
     stats: [
-      { attr: "STR", val: "80-90", desc: "Main damage source. Aim for the 2-shot threshold on Centipedes." },
-      { attr: "INT", val: "40-60", desc: "The core of the build. Necessary for SP recovery thresholds." },
-      { attr: "DEX", val: "40-50", desc: "Enough to ensure 100% hit rate on target monsters." },
-      { attr: "AGI", val: "Remaining", desc: "Increased flee and faster animation for Pierce." },
+      { attr: "STR", val: "99", desc: "Pure physical power. Every point counts for the Asura multiplier." },
+      { attr: "INT", val: "70-80", desc: "Increases your SP pool. Asura damage scales directly with current SP." },
+      { attr: "DEX", val: "50-60", desc: "Reduces the cast time of Spirit Sphere calls and Asura itself." },
+      { attr: "VIT", val: "Remaining", desc: "Survivability to withstand MVP AoE attacks." },
     ],
     skills: [
-      { name: "Pierce (Lv. 10)", desc: "Your primary farming tool. Massive damage against Large monsters.", icon: Zap },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Essential for ASPD. Even if using a Spear, Spear Quicken is a Lord Knight skill.", icon: Shield },
+      { name: "Asura Strike (Lv. 10)", desc: "Consumes all SP and Spirit Spheres for a massive single strike.", icon: Flame },
+      { name: "Mental Sensing (Lv. 5)", desc: "Crucial for survival. Sets DEF/MDEF to 90 at the cost of movement.", icon: Shield },
     ],
     gear: {
       left: {
-        title: "Paradise Upgrade Path",
+        title: "The Burst Kit",
         items: [
-          "Eden Spear III (樂園團長矛 III): Core beginner weapon.",
-          "Shadow Knight Armor: Increases Pierce damage and reduces SP cost.",
-          "Shadow Knight Shoes: Works with Armor for massive SP recovery boost."
+          "Eden Mace III: Great base damage for early Asura.",
+          "Stunner [2]: Carded with Abysmal Knight for Boss damage.",
+          "Shadow Monk Glove: Reduces SP consumption of Spirit skills."
         ]
       },
       right: {
-        title: "Dungeon End-Game",
+        title: "SP Maximization",
         items: [
-          "Champion's Plate: Offers top-tier DEF and STR.",
-          "Conquest Manteau: Resistance to all elements.",
-          "Ring of Resonance [1]: For auto-spell leveling speed."
+          "Spiritual Ring: The BiS accessory for SP-based Monks.",
+          "Sohee Card Shoes: 15% Max SP boost is mandatory.",
+          "Morpheus Set: For the massive flat SP and INT bonuses."
         ]
       }
     },
-    tip: "The 'Zero' version of the Beetle Card is non-negotiable. It provides SP recovery upon defeating monsters."
+    tip: "Always use 'Dangerous Soul Collect' (Quest Skill) to summon all 5 spheres instantly. Never manually summon spheres in a boss fight."
   },
-  bb: {
-    title: "Bowling Bash AGI",
-    subtitle: "Fast-Paced Mob Clearing & Leveling",
+  combo: {
+    title: "Combo Leveling Specialist",
+    subtitle: "Sustained Melee DPS",
     icon: Swords,
-    color: "#3b82f6",
-    overview: "This build trades spear-specialization for 2-Handed Swords. It focuses on high ASPD and the Bowling Bash (保齡球擊) skill to clear entire packs of monsters at once. Ideal for maps with high monster density.",
+    color: "#a855f7",
+    overview: "The Combo Monk is a leveling machine in TWROZ. By chaining Triple Attack, Chain Combo, and Finish Combo, you can down high-HP mobs with minimal SP consumption. Perfect for farming Orc Lady or Magma Dungeon.",
     stats: [
-      { attr: "AGI", val: "90-99", desc: "Maximized ASPD and Flee to survive mobbing." },
-      { attr: "STR", val: "70-80", desc: "Solid base damage for each hit of the BB collision." },
-      { attr: "DEX", val: "40-50", desc: "Critical for ensuring Bowling Bash doesn't miss mid-mob." },
-      { attr: "VIT", val: "Remaining", desc: "A little extra cushion for when you get trapped by mobs." },
+      { attr: "AGI", val: "90-99", desc: "Maximized ASPD to trigger Triple Attack more frequently." },
+      { attr: "STR", val: "70-80", desc: "Base damage for your combo strikes." },
+      { attr: "DEX", val: "40-50", desc: "Ensures you never miss your target during a chain." },
+      { attr: "LUK", val: "Remaining", desc: "Increases critical rate and small ATK bonus." },
     ],
     skills: [
-      { name: "Bowling Bash (Lv. 10)", desc: "The AoE king. In Zero, gutter lines are removed, making it 100% reliable for mobbing.", icon: Swords },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Mandatory for high ASPD and faster BB cast animation.", icon: Zap },
+      { name: "Triple Attack (Lv. 10)", desc: "Passive chance to deal a 3-hit strike and start a combo.", icon: Swords },
+      { name: "Finish Combo (Lv. 5)", desc: "The final heavy strike in your combo chain.", icon: Zap },
     ],
     gear: {
       left: {
-        title: "Swordmaster Path",
+        title: "Speed Gear",
         items: [
-          "Eden Two-Handed Sword III: High ATK and easy to refine.",
-          "Executioner (Classic): If you can find one, the human-defense ignore is huge.",
-          "Agi Shadow Set: Boosts Flee and ASPD thresholds."
+          "Waghnak [4]: For stacking ASPD or elemental cards.",
+          "Eden Knuckle III: Balanced damage and speed for Zero leveling.",
+          "Shadow AGI Set: To hit the 185+ ASPD ceiling."
         ]
       },
       right: {
-        title: "Mobbing Utility",
+        title: "Proccing Tools",
         items: [
-          "Whisper Card: Essential +20 Flee for AGI survival.",
-          "Panty/Shirt Set: Early game AGI/Flee combo.",
-          "Brooch [1] with Kukre: To hit the 185+ ASPD ceiling."
+          "Pantie/Shirt Combo: Cheap Flee and AGI for early game.",
+          "Whisper Card: Essential for Flee-based survival.",
+          "Agi Brooch [1]: With Kukre Card."
         ]
       }
     },
-    tip: "Since Gutter Lines are gone in Zero, you can focus purely on positioning. Bowling Bash damage is maximized when you knock mobs into other targets, triggering the collision multiplier."
+    tip: "In TWROZ, specific Shadow Gear can auto-cast 'Call Spirits'. This is a game-changer for Combo monks—get it as early as possible."
   },
-  tank: {
-    title: "VIT Tank / WoE",
-    subtitle: "The Unstoppable Frontline Guardian",
-    icon: Users,
-    color: "#22c55e",
-    overview: "The pure VIT build is designed for group content and Guild Wars. You aren't there to kill; you are there to stay alive, soak damage, and lock down enemies with stun skills.",
+  spirit: {
+    title: "Spirit Sphere Sniper",
+    subtitle: "Ranged Tactical Combat",
+    icon: Target,
+    color: "#3b82f6",
+    overview: "A niche but powerful TWROZ meta. By using Spirit Sphere Absorption and Finger Offensive, you become a ranged physical caster. Excellent for sniping high-DEF targets from safety.",
     stats: [
-      { attr: "VIT", val: "90-99", desc: "Maximized HP pool and stun immunity." },
-      { attr: "STR", val: "50-60", desc: "Enough to carry thousands of potions for long sieges." },
-      { attr: "DEX", val: "40-60", desc: "Reduces the cast time of your disruption skills." },
-      { attr: "INT", val: "Remaining", desc: "Slightly improves your magic defense (MDEF)." },
+      { attr: "STR", val: "90-99", desc: "Primary damage for Finger Offensive." },
+      { attr: "DEX", val: "80-90", desc: "Critical for reducing Finger Offensive cast time." },
+      { attr: "INT", val: "40-50", desc: "Increases your SP pool for constant skill spam." },
+      { attr: "VIT", val: "Remaining", desc: "Survivability for dungeon crawling." },
     ],
     skills: [
-      { name: "Provoke (Lv. 10)", desc: "Essential for peeling bosses and reducing enemy defense in PvP.", icon: AlertTriangle },
-      { name: "Endure (Lv. 10)", desc: "Keeps you moving while being hit by 20+ enemies at once.", icon: Shield },
+      { name: "Finger Offensive (Lv. 5)", desc: "Launches spirit spheres at a distance. Damage scales with spheres.", icon: Target },
+      { name: "Spirit Sphere Absorption (Lv. 1)", desc: "Recover SP by absorbing spheres from yourself or enemies.", icon: Zap },
     ],
     gear: {
       left: {
-        title: "The Wall Setup",
+        title: "Ranged Arsenal",
         items: [
-          "Stone Buckle [1]: 5% resistance to Large/Medium monsters.",
-          "Pecopeco Card Armor: +10% Maximum HP is mandatory.",
-          "Raydric Card Cloak: -20% Neutral damage resistance."
+          "Iron Fist: Boosts the damage of sphere-based attacks.",
+          "Eden Mace III: Solid base for Finger Offensive damage.",
+          "Shadow Monk Armor: Reduces cast delay for Finger Offensive."
         ]
       },
       right: {
-        title: "Siege Specialist",
+        title: "Cast Time Gear",
         items: [
-          "Marc Card: To prevent being Frozen in WoE/Dungeons.",
-          "Safety Ring: For the extra DEF/MDEF in static tanking.",
-          "Matyr Card Shoes: MHP +10% and extra AGI for movement."
+          "Gloves [1] with Zerom Cards: To maximize DEX.",
+          "Apple o' Archer: For the +3 DEX headgear slot.",
+          "Phen Card: Essential so your Finger Offensive isn't interrupted."
         ]
       }
     },
-    tip: "As a tank, your job is 'Potting.' Keep your inventory full of White Potions and bind them to a key you can spam."
+    tip: "Use 'Spirit Sphere Absorption' on monsters that summon spheres (like other Monks) to steal their SP in PVP or specific dungeons."
   }
 };
 
-export default function KnightGuide() {
-  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("pierce");
+import { Shield } from "lucide-react"; // Cross-check
+
+export default function MonkGuide() {
+  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("asura");
   const build = BUILDS[activeBuild];
 
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
       <Breadcrumbs items={[
         { label: "Academy", href: "/guides" },
-        { label: "Knight Academy" }
+        { label: "Monk Academy" }
       ]} />
 
       <header style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem", flexWrap: "wrap" }}>
-          <div style={{ padding: "12px", background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
-            <Shield size={32} />
+          <div style={{ padding: "12px", background: "rgba(96, 165, 250, 0.1)", color: "#60a5fa", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
+            <Hand size={32} />
           </div>
           <div style={{ minWidth: "200px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Knight Academy</h1>
+              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Monk Academy</h1>
               <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
                 <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
-            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Mastering the Spear, Sword, and Shield</p>
+            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>The Fist of Light and the Spirit Sphere</p>
           </div>
         </div>
 
@@ -218,7 +220,7 @@ export default function KnightGuide() {
           {/* Skills */}
           <div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.5rem", color: "#1e293b" }}>Priority Skills</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1rem" }}>
               {build.skills.map((s, i) => (
                 <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.5rem", background: "white", border: "1px solid #e2e8f0", borderRadius: "20px" }}>
                   <div style={{ padding: "8px", background: `${build.color}15`, color: build.color, borderRadius: "10px" }}><s.icon size={20} /></div>
@@ -255,9 +257,9 @@ export default function KnightGuide() {
           </div>
 
           {/* Pro Tip */}
-          <div style={{ padding: "1.5rem 2rem", background: "#fff7ed", border: "1px solid #ffedd5", borderRadius: "20px", color: "#9a3412" }}>
+          <div style={{ padding: "1.5rem 2rem", background: "#eff6ff", border: "1px solid #dbeafe", borderRadius: "20px", color: "#1e40af" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900, fontSize: "0.9rem" }}>
-              <AlertTriangle size={18} /> PRO VETERAN TIP
+              <AlertTriangle size={18} /> TWROZ-SPECIFIC TIP
             </div>
             <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: "1.6" }}>{build.tip}</p>
           </div>
@@ -265,7 +267,7 @@ export default function KnightGuide() {
           {/* References */}
           <footer style={{ borderTop: "1px solid #f1f5f9", paddingTop: "2rem", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.8rem", color: "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
-              Strategy synthesized from Bahamut (Gamer.com.tw) & Ragnarok Zero Veteran Community <ExternalLink size={12} />
+              Strategy synthesized from TWRoZ Monk Meta & Gamer.com.tw Veteran Threads <ExternalLink size={12} />
             </p>
           </footer>
         </motion.section>

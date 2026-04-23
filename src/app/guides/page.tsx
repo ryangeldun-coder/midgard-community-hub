@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer } from "lucide-react";
+import { BookOpen, Swords, Shield, Zap, Sparkles, ChevronRight, Hammer, Target, ShieldPlus, Hand, Fingerprint, BookText, FlaskConical, Music } from "lucide-react";
 
 const CLASS_GUIDES = [
   {
@@ -16,6 +16,16 @@ const CLASS_GUIDES = [
     comingSoon: false
   },
   {
+    id: "crusader",
+    name: "Crusader / Paladin",
+    description: "The Holy Guardian. Reflect damage and protect your party with unmatched survivability.",
+    icon: ShieldPlus,
+    color: "#f87171",
+    difficulty: "Medium",
+    tags: ["Tank", "Reflect", "Holy"],
+    comingSoon: false
+  },
+  {
     id: "assassin",
     name: "Assassin / Assassin Cross",
     description: "High-burst Sonic Blow and Soul Breaker specializations for rapid MVP hunting.",
@@ -23,6 +33,16 @@ const CLASS_GUIDES = [
     color: "#a855f7",
     difficulty: "Medium",
     tags: ["DPS", "Burst", "MVP"],
+    comingSoon: false
+  },
+  {
+    id: "rogue",
+    name: "Rogue / Stalker",
+    description: "The Master of Stealth. Steal loot and copy skills with the versatile Gank meta.",
+    icon: Fingerprint,
+    color: "#9333ea",
+    difficulty: "Medium",
+    tags: ["Stealth", "Loot", "Versatility"],
     comingSoon: false
   },
   {
@@ -36,6 +56,16 @@ const CLASS_GUIDES = [
     comingSoon: false
   },
   {
+    id: "sage",
+    name: "Sage / Scholar",
+    description: "The Elemental Controller. Counter magic and enchant weapons for the ultimate party support.",
+    icon: BookText,
+    color: "#60a5fa",
+    difficulty: "Hard",
+    tags: ["Support", "Magic Control", "PVP"],
+    comingSoon: false
+  },
+  {
     id: "hunter",
     name: "Hunter / Sniper",
     description: "The king of low-cost farming. Precise damage from a safe distance.",
@@ -43,6 +73,16 @@ const CLASS_GUIDES = [
     color: "#22c55e",
     difficulty: "Easy",
     tags: ["Farming", "Ranged", "Low Cost"],
+    comingSoon: false
+  },
+  {
+    id: "bard",
+    name: "Bard & Dancer",
+    description: "The Performance Duo. Boost party ASPD and SP recovery with legendary songs.",
+    icon: Music,
+    color: "#4ade80",
+    difficulty: "Medium",
+    tags: ["Support", "Buffs", "ASPD"],
     comingSoon: false
   },
   {
@@ -56,6 +96,16 @@ const CLASS_GUIDES = [
     comingSoon: false
   },
   {
+    id: "monk",
+    name: "Monk / Champion",
+    description: "The Fist of Light. Channel the power of Asura for the game's highest single-hit damage.",
+    icon: Hand,
+    color: "#60a5fa",
+    difficulty: "Hard",
+    tags: ["Burst", "Combo", "BOSS"],
+    comingSoon: false
+  },
+  {
     id: "blacksmith",
     name: "Blacksmith / Mastersmith",
     description: "The 'Golden Anvil'. Economic dominance via Greed and high-burst melee combat.",
@@ -64,10 +114,18 @@ const CLASS_GUIDES = [
     difficulty: "Medium",
     tags: ["Economy", "Melee", "Crafting"],
     comingSoon: false
+  },
+  {
+    id: "alchemist",
+    name: "Alchemist / Biochemist",
+    description: "The Master Creator. Command Homunculus and brew legendary potions for the server.",
+    icon: FlaskConical,
+    color: "#fbbf24",
+    difficulty: "Hard",
+    tags: ["Homunculus", "Potion", "Economics"],
+    comingSoon: false
   }
 ];
-
-import { Target } from "lucide-react"; // Double check
 
 export default function GuidesPage() {
   return (

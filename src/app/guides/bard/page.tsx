@@ -2,145 +2,147 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Shield, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe } from "lucide-react";
+import { Music, Target, Zap, Info, AlertTriangle, ExternalLink, Swords, Users, Globe, Snowflake, Heart } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const BUILDS = {
-  pierce: {
-    title: "Pierce Machine",
-    subtitle: "The Ultimate SP-Sustainable Farming Build",
+  bragi: {
+    title: "Poem of Bragi / Support",
+    subtitle: "The Party's Heartbeat",
     icon: Zap,
-    color: "#ef4444",
-    overview: "In Ragnarok Zero, the Knight class is the king of sustainable farming. The 'Eternal Machine' concept focuses on stacking SP recovery and INT to use Pierce (连刺攻击) indefinitely. This is the gold standard for high-yield maps like Centipedes.",
+    color: "#4ade80",
+    overview: "This is the most important support role in TWROZ. By using A Poem of Bragi (布萊奇之詩), you dramatically reduce the cast time and after-cast delay of the entire party. A Wizard's damage output is doubled when standing in your song.",
     stats: [
-      { attr: "STR", val: "80-90", desc: "Main damage source. Aim for the 2-shot threshold on Centipedes." },
-      { attr: "INT", val: "40-60", desc: "The core of the build. Necessary for SP recovery thresholds." },
-      { attr: "DEX", val: "40-50", desc: "Enough to ensure 100% hit rate on target monsters." },
-      { attr: "AGI", val: "Remaining", desc: "Increased flee and faster animation for Pierce." },
+      { attr: "INT", val: "90-99", desc: "Reduces after-cast delay. This is the most important stat for Bragi." },
+      { attr: "DEX", val: "70-80", desc: "Reduces fixed cast time for the party. Essential for Wizards." },
+      { attr: "VIT", val: "50-70", desc: "Essential for surviving in high-end dungeons while performing." },
+      { attr: "AGI", val: "Remaining", desc: "Increases your own Flee and ASPD for faster skill transitions." },
     ],
     skills: [
-      { name: "Pierce (Lv. 10)", desc: "Your primary farming tool. Massive damage against Large monsters.", icon: Zap },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Essential for ASPD. Even if using a Spear, Spear Quicken is a Lord Knight skill.", icon: Shield },
+      { name: "A Poem of Bragi (Lv. 10)", desc: "Reduces cast time and after-cast delay for all allies in range.", icon: Zap },
+      { name: "Assassin Cross of Sunset (Lv. 10)", desc: "Massively increases party ASPD. Mandatory for Knight/Assassin parties.", icon: Swords },
     ],
     gear: {
       left: {
-        title: "Paradise Upgrade Path",
+        title: "The Musician's Kit",
         items: [
-          "Eden Spear III (樂園團長矛 III): Core beginner weapon.",
-          "Shadow Knight Armor: Increases Pierce damage and reduces SP cost.",
-          "Shadow Knight Shoes: Works with Armor for massive SP recovery boost."
+          "Eden Violin III: Great base INT for early-game support.",
+          "Harp [2]: High INT weapon for maximizing Bragi's efficiency.",
+          "Shadow Bard/Dancer Shield: Increases the range of your songs."
         ]
       },
       right: {
-        title: "Dungeon End-Game",
+        title: "Sustainability",
         items: [
-          "Champion's Plate: Offers top-tier DEF and STR.",
-          "Conquest Manteau: Resistance to all elements.",
-          "Ring of Resonance [1]: For auto-spell leveling speed."
+          "Spiritual Ring: For the massive INT and SP recovery.",
+          "Raydric Card Cloak: 20% Neutral reduction for safer performing.",
+          "High INT Accessories: Earrings [1] with Elder Willow cards."
         ]
       }
     },
-    tip: "The 'Zero' version of the Beetle Card is non-negotiable. It provides SP recovery upon defeating monsters."
+    tip: "Song effectiveness is calculated at the MOMENT you cast it. If you have an INT-boosting buff, wait for it to proc before starting your song."
   },
-  bb: {
-    title: "Bowling Bash AGI",
-    subtitle: "Fast-Paced Mob Clearing & Leveling",
-    icon: Swords,
+  vulcan: {
+    title: "Arrow Vulcan Burst",
+    subtitle: "High-Tier Ranged DPS",
+    icon: Target,
     color: "#3b82f6",
-    overview: "This build trades spear-specialization for 2-Handed Swords. It focuses on high ASPD and the Bowling Bash (保齡球擊) skill to clear entire packs of monsters at once. Ideal for maps with high monster density.",
+    overview: "Arrow Vulcan (奧義箭亂舞) is the primary DPS tool for Bards/Dancers in Zero. It deals multi-hit ranged damage with a high multiplier. In TWROZ, this build is a popular alternative to Sniper for safe farming.",
     stats: [
-      { attr: "AGI", val: "90-99", desc: "Maximized ASPD and Flee to survive mobbing." },
-      { attr: "STR", val: "70-80", desc: "Solid base damage for each hit of the BB collision." },
-      { attr: "DEX", val: "40-50", desc: "Critical for ensuring Bowling Bash doesn't miss mid-mob." },
-      { attr: "VIT", val: "Remaining", desc: "A little extra cushion for when you get trapped by mobs." },
+      { attr: "DEX", val: "99", desc: "Primary damage stat for all Bow and Instrument-based strikes." },
+      { attr: "AGI", val: "80-90", desc: "Reduces the animation delay of Arrow Vulcan, allowing for faster spam." },
+      { attr: "INT", val: "40-60", desc: "Increases your SP pool for constant skill usage." },
+      { attr: "VIT", val: "Remaining", desc: "Extra HP to survive when targets get too close." },
     ],
     skills: [
-      { name: "Bowling Bash (Lv. 10)", desc: "The AoE king. In Zero, gutter lines are removed, making it 100% reliable for mobbing.", icon: Swords },
-      { name: "Two-Hand Quicken (Lv. 10)", desc: "Mandatory for high ASPD and faster BB cast animation.", icon: Zap },
+      { name: "Arrow Vulcan (Lv. 10)", desc: "Launches a flurry of arrows for massive single-target damage.", icon: Target },
+      { name: "Musical Lesson (Lv. 10)", desc: "Passively increases damage when using instruments.", icon: Music },
     ],
     gear: {
       left: {
-        title: "Swordmaster Path",
+        title: "Ranged Arsenal",
         items: [
-          "Eden Two-Handed Sword III: High ATK and easy to refine.",
-          "Executioner (Classic): If you can find one, the human-defense ignore is huge.",
-          "Agi Shadow Set: Boosts Flee and ASPD thresholds."
+          "Eden Bow III: Excellent starter for Vulcan builds.",
+          "Gakkung [2]: High-DEX bow for specialized carding.",
+          "Shadow Bard/Dancer Weapon: Significantly boosts Arrow Vulcan damage."
         ]
       },
       right: {
-        title: "Mobbing Utility",
+        title: "Burst Support",
         items: [
-          "Whisper Card: Essential +20 Flee for AGI survival.",
-          "Panty/Shirt Set: Early game AGI/Flee combo.",
-          "Brooch [1] with Kukre: To hit the 185+ ASPD ceiling."
+          "Apple o' Archer: For the +3 DEX headgear slot.",
+          "Gloves [1] with Zerom Cards: To hit the DEX ceiling.",
+          "Phen Card: Essential so your Vulcan cast isn't interrupted."
         ]
       }
     },
-    tip: "Since Gutter Lines are gone in Zero, you can focus purely on positioning. Bowling Bash damage is maximized when you knock mobs into other targets, triggering the collision multiplier."
+    tip: "You can use Arrow Vulcan with a Bow OR an Instrument. While Bows deal more raw damage, Instruments allow you to switch to songs instantly."
   },
-  tank: {
-    title: "VIT Tank / WoE",
-    subtitle: "The Unstoppable Frontline Guardian",
+  control: {
+    title: "PVP / Gypsy Kiss Control",
+    subtitle: "The Anti-Magic & SP Battery",
     icon: Users,
-    color: "#22c55e",
-    overview: "The pure VIT build is designed for group content and Guild Wars. You aren't there to kill; you are there to stay alive, soak damage, and lock down enemies with stun skills.",
+    color: "#a855f7",
+    overview: "Focuses on Service for You (Gypsy's Kiss) and Frost Joker. In TWROZ WoE, your role is to ensure your party never runs out of SP while freezing the entire enemy frontline.",
     stats: [
-      { attr: "VIT", val: "90-99", desc: "Maximized HP pool and stun immunity." },
-      { attr: "STR", val: "50-60", desc: "Enough to carry thousands of potions for long sieges." },
-      { attr: "DEX", val: "40-60", desc: "Reduces the cast time of your disruption skills." },
-      { attr: "INT", val: "Remaining", desc: "Slightly improves your magic defense (MDEF)." },
+      { attr: "VIT", val: "90-99", desc: "Survivability to stay in the frontline and perform." },
+      { attr: "INT", val: "80-90", desc: "Maximizes the SP recovery and reduction from Gypsy's Kiss." },
+      { attr: "DEX", val: "60-70", desc: "Ensures your Frost Joker procs faster and more reliably." },
+      { attr: "AGI", val: "Remaining", desc: "Increases Flee to dodge physical burst." },
     ],
     skills: [
-      { name: "Provoke (Lv. 10)", desc: "Essential for peeling bosses and reducing enemy defense in PvP.", icon: AlertTriangle },
-      { name: "Endure (Lv. 10)", desc: "Keeps you moving while being hit by 20+ enemies at once.", icon: Shield },
+      { name: "Service for You / Gypsy's Kiss (Lv. 10)", desc: "Massively increases Max SP and reduces SP consumption for the party.", icon: Heart },
+      { name: "Frost Joker / Scream (Lv. 5)", desc: "Wide-area chance to Freeze or Stun all enemies in range.", icon: Snowflake },
     ],
     gear: {
       left: {
-        title: "The Wall Setup",
+        title: "Defensive Perform",
         items: [
-          "Stone Buckle [1]: 5% resistance to Large/Medium monsters.",
-          "Pecopeco Card Armor: +10% Maximum HP is mandatory.",
-          "Raydric Card Cloak: -20% Neutral damage resistance."
+          "Valkyrian Shield [1]: Standard for WoE damage reduction.",
+          "Shadow Bard/Dancer Armor: Reduces the chance of having your songs interrupted.",
+          "Rope [4]: Carded with status-inflicting cards (Plankton/Marina)."
         ]
       },
       right: {
-        title: "Siege Specialist",
+        title: "Status Resistance",
         items: [
-          "Marc Card: To prevent being Frozen in WoE/Dungeons.",
-          "Safety Ring: For the extra DEF/MDEF in static tanking.",
-          "Matyr Card Shoes: MHP +10% and extra AGI for movement."
+          "Marc Card Armor: Immunity to Frozen is mandatory.",
+          "Feather Beret: 10% Demi-human reduction.",
+          "High VIT Accessories: To resist enemy Scream/Stun."
         ]
       }
     },
-    tip: "As a tank, your job is 'Potting.' Keep your inventory full of White Potions and bind them to a key you can spam."
+    tip: "Use 'Encore' to restart your last performance for half the SP cost. Essential for long WoE sieges."
   }
 };
 
-export default function KnightGuide() {
-  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("pierce");
+import { Shield } from "lucide-react"; // Cross-check
+
+export default function BardGuide() {
+  const [activeBuild, setActiveBuild] = useState<keyof typeof BUILDS>("bragi");
   const build = BUILDS[activeBuild];
 
   return (
     <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
       <Breadcrumbs items={[
         { label: "Academy", href: "/guides" },
-        { label: "Knight Academy" }
+        { label: "Bard & Dancer Academy" }
       ]} />
 
       <header style={{ marginBottom: "3rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "2rem", flexWrap: "wrap" }}>
-          <div style={{ padding: "12px", background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
-            <Shield size={32} />
+          <div style={{ padding: "12px", background: "rgba(74, 222, 128, 0.1)", color: "#4ade80", borderRadius: "16px", display: "flex", flexShrink: 0 }}>
+            <Music size={32} />
           </div>
           <div style={{ minWidth: "200px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px", flexWrap: "wrap" }}>
-              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Knight Academy</h1>
+              <h1 style={{ fontSize: "clamp(1.8rem, 5vw, 2.5rem)", fontWeight: 900, color: "#1e293b", margin: 0 }}>Bard & Dancer Academy</h1>
               <span style={{ background: "#f1f5f9", color: "#64748b", padding: "4px 10px", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "4px", border: "1px solid #e2e8f0" }}>
                 <Globe size={10} /> RAGNAROK ZERO GLOBAL
               </span>
             </div>
-            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Mastering the Spear, Sword, and Shield</p>
+            <p style={{ color: "#64748b", margin: 0, fontWeight: 600, fontSize: "0.9rem" }}>Master of Rhythm, Support, and Ranged Burst</p>
           </div>
         </div>
 
@@ -218,7 +220,7 @@ export default function KnightGuide() {
           {/* Skills */}
           <div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.5rem", color: "#1e293b" }}>Priority Skills</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1rem" }}>
               {build.skills.map((s, i) => (
                 <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.5rem", background: "white", border: "1px solid #e2e8f0", borderRadius: "20px" }}>
                   <div style={{ padding: "8px", background: `${build.color}15`, color: build.color, borderRadius: "10px" }}><s.icon size={20} /></div>
@@ -255,9 +257,9 @@ export default function KnightGuide() {
           </div>
 
           {/* Pro Tip */}
-          <div style={{ padding: "1.5rem 2rem", background: "#fff7ed", border: "1px solid #ffedd5", borderRadius: "20px", color: "#9a3412" }}>
+          <div style={{ padding: "1.5rem 2rem", background: "#f0fdf4", border: "1px solid #dcfce7", borderRadius: "20px", color: "#166534" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem", fontWeight: 900, fontSize: "0.9rem" }}>
-              <AlertTriangle size={18} /> PRO VETERAN TIP
+              <AlertTriangle size={18} /> THE PERFORMANCE META
             </div>
             <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: "1.6" }}>{build.tip}</p>
           </div>
@@ -265,7 +267,7 @@ export default function KnightGuide() {
           {/* References */}
           <footer style={{ borderTop: "1px solid #f1f5f9", paddingTop: "2rem", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.8rem", color: "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
-              Strategy synthesized from Bahamut (Gamer.com.tw) & Ragnarok Zero Veteran Community <ExternalLink size={12} />
+              Strategy synthesized from TWRoZ Performer Meta & Gamer.com.tw Song Guides <ExternalLink size={12} />
             </p>
           </footer>
         </motion.section>
