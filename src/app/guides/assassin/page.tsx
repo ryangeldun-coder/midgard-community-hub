@@ -84,7 +84,7 @@ const BUILDS = {
     subtitle: "High-Efficiency Dungeon Clearing",
     icon: Users,
     color: "#3b82f6",
-    overview: "Grimtooth (無影之牙) is the only AoE skill for Assassins. This build focuses on Hiding and clearing entire mobs from safety. Perfect for dungeons like Orc Lady or Magma.",
+    overview: "Assassins in Zero have two primary AoE paths: Grimtooth (無影之牙) and the revamped Venom Splasher (毒性感染). This build focuses on Hiding and clearing entire mobs from safety using Grimtooth, while using Venom Splasher for massive explosive burst damage.",
     stats: [
       { attr: "STR", val: "90-99", desc: "Raw damage to clear mobs in 2-3 hits of Grimtooth." },
       { attr: "DEX", val: "50-70", desc: "Reduces the 'cast' time and ensures hits connect." },
@@ -92,8 +92,8 @@ const BUILDS = {
       { attr: "INT", val: "Remaining", desc: "Grimtooth is SP-intensive; some INT helps with recovery." },
     ],
     skills: [
-      { name: "Grimtooth (Lv. 5)", desc: "Your AoE tool. Can only be used while in Hiding state.", icon: Swords },
-      { name: "Cloaking (Lv. 10)", desc: "Move fast while hidden to position for the perfect Grimtooth.", icon: Skull },
+      { name: "Grimtooth (Lv. 5)", desc: "Your primary AoE tool. Requires Hiding state.", icon: Swords },
+      { name: "Venom Splasher (Lv. 10)", desc: "High-burst AoE explosion. Zero engine makes this extremely potent.", icon: Skull },
     ],
     gear: {
       left: {
