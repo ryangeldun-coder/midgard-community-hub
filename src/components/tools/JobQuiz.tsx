@@ -18,146 +18,102 @@ interface Question {
 const QUESTIONS: Question[] = [
   {
     id: 1,
-    text: "You are ambushed by a swarm of monsters in a dark dungeon. What is your immediate reaction?",
+    text: "A massive, unpredictable storm is approaching. How do you respond?",
     options: [
-      { text: "Stand my ground and let them break against my steel", icon: <Shield size={20} />, scores: { knight: 5, crusader: 4, blacksmith: 1 } },
-      { text: "Vanish into the shadows and wait for the perfect opening", icon: <Ghost size={20} />, scores: { assassin: 5, rogue: 4 } },
-      { text: "Unleash a devastating burst of energy to clear the area", icon: <Wand2 size={20} />, scores: { wizard: 5, monk: 3, sage: 1 } },
-      { text: "Retreat slightly and set up tactical barriers/traps", icon: <Target size={20} />, scores: { hunter: 5, sage: 4, alchemist: 3 } },
+      { text: "I build a shelter and stand firm against the wind", icon: <Shield size={20} />, scores: { knight: 5, crusader: 5, blacksmith: 3, priest: 2 } },
+      { text: "I run directly into the heart of it to feel its power", icon: <Zap size={20} />, scores: { wizard: 5, monk: 5, assassin: 3 } },
+      { text: "I watch from a distance, calculating its path", icon: <Eye size={20} />, scores: { hunter: 5, sage: 5, rogue: 4, alchemist: 3 } },
+      { text: "I gather everyone together to ensure no one is alone", icon: <Users size={20} />, scores: { bard: 5, priest: 5, crusader: 3, alchemist: 2 } },
     ]
   },
   {
     id: 2,
-    text: "A legendary card drops. What is the first thing that comes to your mind?",
+    text: "You find an ancient, dust-covered library. Which book do you reach for first?",
     options: [
-      { text: "The immense profit I'll make in the market", icon: <Coins size={20} />, scores: { blacksmith: 5, rogue: 3, alchemist: 4 } },
-      { text: "How this will finally unlock my ultimate build's power", icon: <Sparkles size={20} />, scores: { wizard: 3, knight: 3, assassin: 5, monk: 5, hunter: 3 } },
-      { text: "This belongs in the hands of my guild's strongest protector", icon: <Heart size={20} />, scores: { priest: 5, bard: 5, crusader: 4, sage: 3 } },
+      { text: "A legendary saga of heroes and their epic sacrifices", icon: <Sword size={20} />, scores: { knight: 5, crusader: 5, bard: 4, monk: 2 } },
+      { text: "A map of hidden shortcuts and forgotten tunnels", icon: <Globe size={20} />, scores: { rogue: 5, assassin: 5, hunter: 4, blacksmith: 2 } },
+      { text: "A complex manual on chemical reactions and life-creation", icon: <FlaskConical size={20} />, scores: { alchemist: 6, blacksmith: 3, sage: 3 } },
+      { text: "A tome of forbidden stars and elemental laws", icon: <Wand2 size={20} />, scores: { wizard: 6, sage: 5, priest: 2 } },
     ]
   },
   {
     id: 3,
-    text: "How do you prepare for a long journey into the unknown?",
+    text: "When faced with a total failure, what is your first thought?",
     options: [
-      { text: "Checking my equipment durability and sharpening my blade", icon: <Sword size={20} />, scores: { knight: 4, blacksmith: 5, assassin: 3, monk: 3 } },
-      { text: "Brewing a vast array of potions and preparing mechanical tools", icon: <FlaskConical size={20} />, scores: { alchemist: 6, rogue: 3, hunter: 2 } },
-      { text: "Ensuring my spiritual and mental focus is at its peak", icon: <Zap size={20} />, scores: { priest: 5, wizard: 5, sage: 6, monk: 2 } },
+      { text: "I wasn't strong enough; I must train my body more", icon: <Hammer size={20} />, scores: { knight: 5, blacksmith: 4, monk: 5, assassin: 2 } },
+      { text: "I didn't have the right tools or information", icon: <BookOpen size={20} />, scores: { alchemist: 5, rogue: 5, sage: 5, hunter: 3 } },
+      { text: "I lost my focus and allowed chaos to take over", icon: <Zap size={20} />, scores: { wizard: 5, hunter: 5, assassin: 4, priest: 2 } },
+      { text: "I let my companions down; I need to be more reliable", icon: <Heart size={20} />, scores: { priest: 5, bard: 5, crusader: 5, sage: 2 } },
     ]
   },
   {
     id: 4,
-    text: "During a massive Boss (MVP) fight, what is your most important contribution?",
+    text: "If your personality was a weapon, what would it be?",
     options: [
-      { text: "Holding the beast's attention so no one else gets hurt", icon: <Shield size={20} />, scores: { crusader: 6, knight: 4 } },
-      { text: "Stripping the enemy of its magical defenses and buffs", icon: <Eye size={20} />, scores: { sage: 6, rogue: 4, bard: 3 } },
-      { text: "Delivering the crushing, final blow to claim the kill", icon: <Target size={20} />, scores: { monk: 6, wizard: 4, assassin: 3, hunter: 4 } },
-      { text: "Keeping the party alive against all odds", icon: <Heart size={20} />, scores: { priest: 6, bard: 4 } },
+      { text: "An immovable, heavy iron wall", icon: <Shield size={20} />, scores: { crusader: 6, knight: 4, blacksmith: 2 } },
+      { text: "A sharp, invisible needle in the dark", icon: <Ghost size={20} />, scores: { assassin: 6, rogue: 4, hunter: 2 } },
+      { text: "A sudden, blinding flash of lightning", icon: <Zap size={20} />, scores: { monk: 6, wizard: 5, sage: 3 } },
+      { text: "A warm, glowing ember that never goes out", icon: <Heart size={20} />, scores: { priest: 6, bard: 5, alchemist: 2 } },
     ]
   },
   {
     id: 5,
-    text: "What is your philosophy on 'Zeny' (Money)?",
+    text: "Which of these environments makes you feel most 'at home'?",
     options: [
-      { text: "Money is a tool to buy the best equipment", icon: <Coins size={20} />, scores: { knight: 3, wizard: 3, assassin: 5, monk: 3 } },
-      { text: "Making money is a game in itself; I want to be the best merchant", icon: <TrendingUp size={20} />, scores: { blacksmith: 6, alchemist: 5, rogue: 4 } },
-      { text: "I care little for wealth, as long as my needs are met", icon: <User size={20} />, scores: { priest: 5, monk: 3, sage: 3, bard: 3 } },
+      { text: "A bustling, chaotic market full of opportunity", icon: <Coins size={20} />, scores: { blacksmith: 6, alchemist: 4, rogue: 5 } },
+      { text: "A silent, snow-covered peak under the stars", icon: <Wand2 size={20} />, scores: { wizard: 5, sage: 6, monk: 4, priest: 2 } },
+      { text: "The deep, tangled heart of a wild forest", icon: <Target size={20} />, scores: { hunter: 6, assassin: 4, rogue: 3, bard: 3 } },
+      { text: "The frontlines of a glorious battle", icon: <Sword size={20} />, scores: { knight: 6, crusader: 5, blacksmith: 3, priest: 2 } },
     ]
   },
   {
     id: 6,
-    text: "A teammate makes a critical mistake. How do you handle it?",
+    text: "What do you value most in a friendship?",
     options: [
-      { text: "I immediately jump in to cover their weakness", icon: <Shield size={20} />, scores: { crusader: 5, knight: 4, monk: 3 } },
-      { text: "I use my utility skills to fix the situation instantly", icon: <Zap size={20} />, scores: { sage: 6, priest: 4, bard: 5, alchemist: 3 } },
-      { text: "I adapt my strategy to exploit the new chaos", icon: <Target size={20} />, scores: { rogue: 6, assassin: 4, hunter: 3 } },
+      { text: "Absolute, unquestioning loyalty", icon: <Shield size={20} />, scores: { knight: 5, crusader: 6, priest: 3 } },
+      { text: "The freedom to go our separate ways and still be close", icon: <Globe size={20} />, scores: { assassin: 5, rogue: 5, hunter: 4, bard: 4 } },
+      { text: "Shared intellectual growth and discovery", icon: <BookOpen size={20} />, scores: { wizard: 4, sage: 6, alchemist: 5, priest: 2 } },
+      { text: "Competitive spirit that pushes me to be better", icon: <Zap size={20} />, scores: { monk: 6, blacksmith: 4, knight: 3, hunter: 3 } },
     ]
   },
   {
     id: 7,
-    text: "If you could have a permanent companion in Midgard, it would be...",
+    text: "How do you prefer to solve a conflict?",
     options: [
-      { text: "A loyal mount to carry me into the fray", icon: <Sword size={20} />, scores: { knight: 6, crusader: 5 } },
-      { text: "A bio-engineered creature of my own creation", icon: <FlaskConical size={20} />, scores: { alchemist: 6 } },
-      { text: "A falcon to scout and strike from the skies", icon: <Target size={20} />, scores: { hunter: 6 } },
-      { text: "I work alone; companions only slow me down", icon: <Ghost size={20} />, scores: { assassin: 6, rogue: 5, monk: 3 } },
+      { text: "I end it quickly with overwhelming force", icon: <Hammer size={20} />, scores: { knight: 4, wizard: 5, monk: 6, blacksmith: 3 } },
+      { text: "I outsmart the opponent and make them defeat themselves", icon: <Eye size={20} />, scores: { sage: 6, rogue: 5, assassin: 4, hunter: 3 } },
+      { text: "I absorb the impact and protect others until it's over", icon: <Shield size={20} />, scores: { crusader: 6, priest: 5, alchemist: 2 } },
+      { text: "I use words, music, or charm to diffuse the tension", icon: <Music size={20} />, scores: { bard: 6, priest: 3, rogue: 3 } },
     ]
   },
   {
     id: 8,
-    text: "Which weapon speaks to your soul?",
+    text: "If you were a color, which would describe you best?",
     options: [
-      { text: "A massive Two-Handed Sword or Axe", icon: <Sword size={20} />, scores: { knight: 6, blacksmith: 4 } },
-      { text: "A Blessed Shield and Spear", icon: <Shield size={20} />, scores: { crusader: 6 } },
-      { text: "A Magical Staff or ancient Book of Spells", icon: <Wand2 size={20} />, scores: { wizard: 5, sage: 6 } },
-      { text: "A Musical Instrument or a deadly Whip", icon: <Music size={20} />, scores: { bard: 6 } },
+      { text: "Deep Blue: Calm, deep, and methodical", icon: <Wand2 size={20} />, scores: { sage: 6, wizard: 4, priest: 4, alchemist: 3 } },
+      { text: "Blood Red: Passionate, direct, and fierce", icon: <Sword size={20} />, scores: { knight: 5, blacksmith: 5, monk: 5, assassin: 3 } },
+      { text: "Forest Green: Adaptable, resourceful, and wild", icon: <Target size={20} />, scores: { hunter: 6, rogue: 5, assassin: 4, bard: 3 } },
+      { text: "Golden White: Noble, protective, and pure", icon: <Sparkles size={20} />, scores: { crusader: 6, priest: 5, knight: 3 } },
     ]
   },
   {
     id: 9,
-    text: "How do you prefer to deal damage?",
+    text: "What is your relationship with 'The Rules'?",
     options: [
-      { text: "Slow, heavy, and crushing hits", icon: <Hammer size={20} />, scores: { knight: 4, blacksmith: 6, monk: 5 } },
-      { text: "Lightning-fast strikes and critical hits", icon: <Zap size={20} />, scores: { assassin: 6, hunter: 4, rogue: 3 } },
-      { text: "Massive elemental explosions (AoE)", icon: <Sparkles size={20} />, scores: { wizard: 6, sage: 2, alchemist: 2 } },
-      { text: "I'd rather let my team do the damage while I support", icon: <Users size={20} />, scores: { priest: 5, bard: 6, sage: 3, crusader: 2 } },
+      { text: "I am the one who enforces the law and order", icon: <Shield size={20} />, scores: { knight: 5, crusader: 6, priest: 3 } },
+      { text: "Rules are just suggestions; I find the loopholes", icon: <Ghost size={20} />, scores: { rogue: 6, assassin: 5, alchemist: 4, sage: 3 } },
+      { text: "I live by a strict, personal code no one else understands", icon: <Zap size={20} />, scores: { monk: 6, hunter: 4, wizard: 2 } },
+      { text: "I follow my heart and the rhythm of the moment", icon: <Music size={20} />, scores: { bard: 6, priest: 4, hunter: 2 } },
     ]
   },
   {
     id: 10,
-    text: "In a War of Emperium (Castle Siege), what is your role?",
+    text: "What scares you more?",
     options: [
-      { text: "The unstoppable vanguard breaking through the gates", icon: <Shield size={20} />, scores: { knight: 5, crusader: 6, blacksmith: 3 } },
-      { text: "The invisible spy disrupting enemy backlines", icon: <Ghost size={20} />, scores: { assassin: 5, rogue: 6 } },
-      { text: "The magic artillery holding the choke points", icon: <Wand2 size={20} />, scores: { wizard: 6, sage: 4 } },
-      { text: "The tactical mastermind providing buffs and utility", icon: <Users size={20} />, scores: { priest: 5, bard: 6, sage: 5, alchemist: 3 } },
-    ]
-  },
-  {
-    id: 11,
-    text: "What is your stance on magical abilities?",
-    options: [
-      { text: "Magic is for destruction and pure power", icon: <Sparkles size={20} />, scores: { wizard: 6, monk: 2 } },
-      { text: "Magic is a tool for utility and anti-magic control", icon: <Eye size={20} />, scores: { sage: 6, rogue: 2, priest: 2 } },
-      { text: "Magic should be used to protect and heal the innocent", icon: <Heart size={20} />, scores: { priest: 6, crusader: 4 } },
-      { text: "Who needs magic when you have a sharp blade?", icon: <Sword size={20} />, scores: { knight: 5, assassin: 5, hunter: 3, blacksmith: 4 } },
-    ]
-  },
-  {
-    id: 12,
-    text: "When facing a difficult puzzle, how do you solve it?",
-    options: [
-      { text: "Brute force; I'll smash it until it opens", icon: <Hammer size={20} />, scores: { knight: 4, blacksmith: 5, monk: 3 } },
-      { text: "Calculated logic and ancient knowledge", icon: <BookOpen size={20} />, scores: { sage: 6, wizard: 5, alchemist: 4 } },
-      { text: "Keen observation and tactical instinct", icon: <Target size={20} />, scores: { hunter: 5, rogue: 6, assassin: 4 } },
-      { text: "Patience and divine guidance", icon: <Sparkles size={20} />, scores: { priest: 6, bard: 4, crusader: 3 } },
-    ]
-  },
-  {
-    id: 13,
-    text: "What is your preferred combat distance?",
-    options: [
-      { text: "Face-to-face, eye-to-eye (Melee)", icon: <Sword size={20} />, scores: { knight: 5, blacksmith: 5, monk: 5, assassin: 4, crusader: 4 } },
-      { text: "A safe distance away, out of reach (Ranged)", icon: <ArrowRight size={20} />, scores: { hunter: 6, wizard: 5, sage: 3, bard: 3 } },
-      { text: "In the middle, managing the chaos", icon: <Users size={20} />, scores: { rogue: 5, alchemist: 4, priest: 3 } },
-    ]
-  },
-  {
-    id: 14,
-    text: "If you found a hidden scroll of skills, you'd want it to be...",
-    options: [
-      { text: "A secret technique to hit harder than anyone", icon: <Zap size={20} />, scores: { monk: 6, knight: 4, blacksmith: 4 } },
-      { text: "A way to copy and use others' abilities", icon: <Users size={20} />, scores: { rogue: 6, sage: 2 } },
-      { text: "A melody that inspires entire armies", icon: <Music size={20} />, scores: { bard: 6 } },
-      { text: "A formula to create life from chemicals", icon: <FlaskConical size={20} />, scores: { alchemist: 6 } },
-    ]
-  },
-  {
-    id: 15,
-    text: "Finally, what is your ultimate goal in Ragnarok Zero?",
-    options: [
-      { text: "To be the strongest individual warrior", icon: <Sword size={20} />, scores: { knight: 5, assassin: 5, monk: 5 } },
-      { text: "To be the most reliable and valued team member", icon: <Users size={20} />, scores: { priest: 6, bard: 6, sage: 5, crusader: 5 } },
-      { text: "To dominate the server's economy and crafting", icon: <Coins size={20} />, scores: { blacksmith: 6, alchemist: 6, rogue: 4 } },
+      { text: "Losing my autonomy and freedom", icon: <Globe size={20} />, scores: { assassin: 6, rogue: 5, hunter: 5, bard: 4 } },
+      { text: "Being powerless to protect those I love", icon: <Heart size={20} />, scores: { crusader: 6, priest: 5, knight: 4, alchemist: 3 } },
+      { text: "Remaining ignorant and stagnant in life", icon: <BookOpen size={20} />, scores: { wizard: 5, sage: 6, blacksmith: 4, monk: 3 } },
+      { text: "Being forgotten and leaving no legacy", icon: <Sparkles size={20} />, scores: { bard: 6, knight: 4, blacksmith: 5, monk: 2 } },
     ]
   }
 ];
