@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Sword, Wand2, Heart, Coins, Users, User, ArrowRight, RotateCcw, Sparkles } from "lucide-react";
+import { Shield, Sword, Wand2, Heart, Coins, Users, User, ArrowRight, RotateCcw, Sparkles, FlaskConical, TrendingUp, Globe, BookOpen, Zap, Target } from "lucide-react";
 import Link from "next/link";
 
 interface Question {
@@ -18,37 +18,95 @@ interface Question {
 const QUESTIONS: Question[] = [
   {
     id: 1,
-    text: "How do you prefer to approach a battle?",
+    text: "You are ambushed by a swarm of monsters in a dark dungeon. What is your immediate reaction?",
     options: [
-      { text: "Charge straight into the frontlines", icon: <Sword size={20} />, scores: { knight: 3, assassin: 1, blacksmith: 2, monk: 2, crusader: 2 } },
-      { text: "Strike from a safe distance", icon: <ArrowRight size={20} />, scores: { wizard: 3, hunter: 3, sage: 1, bard: 1 } },
-      { text: "Support and protect my allies", icon: <Heart size={20} />, scores: { priest: 3, crusader: 2, sage: 2, bard: 3, alchemist: 1 } },
+      { text: "Stand my ground and let them break against my steel", icon: <Shield size={20} />, scores: { knight: 3, crusader: 3, blacksmith: 1 } },
+      { text: "Vanish into the shadows and wait for the perfect opening", icon: <User size={20} />, scores: { assassin: 3, rogue: 3 } },
+      { text: "Unleash a devastating burst of energy to clear the area", icon: <Wand2 size={20} />, scores: { wizard: 3, monk: 2, sage: 1 } },
+      { text: "Retreat slightly and set up tactical barriers/traps", icon: <Target size={20} />, scores: { hunter: 3, sage: 2, alchemist: 2 } },
     ]
   },
   {
     id: 2,
-    text: "What is your main goal in Midgard?",
+    text: "A legendary card drops. What is the first thing that comes to your mind?",
     options: [
-      { text: "To become the richest merchant", icon: <Coins size={20} />, scores: { blacksmith: 3, rogue: 3, alchemist: 3 } },
-      { text: "To master the most complex magic", icon: <Wand2 size={20} />, scores: { wizard: 3, sage: 3 } },
-      { text: "To be an unkillable legend", icon: <Shield size={20} />, scores: { knight: 3, crusader: 3, monk: 1 } },
+      { text: "The immense profit I'll make in the market", icon: <Coins size={20} />, scores: { blacksmith: 3, rogue: 3, alchemist: 2 } },
+      { text: "How this will finally unlock my ultimate build's power", icon: <Sparkles size={20} />, scores: { wizard: 2, knight: 2, assassin: 3, monk: 3 } },
+      { text: "This belongs in the hands of my guild's strongest protector", icon: <Heart size={20} />, scores: { priest: 3, bard: 3, crusader: 2, sage: 2 } },
     ]
   },
   {
     id: 3,
-    text: "Do you prefer playing solo or in a party?",
+    text: "How do you prepare for a long journey into the unknown?",
     options: [
-      { text: "I'm a lone wolf, I work alone", icon: <User size={20} />, scores: { assassin: 3, hunter: 2, rogue: 3, monk: 2, knight: 1 } },
-      { text: "I love being the heart of a group", icon: <Users size={20} />, scores: { priest: 3, bard: 3, dancer: 3, sage: 2, crusader: 2 } },
+      { text: "Checking my equipment durability and sharpening my blade", icon: <Sword size={20} />, scores: { knight: 3, blacksmith: 3, assassin: 2, monk: 2 } },
+      { text: "Brewing a vast array of potions and preparing mechanical tools", icon: <FlaskConical size={20} />, scores: { alchemist: 3, rogue: 2, blacksmith: 2, hunter: 2 } },
+      { text: "Ensuring my spiritual and mental focus is at its peak", icon: <Zap size={20} />, scores: { priest: 3, wizard: 3, sage: 3, monk: 1 } },
     ]
   },
   {
     id: 4,
-    text: "What kind of gameplay mechanics do you enjoy?",
+    text: "During a massive Boss (MVP) fight, what is your most important contribution?",
     options: [
-      { text: "Simple and direct combat", icon: <Sword size={20} />, scores: { knight: 3, hunter: 2, blacksmith: 2 } },
-      { text: "Complex combos and timing", icon: <Sparkles size={20} />, scores: { monk: 3, assassin: 3, rogue: 2 } },
-      { text: "Strategic planning and utility", icon: <Shield size={20} />, scores: { alchemist: 3, sage: 3, wizard: 2 } },
+      { text: "Holding the beast's attention so no one else gets hurt", icon: <Shield size={20} />, scores: { knight: 3, crusader: 3 } },
+      { text: "Stripping the enemy of its magical defenses and buffs", icon: <Sparkles size={20} />, scores: { sage: 3, rogue: 2, bard: 2 } },
+      { text: "Delivering the crushing, final blow to claim the kill", icon: <Target size={20} />, scores: { monk: 3, wizard: 3, assassin: 2, hunter: 2 } },
+      { text: "Keeping the party alive against all odds", icon: <Heart size={20} />, scores: { priest: 3, alchemist: 1, crusader: 1, bard: 2 } },
+    ]
+  },
+  {
+    id: 5,
+    text: "What is your philosophy on 'Zeny' (Money)?",
+    options: [
+      { text: "Money is a tool to buy the best equipment", icon: <Coins size={20} />, scores: { knight: 2, wizard: 2, assassin: 3 } },
+      { text: "Making money is a game in itself; I want to be the best merchant", icon: <TrendingUp size={20} />, scores: { blacksmith: 3, alchemist: 3, rogue: 2 } },
+      { text: "I care little for wealth, as long as my needs are met", icon: <User size={20} />, scores: { priest: 3, monk: 2, hunter: 1 } },
+    ]
+  },
+  {
+    id: 6,
+    text: "A teammate makes a critical mistake. How do you handle it?",
+    options: [
+      { text: "I immediately jump in to cover their weakness", icon: <Shield size={20} />, scores: { crusader: 3, knight: 2, monk: 2 } },
+      { text: "I use my utility skills to fix the situation instantly", icon: <Zap size={20} />, scores: { sage: 3, priest: 3, bard: 2, alchemist: 2 } },
+      { text: "I adapt my strategy to exploit the new chaos", icon: <Target size={20} />, scores: { rogue: 3, assassin: 3, hunter: 2 } },
+    ]
+  },
+  {
+    id: 7,
+    text: "Which of these words resonates with you the most?",
+    options: [
+      { text: "Honor", icon: <Shield size={20} />, scores: { knight: 3, crusader: 3, monk: 1 } },
+      { text: "Freedom", icon: <Globe size={20} />, scores: { assassin: 2, rogue: 3, hunter: 3, bard: 2 } },
+      { text: "Knowledge", icon: <BookOpen size={20} />, scores: { wizard: 3, sage: 3, alchemist: 2, priest: 1 } },
+      { text: "Mastery", icon: <Hammer size={20} />, scores: { blacksmith: 3, monk: 3, wizard: 1, knight: 1 } },
+    ]
+  },
+  {
+    id: 8,
+    text: "Your party is struggling in a difficult Memorial Dungeon. What is your move?",
+    options: [
+      { text: "I step up as the leader and coordinate everyone's position", icon: <Shield size={20} />, scores: { knight: 2, crusader: 3, bard: 3, sage: 2 } },
+      { text: "I focus on maximum DPS to burn down the threat quickly", icon: <Zap size={20} />, scores: { wizard: 3, hunter: 3, assassin: 2, monk: 2 } },
+      { text: "I keep a cool head and provide essential buffs/heals", icon: <Heart size={20} />, scores: { priest: 3, alchemist: 2, bard: 2 } },
+    ]
+  },
+  {
+    id: 9,
+    text: "You finally saved enough Zeny for your first major upgrade. You choose...",
+    options: [
+      { text: "A massive, high-refine weapon that hits like a truck", icon: <Sword size={20} />, scores: { knight: 3, blacksmith: 3, monk: 3, assassin: 2 } },
+      { text: "Specialized gear that grants unique utility or spells", icon: <Wand2 size={20} />, scores: { wizard: 3, sage: 3, alchemist: 2, rogue: 2 } },
+      { text: "Top-tier defensive items to become an immovable wall", icon: <Shield size={20} />, scores: { crusader: 3, knight: 2, priest: 2 } },
+    ]
+  },
+  {
+    id: 10,
+    text: "A rival challenges you to a 1v1 duel in the arena. You accept because...",
+    options: [
+      { text: "I want to prove my skill and physical dominance", icon: <Sword size={20} />, scores: { knight: 3, monk: 3, assassin: 2, crusader: 2 } },
+      { text: "I want to test my tactical traps and long-range precision", icon: <Target size={20} />, scores: { hunter: 3, rogue: 3, alchemist: 1 } },
+      { text: "I enjoy outsmarting opponents with magic and debuffs", icon: <Wand2 size={20} />, scores: { sage: 3, wizard: 2, bard: 1 } },
     ]
   }
 ];
