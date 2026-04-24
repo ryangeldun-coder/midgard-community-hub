@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Sword, Wand2, Heart, Coins, Users, User, ArrowRight, RotateCcw, Sparkles, FlaskConical, TrendingUp, Globe, BookOpen, Zap, Target, Hammer, Music, Ghost, Eye } from "lucide-react";
+import { Shield, Sword, Wand2, Heart, Coins, Users, User, ArrowRight, RotateCcw, Sparkles, FlaskConical, TrendingUp, Globe, BookOpen, Zap, Target, Hammer, Music, Ghost, Eye, Wrench } from "lucide-react";
 import Link from "next/link";
 
 interface Question {
@@ -114,6 +114,56 @@ const QUESTIONS: Question[] = [
       { text: "Being powerless to protect those I love", icon: <Heart size={20} />, scores: { crusader: 6, priest: 5, knight: 4, alchemist: 3 } },
       { text: "Remaining ignorant and stagnant in life", icon: <BookOpen size={20} />, scores: { wizard: 5, sage: 6, blacksmith: 4, monk: 3 } },
       { text: "Being forgotten and leaving no legacy", icon: <Sparkles size={20} />, scores: { bard: 6, knight: 4, blacksmith: 5, monk: 2 } },
+    ]
+  },
+  {
+    id: 11,
+    text: "If you could stop time for 10 seconds in a crisis, what would you do?",
+    options: [
+      { text: "Reposition everyone for maximum safety", icon: <Users size={20} />, scores: { priest: 5, crusader: 6, bard: 4 } },
+      { text: "Set up a sequence of unavoidable strikes", icon: <Target size={20} />, scores: { hunter: 5, wizard: 5, sage: 4, assassin: 3 } },
+      { text: "Seize the most valuable asset and vanish", icon: <Coins size={20} />, scores: { rogue: 6, assassin: 5, blacksmith: 2 } },
+      { text: "Fix the fundamental flaw in the situation", icon: <Wrench size={20} />, scores: { alchemist: 6, sage: 4, blacksmith: 4, monk: 3 } },
+    ]
+  },
+  {
+    id: 12,
+    text: "You are lost in a shifting labyrinth. Your strategy is...",
+    options: [
+      { text: "Trust my gut and move with speed", icon: <Zap size={20} />, scores: { knight: 5, assassin: 6, monk: 5 } },
+      { text: "Map the logic and mark every wall", icon: <BookOpen size={20} />, scores: { sage: 6, wizard: 5, alchemist: 5 } },
+      { text: "Follow the subtle sounds and vibrations", icon: <Music size={20} />, scores: { bard: 6, hunter: 5, rogue: 4 } },
+      { text: "Believe that my path is guided from above", icon: <Sparkles size={20} />, scores: { priest: 6, crusader: 5, knight: 2 } },
+    ]
+  },
+  {
+    id: 13,
+    text: "When people speak of your legacy in 100 years, what should they say?",
+    options: [
+      { text: "They were the strongest shield we ever had", icon: <Shield size={20} />, scores: { crusader: 6, knight: 5, priest: 2 } },
+      { text: "They redefined how we see the world", icon: <Globe size={20} />, scores: { wizard: 5, sage: 6, alchemist: 6 } },
+      { text: "They were the shadow that kept us free", icon: <Ghost size={20} />, scores: { assassin: 6, rogue: 5, hunter: 5 } },
+      { text: "They were the light that never let us fade", icon: <Heart size={20} />, scores: { priest: 6, bard: 6, monk: 2 } },
+    ]
+  },
+  {
+    id: 14,
+    text: "A magic mirror shows your true elemental nature. You see...",
+    options: [
+      { text: "A roaring, unquenchable flame", icon: <Zap size={20} />, scores: { wizard: 6, knight: 4, monk: 5, blacksmith: 4 } },
+      { text: "A deep, silent, and endless ocean", icon: <Wand2 size={20} />, scores: { sage: 6, priest: 5, bard: 4 } },
+      { text: "A cold, sharp, and invisible wind", icon: <Ghost size={20} />, scores: { assassin: 6, hunter: 6, rogue: 5 } },
+      { text: "A mountain that the stars cannot move", icon: <Shield size={20} />, scores: { crusader: 6, knight: 4, alchemist: 3 } },
+    ]
+  },
+  {
+    id: 15,
+    text: "To achieve ultimate power, what are you most willing to sacrifice?",
+    options: [
+      { text: "My physical comfort and safety", icon: <Shield size={20} />, scores: { knight: 5, crusader: 6, blacksmith: 5 } },
+      { text: "My connection to other people", icon: <User size={20} />, scores: { assassin: 6, hunter: 5, monk: 5 } },
+      { text: "My certainty and peace of mind", icon: <Eye size={20} />, scores: { wizard: 6, sage: 6, rogue: 5 } },
+      { text: "My material wealth and status", icon: <Coins size={20} />, scores: { priest: 6, bard: 5, alchemist: 4 } },
     ]
   }
 ];
