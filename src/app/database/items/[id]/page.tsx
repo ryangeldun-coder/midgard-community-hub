@@ -2,8 +2,7 @@ import { getItem } from "@/lib/database";
 import ItemDetails from "@/components/database/ItemDetails";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -15,16 +14,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!item) return { title: "Item Not Found" };
 
-  const title = `${item.name_en} Database & Sources | Ragnarok Zero Global`;
-  const description = `${item.name_en} (${item.category}): ${item.description.slice(0, 120)}... weight: ${item.weight}, slots: ${item.slots}. Found in Ragnarok Zero Global Database.`;
+  const title = `${item.name_en} Stats & Database | Ragnarok Zero Global`;
+  const description = `${item.name_en} (${item.category}): ${item.description.slice(0, 150)}... Find drop sources and stats for ${item.name_en} on Ragnarok Zero Global Database.`;
+  const canonical = `https://midgardhub.com/database/items/${id}`;
 
   return {
     title,
     description,
+    alternates: { canonical },
     openGraph: {
       title,
       description,
-      images: [item.icon_url],
+      url: canonical,
+      images: [{ url: item.icon_url, width: 100, height: 100 }],
+      type: 'article'
     },
   };
 }
@@ -67,9 +70,13 @@ export default async function ItemPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Link href="/database/items" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#64748b", textDecoration: "none", marginBottom: "1.5rem", fontSize: "0.9rem", fontWeight: 600 }}>
-        <ChevronLeft size={16} /> Back to Items
-      </Link>
+      <Breadcrumbs 
+        items={[
+          { label: "Database", href: "/database/items" },
+          { label: "Items", href: "/database/items" },
+          { label: item.name_en }
+        ]} 
+      />
       
       <ItemDetails item={item} />
 

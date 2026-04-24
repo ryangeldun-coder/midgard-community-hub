@@ -2,8 +2,7 @@ import { getMonster } from "@/lib/database";
 import MonsterDetails from "@/components/database/MonsterDetails";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -15,16 +14,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!monster) return { title: "Monster Not Found" };
 
-  const title = `${monster.name_en} Stats & Drops | Ragnarok Zero Global Database`;
-  const description = `${monster.name_en} (${monster.name_zh}) Stats: Lv.${monster.level}, HP: ${monster.hp.toLocaleString()}, Element: ${monster.element}. Drops: ${monster.drops.slice(0, 5).map(d => d.name).join(", ")}. Part of the Midgard Community Hub.`;
+  const title = `${monster.name_en} Stats, Drops & Locations | Ragnarok Zero Global`;
+  const description = `Detailed stats for ${monster.name_en} (Lv.${monster.level}) in Ragnarok Zero Global. Check HP, Element, Race and full drop table for ${monster.name_en}.`;
+  const canonical = `https://midgardhub.com/database/monsters/${id}`;
 
   return {
     title,
     description,
+    alternates: { canonical },
     openGraph: {
       title,
       description,
-      images: [monster.image_url],
+      url: canonical,
+      images: [{ url: monster.image_url, width: 200, height: 200 }],
+      type: 'article'
     },
   };
 }
@@ -59,9 +62,13 @@ export default async function MonsterPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Link href="/database/monsters" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#64748b", textDecoration: "none", marginBottom: "1.5rem", fontSize: "0.9rem", fontWeight: 600 }}>
-        <ChevronLeft size={16} /> Back to Monsters
-      </Link>
+      <Breadcrumbs 
+        items={[
+          { label: "Database", href: "/database/monsters" },
+          { label: "Monsters", href: "/database/monsters" },
+          { label: monster.name_en }
+        ]} 
+      />
       
       <MonsterDetails monster={monster} />
       
