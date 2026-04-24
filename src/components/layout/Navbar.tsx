@@ -41,6 +41,7 @@ const navGroups = [
     icon: Gamepad2,
     items: [
       { name: "Class Picker", href: "/tools/job-quiz", icon: Sparkles },
+      { name: "OCA Simulator", href: "/games/oca-simulator", icon: Layers },
       { name: "Midgard Scout", href: "/tools/geoguesser", icon: Globe },
     ]
   },

@@ -135,6 +135,13 @@ export default function Home() {
           gap: '1.5rem' 
         }}
       >
+        <Link href="/games/oca-simulator" className="utility-btn">
+          <div className="u-icon"><Layers size={20} /></div>
+          <div className="u-text">
+            <span>OCA Simulator</span>
+            <small>Test your luck with cards</small>
+          </div>
+        </Link>
         <Link href="/tools/job-quiz" className="utility-btn">
           <div className="u-icon"><Sparkles size={20} /></div>
           <div className="u-text">
