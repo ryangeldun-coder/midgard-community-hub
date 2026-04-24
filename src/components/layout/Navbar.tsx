@@ -6,17 +6,17 @@ import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
   Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles,
-  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost, Youtube
+  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost, Video
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navGroups = [
   {
     name: "Lore",
-    icon: Youtube,
+    icon: Video,
     items: [
       { name: "Lore Archives", href: "/lore", icon: BookOpen },
-      { name: "YouTube Channel", href: "https://youtube.com/@ryangeldun", icon: Youtube },
+      { name: "YouTube Channel", href: "https://youtube.com/@ryangeldun", icon: Video },
     ]
   },
   {
