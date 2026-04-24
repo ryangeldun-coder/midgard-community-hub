@@ -40,6 +40,7 @@ const navGroups = [
     name: "Games",
     icon: Gamepad2,
     items: [
+      { name: "Class Picker", href: "/tools/job-quiz", icon: Sparkles },
       { name: "Midgard Scout", href: "/tools/geoguesser", icon: Globe },
     ]
   },
