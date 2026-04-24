@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { 
   Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, 
-  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight
+  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight, Youtube
 } from "lucide-react";
 
 export default function Home() {
@@ -122,6 +122,40 @@ export default function Home() {
           </Link>
         </motion.div>
       </motion.div>
+
+      {/* Featured Video Section */}
+      <section style={{ maxWidth: '1000px', margin: '0 auto 5rem', padding: '0 1.5rem' }}>
+        <div style={{ background: '#1e293b', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'center' }}>
+            <div style={{ aspectRatio: '16/9', background: '#000' }}>
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/wZ_vYmR4u-Y"
+                title="Featured Lore Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div style={{ padding: '3rem', color: 'white' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                <span style={{ padding: '4px 12px', background: 'var(--ro-red)', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase' }}>New Lore</span>
+              </div>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1rem', lineHeight: 1.2 }}>Ragnarok Zero Global: The Hidden Truth of Midgard</h2>
+              <p style={{ color: '#94a3b8', lineHeight: 1.6, marginBottom: '2rem' }}>
+                Dive deep into the secret history that gravity never told you. Discover the dark origins of the Bio Labs and the gods themselves.
+              </p>
+              <Link href="https://youtube.com/@ryangeldun" className="utility-btn" style={{ background: 'white', color: '#1e293b', width: 'fit-content' }}>
+                <div className="u-icon"><Youtube size={20} /></div>
+                <div className="u-text">
+                  <span>Subscribe on YouTube</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Utility Grid */}
       <motion.div 

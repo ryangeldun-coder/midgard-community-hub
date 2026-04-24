@@ -168,19 +168,79 @@ const QUESTIONS: Question[] = [
   }
 ];
 
-const JOB_DETAILS: Record<string, { name: string; description: string; href: string }> = {
-  knight: { name: "Knight", description: "A high-HP frontline warrior. Great for players who want to tank and deal consistent physical damage with two-handed swords or spears.", href: "/guides/knight" },
-  wizard: { name: "Wizard", description: "The master of elements. Best for those who want to destroy screens of enemies with powerful AoE magic like Storm Gust and Meteor Storm.", href: "/guides/wizard" },
-  assassin: { name: "Assassin", description: "Fast, deadly, and stealthy. Perfect for solo players who love critical hits, katar mastery, and burst damage from the shadows.", href: "/guides/assassin" },
-  priest: { name: "Priest", description: "The soul of every party. Essential for anyone who loves supporting others, healing, and turning undead with holy power.", href: "/guides/priest" },
-  hunter: { name: "Hunter", description: "The ultimate marksman. Great for players who prefer kiting enemies from afar and using tactical traps to control the battlefield.", href: "/guides/hunter" },
-  blacksmith: { name: "Blacksmith", description: "Master of the forge and maces. Ideal for those who want to dominate the market through crafting and deliver heavy, buffed melee hits.", href: "/guides/blacksmith" },
-  crusader: { name: "Crusader", description: "The holy protector. Best for players who want to be the ultimate shield for their friends using Devotion and holy spear skills.", href: "/guides/crusader" },
-  monk: { name: "Monk", description: "Master of spirit spheres. Perfect for players who love technical combos and the legendary one-shot potential of Asura Strike.", href: "/guides/monk" },
-  rogue: { name: "Rogue", description: "The master of utility and farming. Great for those who like a mix of melee and ranged skills, along with the ability to copy others' moves.", href: "/guides/rogue" },
-  sage: { name: "Sage", description: "The strategic anti-mage. Best for players who enjoy disrupting enemy magic, providing elemental enchants, and controlling the field.", href: "/guides/sage" },
-  alchemist: { name: "Alchemist", description: "The scientific summoner. Perfect for players who enjoy potion making and fighting alongside a loyal, bio-engineered Homunculus.", href: "/guides/alchemist" },
-  bard: { name: "Bard/Dancer", description: "The ultimate performer. Best for players who want to provide massive, screen-wide buffs to the entire party through music and dance.", href: "/guides/bard" },
+const JOB_DETAILS: Record<string, { name: string; description: string; href: string; videoId?: string }> = {
+  knight: { 
+    name: "Knight", 
+    description: "A high-HP frontline warrior. Great for players who want to tank and deal consistent physical damage with two-handed swords or spears.", 
+    href: "/guides/knight",
+    videoId: "wZ_vYmR4u-Y" // Example ID, replace with real one
+  },
+  wizard: { 
+    name: "Wizard", 
+    description: "The master of elements. Best for those who want to destroy screens of enemies with powerful AoE magic like Storm Gust and Meteor Storm.", 
+    href: "/guides/wizard",
+    videoId: "dQw4w9WgXcQ"
+  },
+  assassin: { 
+    name: "Assassin", 
+    description: "Fast, deadly, and stealthy. Perfect for solo players who love critical hits, katar mastery, and burst damage from the shadows.", 
+    href: "/guides/assassin",
+    videoId: "dQw4w9WgXcQ"
+  },
+  priest: { 
+    name: "Priest", 
+    description: "The soul of every party. Essential for anyone who loves supporting others, healing, and turning undead with holy power.", 
+    href: "/guides/priest",
+    videoId: "dQw4w9WgXcQ"
+  },
+  hunter: { 
+    name: "Hunter", 
+    description: "The ultimate marksman. Great for players who prefer kiting enemies from afar and using tactical traps to control the battlefield.", 
+    href: "/guides/hunter",
+    videoId: "dQw4w9WgXcQ"
+  },
+  blacksmith: { 
+    name: "Blacksmith", 
+    description: "Master of the forge and maces. Ideal for those who want to dominate the market through crafting and deliver heavy, buffed melee hits.", 
+    href: "/guides/blacksmith",
+    videoId: "dQw4w9WgXcQ"
+  },
+  crusader: { 
+    name: "Crusader", 
+    description: "The holy protector. Best for players who want to be the ultimate shield for their friends using Devotion and holy spear skills.", 
+    href: "/guides/crusader",
+    videoId: "dQw4w9WgXcQ"
+  },
+  monk: { 
+    name: "Monk", 
+    description: "Master of spirit spheres. Perfect for players who love technical combos and the legendary one-shot potential of Asura Strike.", 
+    href: "/guides/monk",
+    videoId: "dQw4w9WgXcQ"
+  },
+  rogue: { 
+    name: "Rogue", 
+    description: "The master of utility and farming. Great for those who like a mix of melee and ranged skills, along with the ability to copy others' moves.", 
+    href: "/guides/rogue",
+    videoId: "dQw4w9WgXcQ"
+  },
+  sage: { 
+    name: "Sage", 
+    description: "The strategic anti-mage. Best for players who enjoy disrupting enemy magic, providing elemental enchants, and controlling the field.", 
+    href: "/guides/sage",
+    videoId: "dQw4w9WgXcQ"
+  },
+  alchemist: { 
+    name: "Alchemist", 
+    description: "The scientific summoner. Perfect for players who enjoy potion making and fighting alongside a loyal, bio-engineered Homunculus.", 
+    href: "/guides/alchemist",
+    videoId: "dQw4w9WgXcQ"
+  },
+  bard: { 
+    name: "Bard/Dancer", 
+    description: "The ultimate performer. Best for players who want to provide massive, screen-wide buffs to the entire party through music and dance.", 
+    href: "/guides/bard",
+    videoId: "dQw4w9WgXcQ"
+  },
 };
 
 export default function JobQuiz() {
@@ -211,16 +271,38 @@ export default function JobQuiz() {
   };
 
   if (result) {
-    const job = JOB_DETAILS[result];
+    const topJob = result;
     return (
       <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: "center", padding: "2rem" }}>
         <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>✨</div>
-        <h2 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "0.5rem" }}>Recommended Class: {job.name}</h2>
-        <p style={{ color: "#64748b", maxWidth: "500px", margin: "0 auto 2rem", fontSize: "1.1rem", lineHeight: 1.6 }}>{job.description}</p>
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
-          <Link href={job.href} style={{ padding: "12px 24px", background: "var(--ro-red)", color: "white", borderRadius: "10px", textDecoration: "none", fontWeight: 800 }}>Read {job.name} Guide</Link>
-          <button onClick={resetQuiz} style={{ padding: "12px 24px", background: "#f1f5f9", color: "#64748b", borderRadius: "10px", border: "none", fontWeight: 800, cursor: "pointer", display: "flex", alignItems: "center", gap: "8px" }}>
-            <RotateCcw size={16} /> Retake Test
+        <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "var(--ro-red)", marginBottom: "1rem" }}>
+          You are a {JOB_DETAILS[topJob].name}!
+        </h2>
+        <p style={{ fontSize: "1.2rem", color: "#64748b", lineHeight: 1.6, marginBottom: "2.5rem", maxWidth: "600px", margin: "0 auto 2.5rem" }}>
+          {JOB_DETAILS[topJob].description}
+        </p>
+
+        {/* YouTube Embed */}
+        {JOB_DETAILS[topJob].videoId && (
+          <div style={{ marginBottom: "2.5rem", borderRadius: "20px", overflow: "hidden", aspectRatio: "16/9", background: "#000", boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}>
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/${JOB_DETAILS[topJob].videoId}`}
+              title={`${JOB_DETAILS[topJob].name} Guide`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+
+        <div style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
+          <Link href={JOB_DETAILS[topJob].href} style={{ flex: 1, padding: "1rem", background: "var(--ro-red)", color: "white", borderRadius: "16px", fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+            View Full Guide <ArrowRight size={18} />
+          </Link>
+          <button onClick={resetQuiz} style={{ padding: "1rem", background: "#f1f5f9", color: "#64748b", border: "none", borderRadius: "16px", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <RotateCcw size={18} /> Retake
           </button>
         </div>
       </motion.div>
