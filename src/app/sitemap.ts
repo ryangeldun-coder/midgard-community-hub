@@ -36,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guides/dancer',
     '/guides/quests',
     '/guides/farming',
+    '/tools/job-quiz',
     '/tools/geoguesser',
     '/tools/refine',
     '/tools/brewing',

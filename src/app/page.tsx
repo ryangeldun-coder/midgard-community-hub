@@ -135,6 +135,13 @@ export default function Home() {
           gap: '1.5rem' 
         }}
       >
+        <Link href="/tools/job-quiz" className="utility-btn">
+          <div className="u-icon"><Sparkles size={20} /></div>
+          <div className="u-text">
+            <span>Path Finder</span>
+            <small>Which job should you play?</small>
+          </div>
+        </Link>
         <Link href="/tools/refine" className="utility-btn">
           <div className="u-icon"><Hammer size={20} /></div>
           <div className="u-text">
