@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://midgard-hub.com/lore</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/wZ_vYmR4u-Y/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Ragnarok Zero Global: The Hidden Truth of Midgard</video:title>
+      <video:description>Deep dive into the lore and secret history of Midgard Zero. Discover the dark origins of the Bio Labs.</video:description>
+      <video:content_loc>https://www.youtube.com/v/wZ_vYmR4u-Y</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/wZ_vYmR4u-Y</video:player_loc>
+      <video:duration>600</video:duration>
+      <video:view_count>1000</video:view_count>
+      <video:publication_date>2024-04-24T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+</urlset>
