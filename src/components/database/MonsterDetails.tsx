@@ -40,6 +40,16 @@ export default function MonsterDetails({ monster }: { monster: Monster }) {
         </div>
       </div>
 
+      {/* AI Friendly Quick Summary */}
+      <div style={{ background: "linear-gradient(to right, #f8fafc, #ffffff)", padding: "1.25rem", borderRadius: "12px", border: "1px solid #e2e8f0", marginBottom: "2rem", borderLeft: `4px solid ${elementColor}` }}>
+        <p style={{ margin: 0, fontSize: "0.95rem", color: "#475569", lineHeight: "1.6" }}>
+          <strong>Combat Intel:</strong> {monster.name_en} is a level <strong>{monster.level} {monster.race}</strong> monster of the <strong>{monster.element}</strong> element. 
+          With <strong>{monster.hp.toLocaleString()} HP</strong>, it yields {monster.base_exp.toLocaleString()} Base EXP. 
+          {monster.drops.length > 0 && ` Notable drops include ${monster.drops.slice(0, 3).map(d => d.name).join(", ")}`}.
+          Found in {monster.spawns.length > 0 ? monster.spawns[0].description : "various locations"}.
+        </p>
+      </div>
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem", marginBottom: "2rem" }}>
         {/* Core Stats */}
         <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "1.5rem", border: "1px solid #e2e8f0" }}>

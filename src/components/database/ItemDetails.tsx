@@ -21,6 +21,17 @@ export default function ItemDetails({ item }: { item: Item }) {
         </div>
       </div>
 
+      {/* AI Friendly Quick Summary */}
+      <div style={{ background: "linear-gradient(to right, #f8fafc, #ffffff)", padding: "1.25rem", borderRadius: "12px", border: "1px solid #e2e8f0", marginBottom: "2rem", borderLeft: "4px solid var(--ro-red)" }}>
+        <p style={{ margin: 0, fontSize: "0.95rem", color: "#475569", lineHeight: "1.6" }}>
+          <strong>Quick Overview:</strong> {item.name_en} is a <strong>{item.category}</strong> item in Ragnarok Zero Global. 
+          {item.attack > 0 && ` It features ${item.attack} Attack power`}
+          {item.defense > 0 && ` It provides ${item.defense} Defense`}
+          {item.slots > 0 && ` and comes with ${item.slots} card slots`}.
+          {item.dropped_by.length > 0 ? ` It is primarily obtained from ${item.dropped_by[0].monster_name}.` : " This item is found through various sources in Midgard."}
+        </p>
+      </div>
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem", marginBottom: "2rem" }}>
         {/* Item Stats */}
         <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "1.5rem", border: "1px solid #e2e8f0" }}>
