@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
-import { getMonsters, getItems, getMaps } from '@/lib/database';
+import { existsSync, readFileSync } from 'fs';
+import { join } from 'path';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://midgardhub.com';
@@ -26,7 +27,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guides/hunter',
     '/guides/priest',
     '/guides/blacksmith',
+    '/guides/crusader',
+    '/guides/monk',
+    '/guides/sage',
+    '/guides/rogue',
+    '/guides/alchemist',
+    '/guides/bard',
+    '/guides/dancer',
+    '/guides/quests',
+    '/guides/farming',
     '/tools/geoguesser',
+    '/tools/refine',
+    '/tools/brewing',
+    '/tools/forge',
+    '/tools/affix',
   ];
 
   const sitemapEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -37,42 +51,47 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   try {
-    // Fetch all dynamic entities
-    const [monsters, items, maps] = await Promise.all([
-      getMonsters(),
-      getItems(),
-      getMaps(),
-    ]);
+    // We only need the IDs for the sitemap, so we bypass the full transformation
+    // to avoid timeouts on Vercel.
+    const MONSTERS_DB_PATH = join(process.cwd(), "src", "data", "monsters_db.json");
+    const ITEMS_DB_PATH    = join(process.cwd(), "src", "data", "items_db.json");
+    const MAPS_DB_PATH     = join(process.cwd(), "src", "data", "maps_db.json");
 
-    // Add Monster Pages
-    monsters.forEach((m) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/database/monsters/${m.id}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
+    if (existsSync(MONSTERS_DB_PATH)) {
+      const rawMonsters = JSON.parse(readFileSync(MONSTERS_DB_PATH, "utf-8"));
+      Object.keys(rawMonsters).forEach((id) => {
+        sitemapEntries.push({
+          url: `${baseUrl}/database/monsters/${id}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.6,
+        });
       });
-    });
+    }
 
-    // Add Item Pages
-    items.forEach((item) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/database/items/${item.id}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.5,
+    if (existsSync(ITEMS_DB_PATH)) {
+      const rawItems = JSON.parse(readFileSync(ITEMS_DB_PATH, "utf-8"));
+      Object.keys(rawItems).forEach((id) => {
+        sitemapEntries.push({
+          url: `${baseUrl}/database/items/${id}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.5,
+        });
       });
-    });
+    }
 
-    // Add Map Pages
-    maps.forEach((map) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/database/maps/${map.id}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.5,
+    if (existsSync(MAPS_DB_PATH)) {
+      const rawMaps = JSON.parse(readFileSync(MAPS_DB_PATH, "utf-8"));
+      Object.keys(rawMaps).forEach((id) => {
+        sitemapEntries.push({
+          url: `${baseUrl}/database/maps/${id}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.5,
+        });
       });
-    });
+    }
   } catch (err) {
     console.error('Failed to generate dynamic sitemap entries:', err);
   }
