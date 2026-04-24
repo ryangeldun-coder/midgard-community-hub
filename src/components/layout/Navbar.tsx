@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
   Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles,
-  Shield, Zap, Target, Globe, Gamepad2
+  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -26,14 +26,19 @@ const navGroups = [
     name: "Academy",
     icon: BookOpen,
     items: [
-      { name: "Class Guides", href: "/guides", icon: Sparkles },
-      { name: "Knight Guide", href: "/guides/knight", icon: Shield },
-      { name: "Assassin Guide", href: "/guides/assassin", icon: Sword },
-      { name: "Wizard Guide", href: "/guides/wizard", icon: Zap },
-      { name: "Hunter Guide", href: "/guides/hunter", icon: Target },
-      { name: "Priest Guide", href: "/guides/priest", icon: Sparkles },
-      { name: "Blacksmith Guide", href: "/guides/blacksmith", icon: Hammer },
-      { name: "Lore Archives", href: "/lore", icon: BookOpen },
+      { name: "All Guides", href: "/guides", icon: Sparkles },
+      { name: "Knight", href: "/guides/knight", icon: Shield },
+      { name: "Crusader", href: "/guides/crusader", icon: Shield },
+      { name: "Wizard", href: "/guides/wizard", icon: Zap },
+      { name: "Sage", href: "/guides/sage", icon: BookOpen },
+      { name: "Hunter", href: "/guides/hunter", icon: Target },
+      { name: "Bard/Dancer", href: "/guides/bard", icon: Music },
+      { name: "Assassin", href: "/guides/assassin", icon: Sword },
+      { name: "Rogue", href: "/guides/rogue", icon: Ghost },
+      { name: "Priest", href: "/guides/priest", icon: Sparkles },
+      { name: "Monk", href: "/guides/monk", icon: Zap },
+      { name: "Blacksmith", href: "/guides/blacksmith", icon: Hammer },
+      { name: "Alchemist", href: "/guides/alchemist", icon: FlaskConical },
     ]
   },
   {
