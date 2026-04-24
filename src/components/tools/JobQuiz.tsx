@@ -100,7 +100,7 @@ export default function JobQuiz() {
     return (
       <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: "center", padding: "2rem" }}>
         <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>✨</div>
-        <h2 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "0.5rem" }}>You are a {job.name}!</h2>
+        <h2 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "0.5rem" }}>Recommended Class: {job.name}</h2>
         <p style={{ color: "#64748b", maxWidth: "500px", margin: "0 auto 2rem", fontSize: "1.1rem", lineHeight: 1.6 }}>{job.description}</p>
         <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
           <Link href={job.href} style={{ padding: "12px 24px", background: "var(--ro-red)", color: "white", borderRadius: "10px", textDecoration: "none", fontWeight: 800 }}>Read {job.name} Guide</Link>

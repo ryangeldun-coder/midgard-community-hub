@@ -138,8 +138,8 @@ export default function Home() {
         <Link href="/tools/job-quiz" className="utility-btn">
           <div className="u-icon"><Sparkles size={20} /></div>
           <div className="u-text">
-            <span>Path Finder</span>
-            <small>Which job should you play?</small>
+            <span>Class Picker</span>
+            <small>Find your perfect job</small>
           </div>
         </Link>
         <Link href="/tools/refine" className="utility-btn">

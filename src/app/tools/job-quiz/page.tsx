@@ -2,8 +2,8 @@ import JobQuiz from "@/components/tools/JobQuiz";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ragnarok Zero Job Finder Quiz | Which Class Should You Play?",
-  description: "Undecided which job to play in Ragnarok Zero Global? Take our 2-minute personality test to find the perfect class for your playstyle.",
+  title: "Ragnarok Zero Global Class Picker | Find Your Perfect Job",
+  description: "Undecided which job to play in Ragnarok Zero Global? Use our professional Class Picker tool to find the perfect character for your playstyle.",
 };
 
 export default function JobQuizPage() {
@@ -11,7 +11,7 @@ export default function JobQuizPage() {
     <main style={{ maxWidth: "800px", margin: "0 auto", padding: "6rem 1.5rem 4rem" }}>
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <h1 style={{ fontSize: "3rem", fontWeight: 900, color: "#1e293b", marginBottom: "1rem", letterSpacing: "-1.5px" }}>
-          The Midgard <span style={{ color: "var(--ro-red)" }}>Path Finder</span>
+          Ragnarok Zero <span style={{ color: "var(--ro-red)" }}>Class Picker</span>
         </h1>
         <p style={{ fontSize: "1.2rem", color: "#64748b", maxWidth: "600px", margin: "0 auto" }}>
           Analyze your soul, discover your destiny. Find the perfect Ragnarok Zero job class that fits your unique playstyle.
