@@ -64,7 +64,7 @@ export default function OCASimulator() {
                 style={{ width: "120px", height: "120px", imageRendering: "pixelated" }} 
               />
             </motion.div>
-          ) : (
+          ) : currentCard ? (
             <motion.div
               key="card"
               initial={{ opacity: 0, y: 50, rotateY: 180 }}
@@ -84,7 +84,7 @@ export default function OCASimulator() {
                 </button>
               </div>
             </motion.div>
-          )}
+          ) : null}
         </AnimatePresence>
       </div>
 
