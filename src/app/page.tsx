@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { 
   Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, 
-  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight, Youtube
+  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight
 } from "lucide-react";
 
 export default function Home() {
@@ -147,7 +147,7 @@ export default function Home() {
                 Dive deep into the secret history that gravity never told you. Discover the dark origins of the Bio Labs and the gods themselves.
               </p>
               <Link href="https://youtube.com/@ryangeldun" className="utility-btn" style={{ background: 'white', color: '#1e293b', width: 'fit-content' }}>
-                <div className="u-icon"><Youtube size={20} /></div>
+                <div className="u-icon"><Video size={20} /></div>
                 <div className="u-text">
                   <span>Subscribe on YouTube</span>
                 </div>
