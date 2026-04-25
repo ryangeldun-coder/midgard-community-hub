@@ -69,7 +69,7 @@ export default function RefineSimulator() {
   const [history, setHistory] = useState<string[]>([]);
   const [totalZeny, setTotalZeny] = useState(0);
   const [orePrice, setOrePrice] = useState(50000);
-  const [bsbPrice, setBsbPrice] = useState(500000);
+  const [bsbPrice, setBsbPrice] = useState(0);
   const [itemPrice, setItemPrice] = useState(2000000);
   const [useBsb, setUseBsb] = useState(false);
   const [pityCount, setPityCount] = useState(0);
