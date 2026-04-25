@@ -76,6 +76,9 @@ export default function RefineSimulator() {
   const [goalLevel, setGoalLevel] = useState(7);
   const [goalStats, setGoalStats] = useState<{ cost: number; items: number } | null>(null);
 
+  const [archivedItems, setArchivedItems] = useState<{id: number, name: string, level: number, totalZeny: number, history: string[], isBroken: boolean}[]>([]);
+  const [itemCounter, setItemCounter] = useState(1);
+
   const getBaseRate = (lv: number) => {
     if (ore.type === "enriched") return ENRICHED_RATES[lv] ?? 0.001;
     if (ore.type === "hd") return HD_ORE_RATES[lv] ?? 0.001;
@@ -127,12 +130,37 @@ export default function RefineSimulator() {
     }, 700);
   };
 
+  const stashCurrentItem = () => {
+    if (level === 0 && history.length === 0) return;
+    
+    setArchivedItems(prev => [
+      {
+        id: Date.now(),
+        name: `Item #${itemCounter}`,
+        level,
+        totalZeny,
+        history: [...history],
+        isBroken: status === "fail" && level === 0
+      },
+      ...prev
+    ]);
+    setItemCounter(c => c + 1);
+    
+    setLevel(0);
+    setStatus("idle");
+    setHistory([]);
+    setTotalZeny(0);
+    setPityCount(0);
+  };
+
   const reset = () => {
     setLevel(0);
     setStatus("idle");
     setTotalZeny(0);
     setPityCount(0);
     setHistory([]);
+    setArchivedItems([]);
+    setItemCounter(1);
   };
 
   // Monte Carlo simulation for goal stats
@@ -247,10 +275,13 @@ export default function RefineSimulator() {
 
         {/* Buttons */}
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", marginBottom: "1.5rem" }}>
-          <button className="btn-primary" onClick={handleRefine} disabled={status === "refining" || level === MAX_REFINE} style={{ padding: "12px 40px", fontSize: "1rem", fontWeight: 800, opacity: level === MAX_REFINE ? 0.5 : 1 }}>
+          <button className="btn-primary" onClick={handleRefine} disabled={status === "refining" || level === MAX_REFINE} style={{ flex: 1, padding: "12px", fontSize: "1rem", fontWeight: 800, opacity: level === MAX_REFINE ? 0.5 : 1 }}>
             {status === "refining" ? "..." : level === MAX_REFINE ? "MAX!" : "REFINE"}
           </button>
-          <button onClick={reset} disabled={status === "refining"} style={{ padding: "12px 16px", border: "1px solid #e2e8f0", borderRadius: "12px", background: "white", cursor: "pointer", color: "#64748b" }}>
+          <button onClick={stashCurrentItem} disabled={status === "refining" || (level === 0 && history.length === 0)} style={{ padding: "12px 16px", border: "1px solid #e2e8f0", borderRadius: "12px", background: "white", cursor: "pointer", color: "#64748b", fontWeight: 700 }}>
+            + New Item
+          </button>
+          <button onClick={reset} disabled={status === "refining"} style={{ padding: "12px 16px", border: "1px solid #fca5a5", borderRadius: "12px", background: "#fef2f2", cursor: "pointer", color: "#ef4444" }} title="Reset All">
             <RotateCcw size={20} />
           </button>
         </div>
@@ -263,12 +294,42 @@ export default function RefineSimulator() {
           </div>
         )}
 
-        {/* History */}
+        {/* Current Item History */}
         {history.length > 0 && (
           <div style={{ marginBottom: "1.5rem" }}>
+            <h3 style={{ fontSize: "0.75rem", fontWeight: 800, color: "#64748b", margin: "0 0 0.5rem 0" }}>CURRENT ITEM LOG</h3>
             {history.map((h, i) => (
               <div key={i} style={{ fontSize: "0.75rem", color: "#64748b", padding: "3px 0", borderBottom: i < history.length - 1 ? "1px solid #f1f5f9" : "none" }}>{h}</div>
             ))}
+          </div>
+        )}
+
+        {/* Archived Items */}
+        {archivedItems.length > 0 && (
+          <div style={{ marginBottom: "1.5rem", borderTop: "1px solid #e2e8f0", paddingTop: "1rem" }}>
+            <h3 style={{ fontSize: "0.75rem", fontWeight: 800, color: "#64748b", margin: "0 0 0.75rem 0" }}>SAVED ITEMS</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              {archivedItems.map((item) => (
+                <div key={item.id} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", padding: "0.75rem" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                    <div style={{ fontWeight: 800, color: item.isBroken ? "#ef4444" : "#1e293b", fontSize: "0.9rem" }}>
+                      {item.name} <span style={{opacity:0.7, fontWeight: 600}}>{item.isBroken ? "(Broken)" : `(+${item.level})`}</span>
+                    </div>
+                    <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--ro-red)" }}>
+                      {(item.totalZeny / 1_000_000).toFixed(2)}M z
+                    </div>
+                  </div>
+                  <details style={{ fontSize: "0.75rem", color: "#64748b" }}>
+                    <summary style={{ cursor: "pointer", fontWeight: 600, userSelect: "none" }}>View History</summary>
+                    <div style={{ marginTop: "0.5rem", paddingLeft: "0.5rem", borderLeft: "2px solid #e2e8f0", maxHeight: "150px", overflowY: "auto" }}>
+                      {item.history.map((h, i) => (
+                        <div key={i} style={{ padding: "2px 0", borderBottom: i < item.history.length - 1 ? "1px solid #f1f5f9" : "none" }}>{h}</div>
+                      ))}
+                    </div>
+                  </details>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
