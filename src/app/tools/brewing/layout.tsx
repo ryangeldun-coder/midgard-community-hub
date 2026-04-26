@@ -1,14 +1,11 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Alchemist Brewing Calculator",
-  description: "Advanced success rate calculator for Alchemist and Creator potion brewing in Ragnarok Zero. Optimize your pharmacy builds.",
+  description: "Calculate exact brewing success rates for Alchemist and Creator in Ragnarok Zero.",
+  keywords: "alchemist brewing calculator, ragnarok zero potion creation, creator brewing".split(", ")
 };
 
-export default function BrewingLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

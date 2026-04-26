@@ -1,11 +1,11 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ragnarok Online geoguesser - Midgard Scout",
-  description: "Test your knowledge of Midgard in the ultimate Ragnarok Online geoguesser challenge. Identify over 100 classic locations and become a Legendary Scout.",
-  keywords: ["Ragnarok Online geoguesser", "RO geoguesser", "Midgard Scout", "Ragnarok Online game", "Ragnarok quiz"],
+  title: "Midgard Scout",
+  description: "Test your Ragnarok Online map knowledge with Midgard Scout, a GeoGuesser inspired game.",
+  keywords: "ragnarok geoguesser, midgard scout, ragnarok map quiz".split(", ")
 };
 
-export default function GeoguesserLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

@@ -1,14 +1,11 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Memorial Dungeon Guides",
-  description: "Strategy guides for Ragnarok Zero memorial dungeons and instances. Learn mechanics, monster spawns, and reward lists.",
+  title: "Memorial Dungeons",
+  description: "Complete guides to Memorial Dungeons in Ragnarok Zero.",
+  keywords: "ragnarok zero dungeons, memorial dungeons, instances".split(", ")
 };
 
-export default function DungeonsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
