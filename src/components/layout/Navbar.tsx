@@ -65,7 +65,6 @@ const navGroups = [
     icon: Wrench,
     items: [
       { name: "Skill Tree", href: "/tools/skills", icon: Sparkles },
-      { name: "Dressing Room", href: "/tools/dressing-room", icon: Shirt },
       { name: "Character Simulator", href: "/tools/planner", icon: Sparkles },
       { name: "Refine", href: "/tools/refine", icon: Hammer },
       { name: "Affix", href: "/tools/affix", icon: Sparkles },
