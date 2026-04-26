@@ -239,7 +239,8 @@ function transformMap(id: string, raw: any): MapData {
 
 async function fetchAndCache() {
   const now = Date.now();
-  if (monstersCache && itemsCache && mapsCache && now - lastFetched < CACHE_TTL) return;
+  // Disabled cache to always read the latest JSON data from the file system
+  // if (monstersCache && itemsCache && mapsCache && now - lastFetched < CACHE_TTL) return;
 
   try {
     const MONSTERS_DB_PATH = join(process.cwd(), "src", "data", "monsters_db.json");

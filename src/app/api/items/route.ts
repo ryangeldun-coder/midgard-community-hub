@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getItems } from "@/lib/database";
 
+export const dynamic = 'force-dynamic';
+
 // Maps filter group name to the Chinese category prefixes we match against
 const GROUP_PREFIXES: Record<string, string[]> = {
   "Consumable": ["消耗"],
