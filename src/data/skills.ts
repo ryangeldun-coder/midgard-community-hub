@@ -88,6 +88,7 @@ export const SKILLS: Record<string, Skill[]> = {
     ...swordsmanSkills("knight"),
     {id:"spear_mastery",name:"Spear Mastery",job:"knight",maxLevel:10,type:"Passive",description:"Increases damage with Spears.",levels:mkLevels(10,l=>({effect:`Spear ATK +${l*4}.`})),jobTier:2},
     {id:"pierce",name:"Pierce",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Attacks with a spear. Deals more hits to larger monsters.",levels:mkLevels(10,l=>({sp:7,effect:`Deals hits based on size. Damage ${100+l*10}% per hit.`})),jobTier:2},
+    {id:"spear_stab",name:"Spear Stab",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Knocks enemies back while piercing.",levels:mkLevels(10,l=>({sp:9,effect:`Damage ${100+l*15}%`})),jobTier:2},
     {id:"spear_boomerang",name:"Spear Boomerang",job:"knight",maxLevel:5,type:"Active",element:"Physical",description:"Throws a spear at target.",levels:mkLevels(5,l=>({sp:10+l*2,effect:`${100+50*l}% damage. Range ${3+l} cells.`})),jobTier:2},
     {id:"two_hand_quicken",name:"Two-Hand Quicken",job:"knight",maxLevel:10,type:"Active",description:"Increases ASPD with Two-Handed Swords.",levels:mkLevels(10,l=>({sp:14+l*4,cast:0,effect:`ASPD +${l*3}% for ${30*l}s.`})),jobTier:2},
     {id:"bowling_bash",name:"Bowling Bash",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Strikes targets into each other for splash hits.",levels:mkLevels(10,l=>({sp:12+l*2,cast:0,effect:`${200+40*l}% damage splash.`})),jobTier:2},
@@ -95,6 +96,7 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"peco_riding",name:"Peco Peco Riding",job:"knight",maxLevel:1,type:"Passive",description:"Allows mount usage.",levels:[{level:1,effect:"Enables riding."}],jobTier:2},
     {id:"cavalry_mastery",name:"Cavalry Mastery",job:"knight",maxLevel:5,type:"Passive",description:"Reduces ASPD mounted penalty.",levels:mkLevels(5,l=>({effect:`ASPD penalty reduced by ${l*20}%.`})),jobTier:2},
     {id:"auto_counter",name:"Auto Counter",job:"knight",maxLevel:5,type:"Active",description:"Counter-attacks melee hits.",levels:mkLevels(5,l=>({sp:3,effect:"Hits back."})),jobTier:2},
+    {id:"berserk",name:"Berserk",job:"knight",maxLevel:1,type:"Active",description:"Enters a frenzied state.",levels:[{level:1,effect:"ATK ×2, ASPD +30%."}],jobTier:2},
   ],
   crusader: [
     ...swordsmanSkills("crusader"),
@@ -106,6 +108,7 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"devotion",name:"Devotion",job:"crusader",maxLevel:5,type:"Active",description:"Absorbs target damage.",levels:mkLevels(5,l=>({sp:25,effect:`Lasts ${30+l*15}s.`})),jobTier:2},
     {id:"shield_reflect",name:"Reflect Shield",job:"crusader",maxLevel:10,type:"Active",description:"Reflects physical melee damage.",levels:mkLevels(10,l=>({sp:35+l*3,effect:`Reflects ${10+l*3}% damage.`})),jobTier:2},
     {id:"gospel",name:"Battle Chant (Gospel)",job:"crusader",maxLevel:10,type:"Active",description:"Aura of buffs and debuffs.",levels:mkLevels(10,l=>({sp:80,effect:"Fires every 10s."})),jobTier:2},
+    {id:"spear_quicken",name:"Spear Quicken",job:"crusader",maxLevel:10,type:"Active",description:"Increases ASPD with Spears.",levels:mkLevels(10,l=>({sp:25,effect:`ASPD +${l*3}%`})),jobTier:2},
   ],
   wizard: [
     ...mageSkills("wizard"),
@@ -117,6 +120,7 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"lord_of_vermilion",name:"Lord of Vermilion",job:"wizard",maxLevel:10,type:"Active",element:"Wind",description:"Lightning storm area.",levels:mkLevels(10,l=>({sp:60+l*6,effect:`Huge area MATK.`})),jobTier:2},
     {id:"quagmire",name:"Quagmire",job:"wizard",maxLevel:5,type:"Active",description:"Swamp reducing AGI/DEX.",levels:mkLevels(5,l=>({sp:5+l*3,effect:`AGI/DEX reduced.`})),jobTier:2},
     {id:"water_ball",name:"Water Ball",job:"wizard",maxLevel:5,type:"Active",element:"Water",description:"Water torrent from ground.",levels:mkLevels(5,l=>({sp:15+l*5,effect:`Requires Water cell.`})),jobTier:2},
+    {id:"frost_nova",name:"Frost Nova",job:"wizard",maxLevel:10,type:"Active",element:"Water",description:"Ring of ice around caster.",levels:mkLevels(10,l=>({sp:35,effect:`MATK wave.`})),jobTier:2},
   ],
   sage: [
     ...mageSkills("sage"),
@@ -217,6 +221,9 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"backstab",name:"Backstab",job:"rogue",maxLevel:10,type:"Active",description:"Rear strike auto crit.",levels:mkLevels(10,l=>({sp:16,effect:`${l*40+100}% ATK.`})),jobTier:2},
     {id:"tunnel_drive",name:"Tunnel Drive",job:"rogue",maxLevel:5,type:"Passive",description:"Move while hiding.",levels:mkLevels(5,l=>({effect:`Speed ${l*20}%`})),jobTier:2},
     {id:"raid",name:"Raid",job:"rogue",maxLevel:5,type:"Active",description:"AoE slash from hiding.",levels:mkLevels(5,l=>({sp:20,effect:"Stuns area."})),jobTier:2},
+    {id:"strip_helm",name:"Strip Helm",job:"rogue",maxLevel:5,type:"Active",description:"Removes enemy helmet.",levels:mkLevels(5,l=>({sp:15,effect:"Chance to strip."})),jobTier:2},
+    {id:"strip_shield",name:"Strip Shield",job:"rogue",maxLevel:5,type:"Active",description:"Removes enemy shield.",levels:mkLevels(5,l=>({sp:15,effect:"Chance to strip."})),jobTier:2},
+    {id:"strip_armor",name:"Strip Armor",job:"rogue",maxLevel:5,type:"Active",description:"Removes enemy armor.",levels:mkLevels(5,l=>({sp:15,effect:"Chance to strip."})),jobTier:2},
     {id:"strip_weapon",name:"Divest Weapon",job:"rogue",maxLevel:5,type:"Active",description:"Equipment disarmer.",levels:mkLevels(5,l=>({sp:17,effect:`Based on DEX.`})),jobTier:2},
     {id:"auto_shadow_spell",name:"Auto Shadow Spell",job:"rogue",maxLevel:10,type:"Toggle",description:"Automatically casts plagiarism skills.",levels:mkLevels(10,l=>({sp:26+l*4,effect:`Chance to proc ${l*3}% on hit.`})),jobTier:2},
     {id:"plagiarism",name:"Plagiarism",job:"rogue",maxLevel:10,type:"Passive",description:"Learns skills used against the Rogue.",levels:mkLevels(10,l=>({effect:`Copies up to Lv ${l} skills.`})),jobTier:2},

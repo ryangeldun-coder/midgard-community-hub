@@ -49,7 +49,10 @@ const PREREQUISITES: Record<string, { skillId: string; level: number }> = {
   grimtooth: { skillId: "sonic_blow", level: 5 },
   snatcher: { skillId: "steal", level: 5 },
   backstab: { skillId: "snatcher", level: 4 },
-  raid: { skillId: "hide", level: 3 }
+  raid: { skillId: "hide", level: 3 },
+  strip_shield: { skillId: "strip_helm", level: 5 },
+  strip_armor: { skillId: "strip_shield", level: 5 },
+  strip_weapon: { skillId: "strip_armor", level: 5 }
 };
 
 export default function SkillSimulatorPage() {
@@ -72,23 +75,60 @@ export default function SkillSimulatorPage() {
     if (!targetSkill) return;
 
     if (delta > 0) {
-      const preReq = PREREQUISITES[skillId];
-      if (preReq) {
-        const currentPreReqLv = allocatedPoints[preReq.skillId] || 0;
-        if (currentPreReqLv < preReq.level) {
-          alert(`Prerequisite Failure: Level ${preReq.level} in ${preReq.skillId.replace(/_/g, ' ')} needed.`);
-          return;
-        }
-      }
-      if (targetSkill.jobTier === 1 && pointsSpent1 >= MAX_JOB1) return;
-      if (targetSkill.jobTier === 2 && pointsSpent2 >= MAX_JOB2) return;
-    }
+      const updates: Record<string, number> = {};
 
-    setAllocatedPoints((prev) => {
-      const current = prev[skillId] || 0;
-      const next = Math.max(0, Math.min(maxLevel, current + delta));
-      return { ...prev, [skillId]: next };
-    });
+      const resolvePrereqs = (sId: string) => {
+        const req = PREREQUISITES[sId];
+        if (!req) return;
+        
+        const currentLv = allocatedPoints[req.skillId] || 0;
+        const neededLv = req.level;
+        if (currentLv < neededLv) {
+          updates[req.skillId] = neededLv;
+        }
+        resolvePrereqs(req.skillId);
+      };
+
+      resolvePrereqs(skillId);
+
+      setAllocatedPoints((prev) => {
+        const nextState = { ...prev };
+        let newPointsSpent1 = pointsSpent1;
+        let newPointsSpent2 = pointsSpent2;
+
+        // Allocate prerequisites
+        for (const [uSkillId, uLevel] of Object.entries(updates)) {
+          const uSkill = skillsForJob.find(s => s.id === uSkillId);
+          if (uSkill) {
+            const existing = prev[uSkillId] || 0;
+            if (existing < uLevel) {
+              const ptsDelta = uLevel - existing;
+              if (uSkill.jobTier === 1) newPointsSpent1 += ptsDelta;
+              if (uSkill.jobTier === 2) newPointsSpent2 += ptsDelta;
+              nextState[uSkillId] = uLevel;
+            }
+          }
+        }
+
+        // Allocate target
+        const current = prev[skillId] || 0;
+        if (current < maxLevel) {
+          if (targetSkill.jobTier === 1 && newPointsSpent1 < MAX_JOB1) {
+            nextState[skillId] = current + 1;
+          } else if (targetSkill.jobTier === 2 && newPointsSpent2 < MAX_JOB2) {
+            nextState[skillId] = current + 1;
+          }
+        }
+
+        return nextState;
+      });
+    } else {
+      setAllocatedPoints((prev) => {
+        const current = prev[skillId] || 0;
+        const next = Math.max(0, Math.min(maxLevel, current + delta));
+        return { ...prev, [skillId]: next };
+      });
+    }
   };
 
   const handleReset = () => {
