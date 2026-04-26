@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Layers, Sparkles, Plus, Minus, Trash2, Info, Zap, Shield, Swords } from "lucide-react";
+import { motion } from "framer-motion";
+import { Layers, Sparkles, Plus, Minus, Trash2, Info, Shield, Swords, ArrowDown } from "lucide-react";
 import { JOBS, SKILLS, type Skill, type Job } from "@/data/skills";
 
-// Prerequisite thresholds for authentic simulator rules
+// Explicit prerequisite rules mapped out explicitly
 const PREREQUISITES: Record<string, { skillId: string; level: number }> = {
   magnum_break: { skillId: "bash", level: 5 },
   bowling_bash: { skillId: "two_hand_quicken", level: 1 },
@@ -32,13 +32,12 @@ export default function SkillSimulatorPage() {
   const currentPointsSpent = Object.values(allocatedPoints).reduce((a, b) => a + b, 0);
 
   const handleSkillChange = (skillId: string, delta: number, maxLevel: number) => {
-    // Prerequisite validation
     if (delta > 0) {
       const preReq = PREREQUISITES[skillId];
       if (preReq) {
         const currentPreReqLv = allocatedPoints[preReq.skillId] || 0;
         if (currentPreReqLv < preReq.level) {
-          alert(`Prerequisite failure: Needs level ${preReq.level} in ${preReq.skillId.replace(/_/g, ' ')}.`);
+          alert(`Prerequisite Failure: Level ${preReq.level} in ${preReq.skillId.replace(/_/g, ' ')} needed.`);
           return;
         }
       }
@@ -47,9 +46,7 @@ export default function SkillSimulatorPage() {
     setAllocatedPoints((prev) => {
       const current = prev[skillId] || 0;
       const next = Math.max(0, Math.min(maxLevel, current + delta));
-
       if (delta > 0 && currentPointsSpent >= MAX_POINTS) return prev;
-
       return { ...prev, [skillId]: next };
     });
   };
@@ -58,9 +55,21 @@ export default function SkillSimulatorPage() {
     setAllocatedPoints({});
   };
 
-  // Group skills into branching buckets to mimic internal progression hierarchies
-  const masteries = skillsForJob.filter(s => s.type === "Passive");
-  const actives = skillsForJob.filter(s => s.type === "Active" || s.type === "Toggle");
+  // Graph Depth Calculator for branching trees
+  const getDepth = (skillId: string): number => {
+    const req = PREREQUISITES[skillId];
+    if (!req) return 0;
+    return 1 + getDepth(req.skillId);
+  };
+
+  const depthBins: Record<number, Skill[]> = {};
+  skillsForJob.forEach(s => {
+    const d = getDepth(s.id);
+    if (!depthBins[d]) depthBins[d] = [];
+    depthBins[d].push(s);
+  });
+
+  const sortedDepths = Object.keys(depthBins).map(Number).sort((a, b) => a - b);
 
   return (
     <main style={{ maxWidth: "1400px", margin: "0 auto", padding: "6.5rem 1.5rem 3rem" }}>
@@ -70,16 +79,16 @@ export default function SkillSimulatorPage() {
           <Layers size={24} />
           <span style={{ fontWeight: 800, letterSpacing: "0.1em", fontSize: "0.9rem" }}>UTILITIES</span>
         </div>
-        <h1 style={{ fontSize: "2.8rem", fontWeight: 900, color: "#0f172a", margin: 0 }}>Skill Tree Simulator</h1>
+        <h1 style={{ fontSize: "2.8rem", fontWeight: 900, color: "#0f172a", margin: 0 }}>Interactive Skill Trees</h1>
         <p style={{ color: "#64748b", fontSize: "1.1rem", marginTop: "0.5rem" }}>
-          Draft official branch builds. Game progression maps strictly enforce requirements.
+          Browse structural prerequisites matching server baseline constants.
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "320px 1fr", gap: "2rem", alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: "2.5rem", alignItems: "start" }}>
         
-        {/* Left Sidebar */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        {/* Classes Selector */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           {JOBS.map((j) => {
             const isActive = selectedJob.id === j.id;
             return (
@@ -88,103 +97,126 @@ export default function SkillSimulatorPage() {
                 onClick={() => { setSelectedJob(j); setAllocatedPoints({}); }}
                 style={{
                   textAlign: "left",
-                  padding: "1.1rem 1.25rem",
-                  borderRadius: "16px",
+                  padding: "1rem 1.25rem",
+                  borderRadius: "12px",
                   border: "1px solid",
                   borderColor: isActive ? "var(--ro-red)" : "#e2e8f0",
                   background: isActive ? "linear-gradient(135deg, #fff, #fff1f2)" : "white",
                   cursor: "pointer",
-                  transition: "all 0.2s ease",
-                  boxShadow: isActive ? "0 10px 25px -5px rgba(225, 29, 72, 0.1)" : "none",
+                  fontWeight: 800,
+                  color: "#1e293b",
                   display: "flex",
                   alignItems: "center",
-                  gap: "12px"
+                  gap: "12px",
+                  transition: "all 0.2s"
                 }}
               >
-                <span style={{ fontSize: "1.5rem" }}>{j.icon}</span>
-                <span style={{ fontWeight: 800, fontSize: "1rem", color: "#1e293b" }}>{j.name}</span>
+                <span style={{ fontSize: "1.25rem" }}>{j.icon}</span>
+                <span>{j.name}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Main builder section */}
-        <div style={{ background: "white", borderRadius: "24px", border: "1px solid #e2e8f0", padding: "2rem", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" }}>
+        {/* Dynamic Tree Flow Builder */}
+        <div style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: "24px", padding: "2rem", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" }}>
           
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #f1f5f9", paddingBottom: "1.5rem", marginBottom: "2.5rem" }}>
             <div>
-              <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 700 }}>POINT ALLOCATION</span>
-              <div style={{ fontSize: "1.8rem", fontWeight: 900, color: "#0f172a", marginTop: "2px" }}>
-                {currentPointsSpent} / <span style={{ color: "#94a3b8" }}>{MAX_POINTS} pts</span>
+              <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 700 }}>BUDGET POINTS</span>
+              <div style={{ fontSize: "1.8rem", fontWeight: 900, color: "#0f172a" }}>
+                {currentPointsSpent} / <span style={{ color: "#cbd5e1" }}>{MAX_POINTS} pts</span>
               </div>
             </div>
             <button onClick={handleReset} style={{ display: "flex", alignItems: "center", gap: "8px", background: "#fff1f2", color: "var(--ro-red)", border: "1px solid #ffe4e6", padding: "10px 16px", borderRadius: "12px", cursor: "pointer", fontWeight: 800, fontSize: "0.85rem" }}>
-              <Trash2 size={16} /> Reset Points
+              <Trash2 size={16} /> Reset Build
             </button>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem" }}>
-            
-            {/* Column 1: Passives & Masteries */}
-            <div>
-              <h2 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#1e293b", display: "flex", alignItems: "center", gap: "10px", marginBottom: "1.5rem" }}>
-                <Shield style={{ color: "#38bdf8" }} /> Passive Skills
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                {masteries.map((skill) => {
-                  const currentLevel = allocatedPoints[skill.id] || 0;
-                  const levelData = skill.levels[currentLevel - 1] || null;
-                  const req = PREREQUISITES[skill.id];
+          {/* Interactive Tree Flow (Tiers Layout) */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "3rem", position: "relative" }}>
+            {sortedDepths.map((depthIndex) => (
+              <div key={depthIndex} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
+                
+                {depthIndex > 0 && (
+                  <div style={{ color: "#cbd5e1", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <ArrowDown size={20} />
+                    <span style={{ fontSize: "0.7rem", fontWeight: 800, color: "#94a3b8", letterSpacing: "0.05em" }}>UNLOCKS TIER {depthIndex}</span>
+                  </div>
+                )}
 
-                  return (
-                    <div key={skill.id} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "1.25rem", display: "flex", gap: "1.25rem" }}>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
-                        <button onClick={() => handleSkillChange(skill.id, 1, skill.maxLevel)} style={{ width: "32px", height: "32px", borderRadius: "8px", border: "1px solid #cbd5e1", background: "white", cursor: "pointer" }}><Plus size={14} /></button>
-                        <span style={{ fontSize: "1.1rem", fontWeight: 900, color: currentLevel > 0 ? "var(--ro-red)" : "#94a3b8" }}>{currentLevel}</span>
-                        <button onClick={() => handleSkillChange(skill.id, -1, skill.maxLevel)} style={{ width: "32px", height: "32px", borderRadius: "8px", border: "1px solid #cbd5e1", background: "white", cursor: "pointer" }}><Minus size={14} /></button>
+                <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", width: "100%" }}>
+                  {depthBins[depthIndex].map((skill) => {
+                    const currentLevel = allocatedPoints[skill.id] || 0;
+                    const levelData = skill.levels[currentLevel - 1] || null;
+                    const req = PREREQUISITES[skill.id];
+
+                    return (
+                      <div 
+                        key={skill.id} 
+                        style={{ 
+                          background: currentLevel > 0 ? "#fffbeb" : "#f8fafc",
+                          borderColor: currentLevel > 0 ? "#fef3c7" : "#e2e8f0",
+                          borderWidth: "1px",
+                          borderStyle: "solid",
+                          borderRadius: "16px", 
+                          padding: "1.25rem", 
+                          width: "300px",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "12px",
+                          boxShadow: currentLevel > 0 ? "0 4px 15px -3px rgba(217, 119, 6, 0.1)" : "none"
+                        }}
+                      >
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                          <div>
+                            <div style={{ fontWeight: 800, fontSize: "1rem", color: "#1e293b" }}>{skill.name}</div>
+                            <span style={{ fontSize: "0.7rem", background: "#cbd5e1", color: "#475569", padding: "2px 6px", borderRadius: "4px", fontWeight: 700 }}>
+                              {skill.type}
+                            </span>
+                          </div>
+                          
+                          <div style={{ display: "flex", alignItems: "center", gap: "6px", background: "white", padding: "4px 8px", borderRadius: "8px", border: "1px solid #cbd5e1" }}>
+                            <button 
+                              onClick={() => handleSkillChange(skill.id, -1, skill.maxLevel)} 
+                              disabled={currentLevel <= 0}
+                              style={{ cursor: "pointer", border: "none", background: "none", padding: "2px", opacity: currentLevel <= 0 ? 0.3 : 1 }}
+                            >
+                              <Minus size={12} />
+                            </button>
+                            <span style={{ fontWeight: 900, fontSize: "0.95rem", color: "var(--ro-red)", minWidth: "16px", textAlign: "center" }}>
+                              {currentLevel}/{skill.maxLevel}
+                            </span>
+                            <button 
+                              onClick={() => handleSkillChange(skill.id, 1, skill.maxLevel)} 
+                              disabled={currentLevel >= skill.maxLevel || currentPointsSpent >= MAX_POINTS}
+                              style={{ cursor: "pointer", border: "none", background: "none", padding: "2px", opacity: currentLevel >= skill.maxLevel ? 0.3 : 1 }}
+                            >
+                              <Plus size={12} />
+                            </button>
+                          </div>
+                        </div>
+
+                        {req && (
+                          <div style={{ fontSize: "0.7rem", background: "#fff1f2", color: "var(--ro-red)", padding: "4px 8px", borderRadius: "6px", fontWeight: 700 }}>
+                            Req: {req.skillId.replace(/_/g, ' ')} Lv {req.level}
+                          </div>
+                        )}
+
+                        <p style={{ fontSize: "0.75rem", color: "#64748b", margin: 0, lineHeight: 1.4 }}>{skill.description}</p>
+
+                        {levelData && (
+                          <div style={{ borderTop: "1px dashed #cbd5e1", paddingTop: "8px", fontSize: "0.75rem", color: "#b45309", fontWeight: 600 }}>
+                            {levelData.effect}
+                          </div>
+                        )}
                       </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontWeight: 800, fontSize: "1rem", color: "#334155" }}>{skill.name}</div>
-                        <div style={{ fontSize: "0.8rem", color: "#64748b" }}>Max Lv: {skill.maxLevel}</div>
-                        {req && <div style={{ color: "#ef4444", fontSize: "0.7rem", fontWeight: 700 }}>Needs: {req.skillId} (Lv {req.level})</div>}
-                        {levelData && <p style={{ fontSize: "0.8rem", color: "#1e293b", margin: "8px 0 0", fontWeight: 600 }}>{levelData.effect}</p>}
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+
               </div>
-            </div>
-
-            {/* Column 2: Active Abilities */}
-            <div>
-              <h2 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#1e293b", display: "flex", alignItems: "center", gap: "10px", marginBottom: "1.5rem" }}>
-                <Swords style={{ color: "#f43f5e" }} /> Active & Combat Skills
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                {actives.map((skill) => {
-                  const currentLevel = allocatedPoints[skill.id] || 0;
-                  const levelData = skill.levels[currentLevel - 1] || null;
-                  const req = PREREQUISITES[skill.id];
-
-                  return (
-                    <div key={skill.id} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "1.25rem", display: "flex", gap: "1.25rem" }}>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
-                        <button onClick={() => handleSkillChange(skill.id, 1, skill.maxLevel)} style={{ width: "32px", height: "32px", borderRadius: "8px", border: "1px solid #cbd5e1", background: "white", cursor: "pointer" }}><Plus size={14} /></button>
-                        <span style={{ fontSize: "1.1rem", fontWeight: 900, color: currentLevel > 0 ? "var(--ro-red)" : "#94a3b8" }}>{currentLevel}</span>
-                        <button onClick={() => handleSkillChange(skill.id, -1, skill.maxLevel)} style={{ width: "32px", height: "32px", borderRadius: "8px", border: "1px solid #cbd5e1", background: "white", cursor: "pointer" }}><Minus size={14} /></button>
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontWeight: 800, fontSize: "1rem", color: "#334155" }}>{skill.name}</div>
-                        <div style={{ fontSize: "0.8rem", color: "#64748b" }}>Max Lv: {skill.maxLevel}</div>
-                        {req && <div style={{ color: "#ef4444", fontSize: "0.7rem", fontWeight: 700 }}>Needs: {req.skillId} (Lv {req.level})</div>}
-                        {levelData && <p style={{ fontSize: "0.8rem", color: "#1e293b", margin: "8px 0 0", fontWeight: 600 }}>{levelData.effect}</p>}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
+            ))}
           </div>
 
         </div>
