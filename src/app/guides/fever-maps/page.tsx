@@ -31,6 +31,7 @@ const FEVER_FIELDS = [
       image: "https://assets.twroz.wiki/images/monsters/1060.gif"
     },
     equipment: [
+      { id: 5015, name: "Fever Bear Cap", description: "Armor with random enchantments.", stats: ["DEF +5", "MDEF +3"] },
       { id: 518, name: "Honey", description: "A premium healing snack.", stats: ["Restores HP/SP"] },
       { id: 948, name: "Bear's Paw", description: "Trophy from strong beasts.", stats: ["Crafting material"] },
       { id: 4134, name: "Big Foot Card", description: "Infuse onto defensive accessories.", stats: ["+20% dmg vs Insects"] }
@@ -60,6 +61,7 @@ const FEVER_FIELDS = [
       image: "https://assets.twroz.wiki/images/monsters/1018.gif"
     },
     equipment: [
+      { id: 5112, name: "Fever Wizard Hat", description: "Garment for specialized spellcasters.", stats: ["MATK +5%", "Variable stats"] },
       { id: 905, name: "Butterfly Wing", description: "Instantly travel to your home town.", stats: ["Teleportation utility"] },
       { id: 4046, name: "Creamy Card", description: "Grants continuous usage of Teleport Skill.", stats: ["Lv 1 Teleport"] }
     ]
@@ -88,6 +90,8 @@ const FEVER_FIELDS = [
       image: "https://assets.twroz.wiki/images/monsters/1149.gif"
     },
     equipment: [
+      { id: 15121, name: "Desert Sand Robe", description: "Armor dropping with random affix options.", stats: ["Fever Armor", "Set Option"] },
+      { id: 15122, name: "Desert Boots", description: "Footwear matching zero desert properties.", stats: ["MaxHP +500", "Flee +10"] },
       { id: 932, name: "Minorous Horn", description: "A massive fiery bull shard.", stats: ["Elite Forge component"] },
       { id: 4098, name: "Minorous Card", description: "Boosts damage limits against bulky heavy targets.", stats: ["+15% vs Large"] }
     ]
@@ -116,6 +120,7 @@ const FEVER_FIELDS = [
       image: "https://assets.twroz.wiki/images/monsters/1192.gif"
     },
     equipment: [
+      { id: 15201, name: "Chivalry Plate Mail", description: "Elite defensive core piece.", stats: ["Random slot rolls", "Heavy Armor"] },
       { id: 728, name: "Fabric", description: "Lightweight material.", stats: ["Tailoring recipe core"] },
       { id: 4111, name: "Wraith Card", description: "Earn SP back on killing blows.", stats: ["+5 SP on Undead kills"] }
     ]
