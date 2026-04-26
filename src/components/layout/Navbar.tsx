@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
   Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles,
-  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost, Video
+  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost, Video, Shirt
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -65,6 +65,7 @@ const navGroups = [
     icon: Wrench,
     items: [
       { name: "Skill Tree", href: "/tools/skills", icon: Sparkles },
+      { name: "Dressing Room", href: "/tools/dressing-room", icon: Shirt },
       { name: "Character Simulator", href: "/tools/planner", icon: Sparkles },
       { name: "Refine", href: "/tools/refine", icon: Hammer },
       { name: "Affix", href: "/tools/affix", icon: Sparkles },

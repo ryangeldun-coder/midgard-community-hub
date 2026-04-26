@@ -1,0 +1,3502 @@
+[
+  {
+    "id": "5th_anniversary",
+    "name": "5th Anniversary",
+    "file": "/costumes/headgear/5th_anniversary.png",
+    "w": 95,
+    "h": 70
+  },
+  {
+    "id": "불가사리머리띠",
+    "name": "불가사리머리띠",
+    "file": "/costumes/headgear/불가사리머리띠.png",
+    "w": 27,
+    "h": 21
+  },
+  {
+    "id": "미트라",
+    "name": "미트라",
+    "file": "/costumes/headgear/미트라.png",
+    "w": 23,
+    "h": 22
+  },
+  {
+    "id": "슬리퍼모자",
+    "name": "슬리퍼모자",
+    "file": "/costumes/headgear/슬리퍼모자.png",
+    "w": 20,
+    "h": 20
+  },
+  {
+    "id": "깃털모자",
+    "name": "깃털모자",
+    "file": "/costumes/headgear/깃털모자.png",
+    "w": 33,
+    "h": 30
+  },
+  {
+    "id": "축제머리띠",
+    "name": "축제머리띠",
+    "file": "/costumes/headgear/축제머리띠.png",
+    "w": 27,
+    "h": 19
+  },
+  {
+    "id": "화이트릴리검정",
+    "name": "화이트릴리검정",
+    "file": "/costumes/headgear/화이트릴리검정.png",
+    "w": 19,
+    "h": 26
+  },
+  {
+    "id": "기적의푸른장미",
+    "name": "기적의푸른장미",
+    "file": "/costumes/headgear/기적의푸른장미.png",
+    "w": 21,
+    "h": 13
+  },
+  {
+    "id": "gothic_pumpkin_head",
+    "name": "Gothic Pumpkin Head",
+    "file": "/costumes/headgear/gothic_pumpkin_head.png",
+    "w": 29,
+    "h": 27
+  },
+  {
+    "id": "불타는태양",
+    "name": "불타는태양",
+    "file": "/costumes/headgear/불타는태양.png",
+    "w": 25,
+    "h": 26
+  },
+  {
+    "id": "얼어붙은땅의장미",
+    "name": "얼어붙은땅의장미",
+    "file": "/costumes/headgear/얼어붙은땅의장미.png",
+    "w": 21,
+    "h": 13
+  },
+  {
+    "id": "반다나",
+    "name": "반다나",
+    "file": "/costumes/headgear/반다나.png",
+    "w": 27,
+    "h": 11
+  },
+  {
+    "id": "포링겹모자",
+    "name": "포링겹모자",
+    "file": "/costumes/headgear/포링겹모자.png",
+    "w": 43,
+    "h": 28
+  },
+  {
+    "id": "엔젤링모자",
+    "name": "엔젤링모자",
+    "file": "/costumes/headgear/엔젤링모자.png",
+    "w": 38,
+    "h": 32
+  },
+  {
+    "id": "c_cat_ears_cape_brown",
+    "name": "Cat Ears Cape Brown",
+    "file": "/costumes/headgear/c_cat_ears_cape_brown.png",
+    "w": 36,
+    "h": 18
+  },
+  {
+    "id": "c_exotic_bob_l_wh",
+    "name": "Exotic Bob L Wh",
+    "file": "/costumes/headgear/c_exotic_bob_l_wh.png",
+    "w": 27,
+    "h": 31
+  },
+  {
+    "id": "정지표지판",
+    "name": "정지표지판",
+    "file": "/costumes/headgear/정지표지판.png",
+    "w": 29,
+    "h": 27
+  },
+  {
+    "id": "rag_origin_hat",
+    "name": "Rag Origin Hat",
+    "file": "/costumes/headgear/rag_origin_hat.png",
+    "w": 43,
+    "h": 32
+  },
+  {
+    "id": "하트날개헤어밴드",
+    "name": "하트날개헤어밴드",
+    "file": "/costumes/headgear/하트날개헤어밴드.png",
+    "w": 33,
+    "h": 23
+  },
+  {
+    "id": "흰수염",
+    "name": "흰수염",
+    "file": "/costumes/headgear/흰수염.png",
+    "w": 21,
+    "h": 8
+  },
+  {
+    "id": "c_picnic_basket",
+    "name": "Picnic Basket",
+    "file": "/costumes/headgear/c_picnic_basket.png",
+    "w": 28,
+    "h": 29
+  },
+  {
+    "id": "c_airy_two_side_up_bd",
+    "name": "Airy Two Side Up Bd",
+    "file": "/costumes/headgear/c_airy_two_side_up_bd.png",
+    "w": 55,
+    "h": 61
+  },
+  {
+    "id": "마제스틱고우트",
+    "name": "마제스틱고우트",
+    "file": "/costumes/headgear/마제스틱고우트.png",
+    "w": 39,
+    "h": 28
+  },
+  {
+    "id": "달콤한사탕",
+    "name": "달콤한사탕",
+    "file": "/costumes/headgear/달콤한사탕.png",
+    "w": 12,
+    "h": 12
+  },
+  {
+    "id": "서큐버스뿔",
+    "name": "서큐버스뿔",
+    "file": "/costumes/headgear/서큐버스뿔.png",
+    "w": 31,
+    "h": 12
+  },
+  {
+    "id": "사또모자",
+    "name": "사또모자",
+    "file": "/costumes/headgear/사또모자.png",
+    "w": 43,
+    "h": 26
+  },
+  {
+    "id": "c_fish_marche",
+    "name": "Fish Marche",
+    "file": "/costumes/headgear/c_fish_marche.png",
+    "w": 48,
+    "h": 70
+  },
+  {
+    "id": "털모자",
+    "name": "털모자",
+    "file": "/costumes/headgear/털모자.png",
+    "w": 27,
+    "h": 26
+  },
+  {
+    "id": "강한자의헤어하얀",
+    "name": "강한자의헤어하얀",
+    "file": "/costumes/headgear/강한자의헤어하얀.png",
+    "w": 33,
+    "h": 35
+  },
+  {
+    "id": "리본_노랑",
+    "name": "리본 노랑",
+    "file": "/costumes/headgear/리본_노랑.png",
+    "w": 14,
+    "h": 14
+  },
+  {
+    "id": "입에무는벚꽃가지",
+    "name": "입에무는벚꽃가지",
+    "file": "/costumes/headgear/입에무는벚꽃가지.png",
+    "w": 18,
+    "h": 22
+  },
+  {
+    "id": "c_fairy_long_bd",
+    "name": "Fairy Long Bd",
+    "file": "/costumes/headgear/c_fairy_long_bd.png",
+    "w": 49,
+    "h": 58
+  },
+  {
+    "id": "헌팅캡",
+    "name": "헌팅캡",
+    "file": "/costumes/headgear/헌팅캡.png",
+    "w": 29,
+    "h": 26
+  },
+  {
+    "id": "검은뿔테안경",
+    "name": "검은뿔테안경",
+    "file": "/costumes/headgear/검은뿔테안경.png",
+    "w": 17,
+    "h": 4
+  },
+  {
+    "id": "c_clb_dt_ts_manteau",
+    "name": "Clb Dt Ts Manteau",
+    "file": "/costumes/headgear/c_clb_dt_ts_manteau.png",
+    "w": 51,
+    "h": 49
+  },
+  {
+    "id": "c_fluffy_semi_long_sv",
+    "name": "Fluffy Semi Long Sv",
+    "file": "/costumes/headgear/c_fluffy_semi_long_sv.png",
+    "w": 35,
+    "h": 36
+  },
+  {
+    "id": "트윈리본",
+    "name": "트윈리본",
+    "file": "/costumes/headgear/트윈리본.png",
+    "w": 31,
+    "h": 22
+  },
+  {
+    "id": "신선초모자",
+    "name": "신선초모자",
+    "file": "/costumes/headgear/신선초모자.png",
+    "w": 38,
+    "h": 31
+  },
+  {
+    "id": "룬서클릿",
+    "name": "룬서클릿",
+    "file": "/costumes/headgear/룬서클릿.png",
+    "w": 27,
+    "h": 16
+  },
+  {
+    "id": "c힐윈드_마스크",
+    "name": "C힐윈드 마스크",
+    "file": "/costumes/headgear/c힐윈드_마스크.png",
+    "w": 36,
+    "h": 56
+  },
+  {
+    "id": "c_exotic_bob_l_yl",
+    "name": "Exotic Bob L Yl",
+    "file": "/costumes/headgear/c_exotic_bob_l_yl.png",
+    "w": 27,
+    "h": 31
+  },
+  {
+    "id": "테일링인형모자",
+    "name": "테일링인형모자",
+    "file": "/costumes/headgear/테일링인형모자.png",
+    "w": 21,
+    "h": 25
+  },
+  {
+    "id": "노블햇",
+    "name": "노블햇",
+    "file": "/costumes/headgear/노블햇.png",
+    "w": 47,
+    "h": 30
+  },
+  {
+    "id": "c_friendly_white_fox",
+    "name": "Friendly White Fox",
+    "file": "/costumes/headgear/c_friendly_white_fox.png",
+    "w": 36,
+    "h": 20
+  },
+  {
+    "id": "캠퍼스페스티발",
+    "name": "캠퍼스페스티발",
+    "file": "/costumes/headgear/캠퍼스페스티발.png",
+    "w": 27,
+    "h": 19
+  },
+  {
+    "id": "durumagi",
+    "name": "Durumagi",
+    "file": "/costumes/headgear/durumagi.png",
+    "w": 38,
+    "h": 59
+  },
+  {
+    "id": "리프인형모자",
+    "name": "리프인형모자",
+    "file": "/costumes/headgear/리프인형모자.png",
+    "w": 26,
+    "h": 27
+  },
+  {
+    "id": "천사의인도",
+    "name": "천사의인도",
+    "file": "/costumes/headgear/천사의인도.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "c_fairy_long_cb",
+    "name": "Fairy Long Cb",
+    "file": "/costumes/headgear/c_fairy_long_cb.png",
+    "w": 49,
+    "h": 58
+  },
+  {
+    "id": "feather_fedora_tw",
+    "name": "Feather Fedora Tw",
+    "file": "/costumes/headgear/feather_fedora_tw.png",
+    "w": 48,
+    "h": 31
+  },
+  {
+    "id": "cons_of_poison",
+    "name": "Cons Of Poison",
+    "file": "/costumes/headgear/cons_of_poison.png",
+    "w": 120,
+    "h": 180
+  },
+  {
+    "id": "fairy_feathers",
+    "name": "Fairy Feathers",
+    "file": "/costumes/headgear/fairy_feathers.png",
+    "w": 45,
+    "h": 25
+  },
+  {
+    "id": "c_ab_hair_wh",
+    "name": "Ab Hair Wh",
+    "file": "/costumes/headgear/c_ab_hair_wh.png",
+    "w": 29,
+    "h": 45
+  },
+  {
+    "id": "스위트발렌타인모자",
+    "name": "스위트발렌타인모자",
+    "file": "/costumes/headgear/스위트발렌타인모자.png",
+    "w": 28,
+    "h": 36
+  },
+  {
+    "id": "토끼귀모자",
+    "name": "토끼귀모자",
+    "file": "/costumes/headgear/토끼귀모자.png",
+    "w": 41,
+    "h": 30
+  },
+  {
+    "id": "c_ribbon_braid_hair",
+    "name": "Ribbon Braid Hair",
+    "file": "/costumes/headgear/c_ribbon_braid_hair.png",
+    "w": 31,
+    "h": 40
+  },
+  {
+    "id": "눈가리개",
+    "name": "눈가리개",
+    "file": "/costumes/headgear/눈가리개.png",
+    "w": 15,
+    "h": 6
+  },
+  {
+    "id": "선장의모자",
+    "name": "선장의모자",
+    "file": "/costumes/headgear/선장의모자.png",
+    "w": 29,
+    "h": 20
+  },
+  {
+    "id": "청나라머리장식",
+    "name": "청나라머리장식",
+    "file": "/costumes/headgear/청나라머리장식.png",
+    "w": 39,
+    "h": 26
+  },
+  {
+    "id": "c_clb_kp_zh",
+    "name": "Clb Kp Zh",
+    "file": "/costumes/headgear/c_clb_kp_zh.png",
+    "w": 30,
+    "h": 31
+  },
+  {
+    "id": "매드해터",
+    "name": "매드해터",
+    "file": "/costumes/headgear/매드해터.png",
+    "w": 45,
+    "h": 39
+  },
+  {
+    "id": "c_mermaid_wig",
+    "name": "Mermaid Wig",
+    "file": "/costumes/headgear/c_mermaid_wig.png",
+    "w": 52,
+    "h": 61
+  },
+  {
+    "id": "천사들의축복",
+    "name": "천사들의축복",
+    "file": "/costumes/headgear/천사들의축복.png",
+    "w": 97,
+    "h": 72
+  },
+  {
+    "id": "아누비스투구",
+    "name": "아누비스투구",
+    "file": "/costumes/headgear/아누비스투구.png",
+    "w": 33,
+    "h": 44
+  },
+  {
+    "id": "눈부신가발",
+    "name": "눈부신가발",
+    "file": "/costumes/headgear/눈부신가발.png",
+    "w": 38,
+    "h": 35
+  },
+  {
+    "id": "입에문네잎클로버",
+    "name": "입에문네잎클로버",
+    "file": "/costumes/headgear/입에문네잎클로버.png",
+    "w": 15,
+    "h": 13
+  },
+  {
+    "id": "초원의바람",
+    "name": "초원의바람",
+    "file": "/costumes/headgear/초원의바람.png",
+    "w": 41,
+    "h": 32
+  },
+  {
+    "id": "나들이모자",
+    "name": "나들이모자",
+    "file": "/costumes/headgear/나들이모자.png",
+    "w": 36,
+    "h": 23
+  },
+  {
+    "id": "c_small_ocean",
+    "name": "Small Ocean",
+    "file": "/costumes/headgear/c_small_ocean.png",
+    "w": 15,
+    "h": 22
+  },
+  {
+    "id": "c_floating_parasol",
+    "name": "Floating Parasol",
+    "file": "/costumes/headgear/c_floating_parasol.png",
+    "w": 52,
+    "h": 57
+  },
+  {
+    "id": "머리포자기",
+    "name": "머리포자기",
+    "file": "/costumes/headgear/머리포자기.png",
+    "w": 27,
+    "h": 10
+  },
+  {
+    "id": "꽃",
+    "name": "꽃",
+    "file": "/costumes/headgear/꽃.png",
+    "w": 13,
+    "h": 15
+  },
+  {
+    "id": "c_heart_angel_tw",
+    "name": "Heart Angel Tw",
+    "file": "/costumes/headgear/c_heart_angel_tw.png",
+    "w": 40,
+    "h": 40
+  },
+  {
+    "id": "승리의날개",
+    "name": "승리의날개",
+    "file": "/costumes/headgear/승리의날개.png",
+    "w": 43,
+    "h": 20
+  },
+  {
+    "id": "늘어진구미호",
+    "name": "늘어진구미호",
+    "file": "/costumes/headgear/늘어진구미호.png",
+    "w": 19,
+    "h": 17
+  },
+  {
+    "id": "무통라이프",
+    "name": "무통라이프",
+    "file": "/costumes/headgear/무통라이프.png",
+    "w": 35,
+    "h": 20
+  },
+  {
+    "id": "c_side_tail_bl",
+    "name": "Side Tail Bl",
+    "file": "/costumes/headgear/c_side_tail_bl.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "c_melon_headphone",
+    "name": "Melon Headphone",
+    "file": "/costumes/headgear/c_melon_headphone.png",
+    "w": 31,
+    "h": 24
+  },
+  {
+    "id": "c_snackparty",
+    "name": "Snackparty",
+    "file": "/costumes/headgear/c_snackparty.png",
+    "w": 80,
+    "h": 67
+  },
+  {
+    "id": "분홍늘어진고양이",
+    "name": "분홍늘어진고양이",
+    "file": "/costumes/headgear/분홍늘어진고양이.png",
+    "w": 20,
+    "h": 16
+  },
+  {
+    "id": "삐침머리_보라",
+    "name": "삐침머리 보라",
+    "file": "/costumes/headgear/삐침머리_보라.png",
+    "w": 12,
+    "h": 11
+  },
+  {
+    "id": "열정의축구공모자",
+    "name": "열정의축구공모자",
+    "file": "/costumes/headgear/열정의축구공모자.png",
+    "w": 22,
+    "h": 22
+  },
+  {
+    "id": "곰돌이풍선",
+    "name": "곰돌이풍선",
+    "file": "/costumes/headgear/곰돌이풍선.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "데빌링모자",
+    "name": "데빌링모자",
+    "file": "/costumes/headgear/데빌링모자.png",
+    "w": 41,
+    "h": 20
+  },
+  {
+    "id": "c_side_tail_bu",
+    "name": "Side Tail Bu",
+    "file": "/costumes/headgear/c_side_tail_bu.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "rtc우승자전용",
+    "name": "Rtc우승자전용",
+    "file": "/costumes/headgear/rtc우승자전용.png",
+    "w": 34,
+    "h": 27
+  },
+  {
+    "id": "c_fishbone_hair",
+    "name": "Fishbone Hair",
+    "file": "/costumes/headgear/c_fishbone_hair.png",
+    "w": 39,
+    "h": 37
+  },
+  {
+    "id": "학사모",
+    "name": "학사모",
+    "file": "/costumes/headgear/학사모.png",
+    "w": 29,
+    "h": 22
+  },
+  {
+    "id": "블루아이새도",
+    "name": "블루아이새도",
+    "file": "/costumes/headgear/블루아이새도.png",
+    "w": 15,
+    "h": 6
+  },
+  {
+    "id": "love_feeling",
+    "name": "Love Feeling",
+    "file": "/costumes/headgear/love_feeling.png",
+    "w": 63,
+    "h": 51
+  },
+  {
+    "id": "흩날리는벚꽃",
+    "name": "흩날리는벚꽃",
+    "file": "/costumes/headgear/흩날리는벚꽃.png",
+    "w": 37,
+    "h": 43
+  },
+  {
+    "id": "머리안경",
+    "name": "머리안경",
+    "file": "/costumes/headgear/머리안경.png",
+    "w": 22,
+    "h": 9
+  },
+  {
+    "id": "도깨비뿔",
+    "name": "도깨비뿔",
+    "file": "/costumes/headgear/도깨비뿔.png",
+    "w": 9,
+    "h": 11
+  },
+  {
+    "id": "늘어진아르지오프",
+    "name": "늘어진아르지오프",
+    "file": "/costumes/headgear/늘어진아르지오프.png",
+    "w": 36,
+    "h": 23
+  },
+  {
+    "id": "c_blacksesame_tteok",
+    "name": "Blacksesame Tteok",
+    "file": "/costumes/headgear/c_blacksesame_tteok.png",
+    "w": 23,
+    "h": 27
+  },
+  {
+    "id": "c_ab_hair_yl",
+    "name": "Ab Hair Yl",
+    "file": "/costumes/headgear/c_ab_hair_yl.png",
+    "w": 29,
+    "h": 45
+  },
+  {
+    "id": "생쥐모자1",
+    "name": "생쥐모자1",
+    "file": "/costumes/headgear/생쥐모자1.png",
+    "w": 37,
+    "h": 27
+  },
+  {
+    "id": "위풍위연의투구",
+    "name": "위풍위연의투구",
+    "file": "/costumes/headgear/위풍위연의투구.png",
+    "w": 55,
+    "h": 49
+  },
+  {
+    "id": "생쥐모자2",
+    "name": "생쥐모자2",
+    "file": "/costumes/headgear/생쥐모자2.png",
+    "w": 37,
+    "h": 27
+  },
+  {
+    "id": "c_avenger",
+    "name": "Avenger",
+    "file": "/costumes/headgear/c_avenger.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "검은눈가리개",
+    "name": "검은눈가리개",
+    "file": "/costumes/headgear/검은눈가리개.png",
+    "w": 17,
+    "h": 8
+  },
+  {
+    "id": "생쥐모자3",
+    "name": "생쥐모자3",
+    "file": "/costumes/headgear/생쥐모자3.png",
+    "w": 37,
+    "h": 27
+  },
+  {
+    "id": "입에문황금물고기",
+    "name": "입에문황금물고기",
+    "file": "/costumes/headgear/입에문황금물고기.png",
+    "w": 21,
+    "h": 10
+  },
+  {
+    "id": "생쥐모자4",
+    "name": "생쥐모자4",
+    "file": "/costumes/headgear/생쥐모자4.png",
+    "w": 37,
+    "h": 27
+  },
+  {
+    "id": "생쥐모자5",
+    "name": "생쥐모자5",
+    "file": "/costumes/headgear/생쥐모자5.png",
+    "w": 37,
+    "h": 27
+  },
+  {
+    "id": "c_brother_keen_eye",
+    "name": "Brother Keen Eye",
+    "file": "/costumes/headgear/c_brother_keen_eye.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "잭머리",
+    "name": "잭머리",
+    "file": "/costumes/headgear/잭머리.png",
+    "w": 37,
+    "h": 30
+  },
+  {
+    "id": "회색털모자",
+    "name": "회색털모자",
+    "file": "/costumes/headgear/회색털모자.png",
+    "w": 27,
+    "h": 26
+  },
+  {
+    "id": "드워프수염",
+    "name": "드워프수염",
+    "file": "/costumes/headgear/드워프수염.png",
+    "w": 15,
+    "h": 15
+  },
+  {
+    "id": "청색머리띠",
+    "name": "청색머리띠",
+    "file": "/costumes/headgear/청색머리띠.png",
+    "w": 25,
+    "h": 17
+  },
+  {
+    "id": "프로펠라_",
+    "name": "프로펠라 ",
+    "file": "/costumes/headgear/프로펠라_.png",
+    "w": 31,
+    "h": 25
+  },
+  {
+    "id": "복호나한가면",
+    "name": "복호나한가면",
+    "file": "/costumes/headgear/복호나한가면.png",
+    "w": 20,
+    "h": 21
+  },
+  {
+    "id": "정령의왕관",
+    "name": "정령의왕관",
+    "file": "/costumes/headgear/정령의왕관.png",
+    "w": 29,
+    "h": 27
+  },
+  {
+    "id": "매지컬부스터",
+    "name": "매지컬부스터",
+    "file": "/costumes/headgear/매지컬부스터.png",
+    "w": 29,
+    "h": 23
+  },
+  {
+    "id": "뮌헨소시지",
+    "name": "뮌헨소시지",
+    "file": "/costumes/headgear/뮌헨소시지.png",
+    "w": 15,
+    "h": 7
+  },
+  {
+    "id": "c_forest_friends",
+    "name": "Forest Friends",
+    "file": "/costumes/headgear/c_forest_friends.png",
+    "w": 116,
+    "h": 36
+  },
+  {
+    "id": "새싹모자",
+    "name": "새싹모자",
+    "file": "/costumes/headgear/새싹모자.png",
+    "w": 22,
+    "h": 18
+  },
+  {
+    "id": "long_twin_om",
+    "name": "Long Twin Om",
+    "file": "/costumes/headgear/long_twin_om.png",
+    "w": 63,
+    "h": 53
+  },
+  {
+    "id": "charcoal_stove",
+    "name": "Charcoal Stove",
+    "file": "/costumes/headgear/charcoal_stove.png",
+    "w": 39,
+    "h": 51
+  },
+  {
+    "id": "루드마스크",
+    "name": "루드마스크",
+    "file": "/costumes/headgear/루드마스크.png",
+    "w": 17,
+    "h": 18
+  },
+  {
+    "id": "개구리모자",
+    "name": "개구리모자",
+    "file": "/costumes/headgear/개구리모자.png",
+    "w": 31,
+    "h": 20
+  },
+  {
+    "id": "resonatetaego",
+    "name": "Resonatetaego",
+    "file": "/costumes/headgear/resonatetaego.png",
+    "w": 80,
+    "h": 61
+  },
+  {
+    "id": "royal_mantle",
+    "name": "Royal Mantle",
+    "file": "/costumes/headgear/royal_mantle.png",
+    "w": 43,
+    "h": 28
+  },
+  {
+    "id": "sin_circlet",
+    "name": "Sin Circlet",
+    "file": "/costumes/headgear/sin_circlet.png",
+    "w": 31,
+    "h": 18
+  },
+  {
+    "id": "c12학년풍선",
+    "name": "C12학년풍선",
+    "file": "/costumes/headgear/c12학년풍선.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "하타블랙",
+    "name": "하타블랙",
+    "file": "/costumes/headgear/하타블랙.png",
+    "w": 30,
+    "h": 31
+  },
+  {
+    "id": "금원보포링의모자",
+    "name": "금원보포링의모자",
+    "file": "/costumes/headgear/금원보포링의모자.png",
+    "w": 19,
+    "h": 29
+  },
+  {
+    "id": "노란야구모자",
+    "name": "노란야구모자",
+    "file": "/costumes/headgear/노란야구모자.png",
+    "w": 27,
+    "h": 22
+  },
+  {
+    "id": "c_cat_ear_long_bu",
+    "name": "Cat Ear Long Bu",
+    "file": "/costumes/headgear/c_cat_ear_long_bu.png",
+    "w": 41,
+    "h": 47
+  },
+  {
+    "id": "고블린가면1호",
+    "name": "고블린가면1호",
+    "file": "/costumes/headgear/고블린가면1호.png",
+    "w": 17,
+    "h": 18
+  },
+  {
+    "id": "국경일모자",
+    "name": "국경일모자",
+    "file": "/costumes/headgear/국경일모자.png",
+    "w": 27,
+    "h": 33
+  },
+  {
+    "id": "long_twin_pp",
+    "name": "Long Twin Pp",
+    "file": "/costumes/headgear/long_twin_pp.png",
+    "w": 63,
+    "h": 53
+  },
+  {
+    "id": "옵저버",
+    "name": "옵저버",
+    "file": "/costumes/headgear/옵저버.png",
+    "w": 15,
+    "h": 13
+  },
+  {
+    "id": "늘어난코",
+    "name": "늘어난코",
+    "file": "/costumes/headgear/늘어난코.png",
+    "w": 11,
+    "h": 12
+  },
+  {
+    "id": "마칭햇",
+    "name": "마칭햇",
+    "file": "/costumes/headgear/마칭햇.png",
+    "w": 25,
+    "h": 52
+  },
+  {
+    "id": "도로시인형모자",
+    "name": "도로시인형모자",
+    "file": "/costumes/headgear/도로시인형모자.png",
+    "w": 24,
+    "h": 23
+  },
+  {
+    "id": "보따리모",
+    "name": "보따리모",
+    "file": "/costumes/headgear/보따리모.png",
+    "w": 20,
+    "h": 24
+  },
+  {
+    "id": "리본_빨강",
+    "name": "리본 빨강",
+    "file": "/costumes/headgear/리본_빨강.png",
+    "w": 14,
+    "h": 14
+  },
+  {
+    "id": "c_eyes_phen",
+    "name": "Eyes Phen",
+    "file": "/costumes/headgear/c_eyes_phen.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "roast_memory",
+    "name": "Roast Memory",
+    "file": "/costumes/headgear/roast_memory.png",
+    "w": 40,
+    "h": 63
+  },
+  {
+    "id": "올드스터로맨스",
+    "name": "올드스터로맨스",
+    "file": "/costumes/headgear/올드스터로맨스.png",
+    "w": 32,
+    "h": 25
+  },
+  {
+    "id": "c_fluffy_semi_long_yl",
+    "name": "Fluffy Semi Long Yl",
+    "file": "/costumes/headgear/c_fluffy_semi_long_yl.png",
+    "w": 35,
+    "h": 36
+  },
+  {
+    "id": "여왕의투구",
+    "name": "여왕의투구",
+    "file": "/costumes/headgear/여왕의투구.png",
+    "w": 27,
+    "h": 21
+  },
+  {
+    "id": "스노우노우모자",
+    "name": "스노우노우모자",
+    "file": "/costumes/headgear/스노우노우모자.png",
+    "w": 54,
+    "h": 74
+  },
+  {
+    "id": "소형정찰기",
+    "name": "소형정찰기",
+    "file": "/costumes/headgear/소형정찰기.png",
+    "w": 27,
+    "h": 46
+  },
+  {
+    "id": "소가죽모자",
+    "name": "소가죽모자",
+    "file": "/costumes/headgear/소가죽모자.png",
+    "w": 33,
+    "h": 23
+  },
+  {
+    "id": "c_hair_bun_wave",
+    "name": "Hair Bun Wave",
+    "file": "/costumes/headgear/c_hair_bun_wave.png",
+    "w": 43,
+    "h": 47
+  },
+  {
+    "id": "풀죽은키엘모자",
+    "name": "풀죽은키엘모자",
+    "file": "/costumes/headgear/풀죽은키엘모자.png",
+    "w": 22,
+    "h": 24
+  },
+  {
+    "id": "입에문도넛",
+    "name": "입에문도넛",
+    "file": "/costumes/headgear/입에문도넛.png",
+    "w": 13,
+    "h": 13
+  },
+  {
+    "id": "라면모자_블랙",
+    "name": "라면모자 블랙",
+    "file": "/costumes/headgear/라면모자_블랙.png",
+    "w": 36,
+    "h": 40
+  },
+  {
+    "id": "c_wl_hair_gn",
+    "name": "Wl Hair Gn",
+    "file": "/costumes/headgear/c_wl_hair_gn.png",
+    "w": 38,
+    "h": 39
+  },
+  {
+    "id": "룬매듭머리띠",
+    "name": "룬매듭머리띠",
+    "file": "/costumes/headgear/룬매듭머리띠.png",
+    "w": 27,
+    "h": 33
+  },
+  {
+    "id": "c_bun_twin_tail_rd",
+    "name": "Bun Twin Tail Rd",
+    "file": "/costumes/headgear/c_bun_twin_tail_rd.png",
+    "w": 39,
+    "h": 22
+  },
+  {
+    "id": "오래된핑크색거시기",
+    "name": "오래된핑크색거시기",
+    "file": "/costumes/headgear/오래된핑크색거시기.png",
+    "w": 26,
+    "h": 24
+  },
+  {
+    "id": "c딸기왕자의왕관",
+    "name": "C딸기왕자의왕관",
+    "file": "/costumes/headgear/c딸기왕자의왕관.png",
+    "w": 33,
+    "h": 40
+  },
+  {
+    "id": "샤워캡",
+    "name": "샤워캡",
+    "file": "/costumes/headgear/샤워캡.png",
+    "w": 31,
+    "h": 24
+  },
+  {
+    "id": "war_princess_ribbon",
+    "name": "War Princess Ribbon",
+    "file": "/costumes/headgear/war_princess_ribbon.png",
+    "w": 30,
+    "h": 24
+  },
+  {
+    "id": "회색마법사의모자",
+    "name": "회색마법사의모자",
+    "file": "/costumes/headgear/회색마법사의모자.png",
+    "w": 36,
+    "h": 26
+  },
+  {
+    "id": "옥토끼모자",
+    "name": "옥토끼모자",
+    "file": "/costumes/headgear/옥토끼모자.png",
+    "w": 19,
+    "h": 24
+  },
+  {
+    "id": "c_electro_two_side_up",
+    "name": "Electro Two Side Up",
+    "file": "/costumes/headgear/c_electro_two_side_up.png",
+    "w": 41,
+    "h": 35
+  },
+  {
+    "id": "return_tw_2th_hat",
+    "name": "Return Tw 2th Hat",
+    "file": "/costumes/headgear/return_tw_2th_hat.png",
+    "w": 70,
+    "h": 51
+  },
+  {
+    "id": "카네이션머리띠",
+    "name": "카네이션머리띠",
+    "file": "/costumes/headgear/카네이션머리띠.png",
+    "w": 31,
+    "h": 23
+  },
+  {
+    "id": "long_twin_rd",
+    "name": "Long Twin Rd",
+    "file": "/costumes/headgear/long_twin_rd.png",
+    "w": 63,
+    "h": 53
+  },
+  {
+    "id": "c_tiger_wh",
+    "name": "Tiger Wh",
+    "file": "/costumes/headgear/c_tiger_wh.png",
+    "w": 35,
+    "h": 62
+  },
+  {
+    "id": "할퀴는고양이",
+    "name": "할퀴는고양이",
+    "file": "/costumes/headgear/할퀴는고양이.png",
+    "w": 19,
+    "h": 26
+  },
+  {
+    "id": "c_side_tail_gn",
+    "name": "Side Tail Gn",
+    "file": "/costumes/headgear/c_side_tail_gn.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "c_pierced_apple",
+    "name": "Pierced Apple",
+    "file": "/costumes/headgear/c_pierced_apple.png",
+    "w": 45,
+    "h": 39
+  },
+  {
+    "id": "예쁜리본",
+    "name": "예쁜리본",
+    "file": "/costumes/headgear/예쁜리본.png",
+    "w": 28,
+    "h": 24
+  },
+  {
+    "id": "c_lovely_heart_cap",
+    "name": "Lovely Heart Cap",
+    "file": "/costumes/headgear/c_lovely_heart_cap.png",
+    "w": 49,
+    "h": 27
+  },
+  {
+    "id": "왕새우모자",
+    "name": "왕새우모자",
+    "file": "/costumes/headgear/왕새우모자.png",
+    "w": 43,
+    "h": 21
+  },
+  {
+    "id": "c_braids_wave",
+    "name": "Braids Wave",
+    "file": "/costumes/headgear/c_braids_wave.png",
+    "w": 59,
+    "h": 61
+  },
+  {
+    "id": "울캡",
+    "name": "울캡",
+    "file": "/costumes/headgear/울캡.png",
+    "w": 32,
+    "h": 27
+  },
+  {
+    "id": "보고있어",
+    "name": "보고있어",
+    "file": "/costumes/headgear/보고있어.png",
+    "w": 31,
+    "h": 25
+  },
+  {
+    "id": "하트안대",
+    "name": "하트안대",
+    "file": "/costumes/headgear/하트안대.png",
+    "w": 13,
+    "h": 11
+  },
+  {
+    "id": "백무상모자",
+    "name": "백무상모자",
+    "file": "/costumes/headgear/백무상모자.png",
+    "w": 33,
+    "h": 32
+  },
+  {
+    "id": "눈사람모자",
+    "name": "눈사람모자",
+    "file": "/costumes/headgear/눈사람모자.png",
+    "w": 29,
+    "h": 38
+  },
+  {
+    "id": "임프모자",
+    "name": "임프모자",
+    "file": "/costumes/headgear/임프모자.png",
+    "w": 38,
+    "h": 66
+  },
+  {
+    "id": "스포아모자",
+    "name": "스포아모자",
+    "file": "/costumes/headgear/스포아모자.png",
+    "w": 39,
+    "h": 30
+  },
+  {
+    "id": "c_tiger_muffler_msp",
+    "name": "Tiger Muffler Msp",
+    "file": "/costumes/headgear/c_tiger_muffler_msp.png",
+    "w": 34,
+    "h": 26
+  },
+  {
+    "id": "c_sr_hair_pk",
+    "name": "Sr Hair Pk",
+    "file": "/costumes/headgear/c_sr_hair_pk.png",
+    "w": 51,
+    "h": 63
+  },
+  {
+    "id": "리본마술사모자",
+    "name": "리본마술사모자",
+    "file": "/costumes/headgear/리본마술사모자.png",
+    "w": 31,
+    "h": 26
+  },
+  {
+    "id": "c_sparkly_rainbow_hair",
+    "name": "Sparkly Rainbow Hair",
+    "file": "/costumes/headgear/c_sparkly_rainbow_hair.png",
+    "w": 51,
+    "h": 52
+  },
+  {
+    "id": "타레네코크루",
+    "name": "타레네코크루",
+    "file": "/costumes/headgear/타레네코크루.png",
+    "w": 20,
+    "h": 20
+  },
+  {
+    "id": "새끼악마모자",
+    "name": "새끼악마모자",
+    "file": "/costumes/headgear/새끼악마모자.png",
+    "w": 25,
+    "h": 27
+  },
+  {
+    "id": "모르피셔스두건",
+    "name": "모르피셔스두건",
+    "file": "/costumes/headgear/모르피셔스두건.png",
+    "w": 29,
+    "h": 26
+  },
+  {
+    "id": "마술사의모자",
+    "name": "마술사의모자",
+    "file": "/costumes/headgear/마술사의모자.png",
+    "w": 32,
+    "h": 29
+  },
+  {
+    "id": "클래식리본",
+    "name": "클래식리본",
+    "file": "/costumes/headgear/클래식리본.png",
+    "w": 32,
+    "h": 34
+  },
+  {
+    "id": "머리끈_파랑",
+    "name": "머리끈 파랑",
+    "file": "/costumes/headgear/머리끈_파랑.png",
+    "w": 23,
+    "h": 16
+  },
+  {
+    "id": "rwc승리의왕관_검정",
+    "name": "Rwc승리의왕관 검정",
+    "file": "/costumes/headgear/rwc승리의왕관_검정.png",
+    "w": 35,
+    "h": 33
+  },
+  {
+    "id": "해적의자존심",
+    "name": "해적의자존심",
+    "file": "/costumes/headgear/해적의자존심.png",
+    "w": 38,
+    "h": 25
+  },
+  {
+    "id": "팔콘마스크",
+    "name": "팔콘마스크",
+    "file": "/costumes/headgear/팔콘마스크.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "갬블러의씰",
+    "name": "갬블러의씰",
+    "file": "/costumes/headgear/갬블러의씰.png",
+    "w": 12,
+    "h": 5
+  },
+  {
+    "id": "professor_miniglass",
+    "name": "Professor Miniglass",
+    "file": "/costumes/headgear/professor_miniglass.png",
+    "w": 13,
+    "h": 7
+  },
+  {
+    "id": "러브게임햇",
+    "name": "러브게임햇",
+    "file": "/costumes/headgear/러브게임햇.png",
+    "w": 34,
+    "h": 30
+  },
+  {
+    "id": "미니글래스",
+    "name": "미니글래스",
+    "file": "/costumes/headgear/미니글래스.png",
+    "w": 11,
+    "h": 5
+  },
+  {
+    "id": "사랑의병아리모자",
+    "name": "사랑의병아리모자",
+    "file": "/costumes/headgear/사랑의병아리모자.png",
+    "w": 20,
+    "h": 20
+  },
+  {
+    "id": "c_pigtail_red_hood",
+    "name": "Pigtail Red Hood",
+    "file": "/costumes/headgear/c_pigtail_red_hood.png",
+    "w": 37,
+    "h": 47
+  },
+  {
+    "id": "타레교황인형모자",
+    "name": "타레교황인형모자",
+    "file": "/costumes/headgear/타레교황인형모자.png",
+    "w": 27,
+    "h": 26
+  },
+  {
+    "id": "배회하는자의삿갓",
+    "name": "배회하는자의삿갓",
+    "file": "/costumes/headgear/배회하는자의삿갓.png",
+    "w": 45,
+    "h": 27
+  },
+  {
+    "id": "비밀결사단의두건",
+    "name": "비밀결사단의두건",
+    "file": "/costumes/headgear/비밀결사단의두건.png",
+    "w": 32,
+    "h": 36
+  },
+  {
+    "id": "닭부리",
+    "name": "닭부리",
+    "file": "/costumes/headgear/닭부리.png",
+    "w": 9,
+    "h": 8
+  },
+  {
+    "id": "귀찮은너구리",
+    "name": "귀찮은너구리",
+    "file": "/costumes/headgear/귀찮은너구리.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "데저트울프모자",
+    "name": "데저트울프모자",
+    "file": "/costumes/headgear/데저트울프모자.png",
+    "w": 18,
+    "h": 25
+  },
+  {
+    "id": "ally_of_the_demons",
+    "name": "Ally Of The Demons",
+    "file": "/costumes/headgear/ally_of_the_demons.png",
+    "w": 41,
+    "h": 48
+  },
+  {
+    "id": "포링선글래스",
+    "name": "포링선글래스",
+    "file": "/costumes/headgear/포링선글래스.png",
+    "w": 27,
+    "h": 15
+  },
+  {
+    "id": "흰여우귀방울리본",
+    "name": "흰여우귀방울리본",
+    "file": "/costumes/headgear/흰여우귀방울리본.png",
+    "w": 35,
+    "h": 32
+  },
+  {
+    "id": "c_angel_berry_wig_n",
+    "name": "Angel Berry Wig N",
+    "file": "/costumes/headgear/c_angel_berry_wig_n.png",
+    "w": 59,
+    "h": 63
+  },
+  {
+    "id": "잠자는이클립스가족",
+    "name": "잠자는이클립스가족",
+    "file": "/costumes/headgear/잠자는이클립스가족.png",
+    "w": 70,
+    "h": 70
+  },
+  {
+    "id": "파란양갈래산타모자",
+    "name": "파란양갈래산타모자",
+    "file": "/costumes/headgear/파란양갈래산타모자.png",
+    "w": 45,
+    "h": 25
+  },
+  {
+    "id": "바나나모자",
+    "name": "바나나모자",
+    "file": "/costumes/headgear/바나나모자.png",
+    "w": 30,
+    "h": 29
+  },
+  {
+    "id": "c_exotic_bob_l_lpp",
+    "name": "Exotic Bob L Lpp",
+    "file": "/costumes/headgear/c_exotic_bob_l_lpp.png",
+    "w": 27,
+    "h": 31
+  },
+  {
+    "id": "비상하는천사",
+    "name": "비상하는천사",
+    "file": "/costumes/headgear/비상하는천사.png",
+    "w": 64,
+    "h": 24
+  },
+  {
+    "id": "c_exotic_bob_r_jbl",
+    "name": "Exotic Bob R Jbl",
+    "file": "/costumes/headgear/c_exotic_bob_r_jbl.png",
+    "w": 27,
+    "h": 31
+  },
+  {
+    "id": "choco_minihat",
+    "name": "Choco Minihat",
+    "file": "/costumes/headgear/choco_minihat.png",
+    "w": 26,
+    "h": 27
+  },
+  {
+    "id": "purple_cat_ears_beret",
+    "name": "Purple Cat Ears Beret",
+    "file": "/costumes/headgear/purple_cat_ears_beret.png",
+    "w": 43,
+    "h": 44
+  },
+  {
+    "id": "제미니s58의눈",
+    "name": "제미니S58의눈",
+    "file": "/costumes/headgear/제미니s58의눈.png",
+    "w": 11,
+    "h": 4
+  },
+  {
+    "id": "오리모자",
+    "name": "오리모자",
+    "file": "/costumes/headgear/오리모자.png",
+    "w": 29,
+    "h": 22
+  },
+  {
+    "id": "c_silk_of_soul",
+    "name": "Silk Of Soul",
+    "file": "/costumes/headgear/c_silk_of_soul.png",
+    "w": 27,
+    "h": 27
+  },
+  {
+    "id": "white_clay_filler",
+    "name": "White Clay Filler",
+    "file": "/costumes/headgear/white_clay_filler.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "c_jitterbug_cap",
+    "name": "Jitterbug Cap",
+    "file": "/costumes/headgear/c_jitterbug_cap.png",
+    "w": 35,
+    "h": 29
+  },
+  {
+    "id": "목말",
+    "name": "목말",
+    "file": "/costumes/headgear/목말.png",
+    "w": 41,
+    "h": 49
+  },
+  {
+    "id": "장미머리띠",
+    "name": "장미머리띠",
+    "file": "/costumes/headgear/장미머리띠.png",
+    "w": 25,
+    "h": 23
+  },
+  {
+    "id": "c_hopping_twin_pigtail",
+    "name": "Hopping Twin Pigtail",
+    "file": "/costumes/headgear/c_hopping_twin_pigtail.png",
+    "w": 61,
+    "h": 76
+  },
+  {
+    "id": "머리박힌나사",
+    "name": "머리박힌나사",
+    "file": "/costumes/headgear/머리박힌나사.png",
+    "w": 33,
+    "h": 10
+  },
+  {
+    "id": "리본_하양",
+    "name": "리본 하양",
+    "file": "/costumes/headgear/리본_하양.png",
+    "w": 14,
+    "h": 14
+  },
+  {
+    "id": "신성한마칭햇",
+    "name": "신성한마칭햇",
+    "file": "/costumes/headgear/신성한마칭햇.png",
+    "w": 33,
+    "h": 47
+  },
+  {
+    "id": "더블류인형모자",
+    "name": "더블류인형모자",
+    "file": "/costumes/headgear/더블류인형모자.png",
+    "w": 28,
+    "h": 24
+  },
+  {
+    "id": "witchmanteau",
+    "name": "Witchmanteau",
+    "file": "/costumes/headgear/witchmanteau.png",
+    "w": 37,
+    "h": 22
+  },
+  {
+    "id": "c_sr_hair_sv",
+    "name": "Sr Hair Sv",
+    "file": "/costumes/headgear/c_sr_hair_sv.png",
+    "w": 51,
+    "h": 63
+  },
+  {
+    "id": "태극귀걸이",
+    "name": "태극귀걸이",
+    "file": "/costumes/headgear/태극귀걸이.png",
+    "w": 34,
+    "h": 23
+  },
+  {
+    "id": "lolita_two_side_up",
+    "name": "Lolita Two Side Up",
+    "file": "/costumes/headgear/lolita_two_side_up.png",
+    "w": 41,
+    "h": 35
+  },
+  {
+    "id": "dancingbutterfly",
+    "name": "Dancingbutterfly",
+    "file": "/costumes/headgear/dancingbutterfly.png",
+    "w": 29,
+    "h": 26
+  },
+  {
+    "id": "사자탈",
+    "name": "사자탈",
+    "file": "/costumes/headgear/사자탈.png",
+    "w": 37,
+    "h": 32
+  },
+  {
+    "id": "아미스트르베레모",
+    "name": "아미스트르베레모",
+    "file": "/costumes/headgear/아미스트르베레모.png",
+    "w": 39,
+    "h": 24
+  },
+  {
+    "id": "얼음날개귀",
+    "name": "얼음날개귀",
+    "file": "/costumes/headgear/얼음날개귀.png",
+    "w": 37,
+    "h": 23
+  },
+  {
+    "id": "침묵의집행자",
+    "name": "침묵의집행자",
+    "file": "/costumes/headgear/침묵의집행자.png",
+    "w": 31,
+    "h": 18
+  },
+  {
+    "id": "c_cat_ear_short",
+    "name": "Cat Ear Short",
+    "file": "/costumes/headgear/c_cat_ear_short.png",
+    "w": 35,
+    "h": 32
+  },
+  {
+    "id": "c_geisha_make",
+    "name": "Geisha Make",
+    "file": "/costumes/headgear/c_geisha_make.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "long_twin_wh",
+    "name": "Long Twin Wh",
+    "file": "/costumes/headgear/long_twin_wh.png",
+    "w": 63,
+    "h": 53
+  },
+  {
+    "id": "비쥬모자",
+    "name": "비쥬모자",
+    "file": "/costumes/headgear/비쥬모자.png",
+    "w": 25,
+    "h": 63
+  },
+  {
+    "id": "사이그룬2",
+    "name": "사이그룬2",
+    "file": "/costumes/headgear/사이그룬2.png",
+    "w": 33,
+    "h": 24
+  },
+  {
+    "id": "로리타텐겔론모자",
+    "name": "로리타텐겔론모자",
+    "file": "/costumes/headgear/로리타텐겔론모자.png",
+    "w": 38,
+    "h": 40
+  },
+  {
+    "id": "삼각지붕모자",
+    "name": "삼각지붕모자",
+    "file": "/costumes/headgear/삼각지붕모자.png",
+    "w": 39,
+    "h": 37
+  },
+  {
+    "id": "마제스틱데빌혼",
+    "name": "마제스틱데빌혼",
+    "file": "/costumes/headgear/마제스틱데빌혼.png",
+    "w": 31,
+    "h": 9
+  },
+  {
+    "id": "beachball",
+    "name": "Beachball",
+    "file": "/costumes/headgear/beachball.png",
+    "w": 22,
+    "h": 22
+  },
+  {
+    "id": "상어모자",
+    "name": "상어모자",
+    "file": "/costumes/headgear/상어모자.png",
+    "w": 35,
+    "h": 26
+  },
+  {
+    "id": "하얀뱀모자",
+    "name": "하얀뱀모자",
+    "file": "/costumes/headgear/하얀뱀모자.png",
+    "w": 15,
+    "h": 26
+  },
+  {
+    "id": "메긴캡",
+    "name": "메긴캡",
+    "file": "/costumes/headgear/메긴캡.png",
+    "w": 29,
+    "h": 23
+  },
+  {
+    "id": "날고싶은엔젤링",
+    "name": "날고싶은엔젤링",
+    "file": "/costumes/headgear/날고싶은엔젤링.png",
+    "w": 38,
+    "h": 32
+  },
+  {
+    "id": "그랜드페코의머리띠",
+    "name": "그랜드페코의머리띠",
+    "file": "/costumes/headgear/그랜드페코의머리띠.png",
+    "w": 42,
+    "h": 40
+  },
+  {
+    "id": "c돼지코",
+    "name": "C돼지코",
+    "file": "/costumes/headgear/c돼지코.png",
+    "w": 9,
+    "h": 7
+  },
+  {
+    "id": "입에무는초코스틱",
+    "name": "입에무는초코스틱",
+    "file": "/costumes/headgear/입에무는초코스틱.png",
+    "w": 5,
+    "h": 12
+  },
+  {
+    "id": "harvest_festa_hat",
+    "name": "Harvest Festa Hat",
+    "file": "/costumes/headgear/harvest_festa_hat.png",
+    "w": 22,
+    "h": 38
+  },
+  {
+    "id": "c행복의늘어진루나틱귀",
+    "name": "C행복의늘어진루나틱귀",
+    "file": "/costumes/headgear/c행복의늘어진루나틱귀.png",
+    "w": 39,
+    "h": 28
+  },
+  {
+    "id": "지르타스인형",
+    "name": "지르타스인형",
+    "file": "/costumes/headgear/지르타스인형.png",
+    "w": 30,
+    "h": 28
+  },
+  {
+    "id": "소울리스윙",
+    "name": "소울리스윙",
+    "file": "/costumes/headgear/소울리스윙.png",
+    "w": 45,
+    "h": 17
+  },
+  {
+    "id": "뱀파이어헤어밴드",
+    "name": "뱀파이어헤어밴드",
+    "file": "/costumes/headgear/뱀파이어헤어밴드.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "고양이발머리핀",
+    "name": "고양이발머리핀",
+    "file": "/costumes/headgear/고양이발머리핀.png",
+    "w": 18,
+    "h": 18
+  },
+  {
+    "id": "미스틱로즈",
+    "name": "미스틱로즈",
+    "file": "/costumes/headgear/미스틱로즈.png",
+    "w": 13,
+    "h": 19
+  },
+  {
+    "id": "산타포링모자",
+    "name": "산타포링모자",
+    "file": "/costumes/headgear/산타포링모자.png",
+    "w": 24,
+    "h": 22
+  },
+  {
+    "id": "흰색마법사의모자",
+    "name": "흰색마법사의모자",
+    "file": "/costumes/headgear/흰색마법사의모자.png",
+    "w": 36,
+    "h": 26
+  },
+  {
+    "id": "long_twin_yl",
+    "name": "Long Twin Yl",
+    "file": "/costumes/headgear/long_twin_yl.png",
+    "w": 63,
+    "h": 53
+  },
+  {
+    "id": "언더림안경레드",
+    "name": "언더림안경레드",
+    "file": "/costumes/headgear/언더림안경레드.png",
+    "w": 19,
+    "h": 7
+  },
+  {
+    "id": "c_rose_gothic_bonnet",
+    "name": "Rose Gothic Bonnet",
+    "file": "/costumes/headgear/c_rose_gothic_bonnet.png",
+    "w": 33,
+    "h": 45
+  },
+  {
+    "id": "c프리티베어",
+    "name": "C프리티베어",
+    "file": "/costumes/headgear/c프리티베어.png",
+    "w": 34,
+    "h": 24
+  },
+  {
+    "id": "c나비의날갯짓",
+    "name": "C나비의날갯짓",
+    "file": "/costumes/headgear/c나비의날갯짓.png",
+    "w": 37,
+    "h": 43
+  },
+  {
+    "id": "체인퍼펫",
+    "name": "체인퍼펫",
+    "file": "/costumes/headgear/체인퍼펫.png",
+    "w": 34,
+    "h": 33
+  },
+  {
+    "id": "c_gulaling_mini",
+    "name": "Gulaling Mini",
+    "file": "/costumes/headgear/c_gulaling_mini.png",
+    "w": 19,
+    "h": 21
+  },
+  {
+    "id": "아티아티모자",
+    "name": "아티아티모자",
+    "file": "/costumes/headgear/아티아티모자.png",
+    "w": 54,
+    "h": 45
+  },
+  {
+    "id": "찰스턴안테나",
+    "name": "찰스턴안테나",
+    "file": "/costumes/headgear/찰스턴안테나.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "c_1st_evt_hat_msp",
+    "name": "1st Evt Hat Msp",
+    "file": "/costumes/headgear/c_1st_evt_hat_msp.png",
+    "w": 110,
+    "h": 80
+  },
+  {
+    "id": "운명의검은손",
+    "name": "운명의검은손",
+    "file": "/costumes/headgear/운명의검은손.png",
+    "w": 28,
+    "h": 30
+  },
+  {
+    "id": "쌍자궁왕관",
+    "name": "쌍자궁왕관",
+    "file": "/costumes/headgear/쌍자궁왕관.png",
+    "w": 33,
+    "h": 34
+  },
+  {
+    "id": "스트레이트포니_흰색",
+    "name": "스트레이트포니 흰색",
+    "file": "/costumes/headgear/스트레이트포니_흰색.png",
+    "w": 13,
+    "h": 6
+  },
+  {
+    "id": "날개헤드폰",
+    "name": "날개헤드폰",
+    "file": "/costumes/headgear/날개헤드폰.png",
+    "w": 39,
+    "h": 24
+  },
+  {
+    "id": "사슴뿔",
+    "name": "사슴뿔",
+    "file": "/costumes/headgear/사슴뿔.png",
+    "w": 55,
+    "h": 24
+  },
+  {
+    "id": "c_starry_ribbon_twin",
+    "name": "Starry Ribbon Twin",
+    "file": "/costumes/headgear/c_starry_ribbon_twin.png",
+    "w": 45,
+    "h": 45
+  },
+  {
+    "id": "c_side_tail_om",
+    "name": "Side Tail Om",
+    "file": "/costumes/headgear/c_side_tail_om.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "고양이눈",
+    "name": "고양이눈",
+    "file": "/costumes/headgear/고양이눈.png",
+    "w": 15,
+    "h": 6
+  },
+  {
+    "id": "아라비안베일",
+    "name": "아라비안베일",
+    "file": "/costumes/headgear/아라비안베일.png",
+    "w": 33,
+    "h": 32
+  },
+  {
+    "id": "c_inner_color_long",
+    "name": "Inner Color Long",
+    "file": "/costumes/headgear/c_inner_color_long.png",
+    "w": 49,
+    "h": 62
+  },
+  {
+    "id": "c_wl_hair_pp",
+    "name": "Wl Hair Pp",
+    "file": "/costumes/headgear/c_wl_hair_pp.png",
+    "w": 38,
+    "h": 39
+  },
+  {
+    "id": "스크래치마스크",
+    "name": "스크래치마스크",
+    "file": "/costumes/headgear/스크래치마스크.png",
+    "w": 17,
+    "h": 18
+  },
+  {
+    "id": "데비루치헤드폰",
+    "name": "데비루치헤드폰",
+    "file": "/costumes/headgear/데비루치헤드폰.png",
+    "w": 37,
+    "h": 28
+  },
+  {
+    "id": "검은고양이귀",
+    "name": "검은고양이귀",
+    "file": "/costumes/headgear/검은고양이귀.png",
+    "w": 25,
+    "h": 10
+  },
+  {
+    "id": "강령술사의두건",
+    "name": "강령술사의두건",
+    "file": "/costumes/headgear/강령술사의두건.png",
+    "w": 44,
+    "h": 37
+  },
+  {
+    "id": "개구리왕자모자",
+    "name": "개구리왕자모자",
+    "file": "/costumes/headgear/개구리왕자모자.png",
+    "w": 24,
+    "h": 26
+  },
+  {
+    "id": "슈노모자",
+    "name": "슈노모자",
+    "file": "/costumes/headgear/슈노모자.png",
+    "w": 30,
+    "h": 21
+  },
+  {
+    "id": "c_vesperheadgear_j",
+    "name": "Vesperheadgear J",
+    "file": "/costumes/headgear/c_vesperheadgear_j.png",
+    "w": 56,
+    "h": 41
+  },
+  {
+    "id": "c_baby_polar_bear",
+    "name": "Baby Polar Bear",
+    "file": "/costumes/headgear/c_baby_polar_bear.png",
+    "w": 29,
+    "h": 33
+  },
+  {
+    "id": "달콤한초콜릿모자",
+    "name": "달콤한초콜릿모자",
+    "file": "/costumes/headgear/달콤한초콜릿모자.png",
+    "w": 29,
+    "h": 41
+  },
+  {
+    "id": "아미스트르캡",
+    "name": "아미스트르캡",
+    "file": "/costumes/headgear/아미스트르캡.png",
+    "w": 26,
+    "h": 25
+  },
+  {
+    "id": "미니트리",
+    "name": "미니트리",
+    "file": "/costumes/headgear/미니트리.png",
+    "w": 17,
+    "h": 29
+  },
+  {
+    "id": "장군의투구",
+    "name": "장군의투구",
+    "file": "/costumes/headgear/장군의투구.png",
+    "w": 33,
+    "h": 41
+  },
+  {
+    "id": "c_side_tail_pp",
+    "name": "Side Tail Pp",
+    "file": "/costumes/headgear/c_side_tail_pp.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "심두멸각머플러",
+    "name": "심두멸각머플러",
+    "file": "/costumes/headgear/심두멸각머플러.png",
+    "w": 40,
+    "h": 21
+  },
+  {
+    "id": "c_20y_anniv_helmet",
+    "name": "20y Anniv Helmet",
+    "file": "/costumes/headgear/c_20y_anniv_helmet.png",
+    "w": 41,
+    "h": 42
+  },
+  {
+    "id": "루즈웨이브트윈_노랑",
+    "name": "루즈웨이브트윈 노랑",
+    "file": "/costumes/headgear/루즈웨이브트윈_노랑.png",
+    "w": 41,
+    "h": 33
+  },
+  {
+    "id": "c_valkyrie_hair",
+    "name": "Valkyrie Hair",
+    "file": "/costumes/headgear/c_valkyrie_hair.png",
+    "w": 61,
+    "h": 64
+  },
+  {
+    "id": "horse_king_red",
+    "name": "Horse King Red",
+    "file": "/costumes/headgear/horse_king_red.png",
+    "w": 29,
+    "h": 45
+  },
+  {
+    "id": "대형금방울",
+    "name": "대형금방울",
+    "file": "/costumes/headgear/대형금방울.png",
+    "w": 39,
+    "h": 37
+  },
+  {
+    "id": "인큐버스뿔",
+    "name": "인큐버스뿔",
+    "file": "/costumes/headgear/인큐버스뿔.png",
+    "w": 32,
+    "h": 11
+  },
+  {
+    "id": "c_airy_two_side_up_sv",
+    "name": "Airy Two Side Up Sv",
+    "file": "/costumes/headgear/c_airy_two_side_up_sv.png",
+    "w": 55,
+    "h": 61
+  },
+  {
+    "id": "해적두건",
+    "name": "해적두건",
+    "file": "/costumes/headgear/해적두건.png",
+    "w": 27,
+    "h": 20
+  },
+  {
+    "id": "친구구함모자",
+    "name": "친구구함모자",
+    "file": "/costumes/headgear/친구구함모자.png",
+    "w": 82,
+    "h": 65
+  },
+  {
+    "id": "깃털베레모",
+    "name": "깃털베레모",
+    "file": "/costumes/headgear/깃털베레모.png",
+    "w": 31,
+    "h": 21
+  },
+  {
+    "id": "소녀의모자",
+    "name": "소녀의모자",
+    "file": "/costumes/headgear/소녀의모자.png",
+    "w": 49,
+    "h": 30
+  },
+  {
+    "id": "백양궁보관",
+    "name": "백양궁보관",
+    "file": "/costumes/headgear/백양궁보관.png",
+    "w": 39,
+    "h": 24
+  },
+  {
+    "id": "스위트젠틀",
+    "name": "스위트젠틀",
+    "file": "/costumes/headgear/스위트젠틀.png",
+    "w": 32,
+    "h": 23
+  },
+  {
+    "id": "심연의투구",
+    "name": "심연의투구",
+    "file": "/costumes/headgear/심연의투구.png",
+    "w": 27,
+    "h": 34
+  },
+  {
+    "id": "c_fluffy_rabbit_cape",
+    "name": "Fluffy Rabbit Cape",
+    "file": "/costumes/headgear/c_fluffy_rabbit_cape.png",
+    "w": 39,
+    "h": 62
+  },
+  {
+    "id": "펌킨헤드",
+    "name": "펌킨헤드",
+    "file": "/costumes/headgear/펌킨헤드.png",
+    "w": 29,
+    "h": 27
+  },
+  {
+    "id": "영혼고리",
+    "name": "영혼고리",
+    "file": "/costumes/headgear/영혼고리.png",
+    "w": 27,
+    "h": 15
+  },
+  {
+    "id": "c_wl_hair_rd",
+    "name": "Wl Hair Rd",
+    "file": "/costumes/headgear/c_wl_hair_rd.png",
+    "w": 38,
+    "h": 39
+  },
+  {
+    "id": "물먹는하마모자",
+    "name": "물먹는하마모자",
+    "file": "/costumes/headgear/물먹는하마모자.png",
+    "w": 27,
+    "h": 31
+  },
+  {
+    "id": "검은색카우보이모자",
+    "name": "검은색카우보이모자",
+    "file": "/costumes/headgear/검은색카우보이모자.png",
+    "w": 32,
+    "h": 24
+  },
+  {
+    "id": "soccer_ball",
+    "name": "Soccer Ball",
+    "file": "/costumes/headgear/soccer_ball.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "봉관",
+    "name": "봉관",
+    "file": "/costumes/headgear/봉관.png",
+    "w": 33,
+    "h": 47
+  },
+  {
+    "id": "protect_cloth",
+    "name": "Protect Cloth",
+    "file": "/costumes/headgear/protect_cloth.png",
+    "w": 45,
+    "h": 32
+  },
+  {
+    "id": "vip_hair_2023",
+    "name": "Vip Hair 2023",
+    "file": "/costumes/headgear/vip_hair_2023.png",
+    "w": 41,
+    "h": 56
+  },
+  {
+    "id": "c_fairy_long_sv",
+    "name": "Fairy Long Sv",
+    "file": "/costumes/headgear/c_fairy_long_sv.png",
+    "w": 49,
+    "h": 58
+  },
+  {
+    "id": "c_baby_panda",
+    "name": "Baby Panda",
+    "file": "/costumes/headgear/c_baby_panda.png",
+    "w": 29,
+    "h": 33
+  },
+  {
+    "id": "복각슈미츠의투구",
+    "name": "복각슈미츠의투구",
+    "file": "/costumes/headgear/복각슈미츠의투구.png",
+    "w": 27,
+    "h": 50
+  },
+  {
+    "id": "찰리의모자",
+    "name": "찰리의모자",
+    "file": "/costumes/headgear/찰리의모자.png",
+    "w": 29,
+    "h": 24
+  },
+  {
+    "id": "c_side_tail_rd",
+    "name": "Side Tail Rd",
+    "file": "/costumes/headgear/c_side_tail_rd.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "킹포링모자",
+    "name": "킹포링모자",
+    "file": "/costumes/headgear/킹포링모자.png",
+    "w": 42,
+    "h": 33
+  },
+  {
+    "id": "c교황의리본",
+    "name": "C교황의리본",
+    "file": "/costumes/headgear/c교황의리본.png",
+    "w": 36,
+    "h": 41
+  },
+  {
+    "id": "c_baby_penguin",
+    "name": "Baby Penguin",
+    "file": "/costumes/headgear/c_baby_penguin.png",
+    "w": 34,
+    "h": 43
+  },
+  {
+    "id": "bluecat_ear",
+    "name": "Bluecat Ear",
+    "file": "/costumes/headgear/bluecat_ear.png",
+    "w": 25,
+    "h": 10
+  },
+  {
+    "id": "사만바이아",
+    "name": "사만바이아",
+    "file": "/costumes/headgear/사만바이아.png",
+    "w": 36,
+    "h": 38
+  },
+  {
+    "id": "가란사스가드",
+    "name": "가란사스가드",
+    "file": "/costumes/headgear/가란사스가드.png",
+    "w": 33,
+    "h": 25
+  },
+  {
+    "id": "c_nut_cracker",
+    "name": "Nut Cracker",
+    "file": "/costumes/headgear/c_nut_cracker.png",
+    "w": 38,
+    "h": 38
+  },
+  {
+    "id": "귀족의가면",
+    "name": "귀족의가면",
+    "file": "/costumes/headgear/귀족의가면.png",
+    "w": 34,
+    "h": 21
+  },
+  {
+    "id": "egg_minihat",
+    "name": "Egg Minihat",
+    "file": "/costumes/headgear/egg_minihat.png",
+    "w": 28,
+    "h": 31
+  },
+  {
+    "id": "안전모",
+    "name": "안전모",
+    "file": "/costumes/headgear/안전모.png",
+    "w": 30,
+    "h": 22
+  },
+  {
+    "id": "low_pony_bl",
+    "name": "Low Pony Bl",
+    "file": "/costumes/headgear/low_pony_bl.png",
+    "w": 17,
+    "h": 38
+  },
+  {
+    "id": "검은마녀의모자",
+    "name": "검은마녀의모자",
+    "file": "/costumes/headgear/검은마녀의모자.png",
+    "w": 70,
+    "h": 50
+  },
+  {
+    "id": "게브네이투구",
+    "name": "게브네이투구",
+    "file": "/costumes/headgear/게브네이투구.png",
+    "w": 27,
+    "h": 33
+  },
+  {
+    "id": "호로의귀",
+    "name": "호로의귀",
+    "file": "/costumes/headgear/호로의귀.png",
+    "w": 25,
+    "h": 19
+  },
+  {
+    "id": "low_pony_bu",
+    "name": "Low Pony Bu",
+    "file": "/costumes/headgear/low_pony_bu.png",
+    "w": 17,
+    "h": 38
+  },
+  {
+    "id": "바람의속삭임",
+    "name": "바람의속삭임",
+    "file": "/costumes/headgear/바람의속삭임.png",
+    "w": 42,
+    "h": 28
+  },
+  {
+    "id": "c은색물음표",
+    "name": "C은색물음표",
+    "file": "/costumes/headgear/c은색물음표.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "c흑과백의유혹",
+    "name": "C흑과백의유혹",
+    "file": "/costumes/headgear/c흑과백의유혹.png",
+    "w": 32,
+    "h": 33
+  },
+  {
+    "id": "pop_popcorn_hat",
+    "name": "Pop Popcorn Hat",
+    "file": "/costumes/headgear/pop_popcorn_hat.png",
+    "w": 35,
+    "h": 38
+  },
+  {
+    "id": "선글라스야구모자",
+    "name": "선글라스야구모자",
+    "file": "/costumes/headgear/선글라스야구모자.png",
+    "w": 27,
+    "h": 22
+  },
+  {
+    "id": "비행기모자",
+    "name": "비행기모자",
+    "file": "/costumes/headgear/비행기모자.png",
+    "w": 26,
+    "h": 25
+  },
+  {
+    "id": "캡",
+    "name": "캡",
+    "file": "/costumes/headgear/캡.png",
+    "w": 21,
+    "h": 15
+  },
+  {
+    "id": "네코미미카프라",
+    "name": "네코미미카프라",
+    "file": "/costumes/headgear/네코미미카프라.png",
+    "w": 25,
+    "h": 12
+  },
+  {
+    "id": "죽은자의투구",
+    "name": "죽은자의투구",
+    "file": "/costumes/headgear/죽은자의투구.png",
+    "w": 37,
+    "h": 35
+  },
+  {
+    "id": "파란귀장식",
+    "name": "파란귀장식",
+    "file": "/costumes/headgear/파란귀장식.png",
+    "w": 40,
+    "h": 16
+  },
+  {
+    "id": "새하얀뿔",
+    "name": "새하얀뿔",
+    "file": "/costumes/headgear/새하얀뿔.png",
+    "w": 11,
+    "h": 14
+  },
+  {
+    "id": "롱포니_갈",
+    "name": "롱포니 갈",
+    "file": "/costumes/headgear/롱포니_갈.png",
+    "w": 15,
+    "h": 8
+  },
+  {
+    "id": "엔젤링핀",
+    "name": "엔젤링핀",
+    "file": "/costumes/headgear/엔젤링핀.png",
+    "w": 13,
+    "h": 17
+  },
+  {
+    "id": "c_cat_footprints",
+    "name": "Cat Footprints",
+    "file": "/costumes/headgear/c_cat_footprints.png",
+    "w": 50,
+    "h": 19
+  },
+  {
+    "id": "박쥐스톨",
+    "name": "박쥐스톨",
+    "file": "/costumes/headgear/박쥐스톨.png",
+    "w": 58,
+    "h": 28
+  },
+  {
+    "id": "c_signon_princess_wave_bl",
+    "name": "Signon Princess Wave Bl",
+    "file": "/costumes/headgear/c_signon_princess_wave_bl.png",
+    "w": 53,
+    "h": 48
+  },
+  {
+    "id": "암흑의투구",
+    "name": "암흑의투구",
+    "file": "/costumes/headgear/암흑의투구.png",
+    "w": 28,
+    "h": 28
+  },
+  {
+    "id": "c_signon_princess_wave_bu",
+    "name": "Signon Princess Wave Bu",
+    "file": "/costumes/headgear/c_signon_princess_wave_bu.png",
+    "w": 53,
+    "h": 48
+  },
+  {
+    "id": "c_spinning_skulls",
+    "name": "Spinning Skulls",
+    "file": "/costumes/headgear/c_spinning_skulls.png",
+    "w": 93,
+    "h": 80
+  },
+  {
+    "id": "무슬림남자모",
+    "name": "무슬림남자모",
+    "file": "/costumes/headgear/무슬림남자모.png",
+    "w": 25,
+    "h": 17
+  },
+  {
+    "id": "오색깃털장식",
+    "name": "오색깃털장식",
+    "file": "/costumes/headgear/오색깃털장식.png",
+    "w": 16,
+    "h": 22
+  },
+  {
+    "id": "리틀엔젤돌",
+    "name": "리틀엔젤돌",
+    "file": "/costumes/headgear/리틀엔젤돌.png",
+    "w": 34,
+    "h": 23
+  },
+  {
+    "id": "사악한마칭햇",
+    "name": "사악한마칭햇",
+    "file": "/costumes/headgear/사악한마칭햇.png",
+    "w": 43,
+    "h": 44
+  },
+  {
+    "id": "c_long_ribbon",
+    "name": "Long Ribbon",
+    "file": "/costumes/headgear/c_long_ribbon.png",
+    "w": 31,
+    "h": 18
+  },
+  {
+    "id": "snowflake_tiara",
+    "name": "Snowflake Tiara",
+    "file": "/costumes/headgear/snowflake_tiara.png",
+    "w": 25,
+    "h": 18
+  },
+  {
+    "id": "빵봉투1",
+    "name": "빵봉투1",
+    "file": "/costumes/headgear/빵봉투1.png",
+    "w": 30,
+    "h": 33
+  },
+  {
+    "id": "머리끈",
+    "name": "머리끈",
+    "file": "/costumes/headgear/머리끈.png",
+    "w": 23,
+    "h": 16
+  },
+  {
+    "id": "빵봉투2",
+    "name": "빵봉투2",
+    "file": "/costumes/headgear/빵봉투2.png",
+    "w": 30,
+    "h": 33
+  },
+  {
+    "id": "c_pool",
+    "name": "Pool",
+    "file": "/costumes/headgear/c_pool.png",
+    "w": 116,
+    "h": 126
+  },
+  {
+    "id": "젖소모자1",
+    "name": "젖소모자1",
+    "file": "/costumes/headgear/젖소모자1.png",
+    "w": 39,
+    "h": 36
+  },
+  {
+    "id": "젖소모자2",
+    "name": "젖소모자2",
+    "file": "/costumes/headgear/젖소모자2.png",
+    "w": 39,
+    "h": 36
+  },
+  {
+    "id": "젖소모자3",
+    "name": "젖소모자3",
+    "file": "/costumes/headgear/젖소모자3.png",
+    "w": 39,
+    "h": 36
+  },
+  {
+    "id": "젖소모자4",
+    "name": "젖소모자4",
+    "file": "/costumes/headgear/젖소모자4.png",
+    "w": 39,
+    "h": 36
+  },
+  {
+    "id": "하트눈안대1",
+    "name": "하트눈안대1",
+    "file": "/costumes/headgear/하트눈안대1.png",
+    "w": 16,
+    "h": 11
+  },
+  {
+    "id": "바람의이정표",
+    "name": "바람의이정표",
+    "file": "/costumes/headgear/바람의이정표.png",
+    "w": 30,
+    "h": 21
+  },
+  {
+    "id": "c_clb_dt_ts_mini",
+    "name": "Clb Dt Ts Mini",
+    "file": "/costumes/headgear/c_clb_dt_ts_mini.png",
+    "w": 31,
+    "h": 40
+  },
+  {
+    "id": "하트눈안대2",
+    "name": "하트눈안대2",
+    "file": "/costumes/headgear/하트눈안대2.png",
+    "w": 16,
+    "h": 11
+  },
+  {
+    "id": "c_angel_of_happiness",
+    "name": "Angel Of Happiness",
+    "file": "/costumes/headgear/c_angel_of_happiness.png",
+    "w": 47,
+    "h": 40
+  },
+  {
+    "id": "c_angry_fish",
+    "name": "Angry Fish",
+    "file": "/costumes/headgear/c_angry_fish.png",
+    "w": 32,
+    "h": 54
+  },
+  {
+    "id": "시위용마스크",
+    "name": "시위용마스크",
+    "file": "/costumes/headgear/시위용마스크.png",
+    "w": 11,
+    "h": 5
+  },
+  {
+    "id": "장식용알껍질",
+    "name": "장식용알껍질",
+    "file": "/costumes/headgear/장식용알껍질.png",
+    "w": 28,
+    "h": 21
+  },
+  {
+    "id": "리틀아쿠아리움",
+    "name": "리틀아쿠아리움",
+    "file": "/costumes/headgear/리틀아쿠아리움.png",
+    "w": 66,
+    "h": 47
+  },
+  {
+    "id": "엘더크라운",
+    "name": "엘더크라운",
+    "file": "/costumes/headgear/엘더크라운.png",
+    "w": 29,
+    "h": 19
+  },
+  {
+    "id": "발렌타인모자",
+    "name": "발렌타인모자",
+    "file": "/costumes/headgear/발렌타인모자.png",
+    "w": 28,
+    "h": 36
+  },
+  {
+    "id": "c_snow_rabbit_wig",
+    "name": "Snow Rabbit Wig",
+    "file": "/costumes/headgear/c_snow_rabbit_wig.png",
+    "w": 49,
+    "h": 79
+  },
+  {
+    "id": "헤르모즈캡",
+    "name": "헤르모즈캡",
+    "file": "/costumes/headgear/헤르모즈캡.png",
+    "w": 32,
+    "h": 26
+  },
+  {
+    "id": "sharkhead",
+    "name": "Sharkhead",
+    "file": "/costumes/headgear/sharkhead.png",
+    "w": 31,
+    "h": 40
+  },
+  {
+    "id": "rwc승리의왕관_파랑",
+    "name": "Rwc승리의왕관 파랑",
+    "file": "/costumes/headgear/rwc승리의왕관_파랑.png",
+    "w": 35,
+    "h": 33
+  },
+  {
+    "id": "c_wl_hair_wh",
+    "name": "Wl Hair Wh",
+    "file": "/costumes/headgear/c_wl_hair_wh.png",
+    "w": 38,
+    "h": 39
+  },
+  {
+    "id": "루즈웨이브트윈_빨강",
+    "name": "루즈웨이브트윈 빨강",
+    "file": "/costumes/headgear/루즈웨이브트윈_빨강.png",
+    "w": 41,
+    "h": 33
+  },
+  {
+    "id": "꽃머리띠",
+    "name": "꽃머리띠",
+    "file": "/costumes/headgear/꽃머리띠.png",
+    "w": 26,
+    "h": 11
+  },
+  {
+    "id": "c_winter_tree",
+    "name": "Winter Tree",
+    "file": "/costumes/headgear/c_winter_tree.png",
+    "w": 70,
+    "h": 70
+  },
+  {
+    "id": "floating_ball",
+    "name": "Floating Ball",
+    "file": "/costumes/headgear/floating_ball.png",
+    "w": 101,
+    "h": 48
+  },
+  {
+    "id": "c_miracle_plant",
+    "name": "Miracle Plant",
+    "file": "/costumes/headgear/c_miracle_plant.png",
+    "w": 72,
+    "h": 45
+  },
+  {
+    "id": "카네이션화환",
+    "name": "카네이션화환",
+    "file": "/costumes/headgear/카네이션화환.png",
+    "w": 33,
+    "h": 18
+  },
+  {
+    "id": "여_하키마스크",
+    "name": "여 하키마스크",
+    "file": "/costumes/headgear/여_하키마스크.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "초승달투구",
+    "name": "초승달투구",
+    "file": "/costumes/headgear/초승달투구.png",
+    "w": 33,
+    "h": 33
+  },
+  {
+    "id": "입에무는치즈과자",
+    "name": "입에무는치즈과자",
+    "file": "/costumes/headgear/입에무는치즈과자.png",
+    "w": 8,
+    "h": 13
+  },
+  {
+    "id": "파란엔젤링모자",
+    "name": "파란엔젤링모자",
+    "file": "/costumes/headgear/파란엔젤링모자.png",
+    "w": 38,
+    "h": 32
+  },
+  {
+    "id": "c_side_tail_wh",
+    "name": "Side Tail Wh",
+    "file": "/costumes/headgear/c_side_tail_wh.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "꼬꼬댁모자",
+    "name": "꼬꼬댁모자",
+    "file": "/costumes/headgear/꼬꼬댁모자.png",
+    "w": 23,
+    "h": 23
+  },
+  {
+    "id": "c4학년풍선",
+    "name": "C4학년풍선",
+    "file": "/costumes/headgear/c4학년풍선.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "c_shadow_devil",
+    "name": "Shadow Devil",
+    "file": "/costumes/headgear/c_shadow_devil.png",
+    "w": 45,
+    "h": 30
+  },
+  {
+    "id": "햇",
+    "name": "햇",
+    "file": "/costumes/headgear/햇.png",
+    "w": 27,
+    "h": 18
+  },
+  {
+    "id": "clay_poring_jar",
+    "name": "Clay Poring Jar",
+    "file": "/costumes/headgear/clay_poring_jar.png",
+    "w": 33,
+    "h": 39
+  },
+  {
+    "id": "인디안깃털머리띠",
+    "name": "인디안깃털머리띠",
+    "file": "/costumes/headgear/인디안깃털머리띠.png",
+    "w": 42,
+    "h": 42
+  },
+  {
+    "id": "아기드래곤",
+    "name": "아기드래곤",
+    "file": "/costumes/headgear/아기드래곤.png",
+    "w": 43,
+    "h": 26
+  },
+  {
+    "id": "slurp_slurp_hat",
+    "name": "Slurp Slurp Hat",
+    "file": "/costumes/headgear/slurp_slurp_hat.png",
+    "w": 25,
+    "h": 45
+  },
+  {
+    "id": "화이트릴리",
+    "name": "화이트릴리",
+    "file": "/costumes/headgear/화이트릴리.png",
+    "w": 19,
+    "h": 26
+  },
+  {
+    "id": "low_pony_gn",
+    "name": "Low Pony Gn",
+    "file": "/costumes/headgear/low_pony_gn.png",
+    "w": 17,
+    "h": 38
+  },
+  {
+    "id": "닭벼슬",
+    "name": "닭벼슬",
+    "file": "/costumes/headgear/닭벼슬.png",
+    "w": 9,
+    "h": 24
+  },
+  {
+    "id": "c_2019_d10_muffler_tw",
+    "name": "2019 D10 Muffler Tw",
+    "file": "/costumes/headgear/c_2019_d10_muffler_tw.png",
+    "w": 26,
+    "h": 16
+  },
+  {
+    "id": "오버프로텍터",
+    "name": "오버프로텍터",
+    "file": "/costumes/headgear/오버프로텍터.png",
+    "w": 36,
+    "h": 28
+  },
+  {
+    "id": "c_clb_ss_df",
+    "name": "Clb Ss Df",
+    "file": "/costumes/headgear/c_clb_ss_df.png",
+    "w": 25,
+    "h": 24
+  },
+  {
+    "id": "담배",
+    "name": "담배",
+    "file": "/costumes/headgear/담배.png",
+    "w": 4,
+    "h": 8
+  },
+  {
+    "id": "c포링버블파이프",
+    "name": "C포링버블파이프",
+    "file": "/costumes/headgear/c포링버블파이프.png",
+    "w": 35,
+    "h": 55
+  },
+  {
+    "id": "낙지풍선",
+    "name": "낙지풍선",
+    "file": "/costumes/headgear/낙지풍선.png",
+    "w": 50,
+    "h": 50
+  },
+  {
+    "id": "c_cons_of_light_dark",
+    "name": "Cons Of Light Dark",
+    "file": "/costumes/headgear/c_cons_of_light_dark.png",
+    "w": 125,
+    "h": 160
+  },
+  {
+    "id": "롱포니_녹",
+    "name": "롱포니 녹",
+    "file": "/costumes/headgear/롱포니_녹.png",
+    "w": 15,
+    "h": 8
+  },
+  {
+    "id": "머리띠",
+    "name": "머리띠",
+    "file": "/costumes/headgear/머리띠.png",
+    "w": 19,
+    "h": 8
+  },
+  {
+    "id": "jjakk",
+    "name": "Jjakk",
+    "file": "/costumes/headgear/jjakk.png",
+    "w": 24,
+    "h": 35
+  },
+  {
+    "id": "alien_sunglass_gn",
+    "name": "Alien Sunglass Gn",
+    "file": "/costumes/headgear/alien_sunglass_gn.png",
+    "w": 19,
+    "h": 14
+  },
+  {
+    "id": "c검은고양이후드",
+    "name": "C검은고양이후드",
+    "file": "/costumes/headgear/c검은고양이후드.png",
+    "w": 38,
+    "h": 40
+  },
+  {
+    "id": "c_orange_rabbit",
+    "name": "Orange Rabbit",
+    "file": "/costumes/headgear/c_orange_rabbit.png",
+    "w": 22,
+    "h": 42
+  },
+  {
+    "id": "sausage",
+    "name": "Sausage",
+    "file": "/costumes/headgear/sausage.png",
+    "w": 44,
+    "h": 43
+  },
+  {
+    "id": "blinking_eyes",
+    "name": "Blinking Eyes",
+    "file": "/costumes/headgear/blinking_eyes.png",
+    "w": 25,
+    "h": 25
+  },
+  {
+    "id": "c_luna_on_shoulder",
+    "name": "Luna On Shoulder",
+    "file": "/costumes/headgear/c_luna_on_shoulder.png",
+    "w": 19,
+    "h": 12
+  },
+  {
+    "id": "c_signon_princess_wave_gn",
+    "name": "Signon Princess Wave Gn",
+    "file": "/costumes/headgear/c_signon_princess_wave_gn.png",
+    "w": 53,
+    "h": 48
+  },
+  {
+    "id": "cat_ear_hat_white",
+    "name": "Cat Ear Hat White",
+    "file": "/costumes/headgear/cat_ear_hat_white.png",
+    "w": 35,
+    "h": 28
+  },
+  {
+    "id": "c_clb_ss_ea",
+    "name": "Clb Ss Ea",
+    "file": "/costumes/headgear/c_clb_ss_ea.png",
+    "w": 25,
+    "h": 33
+  },
+  {
+    "id": "bubble_a_angel_h",
+    "name": "Bubble A Angel H",
+    "file": "/costumes/headgear/bubble_a_angel_h.png",
+    "w": 40,
+    "h": 28
+  },
+  {
+    "id": "c_side_tail_yl",
+    "name": "Side Tail Yl",
+    "file": "/costumes/headgear/c_side_tail_yl.png",
+    "w": 19,
+    "h": 35
+  },
+  {
+    "id": "스트레이트포니_연갈색",
+    "name": "스트레이트포니 연갈색",
+    "file": "/costumes/headgear/스트레이트포니_연갈색.png",
+    "w": 13,
+    "h": 6
+  },
+  {
+    "id": "집게발머리핀",
+    "name": "집게발머리핀",
+    "file": "/costumes/headgear/집게발머리핀.png",
+    "w": 38,
+    "h": 13
+  },
+  {
+    "id": "성직자의모자",
+    "name": "성직자의모자",
+    "file": "/costumes/headgear/성직자의모자.png",
+    "w": 20,
+    "h": 13
+  },
+  {
+    "id": "c_bean_tteok",
+    "name": "Bean Tteok",
+    "file": "/costumes/headgear/c_bean_tteok.png",
+    "w": 23,
+    "h": 27
+  },
+  {
+    "id": "여우가면",
+    "name": "여우가면",
+    "file": "/costumes/headgear/여우가면.png",
+    "w": 17,
+    "h": 18
+  },
+  {
+    "id": "쥬얼크라운",
+    "name": "쥬얼크라운",
+    "file": "/costumes/headgear/쥬얼크라운.png",
+    "w": 25,
+    "h": 24
+  },
+  {
+    "id": "heart_card_in_mouth",
+    "name": "Heart Card In Mouth",
+    "file": "/costumes/headgear/heart_card_in_mouth.png",
+    "w": 15,
+    "h": 14
+  },
+  {
+    "id": "입에문풍선껌",
+    "name": "입에문풍선껌",
+    "file": "/costumes/headgear/입에문풍선껌.png",
+    "w": 7,
+    "h": 7
+  },
+  {
+    "id": "goldfish_hat",
+    "name": "Goldfish Hat",
+    "file": "/costumes/headgear/goldfish_hat.png",
+    "w": 32,
+    "h": 24
+  },
+  {
+    "id": "white_rabbit",
+    "name": "White Rabbit",
+    "file": "/costumes/headgear/white_rabbit.png",
+    "w": 22,
+    "h": 42
+  },
+  {
+    "id": "메이저우로스의뿔",
+    "name": "메이저우로스의뿔",
+    "file": "/costumes/headgear/메이저우로스의뿔.png",
+    "w": 36,
+    "h": 15
+  },
+  {
+    "id": "포포링모자",
+    "name": "포포링모자",
+    "file": "/costumes/headgear/포포링모자.png",
+    "w": 30,
+    "h": 32
+  },
+  {
+    "id": "c_bell_cat_hair",
+    "name": "Bell Cat Hair",
+    "file": "/costumes/headgear/c_bell_cat_hair.png",
+    "w": 47,
+    "h": 50
+  },
+  {
+    "id": "천사의입맞춤",
+    "name": "천사의입맞춤",
+    "file": "/costumes/headgear/천사의입맞춤.png",
+    "w": 35,
+    "h": 15
+  },
+  {
+    "id": "노랑늘어진고양이",
+    "name": "노랑늘어진고양이",
+    "file": "/costumes/headgear/노랑늘어진고양이.png",
+    "w": 20,
+    "h": 16
+  },
+  {
+    "id": "악마의속삭임",
+    "name": "악마의속삭임",
+    "file": "/costumes/headgear/악마의속삭임.png",
+    "w": 42,
+    "h": 22
+  },
+  {
+    "id": "삐침머리_녹색",
+    "name": "삐침머리 녹색",
+    "file": "/costumes/headgear/삐침머리_녹색.png",
+    "w": 12,
+    "h": 11
+  },
+  {
+    "id": "wrapping_ribbon",
+    "name": "Wrapping Ribbon",
+    "file": "/costumes/headgear/wrapping_ribbon.png",
+    "w": 29,
+    "h": 50
+  },
+  {
+    "id": "퍼씰모자",
+    "name": "퍼씰모자",
+    "file": "/costumes/headgear/퍼씰모자.png",
+    "w": 27,
+    "h": 30
+  },
+  {
+    "id": "c_meer_hair",
+    "name": "Meer Hair",
+    "file": "/costumes/headgear/c_meer_hair.png",
+    "w": 53,
+    "h": 62
+  },
+  {
+    "id": "올리버늑대후드",
+    "name": "올리버늑대후드",
+    "file": "/costumes/headgear/올리버늑대후드.png",
+    "w": 39,
+    "h": 40
+  },
+  {
+    "id": "까마귀천구의가면",
+    "name": "까마귀천구의가면",
+    "file": "/costumes/headgear/까마귀천구의가면.png",
+    "w": 41,
+    "h": 25
+  },
+  {
+    "id": "c_angelic_long_bd",
+    "name": "Angelic Long Bd",
+    "file": "/costumes/headgear/c_angelic_long_bd.png",
+    "w": 61,
+    "h": 89
+  },
+  {
+    "id": "모히칸",
+    "name": "모히칸",
+    "file": "/costumes/headgear/모히칸.png",
+    "w": 23,
+    "h": 32
+  },
+  {
+    "id": "의사머리띠",
+    "name": "의사머리띠",
+    "file": "/costumes/headgear/의사머리띠.png",
+    "w": 27,
+    "h": 20
+  },
+  {
+    "id": "오크족헬름",
+    "name": "오크족헬름",
+    "file": "/costumes/headgear/오크족헬름.png",
+    "w": 40,
+    "h": 25
+  },
+  {
+    "id": "c_twinkle_twin",
+    "name": "Twinkle Twin",
+    "file": "/costumes/headgear/c_twinkle_twin.png",
+    "w": 57,
+    "h": 50
+  },
+  {
+    "id": "스쿠터헬멧",
+    "name": "스쿠터헬멧",
+    "file": "/costumes/headgear/스쿠터헬멧.png",
+    "w": 29,
+    "h": 22
+  },
+  {
+    "id": "c_starry_long_wave",
+    "name": "Starry Long Wave",
+    "file": "/costumes/headgear/c_starry_long_wave.png",
+    "w": 48,
+    "h": 57
+  },
+  {
+    "id": "cat_ears_punkish",
+    "name": "Cat Ears Punkish",
+    "file": "/costumes/headgear/cat_ears_punkish.png",
+    "w": 45,
+    "h": 54
+  },
+  {
+    "id": "빨간토끼머리띠",
+    "name": "빨간토끼머리띠",
+    "file": "/costumes/headgear/빨간토끼머리띠.png",
+    "w": 36,
+    "h": 25
+  },
+  {
+    "id": "흰토끼의귀",
+    "name": "흰토끼의귀",
+    "file": "/costumes/headgear/흰토끼의귀.png",
+    "w": 27,
+    "h": 23
+  },
+  {
+    "id": "산타인형머리띠",
+    "name": "산타인형머리띠",
+    "file": "/costumes/headgear/산타인형머리띠.png",
+    "w": 25,
+    "h": 26
+  },
+  {
+    "id": "천사의미니실크햇",
+    "name": "천사의미니실크햇",
+    "file": "/costumes/headgear/천사의미니실크햇.png",
+    "w": 38,
+    "h": 27
+  },
+  {
+    "id": "알파카후드",
+    "name": "알파카후드",
+    "file": "/costumes/headgear/알파카후드.png",
+    "w": 33,
+    "h": 44
+  },
+  {
+    "id": "c_fluffy_semi_long",
+    "name": "Fluffy Semi Long",
+    "file": "/costumes/headgear/c_fluffy_semi_long.png",
+    "w": 35,
+    "h": 36
+  },
+  {
+    "id": "yesterday_once_more",
+    "name": "Yesterday Once More",
+    "file": "/costumes/headgear/yesterday_once_more.png",
+    "w": 110,
+    "h": 60
+  },
+  {
+    "id": "파르펠레자경단모자",
+    "name": "파르펠레자경단모자",
+    "file": "/costumes/headgear/파르펠레자경단모자.png",
+    "w": 33,
+    "h": 23
+  },
+  {
+    "id": "무지개스카프",
+    "name": "무지개스카프",
+    "file": "/costumes/headgear/무지개스카프.png",
+    "w": 13,
+    "h": 12
+  },
+  {
+    "id": "천체서클",
+    "name": "천체서클",
+    "file": "/costumes/headgear/천체서클.png",
+    "w": 37,
+    "h": 26
+  },
+  {
+    "id": "sparkler_fountain",
+    "name": "Sparkler Fountain",
+    "file": "/costumes/headgear/sparkler_fountain.png",
+    "w": 29,
+    "h": 37
+  },
+  {
+    "id": "눈토끼니트모자",
+    "name": "눈토끼니트모자",
+    "file": "/costumes/headgear/눈토끼니트모자.png",
+    "w": 48,
+    "h": 44
+  },
+  {
+    "id": "풍차비녀",
+    "name": "풍차비녀",
+    "file": "/costumes/headgear/풍차비녀.png",
+    "w": 15,
+    "h": 30
+  },
+  {
+    "id": "벙거지모자",
+    "name": "벙거지모자",
+    "file": "/costumes/headgear/벙거지모자.png",
+    "w": 30,
+    "h": 23
+  },
+  {
+    "id": "요리사의모자",
+    "name": "요리사의모자",
+    "file": "/costumes/headgear/요리사의모자.png",
+    "w": 29,
+    "h": 31
+  },
+  {
+    "id": "c세인트프릴리본",
+    "name": "C세인트프릴리본",
+    "file": "/costumes/headgear/c세인트프릴리본.png",
+    "w": 19,
+    "h": 8
+  },
+  {
+    "id": "머리빗",
+    "name": "머리빗",
+    "file": "/costumes/headgear/머리빗.png",
+    "w": 26,
+    "h": 12
+  },
+  {
+    "id": "대못박힌스카프",
+    "name": "대못박힌스카프",
+    "file": "/costumes/headgear/대못박힌스카프.png",
+    "w": 13,
+    "h": 8
+  },
+  {
+    "id": "c_clb_dt_ts_drooping",
+    "name": "Clb Dt Ts Drooping",
+    "file": "/costumes/headgear/c_clb_dt_ts_drooping.png",
+    "w": 42,
+    "h": 25
+  },
+  {
+    "id": "c_straight_long_bu",
+    "name": "Straight Long Bu",
+    "file": "/costumes/headgear/c_straight_long_bu.png",
+    "w": 37,
+    "h": 44
+  },
+  {
+    "id": "queen_headphone",
+    "name": "Queen Headphone",
+    "file": "/costumes/headgear/queen_headphone.png",
+    "w": 41,
+    "h": 24
+  },
+  {
+    "id": "파란포링머리핀",
+    "name": "파란포링머리핀",
+    "file": "/costumes/headgear/파란포링머리핀.png",
+    "w": 13,
+    "h": 13
+  },
+  {
+    "id": "코로넷",
+    "name": "코로넷",
+    "file": "/costumes/headgear/코로넷.png",
+    "w": 21,
+    "h": 19
+  },
+  {
+    "id": "도끼눈",
+    "name": "도끼눈",
+    "file": "/costumes/headgear/도끼눈.png",
+    "w": 21,
+    "h": 10
+  },
+  {
+    "id": "왕리본",
+    "name": "왕리본",
+    "file": "/costumes/headgear/왕리본.png",
+    "w": 35,
+    "h": 21
+  },
+  {
+    "id": "c_kururinpa_hair_bd",
+    "name": "Kururinpa Hair Bd",
+    "file": "/costumes/headgear/c_kururinpa_hair_bd.png",
+    "w": 33,
+    "h": 48
+  },
+  {
+    "id": "여_hunters_dinner",
+    "name": "여 Hunters Dinner",
+    "file": "/costumes/headgear/여_hunters_dinner.png",
+    "w": 45,
+    "h": 40
+  },
+  {
+    "id": "c_chewy_low_twin",
+    "name": "Chewy Low Twin",
+    "file": "/costumes/headgear/c_chewy_low_twin.png",
+    "w": 35,
+    "h": 45
+  },
+  {
+    "id": "주전자모자",
+    "name": "주전자모자",
+    "file": "/costumes/headgear/주전자모자.png",
+    "w": 22,
+    "h": 26
+  },
+  {
+    "id": "dog_officer",
+    "name": "Dog Officer",
+    "file": "/costumes/headgear/dog_officer.png",
+    "w": 35,
+    "h": 23
+  },
+  {
+    "id": "c_cherry_ribbon",
+    "name": "Cherry Ribbon",
+    "file": "/costumes/headgear/c_cherry_ribbon.png",
+    "w": 33,
+    "h": 12
+  },
+  {
+    "id": "검은토끼헤어밴드",
+    "name": "검은토끼헤어밴드",
+    "file": "/costumes/headgear/검은토끼헤어밴드.png",
+    "w": 36,
+    "h": 25
+  },
+  {
+    "id": "미믹알껍질",
+    "name": "미믹알껍질",
+    "file": "/costumes/headgear/미믹알껍질.png",
+    "w": 63,
+    "h": 24
+  },
+  {
+    "id": "루즈웨이브트윈_보라",
+    "name": "루즈웨이브트윈 보라",
+    "file": "/costumes/headgear/루즈웨이브트윈_보라.png",
+    "w": 41,
+    "h": 33
+  },
+  {
+    "id": "c_rose_wave_bdp",
+    "name": "Rose Wave Bdp",
+    "file": "/costumes/headgear/c_rose_wave_bdp.png",
+    "w": 51,
+    "h": 65
+  },
+  {
+    "id": "c_one_sho_bottle",
+    "name": "One Sho Bottle",
+    "file": "/costumes/headgear/c_one_sho_bottle.png",
+    "w": 15,
+    "h": 49
+  },
+  {
+    "id": "포링모자",
+    "name": "포링모자",
+    "file": "/costumes/headgear/포링모자.png",
+    "w": 30,
+    "h": 32
+  },
+  {
+    "id": "탐정모자",
+    "name": "탐정모자",
+    "file": "/costumes/headgear/탐정모자.png",
+    "w": 27,
+    "h": 25
+  }
+]

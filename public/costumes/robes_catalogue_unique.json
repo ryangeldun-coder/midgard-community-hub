@@ -1,0 +1,709 @@
+[
+  {
+    "id": "backside_ribbon_bell",
+    "name": "Backside Ribbon Bell",
+    "file": "/costumes/robes/backside_ribbon_bell.png",
+    "w": 47,
+    "h": 43
+  },
+  {
+    "id": "c_call_octo",
+    "name": "Call Octo",
+    "file": "/costumes/robes/c_call_octo.png",
+    "w": 90,
+    "h": 80
+  },
+  {
+    "id": "c_flower_wing",
+    "name": "Flower Wing",
+    "file": "/costumes/robes/c_flower_wing.png",
+    "w": 85,
+    "h": 54
+  },
+  {
+    "id": "c_lord_of_death_shield",
+    "name": "Lord Of Death Shield",
+    "file": "/costumes/robes/c_lord_of_death_shield.png",
+    "w": 44,
+    "h": 63
+  },
+  {
+    "id": "c_giant_teddy_bear",
+    "name": "Giant Teddy Bear",
+    "file": "/costumes/robes/c_giant_teddy_bear.png",
+    "w": 32,
+    "h": 51
+  },
+  {
+    "id": "wings_of_michael",
+    "name": "Wings Of Michael",
+    "file": "/costumes/robes/wings_of_michael.png",
+    "w": 75,
+    "h": 57
+  },
+  {
+    "id": "c_aqua_fin_decoration",
+    "name": "Aqua Fin Decoration",
+    "file": "/costumes/robes/c_aqua_fin_decoration.png",
+    "w": 71,
+    "h": 65
+  },
+  {
+    "id": "c_herald_of_god",
+    "name": "Herald Of God",
+    "file": "/costumes/robes/c_herald_of_god.png",
+    "w": 48,
+    "h": 51
+  },
+  {
+    "id": "c_giant_mad_bunny",
+    "name": "Giant Mad Bunny",
+    "file": "/costumes/robes/c_giant_mad_bunny.png",
+    "w": 39,
+    "h": 54
+  },
+  {
+    "id": "c_clb_kp_dms",
+    "name": "Clb Kp Dms",
+    "file": "/costumes/robes/c_clb_kp_dms.png",
+    "w": 58,
+    "h": 60
+  },
+  {
+    "id": "stellar_gratia",
+    "name": "Stellar Gratia",
+    "file": "/costumes/robes/stellar_gratia.png",
+    "w": 97,
+    "h": 90
+  },
+  {
+    "id": "소악마날개",
+    "name": "소악마날개",
+    "file": "/costumes/robes/소악마날개.png",
+    "w": 69,
+    "h": 29
+  },
+  {
+    "id": "c_snow_powder",
+    "name": "Snow Powder",
+    "file": "/costumes/robes/c_snow_powder.png",
+    "w": 23,
+    "h": 28
+  },
+  {
+    "id": "c_poring_syringe",
+    "name": "Poring Syringe",
+    "file": "/costumes/robes/c_poring_syringe.png",
+    "w": 72,
+    "h": 58
+  },
+  {
+    "id": "halloween_poring_bag",
+    "name": "Halloween Poring Bag",
+    "file": "/costumes/robes/halloween_poring_bag.png",
+    "w": 77,
+    "h": 48
+  },
+  {
+    "id": "안토니오가방",
+    "name": "안토니오가방",
+    "file": "/costumes/robes/안토니오가방.png",
+    "w": 18,
+    "h": 10
+  },
+  {
+    "id": "c_melody_wing",
+    "name": "Melody Wing",
+    "file": "/costumes/robes/c_melody_wing.png",
+    "w": 97,
+    "h": 54
+  },
+  {
+    "id": "아버지사랑날개2012",
+    "name": "아버지사랑날개2012",
+    "file": "/costumes/robes/아버지사랑날개2012.png",
+    "w": 57,
+    "h": 53
+  },
+  {
+    "id": "heartchocobag",
+    "name": "Heartchocobag",
+    "file": "/costumes/robes/heartchocobag.png",
+    "w": 54,
+    "h": 52
+  },
+  {
+    "id": "c_clb_ss_lt",
+    "name": "Clb Ss Lt",
+    "file": "/costumes/robes/c_clb_ss_lt.png",
+    "w": 42,
+    "h": 41
+  },
+  {
+    "id": "c_dark_lord_cloak",
+    "name": "Dark Lord Cloak",
+    "file": "/costumes/robes/c_dark_lord_cloak.png",
+    "w": 88,
+    "h": 106
+  },
+  {
+    "id": "c_rose_gothic_ribbon",
+    "name": "Rose Gothic Ribbon",
+    "file": "/costumes/robes/c_rose_gothic_ribbon.png",
+    "w": 41,
+    "h": 47
+  },
+  {
+    "id": "c_moonlight_bell",
+    "name": "Moonlight Bell",
+    "file": "/costumes/robes/c_moonlight_bell.png",
+    "w": 66,
+    "h": 45
+  },
+  {
+    "id": "lop_bunny_cloak",
+    "name": "Lop Bunny Cloak",
+    "file": "/costumes/robes/lop_bunny_cloak.png",
+    "w": 57,
+    "h": 51
+  },
+  {
+    "id": "rainbow_shell",
+    "name": "Rainbow Shell",
+    "file": "/costumes/robes/rainbow_shell.png",
+    "w": 30,
+    "h": 43
+  },
+  {
+    "id": "c_sweet_folk",
+    "name": "Sweet Folk",
+    "file": "/costumes/robes/c_sweet_folk.png",
+    "w": 62,
+    "h": 83
+  },
+  {
+    "id": "c_hooked_straw_hat",
+    "name": "Hooked Straw Hat",
+    "file": "/costumes/robes/c_hooked_straw_hat.png",
+    "w": 35,
+    "h": 36
+  },
+  {
+    "id": "valkyrie_curse_blight",
+    "name": "Valkyrie Curse Blight",
+    "file": "/costumes/robes/valkyrie_curse_blight.png",
+    "w": 92,
+    "h": 63
+  },
+  {
+    "id": "아미스트르가방",
+    "name": "아미스트르가방",
+    "file": "/costumes/robes/아미스트르가방.png",
+    "w": 24,
+    "h": 39
+  },
+  {
+    "id": "c_scepter",
+    "name": "Scepter",
+    "file": "/costumes/robes/c_scepter.png",
+    "w": 23,
+    "h": 28
+  },
+  {
+    "id": "c_cupid_wing_skyblue",
+    "name": "Cupid Wing Skyblue",
+    "file": "/costumes/robes/c_cupid_wing_skyblue.png",
+    "w": 43,
+    "h": 15
+  },
+  {
+    "id": "c_3color_dumplings_p",
+    "name": "3color Dumplings P",
+    "file": "/costumes/robes/c_3color_dumplings_p.png",
+    "w": 47,
+    "h": 55
+  },
+  {
+    "id": "기린의날개",
+    "name": "기린의날개",
+    "file": "/costumes/robes/기린의날개.png",
+    "w": 57,
+    "h": 40
+  },
+  {
+    "id": "c_shiba_tail",
+    "name": "Shiba Tail",
+    "file": "/costumes/robes/c_shiba_tail.png",
+    "w": 21,
+    "h": 25
+  },
+  {
+    "id": "c_ninetail_tail",
+    "name": "Ninetail Tail",
+    "file": "/costumes/robes/c_ninetail_tail.png",
+    "w": 67,
+    "h": 47
+  },
+  {
+    "id": "c_poring_swim_ring",
+    "name": "Poring Swim Ring",
+    "file": "/costumes/robes/c_poring_swim_ring.png",
+    "w": 61,
+    "h": 61
+  },
+  {
+    "id": "c_triple_ice_cream",
+    "name": "Triple Ice Cream",
+    "file": "/costumes/robes/c_triple_ice_cream.png",
+    "w": 56,
+    "h": 70
+  },
+  {
+    "id": "우리엘의날개",
+    "name": "우리엘의날개",
+    "file": "/costumes/robes/우리엘의날개.png",
+    "w": 75,
+    "h": 57
+  },
+  {
+    "id": "c_giant_shark",
+    "name": "Giant Shark",
+    "file": "/costumes/robes/c_giant_shark.png",
+    "w": 52,
+    "h": 95
+  },
+  {
+    "id": "천사날개",
+    "name": "천사날개",
+    "file": "/costumes/robes/천사날개.png",
+    "w": 58,
+    "h": 53
+  },
+  {
+    "id": "요정의파란날개",
+    "name": "요정의파란날개",
+    "file": "/costumes/robes/요정의파란날개.png",
+    "w": 116,
+    "h": 83
+  },
+  {
+    "id": "c_nifl_bloom",
+    "name": "Nifl Bloom",
+    "file": "/costumes/robes/c_nifl_bloom.png",
+    "w": 72,
+    "h": 84
+  },
+  {
+    "id": "thanatos_sword",
+    "name": "Thanatos Sword",
+    "file": "/costumes/robes/thanatos_sword.png",
+    "w": 48,
+    "h": 55
+  },
+  {
+    "id": "c_big_ribbon_cloak_wh",
+    "name": "Big Ribbon Cloak Wh",
+    "file": "/costumes/robes/c_big_ribbon_cloak_wh.png",
+    "w": 58,
+    "h": 46
+  },
+  {
+    "id": "c_t_bear_bag",
+    "name": "T Bear Bag",
+    "file": "/costumes/robes/c_t_bear_bag.png",
+    "w": 19,
+    "h": 32
+  },
+  {
+    "id": "c_big_ribbon_cloak",
+    "name": "Big Ribbon Cloak",
+    "file": "/costumes/robes/c_big_ribbon_cloak.png",
+    "w": 55,
+    "h": 68
+  },
+  {
+    "id": "분홍큐피트날개",
+    "name": "분홍큐피트날개",
+    "file": "/costumes/robes/분홍큐피트날개.png",
+    "w": 43,
+    "h": 15
+  },
+  {
+    "id": "c_big_lollipop",
+    "name": "Big Lollipop",
+    "file": "/costumes/robes/c_big_lollipop.png",
+    "w": 60,
+    "h": 74
+  },
+  {
+    "id": "exe_backpack",
+    "name": "Exe Backpack",
+    "file": "/costumes/robes/exe_backpack.png",
+    "w": 23,
+    "h": 29
+  },
+  {
+    "id": "c_sakura_fes_tw",
+    "name": "Sakura Fes Tw",
+    "file": "/costumes/robes/c_sakura_fes_tw.png",
+    "w": 51,
+    "h": 56
+  },
+  {
+    "id": "c_wings_of_gabriel",
+    "name": "Wings Of Gabriel",
+    "file": "/costumes/robes/c_wings_of_gabriel.png",
+    "w": 75,
+    "h": 57
+  },
+  {
+    "id": "c_unicorn_fan_trav",
+    "name": "Unicorn Fan Trav",
+    "file": "/costumes/robes/c_unicorn_fan_trav.png",
+    "w": 49,
+    "h": 47
+  },
+  {
+    "id": "c_surf_board",
+    "name": "Surf Board",
+    "file": "/costumes/robes/c_surf_board.png",
+    "w": 47,
+    "h": 90
+  },
+  {
+    "id": "검의날개",
+    "name": "검의날개",
+    "file": "/costumes/robes/검의날개.png",
+    "w": 108,
+    "h": 36
+  },
+  {
+    "id": "c_lunatic_bag",
+    "name": "Lunatic Bag",
+    "file": "/costumes/robes/c_lunatic_bag.png",
+    "w": 31,
+    "h": 39
+  },
+  {
+    "id": "blackcatbag",
+    "name": "Blackcatbag",
+    "file": "/costumes/robes/blackcatbag.png",
+    "w": 25,
+    "h": 29
+  },
+  {
+    "id": "c_mystical_wing",
+    "name": "Mystical Wing",
+    "file": "/costumes/robes/c_mystical_wing.png",
+    "w": 141,
+    "h": 86
+  },
+  {
+    "id": "c_school_bag_rd",
+    "name": "School Bag Rd",
+    "file": "/costumes/robes/c_school_bag_rd.png",
+    "w": 22,
+    "h": 25
+  },
+  {
+    "id": "wings_of_raphael",
+    "name": "Wings Of Raphael",
+    "file": "/costumes/robes/wings_of_raphael.png",
+    "w": 75,
+    "h": 57
+  },
+  {
+    "id": "c_beer_server",
+    "name": "Beer Server",
+    "file": "/costumes/robes/c_beer_server.png",
+    "w": 35,
+    "h": 51
+  },
+  {
+    "id": "wingofheart",
+    "name": "Wingofheart",
+    "file": "/costumes/robes/wingofheart.png",
+    "w": 76,
+    "h": 48
+  },
+  {
+    "id": "c_school_bag_bl",
+    "name": "School Bag Bl",
+    "file": "/costumes/robes/c_school_bag_bl.png",
+    "w": 22,
+    "h": 25
+  },
+  {
+    "id": "루드라의날개",
+    "name": "루드라의날개",
+    "file": "/costumes/robes/루드라의날개.png",
+    "w": 57,
+    "h": 53
+  },
+  {
+    "id": "c_honey_dipper",
+    "name": "Honey Dipper",
+    "file": "/costumes/robes/c_honey_dipper.png",
+    "w": 52,
+    "h": 63
+  },
+  {
+    "id": "행복의날개",
+    "name": "행복의날개",
+    "file": "/costumes/robes/행복의날개.png",
+    "w": 57,
+    "h": 53
+  },
+  {
+    "id": "c_cat_fork",
+    "name": "Cat Fork",
+    "file": "/costumes/robes/c_cat_fork.png",
+    "w": 50,
+    "h": 48
+  },
+  {
+    "id": "c_bloody_murderer_knife",
+    "name": "Bloody Murderer Knife",
+    "file": "/costumes/robes/c_bloody_murderer_knife.png",
+    "w": 58,
+    "h": 71
+  },
+  {
+    "id": "c_clb_dt_ts_wing",
+    "name": "Clb Dt Ts Wing",
+    "file": "/costumes/robes/c_clb_dt_ts_wing.png",
+    "w": 81,
+    "h": 65
+  },
+  {
+    "id": "c_spoon_fork_set",
+    "name": "Spoon Fork Set",
+    "file": "/costumes/robes/c_spoon_fork_set.png",
+    "w": 60,
+    "h": 77
+  },
+  {
+    "id": "c_leaf_umbrella",
+    "name": "Leaf Umbrella",
+    "file": "/costumes/robes/c_leaf_umbrella.png",
+    "w": 51,
+    "h": 71
+  },
+  {
+    "id": "c_valkyrie_wing",
+    "name": "Valkyrie Wing",
+    "file": "/costumes/robes/c_valkyrie_wing.png",
+    "w": 87,
+    "h": 55
+  },
+  {
+    "id": "c_pinkbutterfly_wing",
+    "name": "Pinkbutterfly Wing",
+    "file": "/costumes/robes/c_pinkbutterfly_wing.png",
+    "w": 116,
+    "h": 83
+  },
+  {
+    "id": "chrismas_tree",
+    "name": "Chrismas Tree",
+    "file": "/costumes/robes/chrismas_tree.png",
+    "w": 63,
+    "h": 52
+  },
+  {
+    "id": "c_blessed_veil",
+    "name": "Blessed Veil",
+    "file": "/costumes/robes/c_blessed_veil.png",
+    "w": 51,
+    "h": 66
+  },
+  {
+    "id": "balloon_wing",
+    "name": "Balloon Wing",
+    "file": "/costumes/robes/balloon_wing.png",
+    "w": 49,
+    "h": 42
+  },
+  {
+    "id": "대악마날개",
+    "name": "대악마날개",
+    "file": "/costumes/robes/대악마날개.png",
+    "w": 61,
+    "h": 51
+  },
+  {
+    "id": "포링가방",
+    "name": "포링가방",
+    "file": "/costumes/robes/포링가방.png",
+    "w": 26,
+    "h": 38
+  },
+  {
+    "id": "giantcatbag",
+    "name": "Giantcatbag",
+    "file": "/costumes/robes/giantcatbag.png",
+    "w": 36,
+    "h": 76
+  },
+  {
+    "id": "하늘색큐피트날개",
+    "name": "하늘색큐피트날개",
+    "file": "/costumes/robes/하늘색큐피트날개.png",
+    "w": 43,
+    "h": 15
+  },
+  {
+    "id": "모험가배낭",
+    "name": "모험가배낭",
+    "file": "/costumes/robes/모험가배낭.png",
+    "w": 19,
+    "h": 32
+  },
+  {
+    "id": "c_cat_doll_wh",
+    "name": "Cat Doll Wh",
+    "file": "/costumes/robes/c_cat_doll_wh.png",
+    "w": 23,
+    "h": 52
+  },
+  {
+    "id": "타락천사의날개",
+    "name": "타락천사의날개",
+    "file": "/costumes/robes/타락천사의날개.png",
+    "w": 57,
+    "h": 53
+  },
+  {
+    "id": "ru_bear_bag",
+    "name": "Ru Bear Bag",
+    "file": "/costumes/robes/ru_bear_bag.png",
+    "w": 37,
+    "h": 39
+  },
+  {
+    "id": "c_bloody_wing",
+    "name": "Bloody Wing",
+    "file": "/costumes/robes/c_bloody_wing.png",
+    "w": 57,
+    "h": 53
+  },
+  {
+    "id": "c_papilio_ulysses_feather",
+    "name": "Papilio Ulysses Feather",
+    "file": "/costumes/robes/c_papilio_ulysses_feather.png",
+    "w": 89,
+    "h": 74
+  },
+  {
+    "id": "c_clutch_bouquet",
+    "name": "Clutch Bouquet",
+    "file": "/costumes/robes/c_clutch_bouquet.png",
+    "w": 38,
+    "h": 56
+  },
+  {
+    "id": "c_school_bag_pu",
+    "name": "School Bag Pu",
+    "file": "/costumes/robes/c_school_bag_pu.png",
+    "w": 22,
+    "h": 25
+  },
+  {
+    "id": "c_blackbear_back_tw",
+    "name": "Blackbear Back Tw",
+    "file": "/costumes/robes/c_blackbear_back_tw.png",
+    "w": 25,
+    "h": 31
+  },
+  {
+    "id": "c_ice_wing",
+    "name": "Ice Wing",
+    "file": "/costumes/robes/c_ice_wing.png",
+    "w": 61,
+    "h": 55
+  },
+  {
+    "id": "c_divine_phoenix",
+    "name": "Divine Phoenix",
+    "file": "/costumes/robes/c_divine_phoenix.png",
+    "w": 70,
+    "h": 78
+  },
+  {
+    "id": "santa_backpack",
+    "name": "Santa Backpack",
+    "file": "/costumes/robes/santa_backpack.png",
+    "w": 41,
+    "h": 44
+  },
+  {
+    "id": "c_school_bag_bu",
+    "name": "School Bag Bu",
+    "file": "/costumes/robes/c_school_bag_bu.png",
+    "w": 22,
+    "h": 25
+  },
+  {
+    "id": "c_poring_basket",
+    "name": "Poring Basket",
+    "file": "/costumes/robes/c_poring_basket.png",
+    "w": 31,
+    "h": 38
+  },
+  {
+    "id": "wings_of_lucifer",
+    "name": "Wings Of Lucifer",
+    "file": "/costumes/robes/wings_of_lucifer.png",
+    "w": 75,
+    "h": 57
+  },
+  {
+    "id": "c_blue_rose_garden",
+    "name": "Blue Rose Garden",
+    "file": "/costumes/robes/c_blue_rose_garden.png",
+    "w": 66,
+    "h": 65
+  },
+  {
+    "id": "c_seraphim_wing_tw",
+    "name": "Seraphim Wing Tw",
+    "file": "/costumes/robes/c_seraphim_wing_tw.png",
+    "w": 87,
+    "h": 55
+  },
+  {
+    "id": "c_baldr_wing_tw",
+    "name": "Baldr Wing Tw",
+    "file": "/costumes/robes/c_baldr_wing_tw.png",
+    "w": 87,
+    "h": 55
+  },
+  {
+    "id": "피아멧트의리본",
+    "name": "피아멧트의리본",
+    "file": "/costumes/robes/피아멧트의리본.png",
+    "w": 57,
+    "h": 53
+  },
+  {
+    "id": "c_evil_druid_cross",
+    "name": "Evil Druid Cross",
+    "file": "/costumes/robes/c_evil_druid_cross.png",
+    "w": 43,
+    "h": 84
+  },
+  {
+    "id": "c_loli_ruri_moon",
+    "name": "Loli Ruri Moon",
+    "file": "/costumes/robes/c_loli_ruri_moon.png",
+    "w": 85,
+    "h": 97
+  },
+  {
+    "id": "bow_on_the_back",
+    "name": "Bow On The Back",
+    "file": "/costumes/robes/bow_on_the_back.png",
+    "w": 46,
+    "h": 70
+  }
+]
