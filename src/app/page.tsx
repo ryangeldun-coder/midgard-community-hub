@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { 
   Hammer, Scroll, FlaskConical, Bug, Sword, Wrench, Layers, Zap, 
-  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight, Flame
+  Map as MapIcon, BookOpen, Video, Sparkles, Trophy, Globe, Search, ArrowRight
 } from "lucide-react";
 
 export default function Home() {
@@ -175,13 +175,6 @@ export default function Home() {
           <div className="u-text">
             <span>Epic Quest Path</span>
             <small>Lv. 1-99 quest timeline</small>
-          </div>
-        </Link>
-        <Link href="/database/fever" className="utility-btn">
-          <div className="u-icon"><Flame size={20} color="var(--ro-red)" /></div>
-          <div className="u-text">
-            <span>Fever Maps</span>
-            <small>Elite farming spots</small>
           </div>
         </Link>
         <Link href="/lore" className="utility-btn">
