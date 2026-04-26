@@ -7,6 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/'],
     },
-    sitemap: 'https://midgardhub.com/sitemap.xml',
+    sitemap: [
+      'https://midgardhub.com/sitemap.xml',
+      'https://midgardhub.com/video-sitemap.xml'
+    ],
   };
 }
