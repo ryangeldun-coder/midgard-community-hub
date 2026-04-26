@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { 
   Home, Hammer, FlaskConical, BookOpen, Database, 
   Sword, Bug, ChevronDown, Wrench, Layers, Menu, X, Map as MapIcon, Sparkles,
-  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost, Video
+  Shield, Zap, Target, Globe, Gamepad2, Music, Ghost, Video, Flame
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -27,6 +27,7 @@ const navGroups = [
       { name: "Items", href: "/database/items", icon: Sword },
       { name: "Maps", href: "/database/maps", icon: MapIcon },
       { name: "Dungeons", href: "/dungeons", icon: Layers },
+      { name: "Fever Maps", href: "/database/fever", icon: Flame },
       { name: "Elements", href: "/tools/elements", icon: Sword },
     ]
   },
