@@ -202,6 +202,35 @@ export default function GuidesPage() {
               </div>
             </motion.div>
           </Link>
+
+          <Link href="/guides/fever-maps" style={{ textDecoration: 'none' }}>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              style={{ 
+                padding: '2rem', 
+                background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', 
+                borderRadius: '24px',
+                textAlign: 'left',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1.5rem',
+                color: 'white',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                position: 'relative',
+                overflow: 'hidden',
+                height: '100%'
+              }}
+            >
+              <div style={{ padding: '15px', background: 'rgba(255,255,255,0.1)', borderRadius: '15px', color: '#f87171' }}>
+                <Swords size={30} />
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 900, color: '#f87171', letterSpacing: '1px', textTransform: 'uppercase' }}>COMBAT</span>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: '4px 0' }}>Fever Fields</h2>
+                <p style={{ margin: 0, opacity: 0.6, fontSize: '0.85rem' }}>Frenzy Farming Guides</p>
+              </div>
+            </motion.div>
+          </Link>
         </div>
       </header>
 
