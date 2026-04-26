@@ -2,322 +2,366 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Skull, Compass, Star, Shield, Zap, Heart, Eye } from "lucide-react";
+import { Layers, MapPin, Clock, Sword, Shield, Gem, ChevronRight, Info, ExternalLink, Hammer, Zap, Star, Users, ArrowUpRight } from "lucide-react";
 
-const ASSETS_BASE = "https://assets.twroz.wiki";
-
-const FEVER_LOCATIONS = [
+// Fever Locations & Drop items mapped out explicitly
+const FEVER_FIELDS = [
   {
-    id: "payon",
-    name: "Payon Fever (Forest)",
-    description: "Spiritual woods holding tier-1 zero drop tables.",
-    themeColor: "#10b981",
-    maps: [
-      {
-        id: "pay_fild06",
-        name: "Payon Field 06",
-        level: "Lv 45-55",
-        requirement: "Slay 10 standard variants to call the Champion.",
-        monsters: [
-          { 
-            id: 1306, 
-            name_zh: "狂暴大腳熊", 
-            name_en: "Frenzy Big Foot", 
-            level: 52, 
-            element: "Earth", 
-            race: "Brute", 
-            hp: "286,950", 
-            drops: [
-              { id: 518, name: "Honey" },
-              { id: 948, name: "Bear's Paw" },
-              { id: 4134, name: "Big Foot Card" }
-            ]
-          },
-          { 
-            id: 1266, 
-            name_zh: "狂暴野豬", 
-            name_en: "Frenzy Savage", 
-            level: 55, 
-            element: "Earth", 
-            race: "Brute", 
-            hp: "195,400", 
-            drops: [
-              { id: 522, name: "Monster's Feed" },
-              { id: 4119, name: "Savage Card" }
-            ]
-          }
-        ]
-      }
+    id: "payon_fever",
+    name: "Payon Forest Fever",
+    map_id: "pay_fild03_f",
+    location: "Payon Forest",
+    level: "40-55",
+    mechanics: [
+      "Defeat 10 standard variants to forcefully trigger a Frenzy Champion.",
+      "Defeating Champions slowly stacks the Boss Spawn progress bar.",
+      "Party sizes of 4+ increase random option roll quality by 15%."
+    ],
+    proTips: [
+      "Equip Earth-reduction shields since most Brutes hit with heavy physical earth spells.",
+      "Farming in groups yields shared drop materials efficiently."
+    ],
+    boss: {
+      name: "Frenzy Big Foot",
+      id: 1306,
+      element: "Earth",
+      race: "Brute",
+      size: "Large",
+      hp: "286,950",
+      image: "https://assets.twroz.wiki/images/monsters/1306.gif"
+    },
+    equipment: [
+      { id: 518, name: "Honey", description: "A premium healing snack.", stats: ["Restores HP/SP"] },
+      { id: 948, name: "Bear's Paw", description: "Trophy from strong beasts.", stats: ["Crafting material"] },
+      { id: 4134, name: "Big Foot Card", description: "Infuse onto defensive accessories.", stats: ["+20% dmg vs Insects"] }
     ]
   },
   {
-    id: "geffen",
-    name: "Geffen Fever",
-    description: "Damp, poison-infested dungeons yielding massive experience.",
-    themeColor: "#8b5cf6",
-    maps: [
-      {
-        id: "gef_fild06",
-        name: "Geffen Field 06",
-        level: "Lv 60-70",
-        requirement: "Hunt Champion variants for local equipment upgrades.",
-        monsters: [
-          { 
-            id: 1260, 
-            name_zh: "狂暴克瑞米", 
-            name_en: "Frenzy Creamy", 
-            level: 68, 
-            element: "Wind", 
-            race: "Insect", 
-            hp: "112,500", 
-            drops: [
-              { id: 905, name: "Butterfly Wing" },
-              { id: 4046, name: "Creamy Card" }
-            ]
-          }
-        ]
-      }
+    id: "geffen_fever",
+    name: "Geffen Field Fever",
+    map_id: "gef_fild14_f",
+    location: "Geffen Outskirts",
+    level: "60-70",
+    mechanics: [
+      "Specialized poison pools continuously drain physical HP pools.",
+      "Magical skills inflict 30% bonus elemental damage."
+    ],
+    proTips: [
+      "Carry Green Potions or rely on Priests for Quick Detox spells.",
+      "Use Wind elemental attacks."
+    ],
+    boss: {
+      name: "Frenzy Creamy",
+      id: 1260,
+      element: "Wind",
+      race: "Insect",
+      size: "Small",
+      hp: "112,500",
+      image: "https://assets.twroz.wiki/images/monsters/1260.gif"
+    },
+    equipment: [
+      { id: 905, name: "Butterfly Wing", description: "Instantly travel to your home town.", stats: ["Teleportation utility"] },
+      { id: 4046, name: "Creamy Card", description: "Grants continuous usage of Teleport Skill.", stats: ["Lv 1 Teleport"] }
     ]
   },
   {
-    id: "desert",
-    name: "Desert Fever",
-    description: "Blistering heat harboring deep zero-refinement minerals.",
-    themeColor: "#f59e0b",
-    maps: [
-      {
-        id: "moc_fild13",
-        name: "Sograt Desert 13",
-        level: "Lv 75-85",
-        requirement: "Chain kills continuously to unleash core affixes.",
-        monsters: [
-          { 
-            id: 1310, 
-            name_zh: "狂暴米洛斯", 
-            name_en: "Frenzy Minorous", 
-            level: 82, 
-            element: "Fire", 
-            race: "Brute", 
-            hp: "398,000", 
-            drops: [
-              { id: 932, name: "Minorous Horn" },
-              { id: 4098, name: "Minorous Card" }
-            ]
-          }
-        ]
-      }
+    id: "desert_fever",
+    name: "Desert Field Fever",
+    map_id: "moc_fild11_f",
+    location: "Sograt Desert",
+    level: "75-85",
+    mechanics: [
+      "Massive movement speed penalties apply globally across these coordinates.",
+      "Elite Sandmen cast stone-curse traps."
+    ],
+    proTips: [
+      "Evil Druid Card protections mitigate direct petrification metrics completely.",
+      "Keep physical distance."
+    ],
+    boss: {
+      name: "Frenzy Minorous",
+      id: 1310,
+      element: "Fire",
+      race: "Brute",
+      size: "Large",
+      hp: "398,000",
+      image: "https://assets.twroz.wiki/images/monsters/1310.gif"
+    },
+    equipment: [
+      { id: 932, name: "Minorous Horn", description: "A massive fiery bull shard.", stats: ["Elite Forge component"] },
+      { id: 4098, name: "Minorous Card", description: "Boosts damage limits against bulky heavy targets.", stats: ["+15% vs Large"] }
     ]
   },
   {
-    id: "glast",
+    id: "glast_fever",
     name: "Glast Heim Fever",
-    description: "The ultimate test of stamina for Ragnarok Zero veterans.",
-    themeColor: "#ef4444",
-    maps: [
-      {
-        id: "glast_01",
-        name: "GH Chivalry 01",
-        level: "Lv 90+",
-        requirement: "Form full endgame parties. Single targeting disabled.",
-        monsters: [
-          { 
-            id: 1292, 
-            name_zh: "狂暴惡靈", 
-            name_en: "Frenzy Wraith", 
-            level: 95, 
-            element: "Undead", 
-            race: "Undead", 
-            hp: "452,000", 
-            drops: [
-              { id: 728, name: "Fabric" },
-              { id: 4111, name: "Wraith Card" }
-            ]
-          }
-        ]
-      }
+    map_id: "glast_01_f",
+    location: "GH Chivalry",
+    level: "90+",
+    mechanics: [
+      "Severe stat scaling constraints. Bosses drop dual-enchanted equipment sets.",
+      "Aggressive target acquisition algorithms."
+    ],
+    proTips: [
+      "Full 7-man holy compositions act safely here.",
+      "Stack Shadow reduction gear."
+    ],
+    boss: {
+      name: "Frenzy Wraith",
+      id: 1292,
+      element: "Undead",
+      race: "Undead",
+      size: "Medium",
+      hp: "452,000",
+      image: "https://assets.twroz.wiki/images/monsters/1292.gif"
+    },
+    equipment: [
+      { id: 728, name: "Fabric", description: "Lightweight material.", stats: ["Tailoring recipe core"] },
+      { id: 4111, name: "Wraith Card", description: "Earn SP back on killing blows.", stats: ["+5 SP on Undead kills"] }
     ]
   }
 ];
 
+function DropCard({ item }: { item: any }) {
+  return (
+    <div style={{ 
+      background: "white", 
+      border: "1px solid #e2e8f0", 
+      borderRadius: "12px", 
+      padding: "1rem", 
+      display: "flex", 
+      gap: "1rem",
+      alignItems: "flex-start",
+      transition: "transform 0.2s, box-shadow 0.2s",
+      cursor: "default"
+    }}
+    className="equipment-card-hover"
+    >
+      <div style={{ 
+        width: "64px", 
+        height: "64px", 
+        background: "#f8fafc", 
+        borderRadius: "8px", 
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "center",
+        flexShrink: 0,
+        border: "1px solid #f1f5f9"
+      }}>
+        <img 
+          src={`https://assets.twroz.wiki/images/items/${item.id}.gif`} 
+          alt={item.name} 
+          style={{ width: "32px", height: "32px", objectFit: "contain" }} 
+          onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }}
+        />
+      </div>
+      <div style={{ flex: 1 }}>
+        <h4 style={{ fontSize: "0.9rem", fontWeight: 800, color: "#1e293b", margin: "0 0 4px" }}>{item.name}</h4>
+        <p style={{ fontSize: "0.7rem", color: "#64748b", margin: "0 0 8px", lineHeight: 1.4 }}>{item.description}</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          {item.stats.map((stat: string, i: number) => (
+            <div key={i} style={{ 
+              fontSize: "0.65rem", 
+              fontWeight: 700, 
+              color: "var(--ro-red)", 
+              background: "#fff1f2", 
+              padding: "2px 8px", 
+              borderRadius: "4px",
+              width: "fit-content"
+            }}>
+              {stat}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FeverMapsPage() {
-  const [selectedLoc, setSelectedLoc] = useState(FEVER_LOCATIONS[0]);
-  const [selectedMap, setSelectedMap] = useState(FEVER_LOCATIONS[0].maps[0]);
+  const [selectedId, setSelectedId] = useState(FEVER_FIELDS[0].id);
+  const field = FEVER_FIELDS.find(f => f.id === selectedId)!;
 
   return (
-    <main className="min-h-screen bg-[#0f172a] text-slate-200 py-28 px-4 sm:px-6 lg:px-8 font-sans selection:bg-rose-500/30">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Superior Header */}
-        <header className="text-center mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex p-4 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-3xl mb-6 shadow-2xl shadow-rose-500/5 animate-pulse"
-          >
-            <Swords size={42} />
-          </motion.div>
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight mb-6 bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent">
-            Fever Fields Overview
-          </h1>
-          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Locate elite champion variants, hunt random stat enhancements, and dominate tactical field farming routes.
-          </p>
-        </header>
-
-        {/* Location Navigation Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
-          {FEVER_LOCATIONS.map((loc) => {
-            const isActive = selectedLoc.id === loc.id;
-            return (
-              <button
-                key={loc.id}
-                onClick={() => { setSelectedLoc(loc); setSelectedMap(loc.maps[0]); }}
-                className={`group p-6 rounded-3xl border text-left transition-all duration-300 relative overflow-hidden ${
-                  isActive 
-                    ? "bg-slate-800/80 border-rose-500/50 text-white shadow-xl shadow-rose-500/10 ring-1 ring-rose-500/20" 
-                    : "bg-slate-800/30 border-slate-800/60 hover:border-slate-700 text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
-                }`}
-              >
-                <div 
-                  className="absolute bottom-0 left-0 w-full h-1.5 transition-all duration-300" 
-                  style={{ backgroundColor: loc.themeColor }}
-                />
-                <h3 className="text-xl font-black mb-2 group-hover:translate-x-1 transition-transform">{loc.name}</h3>
-                <p className="text-xs text-slate-400/90 leading-snug line-clamp-2">{loc.description}</p>
-              </button>
-            );
-          })}
+    <main style={{ maxWidth: "1400px", margin: "0 auto", padding: "6.5rem 1.5rem 3rem" }}>
+      {/* Header matching Dungeons layout */}
+      <div style={{ marginBottom: "2.5rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "var(--ro-red)", marginBottom: "0.5rem" }}>
+          <Layers size={24} />
+          <span style={{ fontWeight: 800, letterSpacing: "0.1em", fontSize: "0.9rem" }}>FRENZY SYSTEM</span>
         </div>
-
-        {/* Map Selector panel & Data */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          
-          {/* Left Sector Meta */}
-          <div className="lg:col-span-1 flex flex-col gap-5">
-            <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-6 shadow-xl">
-              <div className="flex items-center gap-3 mb-6 text-rose-400">
-                <Compass size={22} />
-                <h2 className="text-xl font-extrabold text-slate-100">Zone Sector</h2>
-              </div>
-              <div className="flex flex-col gap-2.5">
-                {selectedLoc.maps.map((m) => (
-                  <button
-                    key={m.id}
-                    onClick={() => setSelectedMap(m)}
-                    className={`p-4 rounded-2xl font-bold text-sm text-left transition-all duration-200 ${
-                      selectedMap.id === m.id 
-                        ? "bg-rose-500 text-white shadow-lg shadow-rose-500/25" 
-                        : "bg-slate-900/60 border border-slate-800/50 hover:bg-slate-800/50 text-slate-300"
-                    }`}
-                  >
-                    {m.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Fever Mechanics Reminder */}
-            <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-6 flex-grow flex flex-col justify-between shadow-xl">
-              <div>
-                <div className="flex items-center gap-3 mb-4 text-amber-400">
-                  <Star size={22} />
-                  <h2 className="text-xl font-extrabold text-slate-100">Map Mechanics</h2>
-                </div>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  {selectedMap.requirement}
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-800/60 flex justify-between items-center">
-                <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Level Requirement</span>
-                <span className="text-lg font-black text-rose-400 bg-rose-500/10 px-3 py-1 rounded-xl border border-rose-500/20">{selectedMap.level}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Live Monster Table with Sprites */}
-          <div className="lg:col-span-2 bg-slate-800/40 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-6 sm:p-8 shadow-xl flex flex-col">
-            <div className="flex items-center gap-3 mb-8 text-rose-400 border-b border-slate-800/60 pb-4">
-              <Skull size={24} />
-              <h2 className="text-2xl font-black text-slate-100">Spawn Roster</h2>
-            </div>
-
-            <div className="flex flex-col gap-6 flex-grow">
-              {selectedMap.monsters.map((mob, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="bg-slate-900/60 border border-slate-800/40 rounded-3xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-rose-500/20 transition-all duration-300 group shadow-inner"
-                >
-                  {/* True Animated Monster Sprite */}
-                  <div className="w-28 h-28 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex items-center justify-center relative flex-shrink-0 overflow-hidden shadow-2xl group-hover:border-rose-500/40 transition-colors duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent pointer-events-none" />
-                    <img 
-                      src={`${ASSETS_BASE}/images/monsters/${mob.id}.gif`} 
-                      alt={mob.name_en} 
-                      className="max-w-[80px] max-h-[80px] object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"
-                      onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }}
-                    />
-                  </div>
-
-                  {/* Monster Info */}
-                  <div className="flex-1 min-w-0 w-full">
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <div>
-                        <h3 className="text-xl font-black text-slate-100 group-hover:text-rose-400 transition-colors">
-                          {mob.name_en}
-                        </h3>
-                        <span className="text-xs text-slate-500">{mob.name_zh}</span>
-                      </div>
-                      <span className="text-sm font-extrabold bg-slate-800 border border-slate-700/60 px-3 py-1 rounded-xl text-rose-400">
-                        Lv. {mob.level}
-                      </span>
-                    </div>
-
-                    {/* Stats Badges */}
-                    <div className="flex flex-wrap gap-2.5 mb-5 text-xs font-bold">
-                      <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-950/40 rounded-xl border border-slate-800 text-slate-300">
-                        <Heart size={12} className="text-rose-400" /> {mob.hp} HP
-                      </span>
-                      <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-950/40 rounded-xl border border-slate-800 text-teal-400">
-                        <Zap size={12} /> {mob.element}
-                      </span>
-                      <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-950/40 rounded-xl border border-slate-800 text-amber-400">
-                        <Eye size={12} /> {mob.race}
-                      </span>
-                    </div>
-
-                    {/* Drops with True Item Sprites */}
-                    <div className="bg-slate-950/20 border border-slate-800/40 p-4 rounded-2xl">
-                      <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block mb-3">Exclusive Monster Drops</span>
-                      <div className="flex flex-wrap gap-3">
-                        {mob.drops.map((drop, dIdx) => (
-                          <div 
-                            key={dIdx}
-                            className="flex items-center gap-2.5 bg-slate-950/60 border border-slate-800/60 pl-1.5 pr-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-200 hover:border-amber-500/40 hover:bg-slate-950/80 transition-all duration-200 cursor-pointer"
-                          >
-                            <div className="w-6 h-6 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden">
-                              <img 
-                                src={`${ASSETS_BASE}/images/items/${drop.id}.gif`} 
-                                alt={drop.name} 
-                                className="w-5 h-5 object-contain"
-                                onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }}
-                              />
-                            </div>
-                            <span>{drop.name}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-
+        <h1 style={{ fontSize: "2.8rem", fontWeight: 900, color: "#0f172a", margin: 0 }}>Fever Fields Tracker</h1>
+        <p style={{ color: "#64748b", fontSize: "1.1rem", marginTop: "0.5rem" }}>
+          Comprehensive reference index for TWRoZ Fever maps, unique drop limits, and level limits.
+        </p>
       </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: "2rem", alignItems: "start" }}>
+        {/* Sidebar List */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          {FEVER_FIELDS.map((f) => (
+            <button
+              key={f.id}
+              onClick={() => setSelectedId(f.id)}
+              style={{
+                textAlign: "left",
+                padding: "1.25rem",
+                borderRadius: "16px",
+                border: "1px solid",
+                borderColor: selectedId === f.id ? "var(--ro-red)" : "#e2e8f0",
+                background: selectedId === f.id ? "linear-gradient(135deg, #fff, #fff1f2)" : "white",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                boxShadow: selectedId === f.id ? "0 10px 25px -5px rgba(225, 29, 72, 0.1)" : "none",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                <span style={{ 
+                  fontSize: "0.65rem", 
+                  fontWeight: 800, 
+                  background: selectedId === f.id ? "var(--ro-red)" : "#f1f5f9",
+                  color: selectedId === f.id ? "white" : "#64748b",
+                  padding: "2px 8px",
+                  borderRadius: "4px",
+                  textTransform: "uppercase"
+                }}>
+                  Lv {f.level}
+                </span>
+                <Clock size={14} color="#94a3b8" />
+              </div>
+              <div style={{ fontWeight: 800, fontSize: "1.05rem", color: "#1e293b" }}>{f.name}</div>
+              <div style={{ fontSize: "0.75rem", color: "#64748b", marginTop: "4px", display: "flex", alignItems: "center", gap: "4px" }}>
+                <MapPin size={12} /> {f.location} ({f.map_id})
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* Detail Panel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedId}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            style={{ 
+              background: "white", 
+              borderRadius: "24px", 
+              border: "1px solid #e2e8f0", 
+              overflow: "hidden",
+              boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
+            }}
+          >
+            {/* Boss Banner */}
+            <div style={{ 
+              background: "linear-gradient(135deg, #1e293b, #0f172a)", 
+              padding: "2rem", 
+              color: "white",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}>
+              <div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "0.5rem" }}>
+                  <Shield size={16} color="var(--ro-red)" />
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, opacity: 0.8, letterSpacing: "0.1em" }}>FRENZY ELITE TARGET</span>
+                </div>
+                <h2 style={{ fontSize: "2.2rem", fontWeight: 900, margin: 0 }}>{field.boss.name}</h2>
+                <div style={{ display: "flex", gap: "10px", marginTop: "1rem", flexWrap: "wrap" }}>
+                  <div style={{ background: "rgba(255,255,255,0.1)", padding: "4px 12px", borderRadius: "6px", fontSize: "0.8rem" }}>
+                    <span style={{ opacity: 0.6 }}>Element:</span> <strong>{field.boss.element}</strong>
+                  </div>
+                  <div style={{ background: "rgba(255,255,255,0.1)", padding: "4px 12px", borderRadius: "6px", fontSize: "0.8rem" }}>
+                    <span style={{ opacity: 0.6 }}>Race:</span> <strong>{field.boss.race}</strong>
+                  </div>
+                  <div style={{ background: "rgba(255,255,255,0.1)", padding: "4px 12px", borderRadius: "6px", fontSize: "0.8rem" }}>
+                    <span style={{ opacity: 0.6 }}>HP Pool:</span> <strong>{field.boss.hp}</strong>
+                  </div>
+                </div>
+              </div>
+              <img 
+                src={field.boss.image} 
+                alt={field.boss.name} 
+                style={{ height: "110px", filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.5))" }}
+                onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }}
+              />
+            </div>
+
+            <div style={{ padding: "2rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem" }}>
+                {/* Mechanics */}
+                <div>
+                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e293b", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <Sword size={18} color="var(--ro-red)" />
+                    Field Rules
+                  </h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                    {field.mechanics.map((m, i) => (
+                      <div key={i} style={{ display: "flex", gap: "12px", fontSize: "0.9rem", color: "#475569", lineHeight: 1.6 }}>
+                        <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f1f5f9", color: "#64748b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.75rem", fontWeight: 800, flexShrink: 0 }}>
+                          {i + 1}
+                        </div>
+                        {m}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Pro Tips */}
+                <div>
+                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e293b", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <Zap size={18} color="#fbbf24" fill="#fbbf24" />
+                    Farming Tips
+                  </h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                    {field.proTips.map((tip, i) => (
+                      <div key={i} style={{ 
+                        background: "#fffbeb", 
+                        border: "1px solid #fef3c7", 
+                        padding: "1rem", 
+                        borderRadius: "12px", 
+                        fontSize: "0.85rem", 
+                        color: "#92400e",
+                        lineHeight: 1.5,
+                        display: "flex",
+                        gap: "10px"
+                      }}>
+                        <Info size={16} style={{ flexShrink: 0, marginTop: "2px" }} />
+                        {tip}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Equipment / Drops Section */}
+              <div style={{ marginTop: "3.5rem", borderTop: "1px solid #f1f5f9", paddingTop: "2.5rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
+                  <h3 style={{ fontSize: "1.2rem", fontWeight: 900, color: "#1e293b", display: "flex", alignItems: "center", gap: "10px" }}>
+                    <Shield size={20} color="var(--ro-red)" />
+                    Fever Drop Roster
+                  </h3>
+                  <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#94a3b8" }}>{field.equipment.length} Drops Logged</div>
+                </div>
+                
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+                  {field.equipment.map((item, i) => (
+                    <DropCard key={i} item={item} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <style jsx global>{`
+        .equipment-card-hover:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+          border-color: var(--ro-red) !important;
+        }
+      `}</style>
     </main>
   );
 }
