@@ -20,7 +20,7 @@ export const JOBS: Job[] = [
 
 function mkLevels(max:number,fn:(l:number)=>Partial<SkillLevel>&{effect:string}):SkillLevel[]{return Array.from({length:max},(_,i)=>({level:i+1,...fn(i+1)}))}
 
-// Shared First Jobs
+// 1st Job Shared Arrays
 const swordsmanSkills = (jobId: string): Skill[] => [
   {id:"sword_mastery",name:"One-Hand Sword Mastery",job:jobId,maxLevel:10,type:"Passive",description:"Increases weapon ATK with One-Handed Swords.",levels:mkLevels(10,l=>({effect:`One-Handed Sword ATK +${l*4}.`})),jobTier:1},
   {id:"two_hand_sword_mastery",name:"Two-Hand Sword Mastery",job:jobId,maxLevel:10,type:"Passive",description:"Increases weapon ATK with Two-Handed Swords.",levels:mkLevels(10,l=>({effect:`Two-Handed Sword ATK +${l*4}.`})),jobTier:1},
@@ -29,6 +29,9 @@ const swordsmanSkills = (jobId: string): Skill[] => [
   {id:"magnum_break",name:"Magnum Break",job:jobId,maxLevel:10,type:"Active",element:"Fire",description:"A fiery AoE attack that pushes enemies back.",levels:mkLevels(10,l=>({sp:30,cast:0,effect:`${100+20*l}% ATK Fire damage in 5x5 area.`})),jobTier:1},
   {id:"provoke",name:"Provoke",job:jobId,maxLevel:10,type:"Active",description:"Taunts a target, dropping its DEF while boosting ATK.",levels:mkLevels(10,l=>({sp:3+l,cast:0,effect:`Target DEF -${l*10}%, ATK +${l*5}%`})),jobTier:1},
   {id:"endure",name:"Endure",job:jobId,maxLevel:10,type:"Active",description:"Enables moving when taking hits without flinching.",levels:mkLevels(10,l=>({sp:10,cast:0,effect:`Lasts for ${l*7} hits or ${10+l*2}s.`})),jobTier:1},
+  {id:"moving_hp_recovery",name:"Moving HP Recovery",job:jobId,maxLevel:1,type:"Passive",description:"Allows HP recovery while moving.",levels:[{level:1,effect:"Regenerate HP continuously."}],jobTier:1},
+  {id:"auto_berserk",name:"Auto Berserk",job:jobId,maxLevel:1,type:"Passive",description:"Triggers berserk state under 25% HP.",levels:[{level:1,effect:"ATK +32%."}],jobTier:1},
+  {id:"fatal_blow",name:"Fatal Blow",job:jobId,maxLevel:1,type:"Passive",description:"Adds stun rate to Bash.",levels:[{level:1,effect:"Stuns targets hit."}],jobTier:1},
 ];
 
 const mageSkills = (jobId: string): Skill[] => [
@@ -42,6 +45,10 @@ const mageSkills = (jobId: string): Skill[] => [
   {id:"sp_recovery",name:"Increase SP Recovery",job:jobId,maxLevel:10,type:"Passive",description:"Faster mana regeneration.",levels:mkLevels(10,l=>({effect:`+${l*3} SP per 10s.`})),jobTier:1},
   {id:"fire_ball",name:"Fire Ball",job:jobId,maxLevel:10,type:"Active",element:"Fire",description:"Small area fire blast.",levels:mkLevels(10,l=>({sp:25,effect:`MATK×${l}`})),jobTier:1},
   {id:"frost_diver",name:"Frost Diver",job:jobId,maxLevel:10,type:"Active",element:"Water",description:"Freezes the enemy.",levels:mkLevels(10,l=>({sp:25,effect:`Freeze chance ${l*5+10}%`})),jobTier:1},
+  {id:"stone_curse",name:"Stone Curse",job:jobId,maxLevel:10,type:"Active",element:"Earth",description:"Petrifies the target.",levels:mkLevels(10,l=>({sp:25,effect:`Petrify chance ${20+l*4}%`})),jobTier:1},
+  {id:"napalm_beat",name:"Napalm Beat",job:jobId,maxLevel:10,type:"Active",element:"Ghost",description:"Telekinetic wave.",levels:mkLevels(10,l=>({sp:10+l*2,effect:`MATK multiplier.`})),jobTier:1},
+  {id:"thunder_storm",name:"Thunderstorm",job:jobId,maxLevel:10,type:"Active",element:"Wind",description:"Rains lightning down.",levels:mkLevels(10,l=>({sp:25+l*5,effect:`Hits ×${l}`})),jobTier:1},
+  {id:"energy_coat",name:"Energy Coat",job:jobId,maxLevel:1,type:"Active",description:"Drains SP to block damage.",levels:[{level:1,sp:30,effect:"Blocks up to 30%."}],jobTier:1},
 ];
 
 const archerSkills = (jobId: string): Skill[] => [
@@ -50,6 +57,8 @@ const archerSkills = (jobId: string): Skill[] => [
   {id:"improve_concentration",name:"Improve Concentration",job:jobId,maxLevel:10,type:"Active",description:"Temporarily boosts DEX and AGI.",levels:mkLevels(10,l=>({sp:20+l*3,effect:`DEX/AGI +${l+2}%`})),jobTier:1},
   {id:"double_strafe",name:"Double Strafe",job:jobId,maxLevel:10,type:"Active",description:"Rapid 2 shots.",levels:mkLevels(10,l=>({sp:12,effect:`100%+20%×${l} ATK`})),jobTier:1},
   {id:"arrow_shower",name:"Arrow Shower",job:jobId,maxLevel:10,type:"Active",description:"AoE pushback arrows.",levels:mkLevels(10,l=>({sp:15,effect:`5x5 AoE splash.`})),jobTier:1},
+  {id:"making_arrow",name:"Making Arrow",job:jobId,maxLevel:1,type:"Active",description:"Crafts ammunition from materials.",levels:[{level:1,sp:10,effect:"Creates arrows."}],jobTier:1},
+  {id:"charge_arrow",name:"Charge Arrow",job:jobId,maxLevel:1,type:"Active",description:"Fires a forceful heavy knockback arrow.",levels:[{level:1,sp:15,effect:"Pushes target."}],jobTier:1},
 ];
 
 const acolyteSkills = (jobId: string): Skill[] => [
@@ -63,6 +72,9 @@ const acolyteSkills = (jobId: string): Skill[] => [
   {id:"increase_agi",name:"Increase AGI",job:jobId,maxLevel:10,type:"Active",description:"Speed buff.",levels:mkLevels(10,l=>({sp:15+l*3,effect:`AGI +${l*2+2}`})),jobTier:1},
   {id:"decrease_agi",name:"Decrease AGI",job:jobId,maxLevel:10,type:"Active",description:"Slows enemy.",levels:mkLevels(10,l=>({sp:15,effect:"Reduces AGI."})),jobTier:1},
   {id:"blessing",name:"Blessing",job:jobId,maxLevel:10,type:"Active",description:"Stat buff.",levels:mkLevels(10,l=>({sp:28+l*4,effect:`STR/DEX/INT +${l+1}`})),jobTier:1},
+  {id:"holy_light",name:"Holy Light",job:jobId,maxLevel:1,type:"Active",element:"Holy",description:"Fires holy bolt.",levels:[{level:1,sp:15,effect:"MATK×1.25."}],jobTier:1},
+  {id:"holy_water",name:"Create Holy Water",job:jobId,maxLevel:1,type:"Active",description:"Blesses water vials.",levels:[{level:1,sp:20,effect:"Creates Holy Water."}],jobTier:1},
+  {id:"cure",name:"Cure",job:jobId,maxLevel:1,type:"Active",description:"Cures basic ailments.",levels:[{level:1,sp:10,effect:"Removes Blind/Silence."}],jobTier:1},
 ];
 
 const merchantSkills = (jobId: string): Skill[] => [
@@ -72,6 +84,10 @@ const merchantSkills = (jobId: string): Skill[] => [
   {id:"pushcart",name:"Pushcart",job:jobId,maxLevel:10,type:"Passive",description:"Allows cart usage.",levels:mkLevels(10,l=>({effect:"Move cart speed."})),jobTier:1},
   {id:"vending",name:"Vending",job:jobId,maxLevel:10,type:"Active",description:"Open player shop.",levels:mkLevels(10,l=>({sp:30,effect:`Sells ${l+2} items.`})),jobTier:1},
   {id:"mammonite",name:"Mammonite",job:jobId,maxLevel:10,type:"Active",element:"Physical",description:"Strike costing Zeny.",levels:mkLevels(10,l=>({sp:5,effect:`${100+l*50}% ATK.`})),jobTier:1},
+  {id:"loud_exclamation",name:"Loud Exclamation",job:jobId,maxLevel:1,type:"Active",description:"Self ATK buff.",levels:[{level:1,sp:8,effect:"STR +4."}],jobTier:1},
+  {id:"cart_revolution",name:"Cart Revolution",job:jobId,maxLevel:1,type:"Active",description:"Knocks back in circle using cart.",levels:[{level:1,sp:12,effect:"150% ATK AoE."}],jobTier:1},
+  {id:"change_cart",name:"Change Cart",job:jobId,maxLevel:1,type:"Active",description:"Selects cart skin.",levels:[{level:1,sp:40,effect:"Alters appearance."}],jobTier:1},
+  {id:"identify",name:"Identify",job:jobId,maxLevel:1,type:"Active",description:"Identifies hidden items.",levels:[{level:1,sp:10,effect:"Reveals item attributes."}],jobTier:1},
 ];
 
 const thiefSkills = (jobId: string): Skill[] => [
@@ -80,23 +96,34 @@ const thiefSkills = (jobId: string): Skill[] => [
   {id:"steal",name:"Steal",job:jobId,maxLevel:10,type:"Active",description:"Loots monsters.",levels:mkLevels(10,l=>({sp:10,effect:`Steal rate +${l*5}%`})),jobTier:1},
   {id:"hide",name:"Hide",job:jobId,maxLevel:10,type:"Active",description:"Shadow stealth.",levels:mkLevels(10,l=>({sp:10,effect:`Duration ${30*l}s.`})),jobTier:1},
   {id:"envenom",name:"Envenom",job:jobId,maxLevel:10,type:"Active",element:"Poison",description:"Deals poison damage.",levels:mkLevels(10,l=>({sp:15,effect:`MATK +${l*15}`})),jobTier:1},
+  {id:"detoxify",name:"Detoxify",job:jobId,maxLevel:1,type:"Active",description:"Removes Poison condition.",levels:[{level:1,sp:10,effect:"Cures poison."}],jobTier:1},
+  {id:"sand_attack",name:"Sand Attack",job:jobId,maxLevel:1,type:"Active",element:"Earth",description:"Blinds with sand spray.",levels:[{level:1,sp:9,effect:"130% ATK damage."}],jobTier:1},
+  {id:"stone_fling",name:"Stone Fling",job:jobId,maxLevel:1,type:"Active",element:"Earth",description:"Throws pebble to disrupt.",levels:[{level:1,sp:2,effect:"50 damage."}],jobTier:1},
+  {id:"backsliding",name:"Backsliding",job:jobId,maxLevel:1,type:"Active",description:"Slide backwards out of danger.",levels:[{level:1,sp:7,effect:"Dodge movement."}],jobTier:1},
 ];
 
-// Main Skills Construction
 export const SKILLS: Record<string, Skill[]> = {
   knight: [
     ...swordsmanSkills("knight"),
     {id:"spear_mastery",name:"Spear Mastery",job:"knight",maxLevel:10,type:"Passive",description:"Increases damage with Spears.",levels:mkLevels(10,l=>({effect:`Spear ATK +${l*4}.`})),jobTier:2},
+    {id:"two_hand_quicken",name:"Two-Hand Quicken",job:"knight",maxLevel:10,type:"Active",description:"Increases ASPD with Two-Handed Swords.",levels:mkLevels(10,l=>({sp:14+l*4,cast:0,effect:`ASPD +${l*3}% for ${30*l}s.`})),jobTier:2},
+    {id:"auto_counter",name:"Auto Counter",job:"knight",maxLevel:5,type:"Active",description:"Counter-attacks melee hits.",levels:mkLevels(5,l=>({sp:3,effect:"Hits back."})),jobTier:2},
+    {id:"peco_riding",name:"Peco Peco Riding",job:"knight",maxLevel:1,type:"Passive",description:"Allows mount usage.",levels:[{level:1,effect:"Enables riding."}],jobTier:2},
+    {id:"cavalry_mastery",name:"Cavalry Mastery",job:"knight",maxLevel:5,type:"Passive",description:"Reduces ASPD mounted penalty.",levels:mkLevels(5,l=>({effect:`ASPD penalty reduced by ${l*20}%.`})),jobTier:2},
     {id:"pierce",name:"Pierce",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Attacks with a spear. Deals more hits to larger monsters.",levels:mkLevels(10,l=>({sp:7,effect:`Deals hits based on size. Damage ${100+l*10}% per hit.`})),jobTier:2},
     {id:"spear_stab",name:"Spear Stab",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Knocks enemies back while piercing.",levels:mkLevels(10,l=>({sp:9,effect:`Damage ${100+l*15}%`})),jobTier:2},
     {id:"spear_boomerang",name:"Spear Boomerang",job:"knight",maxLevel:5,type:"Active",element:"Physical",description:"Throws a spear at target.",levels:mkLevels(5,l=>({sp:10+l*2,effect:`${100+50*l}% damage. Range ${3+l} cells.`})),jobTier:2},
-    {id:"two_hand_quicken",name:"Two-Hand Quicken",job:"knight",maxLevel:10,type:"Active",description:"Increases ASPD with Two-Handed Swords.",levels:mkLevels(10,l=>({sp:14+l*4,cast:0,effect:`ASPD +${l*3}% for ${30*l}s.`})),jobTier:2},
-    {id:"bowling_bash",name:"Bowling Bash",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Strikes targets into each other for splash hits.",levels:mkLevels(10,l=>({sp:12+l*2,cast:0,effect:`${200+40*l}% damage splash.`})),jobTier:2},
     {id:"brandish_spear",name:"Brandish Spear",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Frontal cone spear swipe.",levels:mkLevels(10,l=>({sp:12+l*2,cast:0,effect:`${100+20*l}% cone damage.`})),jobTier:2},
-    {id:"peco_riding",name:"Peco Peco Riding",job:"knight",maxLevel:1,type:"Passive",description:"Allows mount usage.",levels:[{level:1,effect:"Enables riding."}],jobTier:2},
-    {id:"cavalry_mastery",name:"Cavalry Mastery",job:"knight",maxLevel:5,type:"Passive",description:"Reduces ASPD mounted penalty.",levels:mkLevels(5,l=>({effect:`ASPD penalty reduced by ${l*20}%.`})),jobTier:2},
-    {id:"auto_counter",name:"Auto Counter",job:"knight",maxLevel:5,type:"Active",description:"Counter-attacks melee hits.",levels:mkLevels(5,l=>({sp:3,effect:"Hits back."})),jobTier:2},
-    {id:"berserk",name:"Berserk",job:"knight",maxLevel:1,type:"Active",description:"Enters a frenzied state.",levels:[{level:1,effect:"ATK ×2, ASPD +30%."}],jobTier:2},
+    {id:"bowling_bash",name:"Bowling Bash",job:"knight",maxLevel:10,type:"Active",element:"Physical",description:"Strikes targets into each other for splash hits.",levels:mkLevels(10,l=>({sp:12+l*2,cast:0,effect:`${200+40*l}% damage splash.`})),jobTier:2},
+    {id:"charge_attack",name:"Charge Attack",job:"knight",maxLevel:1,type:"Active",element:"Physical",description:"Rushes straight at a distant foe.",levels:[{level:1,sp:40,effect:"Rushing hit."}],jobTier:2},
+    {id:"aura_blade",name:"Aura Blade",job:"knight",maxLevel:5,type:"Active",description:"Enhances blade with energy.",levels:mkLevels(5,l=>({sp:30,effect:`Adds ${l*20} true damage.`})),jobTier:2},
+    {id:"tension_relax",name:"Tension Relax",job:"knight",maxLevel:1,type:"Active",description:"Boosts HP recovery speed.",levels:[{level:1,sp:15,effect:"Increases regeneration."}],jobTier:2},
+    {id:"parrying",name:"Parrying",job:"knight",maxLevel:10,type:"Active",description:"Deflects physical attacks with a sword.",levels:mkLevels(10,l=>({sp:50,effect:`Deflect rate ${l*5}%`})),jobTier:2},
+    {id:"concentration",name:"Concentration",job:"knight",maxLevel:5,type:"Active",description:"Boosts HIT/ATK at cost of DEF.",levels:mkLevels(5,l=>({sp:30,effect:`HIT +${l*10}, ATK +${l*5}%`})),jobTier:2},
+    {id:"berserk_state",name:"Berserk (Frenzy)",job:"knight",maxLevel:1,type:"Active",description:"Full rage mode.",levels:[{level:1,sp:200,effect:"Drains SP, triple HP."}],jobTier:2},
+    {id:"head_crush",name:"Head Crush",job:"knight",maxLevel:5,type:"Active",description:"Heavy weapon blow causing bleeding.",levels:mkLevels(5,l=>({sp:23,effect:"Causes bleed."})),jobTier:2},
+    {id:"spiral_pierce",name:"Spiral Pierce",job:"knight",maxLevel:5,type:"Active",element:"Physical",description:"Multi-hit spear thrust.",levels:mkLevels(5,l=>({sp:40,effect:"Pierces through armor."})),jobTier:2},
+    {id:"joint_beat",name:"Joint Beat",job:"knight",maxLevel:10,type:"Active",description:"Breaks enemy posture.",levels:mkLevels(10,l=>({sp:15,effect:"Causes debuffs."})),jobTier:2},
   ],
   crusader: [
     ...swordsmanSkills("crusader"),
@@ -109,6 +136,13 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"shield_reflect",name:"Reflect Shield",job:"crusader",maxLevel:10,type:"Active",description:"Reflects physical melee damage.",levels:mkLevels(10,l=>({sp:35+l*3,effect:`Reflects ${10+l*3}% damage.`})),jobTier:2},
     {id:"gospel",name:"Battle Chant (Gospel)",job:"crusader",maxLevel:10,type:"Active",description:"Aura of buffs and debuffs.",levels:mkLevels(10,l=>({sp:80,effect:"Fires every 10s."})),jobTier:2},
     {id:"spear_quicken",name:"Spear Quicken",job:"crusader",maxLevel:10,type:"Active",description:"Increases ASPD with Spears.",levels:mkLevels(10,l=>({sp:25,effect:`ASPD +${l*3}%`})),jobTier:2},
+    {id:"shrink",name:"Shrink",job:"crusader",maxLevel:1,type:"Active",description:"Knocks back attackers.",levels:[{level:1,sp:15,effect:"Pushes away melee."}],jobTier:2},
+    {id:"shield_charge",name:"Shield Charge",job:"crusader",maxLevel:5,type:"Active",description:"Stuns and pushes.",levels:mkLevels(5,l=>({sp:10,effect:"Knockback."})),jobTier:2},
+    {id:"providence",name:"Providence",job:"crusader",maxLevel:5,type:"Active",description:"Reduces Demon/Holy damage.",levels:mkLevels(5,l=>({sp:30,effect:"Defensive aura."})),jobTier:2},
+    {id:"pressure",name:"Gloria Domini (Pressure)",job:"crusader",maxLevel:5,type:"Active",element:"Holy",description:"Pure fixed HP drop.",levels:mkLevels(5,l=>({sp:40,effect:"Drains SP."})),jobTier:2},
+    {id:"shield_chain",name:"Shield Chain",job:"crusader",maxLevel:5,type:"Active",description:"Heavy 5 hit shield bash.",levels:mkLevels(5,l=>({sp:35,effect:"Powerful blow."})),jobTier:2},
+    {id:"sacrifice",name:"Sacrifice (Martyr)",job:"crusader",maxLevel:5,type:"Active",description:"Consumes HP to strike.",levels:mkLevels(5,l=>({sp:1,effect:"Based on MaxHP."})),jobTier:2},
+    {id:"cannon_spear",name:"Cannon Spear",job:"crusader",maxLevel:5,type:"Active",element:"Physical",description:"Strikes all in linear path.",levels:mkLevels(5,l=>({sp:20,effect:"Linear strike."})),jobTier:2},
   ],
   wizard: [
     ...mageSkills("wizard"),
@@ -121,6 +155,14 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"quagmire",name:"Quagmire",job:"wizard",maxLevel:5,type:"Active",description:"Swamp reducing AGI/DEX.",levels:mkLevels(5,l=>({sp:5+l*3,effect:`AGI/DEX reduced.`})),jobTier:2},
     {id:"water_ball",name:"Water Ball",job:"wizard",maxLevel:5,type:"Active",element:"Water",description:"Water torrent from ground.",levels:mkLevels(5,l=>({sp:15+l*5,effect:`Requires Water cell.`})),jobTier:2},
     {id:"frost_nova",name:"Frost Nova",job:"wizard",maxLevel:10,type:"Active",element:"Water",description:"Ring of ice around caster.",levels:mkLevels(10,l=>({sp:35,effect:`MATK wave.`})),jobTier:2},
+    {id:"sight_rasher",name:"Sight Rasher",job:"wizard",maxLevel:10,type:"Active",element:"Fire",description:"Pushes fire spheres outward.",levels:mkLevels(10,l=>({sp:35,effect:"8 direction fire."})),jobTier:2},
+    {id:"fire_pillar",name:"Fire Pillar",job:"wizard",maxLevel:10,type:"Active",element:"Fire",description:"Traps floor with fire geyser.",levels:mkLevels(10,l=>({sp:75,effect:"Hits ×10."})),jobTier:2},
+    {id:"sight_blaster",name:"Sight Blaster",job:"wizard",maxLevel:1,type:"Active",description:"Orbits a fire blast guard.",levels:[{level:1,sp:40,effect:"Explodes on contact."}],jobTier:2},
+    {id:"ganbantein",name:"Ganbantein",job:"wizard",maxLevel:1,type:"Active",description:"Removes ground spells.",levels:[{level:1,sp:40,effect:"Clears floor."}],jobTier:2},
+    {id:"magic_crasher",name:"Magic Crasher",job:"wizard",maxLevel:1,type:"Active",element:"Physical",description:"Uses MATK for physical hit.",levels:[{level:1,sp:8,effect:"MATK scaled ATK."}],jobTier:2},
+    {id:"soul_drain",name:"Soul Drain",job:"wizard",maxLevel:10,type:"Passive",description:"Gains SP on monster kill.",levels:mkLevels(10,l=>({effect:`Gains ${l*10} SP.`})),jobTier:2},
+    {id:"gravitation_field",name:"Gravitational Field",job:"wizard",maxLevel:5,type:"Active",description:"Crushes area with high gravity.",levels:mkLevels(5,l=>({sp:80,effect:"Fixed damage over time."})),jobTier:2},
+    {id:"magic_power",name:"Mystical Amplification",job:"wizard",maxLevel:10,type:"Active",description:"Amplifies MATK on next spell.",levels:mkLevels(10,l=>({sp:30,effect:`MATK +${l*5}%`})),jobTier:2},
   ],
   sage: [
     ...mageSkills("sage"),
@@ -129,9 +171,22 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"magic_rod",name:"Magic Rod",job:"sage",maxLevel:5,type:"Active",description:"Absorbs single target spells into SP.",levels:mkLevels(5,l=>({sp:2,effect:`Absorbs ${l*20}% SP.`})),jobTier:2},
     {id:"spell_breaker",name:"Spell Breaker",job:"sage",maxLevel:5,type:"Active",description:"Cancels opponent cast.",levels:mkLevels(5,l=>({sp:10,effect:"Drains SP."})),jobTier:2},
     {id:"free_cast",name:"Free Cast",job:"sage",maxLevel:10,type:"Passive",description:"Move freely while casting.",levels:mkLevels(10,l=>({effect:`Move ${30+l*7}% faster.`})),jobTier:2},
-    {id:"hindsight",name:"Hindsight",job:"sage",maxLevel:10,type:"Active",description:"Melee hits proc bolts.",levels:mkLevels(10,l=>({sp:20+l*5,effect:`Proc rate ${l*3}%`})),jobTier:2},
+    {id:"hindsight",name:"Hindsight (Autospell)",job:"sage",maxLevel:10,type:"Active",description:"Melee hits proc bolts.",levels:mkLevels(10,l=>({sp:20+l*5,effect:`Proc rate ${l*3}%`})),jobTier:2},
     {id:"land_protector",name:"Land Protector",job:"sage",maxLevel:5,type:"Active",description:"Deploys magic void zone.",levels:mkLevels(5,l=>({sp:60,effect:`Blocks AoE circles.`})),jobTier:2},
     {id:"dispell",name:"Dispell",job:"sage",maxLevel:5,type:"Active",description:"Purges buffs.",levels:mkLevels(5,l=>({sp:1,effect:`Success ${60+l*8}%`})),jobTier:2},
+    {id:"abracadabra",name:"Abracadabra",job:"sage",maxLevel:10,type:"Active",description:"Casts random abilities.",levels:mkLevels(10,l=>({sp:50,effect:"Wild magic."})),jobTier:2},
+    {id:"spider_web",name:"Spider Web",job:"sage",maxLevel:1,type:"Active",description:"Tangles targets into place.",levels:[{level:1,sp:30,effect:"Locks target."}],jobTier:2},
+    {id:"soul_change",name:"Soul Change",job:"sage",maxLevel:1,type:"Active",description:"Swaps SP with an ally.",levels:[{level:1,sp:5,effect:"SP swap."}],jobTier:2},
+    {id:"wall_of_fog",name:"Wall of Fog",job:"sage",maxLevel:1,type:"Active",description:"Creates defensive mist zone.",levels:[{level:1,sp:25,effect:"Ranged blind."}],jobTier:2},
+    {id:"hp_conversion",name:"HP Conversion",job:"sage",maxLevel:5,type:"Active",description:"Sacrifices HP to recover SP.",levels:mkLevels(5,l=>({sp:1,effect:"Trades HP."})),jobTier:2},
+    {id:"double_casting",name:"Double Casting",job:"sage",maxLevel:5,type:"Active",description:"Bolt spells hit twice.",levels:mkLevels(5,l=>({sp:40,effect:"Dual cast."})),jobTier:2},
+    {id:"memorize",name:"Memorize",job:"sage",maxLevel:1,type:"Active",description:"Instantly sets zero cast time.",levels:[{level:1,sp:20,effect:"Fast cast."}],jobTier:2},
+    {id:"soul_burn",name:"Soul Burn",job:"sage",maxLevel:5,type:"Active",description:"Drains target SP directly.",levels:mkLevels(5,l=>({sp:80,effect:"Burn."})),jobTier:2},
+    {id:"mind_breaker",name:"Mind Breaker",job:"sage",maxLevel:5,type:"Active",description:"Halves enemy MDEF, raises MATK.",levels:mkLevels(5,l=>({sp:30,effect:"Debuffs."})),jobTier:2},
+    {id:"spell_fist",name:"Spell Fist",job:"sage",maxLevel:10,type:"Active",description:"Imbues active spell into weapon.",levels:mkLevels(10,l=>({sp:40,effect:"Empowered hit."})),jobTier:2},
+    {id:"deluge",name:"Deluge",job:"sage",maxLevel:5,type:"Active",element:"Water",description:"Creates water terrain.",levels:mkLevels(5,l=>({sp:20,effect:"Area control."})),jobTier:2},
+    {id:"volcano",name:"Volcano",job:"sage",maxLevel:5,type:"Active",element:"Fire",description:"Creates fire terrain.",levels:mkLevels(5,l=>({sp:20,effect:"Area control."})),jobTier:2},
+    {id:"violent_gale",name:"Violent Gale",job:"sage",maxLevel:5,type:"Active",element:"Wind",description:"Creates wind terrain.",levels:mkLevels(5,l=>({sp:20,effect:"Area control."})),jobTier:2},
   ],
   hunter: [
     ...archerSkills("hunter"),
@@ -142,6 +197,18 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"falcon_mastery",name:"Falcon Mastery",job:"hunter",maxLevel:1,type:"Passive",description:"Enables falcon usage.",levels:[{level:1,effect:"Falcon ready."}],jobTier:2},
     {id:"steel_crow",name:"Steel Crow",job:"hunter",maxLevel:10,type:"Passive",description:"Boosts bird damage.",levels:mkLevels(10,l=>({effect:`ATK +${l*6}`})),jobTier:2},
     {id:"blitz_beat",name:"Blitz Beat",job:"hunter",maxLevel:5,type:"Active",description:"Falcon dive bomb.",levels:mkLevels(5,l=>({sp:10+l*3,effect:`${l*3} hits.`})),jobTier:2},
+    {id:"skid_trap",name:"Skid Trap",job:"hunter",maxLevel:5,type:"Active",description:"Causes units to slide.",levels:mkLevels(5,l=>({sp:10,effect:"Slides target."})),jobTier:2},
+    {id:"flasher",name:"Flasher Trap",job:"hunter",maxLevel:5,type:"Active",description:"Blinds all enemies nearby.",levels:mkLevels(5,l=>({sp:15,effect:"Blinds."})),jobTier:2},
+    {id:"sandman",name:"Sandman Trap",job:"hunter",maxLevel:5,type:"Active",description:"Puts nearby targets to sleep.",levels:mkLevels(5,l=>({sp:12,effect:"Sleep."})),jobTier:2},
+    {id:"freezing_trap",name:"Freezing Trap",job:"hunter",maxLevel:5,type:"Active",element:"Water",description:"Freezes targets that step in.",levels:mkLevels(5,l=>({sp:10,effect:"Freezes."})),jobTier:2},
+    {id:"blast_mine",name:"Blast Mine",job:"hunter",maxLevel:5,type:"Active",element:"Wind",description:"Wind explosion trap.",levels:mkLevels(5,l=>({sp:10,effect:"AoE damage."})),jobTier:2},
+    {id:"talkie_box",name:"Talkie Box",job:"hunter",maxLevel:1,type:"Active",description:"Leaves sound message on ground.",levels:[{level:1,sp:1,effect:"Message setup."}],jobTier:2},
+    {id:"remove_trap",name:"Remove Trap",job:"hunter",maxLevel:1,type:"Active",description:"Safely disarms laid traps.",levels:[{level:1,sp:5,effect:"Collects trap."}],jobTier:2},
+    {id:"spring_trap",name:"Spring Trap",job:"hunter",maxLevel:5,type:"Active",description:"Launches a trap from afar.",levels:mkLevels(5,l=>({sp:10,effect:"Ranged trap trigger."})),jobTier:2},
+    {id:"falcon_assault",name:"Falcon Assault",job:"hunter",maxLevel:5,type:"Active",description:"Commanded targeted bird strike.",levels:mkLevels(5,l=>({sp:30,effect:"Burst damage."})),jobTier:2},
+    {id:"sharp_shooting",name:"Sharp Shooting",job:"hunter",maxLevel:5,type:"Active",element:"Physical",description:"Piercing arrow with crit bonus.",levels:mkLevels(5,l=>({sp:30,effect:"High damage."})),jobTier:2},
+    {id:"wind_walk",name:"Wind Walk",job:"hunter",maxLevel:10,type:"Active",description:"Increases group move speed.",levels:mkLevels(10,l=>({sp:45,effect:`Flee +${l}`})),jobTier:2},
+    {id:"phantasmic_arrow",name:"Phantasmic Arrow",job:"hunter",maxLevel:1,type:"Active",element:"Physical",description:"Ranged ghostly arrow.",levels:[{level:1,sp:10,effect:"150% ATK."}],jobTier:2},
   ],
   bard: [
     ...archerSkills("bard"),
@@ -149,7 +216,14 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"melody_strike",name:"Melody Strike",job:"bard",maxLevel:5,type:"Active",description:"Note projectile attack.",levels:mkLevels(5,l=>({sp:l*3,effect:`${100+l*40}% ATK ranged.`})),jobTier:2},
     {id:"apple_idun",name:"A Poem of Bragi",job:"bard",maxLevel:10,type:"Active",description:"Cast time/delay reduction aura.",levels:mkLevels(10,l=>({sp:40+l*5,effect:`Delay -${l*3}%`})),jobTier:2},
     {id:"assassin_cross_sunset",name:"Assassin of Sunset",job:"bard",maxLevel:10,type:"Active",description:"ASPD aura.",levels:mkLevels(10,l=>({sp:38+l*4,effect:`ASPD +${l}%`})),jobTier:2},
-    {id:"frost_joke",name:"Frost Joke",job:"bard",maxLevel:5,type:"Active",description:"Screen-wide Freeze chance.",levels:mkLevels(5,l=>({sp:12+l*6,effect:`Freeze ${l*10+10}%`})),jobTier:2},
+    {id:"frost_joke",name:"Frost Joker",job:"bard",maxLevel:5,type:"Active",description:"Screen-wide Freeze chance.",levels:mkLevels(5,l=>({sp:12+l*6,effect:`Freeze ${l*10+10}%`})),jobTier:2},
+    {id:"adaptation_circumstances",name:"Adaptation",job:"bard",maxLevel:1,type:"Active",description:"Cancels currently playing song.",levels:[{level:1,sp:1,effect:"Stops play."}],jobTier:2},
+    {id:"encore",name:"Encore",job:"bard",maxLevel:1,type:"Active",description:"Replays previous song at half cost.",levels:[{level:1,sp:1,effect:"Song replay."}],jobTier:2},
+    {id:"lullaby",name:"Lullaby",job:"bard",maxLevel:1,type:"Active",description:"Area sleep ensemble.",levels:[{level:1,sp:20,effect:"Puts to sleep."}],jobTier:2},
+    {id:"rokis_weil",name:"Roki's Weil",job:"bard",maxLevel:1,type:"Active",description:"Ensemble blocking skill casts.",levels:[{level:1,sp:30,effect:"Disables magic."}],jobTier:2},
+    {id:"siegfried",name:"Into The Abyss (Siegfried)",job:"bard",maxLevel:1,type:"Active",description:"Grants status resistances.",levels:[{level:1,sp:20,effect:"Resistance aura."}],jobTier:2},
+    {id:"arrow_vulcan",name:"Arrow Vulcan",job:"bard",maxLevel:10,type:"Active",element:"Physical",description:"Powerful multi-shot bow strike.",levels:mkLevels(10,l=>({sp:12+l*3,effect:`Damage scale.`})),jobTier:2},
+    {id:"marionette_control",name:"Marionette Control",job:"bard",maxLevel:1,type:"Active",description:"Transfers attributes to ally.",levels:[{level:1,sp:100,effect:"Gives stats."}],jobTier:2},
   ],
   dancer: [
     ...archerSkills("dancer"),
@@ -157,6 +231,11 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"slinging_arrow",name:"Slinging Arrow",job:"dancer",maxLevel:5,type:"Active",description:"Whip projectile attack.",levels:mkLevels(5,l=>({sp:l*3,effect:`${100+l*40}% ATK ranged.`})),jobTier:2},
     {id:"service_for_you",name:"Service For You",job:"dancer",maxLevel:10,type:"Active",description:"SP consumption reduction aura.",levels:mkLevels(10,l=>({sp:40+l*5,effect:`Cost -${l*4}%`})),jobTier:2},
     {id:"scream",name:"Scream",job:"dancer",maxLevel:5,type:"Active",description:"Screen-wide Stun chance.",levels:mkLevels(5,l=>({sp:12+l*6,effect:`Stun ${l*10+10}%`})),jobTier:2},
+    {id:"ugly_dance",name:"Ugly Dance",job:"dancer",maxLevel:10,type:"Active",description:"Drains target SP.",levels:mkLevels(10,l=>({sp:40,effect:"SP drain."})),jobTier:2},
+    {id:"humming",name:"Humming",job:"dancer",maxLevel:10,type:"Active",description:"Increases group Hit rate.",levels:mkLevels(10,l=>({sp:38,effect:`HIT +${l*2}`})),jobTier:2},
+    {id:"dont_forget_me",name:"Don't Forget Me",job:"dancer",maxLevel:10,type:"Active",description:"Reduces target move speed.",levels:mkLevels(10,l=>({sp:40,effect:"Slows enemies."})),jobTier:2},
+    {id:"fortunes_kiss",name:"Fortune's Kiss",job:"dancer",maxLevel:10,type:"Active",description:"Crit boost aura.",levels:mkLevels(10,l=>({sp:45,effect:`CRIT +${l}`})),jobTier:2},
+    {id:"wink_charm",name:"Wink Charm",job:"dancer",maxLevel:1,type:"Active",description:"Charms targeted foes.",levels:[{level:1,sp:20,effect:"Applies charm."}],jobTier:2},
   ],
   priest: [
     ...acolyteSkills("priest"),
@@ -170,6 +249,15 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"resurrection",name:"Resurrection",job:"priest",maxLevel:4,type:"Active",description:"Revives a dead player.",levels:mkLevels(4,l=>({sp:60-l*10,effect:`Target revives with ${l*20+10}% HP.`})),jobTier:2},
     {id:"lex_aeterna",name:"Lex Aeterna",job:"priest",maxLevel:1,type:"Active",description:"Doubles next damage taken.",levels:[{level:1,sp:10,effect:"Damage ×2."}],jobTier:2},
     {id:"magnus_exorcismus",name:"Magnus Exorcismus",job:"priest",maxLevel:10,type:"Active",element:"Holy",description:"Holy AoE ground cross.",levels:mkLevels(10,l=>({sp:38+l*4,effect:`MATK wave hits.`})),jobTier:2},
+    {id:"mace_mastery",name:"Mace Mastery",job:"priest",maxLevel:10,type:"Passive",description:"Increases damage with Maces.",levels:mkLevels(10,l=>({effect:`ATK +${l*3}`})),jobTier:2},
+    {id:"status_recovery",name:"Status Recovery",job:"priest",maxLevel:1,type:"Active",description:"Dispels freeze/stone.",levels:[{level:1,sp:5,effect:"Cures target."}],jobTier:2},
+    {id:"lex_divina",name:"Lex Divina",job:"priest",maxLevel:10,type:"Active",description:"Silences enemies.",levels:mkLevels(10,l=>({sp:20-l,effect:`Silence for ${15+l*5}s.`})),jobTier:2},
+    {id:"turn_undead",name:"Turn Undead",job:"priest",maxLevel:10,type:"Active",element:"Holy",description:"Chance to instantly kill Undead.",levels:mkLevels(10,l=>({sp:20,effect:"Instant kill."})),jobTier:2},
+    {id:"redemptio",name:"Redemptio",job:"priest",maxLevel:1,type:"Active",description:"Resurrects party at cost of your own HP.",levels:[{level:1,sp:400,effect:"Sacrifice life."}],jobTier:2},
+    {id:"assumptio",name:"Assumptio",job:"priest",maxLevel:5,type:"Active",description:"Doubles user DEF/MDEF.",levels:mkLevels(5,l=>({sp:50,effect:"High defense buff."})),jobTier:2},
+    {id:"basilica",name:"Basilica",job:"priest",maxLevel:5,type:"Active",description:"Constructs a safe boundary.",levels:mkLevels(5,l=>({sp:80,effect:"Invulnerable area."})),jobTier:2},
+    {id:"meditatio",name:"Meditatio",job:"priest",maxLevel:10,type:"Passive",description:"Increases SP recovery and MaxSP.",levels:mkLevels(10,l=>({effect:`MaxSP +${l}%`})),jobTier:2},
+    {id:"mana_recharge",name:"Mana Recharge",job:"priest",maxLevel:5,type:"Passive",description:"Lowers SP usage.",levels:mkLevels(5,l=>({effect:`SP cost -${l*4}%`})),jobTier:2},
   ],
   monk: [
     ...acolyteSkills("monk"),
@@ -181,7 +269,10 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"combo_finish",name:"Combo Finish",job:"monk",maxLevel:5,type:"Active",description:"Heavy physical hit combo finisher.",levels:mkLevels(5,l=>({sp:11,effect:`${l*50+250}% ATK.`})),jobTier:2},
     {id:"steel_body",name:"Mental Strength",job:"monk",maxLevel:5,type:"Active",description:"Massive DEF boost.",levels:mkLevels(5,l=>({sp:100,effect:"DEF/MDEF = 90."})),jobTier:2},
     {id:"finger_offensive",name:"Throw Spirit Sphere",job:"monk",maxLevel:5,type:"Active",description:"Fires spheres at range.",levels:mkLevels(5,l=>({sp:10,effect:`Launches ${l} orbs.`})),jobTier:2},
-    {id:"asura_strike",name:"Asura Strike",job:"monk",maxLevel:5,type:"Active",description:"Devastating single blow consuming all SP.",levels:mkLevels(5,l=>({sp:0,effect:`True damage blast.`})),jobTier:2},
+    {id:"asura_strike",name:"Asura Strike",job:"monk",maxLevel:5,type:"Active",description:"Devastating single blow consuming all SP.",levels:mkLevels(5,l=>({sp:0,effect:"True damage blast."})),jobTier:2},
+    {id:"flee_dodge",name:"Flee (Dodge)",job:"monk",maxLevel:10,type:"Passive",description:"Boosts dodge rate.",levels:mkLevels(10,l=>({effect:`Flee +${l*3}`})),jobTier:2},
+    {id:"ki_translation",name:"Ki Translation",job:"monk",maxLevel:1,type:"Active",description:"Sends orbs to allies.",levels:[{level:1,sp:10,effect:"Transfers orb."}],jobTier:2},
+    {id:"blade_stop",name:"Blade Stop",job:"monk",maxLevel:5,type:"Active",description:"Blocks incoming strikes.",levels:mkLevels(5,l=>({sp:10,effect:"Immobilizes attacker."})),jobTier:2},
   ],
   blacksmith: [
     ...merchantSkills("blacksmith"),
@@ -193,6 +284,9 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"maximize_power",name:"Maximize Power",job:"blacksmith",maxLevel:5,type:"Active",description:"Forces peak damage output.",levels:mkLevels(5,l=>({sp:15,effect:`100% stability.`})),jobTier:2},
     {id:"weapon_perfection",name:"Weapon Perfection",job:"blacksmith",maxLevel:5,type:"Active",description:"Removes size ATK penalty.",levels:mkLevels(5,l=>({sp:15,effect:"Flat scaling."})),jobTier:2},
     {id:"overthrust",name:"Over Thrust",job:"blacksmith",maxLevel:5,type:"Active",description:"Bonus ATK.",levels:mkLevels(5,l=>({sp:18,effect:`ATK +${l*5}%`})),jobTier:2},
+    {id:"axe_training",name:"Axe Training",job:"blacksmith",maxLevel:10,type:"Passive",description:"Boosts axe damage.",levels:mkLevels(10,l=>({effect:`ATK +${l*3}`})),jobTier:2},
+    {id:"cart_boost",name:"Cart Boost",job:"blacksmith",maxLevel:1,type:"Active",description:"Allows speed scaling.",levels:[{level:1,sp:20,effect:"Boosted move speed."}],jobTier:2},
+    {id:"meltdown",name:"Meltdown",job:"blacksmith",maxLevel:10,type:"Active",description:"Attacks destroy equipment.",levels:mkLevels(10,l=>({sp:60,effect:"Breaks enemy weapon."})),jobTier:2},
   ],
   alchemist: [
     ...merchantSkills("alchemist"),
@@ -202,6 +296,8 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"bomb",name:"Bomb",job:"alchemist",maxLevel:5,type:"Active",element:"Fire",description:"Exploding fire flask.",levels:mkLevels(5,l=>({sp:10,effect:"Breaks armor."})),jobTier:2},
     {id:"acid_terror",name:"Acid Terror",job:"alchemist",maxLevel:5,type:"Active",description:"Acid ranged flask.",levels:mkLevels(5,l=>({sp:15,effect:`${l*40+100}% damage.`})),jobTier:2},
     {id:"bioethics",name:"Bioethics",job:"alchemist",maxLevel:1,type:"Passive",description:"Homunculus unlock.",levels:[{level:1,effect:"Pet accessible."}],jobTier:2},
+    {id:"call_homunculus",name:"Call Homunculus",job:"alchemist",maxLevel:1,type:"Active",description:"Summons homunculus pet.",levels:[{level:1,sp:50,effect:"Summons."}],jobTier:2},
+    {id:"resurrect_homunculus",name:"Resurrect Homunculus",job:"alchemist",maxLevel:5,type:"Active",description:"Revives homunculus.",levels:mkLevels(5,l=>({sp:60,effect:"Revival."})),jobTier:2},
   ],
   assassin: [
     ...thiefSkills("assassin"),
@@ -213,6 +309,10 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"venom_dust",name:"Venom Dust",job:"assassin",maxLevel:10,type:"Active",description:"Ground poison cloud.",levels:mkLevels(10,l=>({sp:12,effect:"Poison ticks."})),jobTier:2},
     {id:"enchant_deadly_poison",name:"Enchant Deadly Poison",job:"assassin",maxLevel:5,type:"Active",element:"Poison",description:"Buffs weapon with high lethality poison.",levels:mkLevels(5,l=>({sp:60+l*10,effect:`ATK +${l*100}% for ${20+l*20}s.`})),jobTier:2},
     {id:"soul_destroyer",name:"Soul Destroyer",job:"assassin",maxLevel:10,type:"Active",description:"Ranged physical + magic strike.",levels:mkLevels(10,l=>({sp:30,effect:`Damage based on INT/STR.`})),jobTier:2},
+    {id:"right_hand_mastery",name:"Right-Hand Mastery",job:"assassin",maxLevel:5,type:"Passive",description:"Restores right-hand damage.",levels:mkLevels(5,l=>({effect:`Restores to ${50+l*10}%`})),jobTier:2},
+    {id:"left_hand_mastery",name:"Left-Hand Mastery",job:"assassin",maxLevel:5,type:"Passive",description:"Restores left-hand damage.",levels:mkLevels(5,l=>({effect:`Restores to ${30+l*14}%`})),jobTier:2},
+    {id:"cloaking",name:"Cloaking",job:"assassin",maxLevel:10,type:"Active",description:"Move hidden along walls.",levels:mkLevels(10,l=>({sp:15,effect:"Wall hide."})),jobTier:2},
+    {id:"meteor_assault",name:"Meteor Assault",job:"assassin",maxLevel:10,type:"Active",element:"Physical",description:"Spins throwing debris.",levels:mkLevels(10,l=>({sp:20,effect:"AoE damage."})),jobTier:2},
   ],
   rogue: [
     ...thiefSkills("rogue"),
@@ -227,5 +327,7 @@ export const SKILLS: Record<string, Skill[]> = {
     {id:"strip_weapon",name:"Divest Weapon",job:"rogue",maxLevel:5,type:"Active",description:"Equipment disarmer.",levels:mkLevels(5,l=>({sp:17,effect:`Based on DEX.`})),jobTier:2},
     {id:"auto_shadow_spell",name:"Auto Shadow Spell",job:"rogue",maxLevel:10,type:"Toggle",description:"Automatically casts plagiarism skills.",levels:mkLevels(10,l=>({sp:26+l*4,effect:`Chance to proc ${l*3}% on hit.`})),jobTier:2},
     {id:"plagiarism",name:"Plagiarism",job:"rogue",maxLevel:10,type:"Passive",description:"Learns skills used against the Rogue.",levels:mkLevels(10,l=>({effect:`Copies up to Lv ${l} skills.`})),jobTier:2},
+    {id:"full_strip",name:"Full Strip",job:"rogue",maxLevel:5,type:"Active",description:"Strips all equipment simultaneously.",levels:mkLevels(5,l=>({sp:30,effect:"Complete removal."})),jobTier:2},
+    {id:"preserve",name:"Preserve",job:"rogue",maxLevel:1,type:"Active",description:"Keeps copied plagiarized skill permanently.",levels:[{level:1,sp:30,effect:"Locks skill."}],jobTier:2},
   ],
 };

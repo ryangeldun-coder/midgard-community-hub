@@ -26,7 +26,7 @@ const PREREQUISITES: Record<string, { skillId: string; level: number }> = {
   napalm_vulcan: { skillId: "soul_strike", level: 5 },
   free_cast: { skillId: "study", level: 3 },
   hindsight: { skillId: "free_cast", level: 4 },
-  land_protector: { skillId: "dragonology", level: 2 },
+  land_protector: { skillId: "earth_spike", level: 2 },
   ankle_snare: { skillId: "land_mine", level: 1 },
   shockwave_trap: { skillId: "ankle_snare", level: 1 },
   claymore_trap: { skillId: "shockwave_trap", level: 1 },
@@ -52,7 +52,12 @@ const PREREQUISITES: Record<string, { skillId: string; level: number }> = {
   raid: { skillId: "hide", level: 3 },
   strip_shield: { skillId: "strip_helm", level: 5 },
   strip_armor: { skillId: "strip_shield", level: 5 },
-  strip_weapon: { skillId: "strip_armor", level: 5 }
+  strip_weapon: { skillId: "strip_armor", level: 5 },
+  full_strip: { skillId: "strip_weapon", level: 5 },
+  preserve: { skillId: "plagiarism", level: 5 },
+  advanced_katar_mastery: { skillId: "katar_mastery", level: 5 },
+  enchant_deadly_poison: { skillId: "enchant_poison", level: 5 },
+  assumptio: { skillId: "sanctuary", level: 3 },
 };
 
 export default function SkillSimulatorPage() {
