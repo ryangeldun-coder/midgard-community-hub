@@ -2,42 +2,79 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Skull, Compass, Star, Shield, Zap } from "lucide-react";
+import { Swords, Skull, Compass, Star, Shield, Zap, Heart, Eye } from "lucide-react";
 
-// Fever Map Static Configurations
+const ASSETS_BASE = "https://assets.twroz.wiki";
+
 const FEVER_LOCATIONS = [
   {
     id: "payon",
-    name: "Payon Fever",
-    description: "Ancient forest filled with restless spiritual champions.",
-    themeColor: "#22c55e",
+    name: "Payon Fever (Forest)",
+    description: "Spiritual woods holding tier-1 zero drop tables.",
+    themeColor: "#10b981",
     maps: [
       {
         id: "pay_fild06",
-        name: "Payon Forest (pay_fild06)",
-        level: "Lv 40-55",
-        requirement: "Defeat 10 normal mobs to spawn Frenzy variants.",
+        name: "Payon Field 06",
+        level: "Lv 45-55",
+        requirement: "Slay 10 standard variants to call the Champion.",
         monsters: [
-          { name: "狂暴大腳熊 (Frenzy Big Foot)", level: 52, element: "Earth", race: "Brute", hp: "12,400", drops: ["Fever Bear Cap", "Rough Oridecon"] },
-          { name: "狂暴將軍魔碑 (Frenzy Greatest General)", level: 55, element: "Fire", race: "Formless", hp: "18,000", drops: ["General's Sword", "Fire Stone"] }
+          { 
+            id: 1306, 
+            name_zh: "狂暴大腳熊", 
+            name_en: "Frenzy Big Foot", 
+            level: 52, 
+            element: "Earth", 
+            race: "Brute", 
+            hp: "286,950", 
+            drops: [
+              { id: 518, name: "Honey" },
+              { id: 948, name: "Bear's Paw" },
+              { id: 4134, name: "Big Foot Card" }
+            ]
+          },
+          { 
+            id: 1266, 
+            name_zh: "狂暴野豬", 
+            name_en: "Frenzy Savage", 
+            level: 55, 
+            element: "Earth", 
+            race: "Brute", 
+            hp: "195,400", 
+            drops: [
+              { id: 522, name: "Monster's Feed" },
+              { id: 4119, name: "Savage Card" }
+            ]
+          }
         ]
       }
     ]
   },
   {
     id: "geffen",
-    name: "Gffen Fever",
-    description: "Haunted fields overflowing with poisonous arcane magic.",
-    themeColor: "#a855f7",
+    name: "Geffen Fever",
+    description: "Damp, poison-infested dungeons yielding massive experience.",
+    themeColor: "#8b5cf6",
     maps: [
       {
         id: "gef_fild06",
-        name: "Geffen Field (gef_fild06)",
+        name: "Geffen Field 06",
         level: "Lv 60-70",
-        requirement: "Defeat Champion variants to awaken the Boss.",
+        requirement: "Hunt Champion variants for local equipment upgrades.",
         monsters: [
-          { name: "狂暴毒蠍 (Frenzy Scorpion)", level: 65, element: "Fire", race: "Brute", hp: "24,000", drops: ["Fever Scorpion Card", "Scorpion Tail"] },
-          { name: "狂暴噬人花 (Frenzy Flora)", level: 68, element: "Earth", race: "Plant", hp: "32,000", drops: ["Fever Flora Bow", "Stem"] }
+          { 
+            id: 1260, 
+            name_zh: "狂暴克瑞米", 
+            name_en: "Frenzy Creamy", 
+            level: 68, 
+            element: "Wind", 
+            race: "Insect", 
+            hp: "112,500", 
+            drops: [
+              { id: 905, name: "Butterfly Wing" },
+              { id: 4046, name: "Creamy Card" }
+            ]
+          }
         ]
       }
     ]
@@ -45,17 +82,28 @@ const FEVER_LOCATIONS = [
   {
     id: "desert",
     name: "Desert Fever",
-    description: "Burning sands populated by colossal quicksand beasts.",
-    themeColor: "#eab308",
+    description: "Blistering heat harboring deep zero-refinement minerals.",
+    themeColor: "#f59e0b",
     maps: [
       {
         id: "moc_fild13",
-        name: "Sograt Desert (moc_fild13)",
-        level: "Lv 70-85",
-        requirement: "Kill Champion Sandmen to lure out Boss Phreeoni.",
+        name: "Sograt Desert 13",
+        level: "Lv 75-85",
+        requirement: "Chain kills continuously to unleash core affixes.",
         monsters: [
-          { name: "狂暴泥人 (Frenzy Clay Golem)", level: 78, element: "Earth", race: "Formless", hp: "48,000", drops: ["Fever Golem Armor", "Elunium"] },
-          { name: "狂暴沙地之靈 (Frenzy Sandman)", level: 82, element: "Earth", race: "Formless", hp: "55,000", drops: ["Fever Sandman Card", "Fine Sand"] }
+          { 
+            id: 1310, 
+            name_zh: "狂暴米洛斯", 
+            name_en: "Frenzy Minorous", 
+            level: 82, 
+            element: "Fire", 
+            race: "Brute", 
+            hp: "398,000", 
+            drops: [
+              { id: 932, name: "Minorous Horn" },
+              { id: 4098, name: "Minorous Card" }
+            ]
+          }
         ]
       }
     ]
@@ -63,17 +111,28 @@ const FEVER_LOCATIONS = [
   {
     id: "glast",
     name: "Glast Heim Fever",
-    description: "The ultimate endgame farming grounds. Heavy armor recommended.",
+    description: "The ultimate test of stamina for Ragnarok Zero veterans.",
     themeColor: "#ef4444",
     maps: [
       {
         id: "glast_01",
-        name: "GH Chivalry (glast_01)",
+        name: "GH Chivalry 01",
         level: "Lv 90+",
-        requirement: "Kill abyssal knights to trigger the Frenzy event.",
+        requirement: "Form full endgame parties. Single targeting disabled.",
         monsters: [
-          { name: "狂暴深淵騎士 (Frenzy Khalitzburg)", level: 95, element: "Shadow", race: "Undead", hp: "125,000", drops: ["Fever GH Plate", "Corrupted Soul"] },
-          { name: "狂暴幽靈劍士 (Frenzy Raydric)", level: 93, element: "Shadow", race: "Undead", hp: "95,000", drops: ["Raydric Card", "Fever Cape"] }
+          { 
+            id: 1292, 
+            name_zh: "狂暴惡靈", 
+            name_en: "Frenzy Wraith", 
+            level: 95, 
+            element: "Undead", 
+            race: "Undead", 
+            hp: "452,000", 
+            drops: [
+              { id: 728, name: "Fabric" },
+              { id: 4111, name: "Wraith Card" }
+            ]
+          }
         ]
       }
     ]
@@ -84,75 +143,71 @@ export default function FeverMapsPage() {
   const [selectedLoc, setSelectedLoc] = useState(FEVER_LOCATIONS[0]);
   const [selectedMap, setSelectedMap] = useState(FEVER_LOCATIONS[0].maps[0]);
 
-  const handleLocChange = (loc: typeof FEVER_LOCATIONS[0]) => {
-    setSelectedLoc(loc);
-    setSelectedMap(loc.maps[0]);
-  };
-
   return (
-    <main className="min-h-screen bg-slate-900 text-slate-100 py-24 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-[#0f172a] text-slate-200 py-28 px-4 sm:px-6 lg:px-8 font-sans selection:bg-rose-500/30">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header */}
+        {/* Superior Header */}
         <header className="text-center mb-16">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex p-4 bg-rose-500/10 text-rose-400 rounded-2xl mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex p-4 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-3xl mb-6 shadow-2xl shadow-rose-500/5 animate-pulse"
           >
-            <Swords size={40} />
+            <Swords size={42} />
           </motion.div>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-4 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-            Fever Fields Master Directory
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tight mb-6 bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent">
+            Fever Fields Overview
           </h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Track down special Frenzy and Champion monsters. Farm endgame equipment with server-side dynamic random options.
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Locate elite champion variants, hunt random stat enhancements, and dominate tactical field farming routes.
           </p>
         </header>
 
-        {/* Location Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+        {/* Location Navigation Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
           {FEVER_LOCATIONS.map((loc) => {
             const isActive = selectedLoc.id === loc.id;
             return (
               <button
                 key={loc.id}
-                onClick={() => handleLocChange(loc)}
-                className={`p-6 rounded-2xl border text-left transition-all duration-300 relative overflow-hidden group ${
+                onClick={() => { setSelectedLoc(loc); setSelectedMap(loc.maps[0]); }}
+                className={`group p-6 rounded-3xl border text-left transition-all duration-300 relative overflow-hidden ${
                   isActive 
-                    ? "bg-slate-800 border-rose-500 text-white ring-2 ring-rose-500/20Shadow-lg" 
-                    : "bg-slate-800/40 border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200"
+                    ? "bg-slate-800/80 border-rose-500/50 text-white shadow-xl shadow-rose-500/10 ring-1 ring-rose-500/20" 
+                    : "bg-slate-800/30 border-slate-800/60 hover:border-slate-700 text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
                 }`}
               >
                 <div 
-                  className="absolute bottom-0 left-0 w-full h-1 transition-all duration-300" 
+                  className="absolute bottom-0 left-0 w-full h-1.5 transition-all duration-300" 
                   style={{ backgroundColor: loc.themeColor }}
                 />
-                <h3 className="text-xl font-extrabold mb-1">{loc.name}</h3>
-                <p className="text-xs opacity-70 line-clamp-2">{loc.description}</p>
+                <h3 className="text-xl font-black mb-2 group-hover:translate-x-1 transition-transform">{loc.name}</h3>
+                <p className="text-xs text-slate-400/90 leading-snug line-clamp-2">{loc.description}</p>
               </button>
             );
           })}
         </div>
 
-        {/* Map Selection / Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Map List */}
-          <div className="lg:col-span-1 flex flex-col gap-4">
-            <div className="bg-slate-800/50 border border-slate-800 rounded-3xl p-6">
+        {/* Map Selector panel & Data */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          
+          {/* Left Sector Meta */}
+          <div className="lg:col-span-1 flex flex-col gap-5">
+            <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-6 shadow-xl">
               <div className="flex items-center gap-3 mb-6 text-rose-400">
-                <Compass size={24} />
-                <h2 className="text-xl font-extrabold text-white">Select Sector</h2>
+                <Compass size={22} />
+                <h2 className="text-xl font-extrabold text-slate-100">Zone Sector</h2>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2.5">
                 {selectedLoc.maps.map((m) => (
                   <button
                     key={m.id}
                     onClick={() => setSelectedMap(m)}
-                    className={`p-4 rounded-xl font-bold text-left transition-all ${
+                    className={`p-4 rounded-2xl font-bold text-sm text-left transition-all duration-200 ${
                       selectedMap.id === m.id 
-                        ? "bg-rose-500 text-white" 
-                        : "bg-slate-800 hover:bg-slate-700/50 text-slate-300"
+                        ? "bg-rose-500 text-white shadow-lg shadow-rose-500/25" 
+                        : "bg-slate-900/60 border border-slate-800/50 hover:bg-slate-800/50 text-slate-300"
                     }`}
                   >
                     {m.name}
@@ -161,81 +216,104 @@ export default function FeverMapsPage() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 border border-slate-800 rounded-3xl p-6 flex-grow flex flex-col justify-between">
+            {/* Fever Mechanics Reminder */}
+            <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-6 flex-grow flex flex-col justify-between shadow-xl">
               <div>
                 <div className="flex items-center gap-3 mb-4 text-amber-400">
-                  <Star size={24} />
-                  <h2 className="text-xl font-extrabold text-white">Fever Mechanics</h2>
+                  <Star size={22} />
+                  <h2 className="text-xl font-extrabold text-slate-100">Map Mechanics</h2>
                 </div>
                 <p className="text-sm text-slate-400 leading-relaxed">
-                  {selectedMap.requirement} Normal monsters on these maps drop basic zero upgrades, while Frenzy monsters hold top-tier slot-enchanted variants.
+                  {selectedMap.requirement}
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-700/40">
-                <span className="text-xs text-slate-500 block">Target Level Range</span>
-                <span className="text-lg font-extrabold text-rose-400">{selectedMap.level}</span>
+              <div className="mt-6 pt-4 border-t border-slate-800/60 flex justify-between items-center">
+                <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Level Requirement</span>
+                <span className="text-lg font-black text-rose-400 bg-rose-500/10 px-3 py-1 rounded-xl border border-rose-500/20">{selectedMap.level}</span>
               </div>
             </div>
           </div>
 
-          {/* Right Monster List */}
-          <div className="lg:col-span-2 bg-slate-800/50 border border-slate-800 rounded-3xl p-6 sm:p-8">
-            <div className="flex items-center gap-3 mb-8 text-rose-400">
+          {/* Right: Live Monster Table with Sprites */}
+          <div className="lg:col-span-2 bg-slate-800/40 backdrop-blur-xl border border-slate-800/60 rounded-[2rem] p-6 sm:p-8 shadow-xl flex flex-col">
+            <div className="flex items-center gap-3 mb-8 text-rose-400 border-b border-slate-800/60 pb-4">
               <Skull size={24} />
-              <h2 className="text-xl font-extrabold text-white">Frenzy Spawn Table</h2>
+              <h2 className="text-2xl font-black text-slate-100">Spawn Roster</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-6 flex-grow">
               {selectedMap.monsters.map((mob, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-slate-900/60 border border-slate-800/50 rounded-2xl p-6 hover:border-rose-500/30 transition-all group"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="bg-slate-900/60 border border-slate-800/40 rounded-3xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-rose-500/20 transition-all duration-300 group shadow-inner"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    {/* Sprite Placeholder */}
-                    <div className="w-14 h-14 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-600 group-hover:text-rose-400 transition-colors">
-                      <Skull size={28} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-white group-hover:text-rose-400 transition-colors">{mob.name}</h3>
-                      <span className="text-xs px-2.5 py-0.5 bg-slate-800 rounded-md text-slate-400 border border-slate-700/50">
+                  {/* True Animated Monster Sprite */}
+                  <div className="w-28 h-28 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex items-center justify-center relative flex-shrink-0 overflow-hidden shadow-2xl group-hover:border-rose-500/40 transition-colors duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent pointer-events-none" />
+                    <img 
+                      src={`${ASSETS_BASE}/images/monsters/${mob.id}.gif`} 
+                      alt={mob.name_en} 
+                      className="max-w-[80px] max-h-[80px] object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"
+                      onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }}
+                    />
+                  </div>
+
+                  {/* Monster Info */}
+                  <div className="flex-1 min-w-0 w-full">
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <div>
+                        <h3 className="text-xl font-black text-slate-100 group-hover:text-rose-400 transition-colors">
+                          {mob.name_en}
+                        </h3>
+                        <span className="text-xs text-slate-500">{mob.name_zh}</span>
+                      </div>
+                      <span className="text-sm font-extrabold bg-slate-800 border border-slate-700/60 px-3 py-1 rounded-xl text-rose-400">
                         Lv. {mob.level}
                       </span>
                     </div>
-                  </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
-                    <div className="bg-slate-800/40 p-2 rounded-lg flex items-center justify-between border border-slate-800">
-                      <span className="text-slate-500">HP</span>
-                      <span className="font-bold text-rose-400">{mob.hp}</span>
+                    {/* Stats Badges */}
+                    <div className="flex flex-wrap gap-2.5 mb-5 text-xs font-bold">
+                      <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-950/40 rounded-xl border border-slate-800 text-slate-300">
+                        <Heart size={12} className="text-rose-400" /> {mob.hp} HP
+                      </span>
+                      <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-950/40 rounded-xl border border-slate-800 text-teal-400">
+                        <Zap size={12} /> {mob.element}
+                      </span>
+                      <span className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-950/40 rounded-xl border border-slate-800 text-amber-400">
+                        <Eye size={12} /> {mob.race}
+                      </span>
                     </div>
-                    <div className="bg-slate-800/40 p-2 rounded-lg flex items-center justify-between border border-slate-800">
-                      <span className="text-slate-500">Element</span>
-                      <span className="font-bold text-teal-400">{mob.element}</span>
-                    </div>
-                  </div>
 
-                  {/* Drops */}
-                  <div className="border-t border-slate-800 pt-3 mt-2">
-                    <span className="text-[10px] text-slate-500 block font-bold uppercase mb-2 tracking-wide">Featured Drops</span>
-                    <div className="flex flex-wrap gap-2">
-                      {mob.drops.map((drop, dIdx) => (
-                        <span 
-                          key={dIdx}
-                          className="text-xs font-medium bg-slate-800 text-slate-200 px-3 py-1 rounded-lg border border-slate-700 flex items-center gap-1.5"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                          {drop}
-                        </span>
-                      ))}
+                    {/* Drops with True Item Sprites */}
+                    <div className="bg-slate-950/20 border border-slate-800/40 p-4 rounded-2xl">
+                      <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block mb-3">Exclusive Monster Drops</span>
+                      <div className="flex flex-wrap gap-3">
+                        {mob.drops.map((drop, dIdx) => (
+                          <div 
+                            key={dIdx}
+                            className="flex items-center gap-2.5 bg-slate-950/60 border border-slate-800/60 pl-1.5 pr-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-200 hover:border-amber-500/40 hover:bg-slate-950/80 transition-all duration-200 cursor-pointer"
+                          >
+                            <div className="w-6 h-6 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden">
+                              <img 
+                                src={`${ASSETS_BASE}/images/items/${drop.id}.gif`} 
+                                alt={drop.name} 
+                                className="w-5 h-5 object-contain"
+                                onError={(e) => { (e.target as HTMLImageElement).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; }}
+                              />
+                            </div>
+                            <span>{drop.name}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+
           </div>
         </div>
 

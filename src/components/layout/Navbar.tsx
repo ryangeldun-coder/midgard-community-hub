@@ -26,6 +26,7 @@ const navGroups = [
       { name: "Monsters", href: "/database/monsters", icon: Bug },
       { name: "Items", href: "/database/items", icon: Sword },
       { name: "Maps", href: "/database/maps", icon: MapIcon },
+      { name: "Fever Maps", href: "/guides/fever-maps", icon: Sparkles },
       { name: "Dungeons", href: "/dungeons", icon: Layers },
       { name: "Elements", href: "/tools/elements", icon: Sword },
     ]
@@ -35,6 +36,7 @@ const navGroups = [
     icon: BookOpen,
     items: [
       { name: "All Guides", href: "/guides", icon: Sparkles },
+      { name: "Fever Maps", href: "/guides/fever-maps", icon: Sword },
       { name: "Knight", href: "/guides/knight", icon: Shield },
       { name: "Crusader", href: "/guides/crusader", icon: Shield },
       { name: "Wizard", href: "/guides/wizard", icon: Zap },
