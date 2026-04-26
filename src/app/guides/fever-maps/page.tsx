@@ -22,13 +22,13 @@ const FEVER_FIELDS = [
       "Farming in groups yields shared drop materials efficiently."
     ],
     boss: {
-      name: "Frenzy Big Foot",
-      id: 1306,
+      name: "Frenzy Bigfoot",
+      id: 1060,
       element: "Earth",
       race: "Brute",
       size: "Large",
       hp: "286,950",
-      image: "https://assets.twroz.wiki/images/monsters/1306.gif"
+      image: "https://assets.twroz.wiki/images/monsters/1060.gif"
     },
     equipment: [
       { id: 518, name: "Honey", description: "A premium healing snack.", stats: ["Restores HP/SP"] },
@@ -52,12 +52,12 @@ const FEVER_FIELDS = [
     ],
     boss: {
       name: "Frenzy Creamy",
-      id: 1260,
+      id: 1018,
       element: "Wind",
       race: "Insect",
       size: "Small",
       hp: "112,500",
-      image: "https://assets.twroz.wiki/images/monsters/1260.gif"
+      image: "https://assets.twroz.wiki/images/monsters/1018.gif"
     },
     equipment: [
       { id: 905, name: "Butterfly Wing", description: "Instantly travel to your home town.", stats: ["Teleportation utility"] },
@@ -80,12 +80,12 @@ const FEVER_FIELDS = [
     ],
     boss: {
       name: "Frenzy Minorous",
-      id: 1310,
+      id: 1149,
       element: "Fire",
       race: "Brute",
       size: "Large",
       hp: "398,000",
-      image: "https://assets.twroz.wiki/images/monsters/1310.gif"
+      image: "https://assets.twroz.wiki/images/monsters/1149.gif"
     },
     equipment: [
       { id: 932, name: "Minorous Horn", description: "A massive fiery bull shard.", stats: ["Elite Forge component"] },
@@ -108,12 +108,12 @@ const FEVER_FIELDS = [
     ],
     boss: {
       name: "Frenzy Wraith",
-      id: 1292,
+      id: 1192,
       element: "Undead",
       race: "Undead",
       size: "Medium",
       hp: "452,000",
-      image: "https://assets.twroz.wiki/images/monsters/1292.gif"
+      image: "https://assets.twroz.wiki/images/monsters/1192.gif"
     },
     equipment: [
       { id: 728, name: "Fabric", description: "Lightweight material.", stats: ["Tailoring recipe core"] },
