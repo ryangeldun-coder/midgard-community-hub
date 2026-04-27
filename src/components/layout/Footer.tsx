@@ -92,6 +92,9 @@ export default function Footer() {
           <p style={{ marginTop: '0.5rem' }}>
             This is a fansite ran solely by Ryan Geldun. Not sanctioned by Gravity Co., Ltd.
           </p>
+          <p style={{ marginTop: '0.5rem', fontWeight: 600 }}>
+            Created with <a href="https://ruszfirme.pl" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit' }}>Tanie Strony Internetowe</a>
+          </p>
         </div>
       </div>
     </footer>
